@@ -13,6 +13,8 @@ import HeroText from '../components/heroText'
 import SocialIcons from '../components/socialIcons'
 import Portfolio from '../components/portfolio'
 import Showcase from '../components/showcase'
+import Button from "../components/button";
+import scrollToElement from "scroll-to-element";
 
 const Content = styled.div`
   & > a {
@@ -23,6 +25,10 @@ const Content = styled.div`
   & > h1 {
     text-align: center;
   }
+`
+
+const CenteredButtonBox = styled(Box)`
+  margin: 2em auto;
 `
 
 const Title = styled.h1`
@@ -111,7 +117,7 @@ const Section = styled.div`
   ${props =>
     props.dark &&
     css`
-      background: #292929;
+      background: #e2f4e3;
       * {
         color: #eee;
       }
@@ -244,6 +250,42 @@ export default props => {
             props.data.allImageSharp ? props.data.allImageSharp.edges : []
           }
         />
+      </Section>
+      <a id="blog">Blog</a>
+        <Section center>
+          <h4>Blog</h4>
+          <span>Check my Tech KATSUDOU! (Activity)</span>
+          <CenteredButtonBox>
+            <a href="https://blog.tubone-project24.xyz">
+              <Box px={2} width={180}>
+                <Img
+                  sizes={
+                    props.data.allFile
+                      ? props.data.allFile.edges[0].node.childImageSharp.sizes
+                      : {}
+                  }
+                />
+              </Box>
+            </a>
+          </CenteredButtonBox>
+      </Section>
+      <a id="resume">Resume</a>
+      <Section center>
+        <h4>Resume</h4>
+        <span>Check my Resume!</span>
+        <CenteredButtonBox>
+          <a href="https://tubone24.github.io/resume">
+            <CenteredButtonBox>
+              <Button
+                small="small"
+                dark="dark"
+                opaque="opaque"
+              >
+                Resume
+              </Button>
+            </CenteredButtonBox>
+          </a>
+        </CenteredButtonBox>
       </Section>
     </Content>
   )

@@ -10,7 +10,7 @@ import Bar from '../components/bar'
 const Header = styled.div`
   height: fit-contents;
   padding: 0;
-  background: #292929;
+  background: #e2f4e3;
   position: relative;
   overflow: hidden;
 
