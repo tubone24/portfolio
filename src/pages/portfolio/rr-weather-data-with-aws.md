@@ -52,7 +52,7 @@ Using two datas
 - weather_stations.csv
   - station data (include longitude latitude)
   
-![](./images/rr-weather-data-with-aws1.png)
+![](./images/rr-weather-data-with-aws1.gif)
 
 <!--- reference links --->
 [GitHub here]: <https://github.com/tubone24/rr-weather-data-with-aws>
