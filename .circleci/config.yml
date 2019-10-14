@@ -51,9 +51,9 @@ jobs:
         - run:
             name: install gh-pages
             command: npm i gh-pages
-        - run:
-            name: gh-pages deploy
-            command: npm run deploy
+#        - run:
+#            name: gh-pages deploy
+#            command: npm run deploy
 
 workflows:
   version: 2
