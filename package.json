@@ -45,6 +45,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
+    "start": "npm run develop",
     "develop": "gatsby develop",
     "deploy": "yes 'yes' | gh-pages -t -b master -d public",
     "lint": "npm run lint:es && npm run lint:style",

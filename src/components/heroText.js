@@ -8,7 +8,7 @@ const StyledTypist = styled(Typist)`
   color: #fff;
   letter-spacing: 17px;
   max-width: 100%;
-  font-size: 72px;
+  font-size: 64px;
   line-height: 80px;
   font-weight: 100;
   text-transform: uppercase;
@@ -61,7 +61,7 @@ class HeroText extends React.Component {
         <Typist.Delay ms={300} />
         <span>.</span>
         <Typist.Backspace count={29} delay={10} />
-        <strong>everything</strong> with latest technologies
+        <strong>everything</strong> with techs
       </StyledTypist>
     )
   }
