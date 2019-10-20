@@ -261,13 +261,10 @@ export default props => {
         </Box>
             <a href="https://blog.tubone-project24.xyz">
               <Box px={2} width={180}>
-                <Img
-                  sizes={
-                    props.data.allFile
-                      ? props.data.allFile.edges[0].node.childImageSharp.sizes
-                      : {}
-                  }
-                />
+                <Button
+                >
+                  Blog
+                </Button>
               </Box>
             </a>
       </Flex>
@@ -282,9 +279,6 @@ export default props => {
           <a href="https://tubone24.github.io/resume">
             <Box px={2} width={180}>
               <Button
-                small="small"
-                dark="dark"
-                opaque="opaque"
               >
                 Resume
               </Button>
