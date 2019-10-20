@@ -9,7 +9,7 @@ const StyledTypist = styled(Typist)`
   letter-spacing: 17px;
   max-width: 100%;
   font-size: 64px;
-  line-height: 80px;
+  line-height: 72px;
   font-weight: 100;
   text-transform: uppercase;
   font-family: 'Raleway';
@@ -60,8 +60,8 @@ class HeroText extends React.Component {
         <span>.</span>
         <Typist.Delay ms={300} />
         <span>.</span>
-        <Typist.Backspace count={29} delay={10} />
-        <strong>everything</strong> with techs
+        <Typist.Backspace count={36} delay={10} />
+        <strong>I</strong> like <strong>everything</strong> with techs
       </StyledTypist>
     )
   }

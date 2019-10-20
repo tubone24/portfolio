@@ -252,10 +252,13 @@ export default props => {
         />
       </Section>
       <a id="blog">Blog</a>
-        <Section center>
-          <h4>Blog</h4>
-          <span>Check my Tech KATSUDOU! (Activity)</span>
-          <CenteredButtonBox>
+      <Section>
+      <Title>Blog</Title>
+      <Flex alignItems="center" flexDirection="column">
+        <Box px={2} width={[1, 1 / 2]}>
+          <p>tubone BOYAKI is my blog.<br/>
+            Check my Tech KATSUDOU! (Activity)</p>
+        </Box>
             <a href="https://blog.tubone-project24.xyz">
               <Box px={2} width={180}>
                 <Img
@@ -267,15 +270,17 @@ export default props => {
                 />
               </Box>
             </a>
-          </CenteredButtonBox>
+      </Flex>
       </Section>
       <a id="resume">Resume</a>
-      <Section center>
-        <h4>Resume</h4>
-        <span>Check my Resume!</span>
-        <CenteredButtonBox>
+      <Section>
+        <Title>Resume</Title>
+        <Flex alignItems="center" flexDirection="column">
+          <Box px={2} width={[1, 1 / 2]}>
+            <p>Check my Resume!</p>
+          </Box>
           <a href="https://tubone24.github.io/resume">
-            <CenteredButtonBox>
+            <Box px={2} width={180}>
               <Button
                 small="small"
                 dark="dark"
@@ -283,9 +288,9 @@ export default props => {
               >
                 Resume
               </Button>
-            </CenteredButtonBox>
+            </Box>
           </a>
-        </CenteredButtonBox>
+        </Flex>
       </Section>
     </Content>
   )
