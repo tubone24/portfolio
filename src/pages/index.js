@@ -263,7 +263,7 @@ export default props => {
               <Box px={2} width={180}>
                 <Button
                 >
-                  Blog
+                  Read Me!
                 </Button>
               </Box>
             </a>
@@ -280,7 +280,7 @@ export default props => {
             <Box px={2} width={180}>
               <Button
               >
-                Resume
+                Hire Me!
               </Button>
             </Box>
           </a>
