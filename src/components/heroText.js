@@ -8,11 +8,10 @@ const StyledTypist = styled(Typist)`
   color: #fff;
   letter-spacing: 17px;
   max-width: 100%;
-  font-size: 64px;
+  font-size: 50px;
   line-height: 72px;
   font-weight: 100;
-  text-transform: uppercase;
-  font-family: 'Raleway';
+  font-family: 'Srisakdi';
   position: absolute;
   top: 50%;
   left: 50%;
