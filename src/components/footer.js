@@ -70,6 +70,10 @@ class Footer extends React.Component {
                       name: 'slideshare',
                       href: 'https://www.slideshare.net/tubone24',
                     },
+                    {
+                      name: '500px',
+                      href: 'https://500px.com/tubone24',
+                    },
                   ]}
                 />
               </Box>
