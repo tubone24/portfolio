@@ -8,10 +8,10 @@ const StyledTypist = styled(Typist)`
   color: #fff;
   letter-spacing: 17px;
   max-width: 100%;
-  font-size: 50px;
+  font-size: 64px;
   line-height: 72px;
   font-weight: 100;
-  font-family: 'Srisakdi';
+  font-family: 'Love Ya Like A Sister';
   position: absolute;
   top: 50%;
   left: 50%;

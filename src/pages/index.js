@@ -242,8 +242,8 @@ export default props => {
       <a id="portfolio">Portfolio</a>
       <Portfolio items={props.data.allMarkdownRemark.edges} />
       <a id="tech">Tech</a>
-      <Section center>
-        <h4>Tech</h4>
+      <Section>
+        <Title>Tech</Title>
         <span>Technologies I enjoy working with.</span>
         <Showcase
           images={
