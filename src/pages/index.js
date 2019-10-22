@@ -226,11 +226,13 @@ export default props => {
           <Box px={2} width={[1, 1 / 2]}>
             <p>
               I'm a Software Engineer with over 4+ years and latest trying to tech lead with engineering teams.
-              Expert at AWS by using Server-less architecture.
-              Also master of Server-side API and Batch with Python.
-              Additionally, experienced data science with Python and AWS.
-              Have a AWS Certified Solution Architect – Professional.
-              Further more, I'm amateur photographer, DTM composer and Guitarist.
+              Expert at AWS by using Server-less architecture.<br />
+              Also master of Server-side API and Batch with Python.<br />
+              Additionally, experienced data science with Python and AWS.<br />
+              Have a AWS Certified Solution Architect – Professional. <br />
+              Further more, I'm amateur photographer, Uploading for <a href={"https://500px.com/tubone24"}>500px.com</a> <br />
+              And also, I'm amateur DTM composer and Guitarist (collaborating with <a href={"https://chocoholic.stores.jp/"}>chocoholic</a>).<br />>
+              Nice to meet you and I look forward to collaborating with you.
             </p>
           </Box>
           <Box px={2} width={180}>
