@@ -15,6 +15,8 @@ import Portfolio from '../components/portfolio'
 import Showcase from '../components/showcase'
 import Button from "../components/button";
 import scrollToElement from "scroll-to-element";
+import Carousel from "../components/carousel";
+import FlickrLightbox from "react-flickr-lightbox";
 
 const Content = styled.div`
   & > a {
@@ -245,6 +247,15 @@ export default props => {
       <Title small>Portfolio</Title>
       <a id="portfolio">Portfolio</a>
       <Portfolio items={props.data.allMarkdownRemark.edges} />
+      <Title small>Photos</Title>
+      <a id="photos">Photos</a>
+      <Section>
+      <FlickrLightbox
+        api_key="89f4752b9b3a8dffcbf94ca144719883"
+        user_id="184992580@N06"
+        limit={30}
+      />
+      </Section>
       <a id="tech">Tech</a>
       <Section>
         <Title>Tech</Title>
