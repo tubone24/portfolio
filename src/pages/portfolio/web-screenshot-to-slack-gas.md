@@ -22,3 +22,11 @@ And also, I want to use TypeScript because of a Test and Type lint, so using wit
 Run main function , send Slack your web page screenshot.
 
 ![img](https://raw.githubusercontent.com/tubone24/web-screenshot-to-slack-gas/master/docs/images/slack-preview.png)
+
+## More Information
+
+This uses Clasp, coding GAS with TypeScript, creating unit tests with Jest, automatic testing with GitHub Action, and deployment.
+
+You can also use it as a sample starter kit.
+
+[GitHub is here](https://github.com/tubone24/web-screenshot-to-slack-gas)
