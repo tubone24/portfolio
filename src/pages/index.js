@@ -254,6 +254,7 @@ export default props => {
       <Section>
         <Flex alignItems="center" flexDirection="column">
         <Box px={2} width={[1, 1 / 2]}>
+          <span>Look at my Photos!</span>
       <FlickrLightbox
         api_key="89f4752b9b3a8dffcbf94ca144719883"
         user_id="184992580@N06"
