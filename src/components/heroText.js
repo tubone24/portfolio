@@ -65,6 +65,8 @@ class HeroText extends React.Component {
         <span>!</span>
         <Typist.Delay ms={600} />
         <span>!</span>
+        <Typist.Delay ms={1200} />
+        <span>!</span>
       </StyledTypist>
     )
   }
