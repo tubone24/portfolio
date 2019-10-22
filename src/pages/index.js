@@ -257,7 +257,7 @@ export default props => {
       <FlickrLightbox
         api_key="89f4752b9b3a8dffcbf94ca144719883"
         user_id="184992580@N06"
-        limit={32}
+        limit={40}
       />
         </Box>
         </Flex>
