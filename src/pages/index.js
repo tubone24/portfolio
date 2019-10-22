@@ -250,11 +250,15 @@ export default props => {
       <Title small>Photos</Title>
       <a id="photos">Photos</a>
       <Section>
+        <Flex alignItems="center" flexDirection="column">
+        <Box px={2} width={[1, 1 / 2]}>
       <FlickrLightbox
         api_key="89f4752b9b3a8dffcbf94ca144719883"
         user_id="184992580@N06"
-        limit={30}
+        limit={32}
       />
+        </Box>
+        </Flex>
       </Section>
       <a id="tech">Tech</a>
       <Section>
@@ -296,6 +300,23 @@ export default props => {
               <Button
               >
                 Hire Me!
+              </Button>
+            </Box>
+          </a>
+        </Flex>
+      </Section>
+      <a id="contact">Contact</a>
+      <Section>
+        <Title>Contact</Title>
+        <Flex alignItems="center" flexDirection="column">
+          <Box px={2} width={[1, 1 / 2]}>
+            <p>If you interested, Contact me!</p>
+          </Box>
+          <a href="https://blog.tubone-project24.xyz/contacts/">
+            <Box px={2} width={180}>
+              <Button
+              >
+                Contact Me!
               </Button>
             </Box>
           </a>
