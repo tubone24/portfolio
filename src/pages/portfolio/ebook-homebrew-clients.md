@@ -2,51 +2,35 @@
 title: "Ebook-homebrew-clients"
 date: "2018-01-08"
 tags: ["Flutter", "Android", "iOS", "Vue.js", "nim", "Rust"]
-image: './images/ebook-homebrew.png'
+image: './images/ebook-homebrew-client.png'
 ---
 
-The Ebook HomeBrew provides you functional [APIs] which make e-book format files from images.
-It is made by Python, Vue.js, Docker and taking in latest technologies.(Recently, GitHub Action, GitPitch, automatic testing with CI, automatic deployment, etc.)
+We have created many useful client applications that utilize the API provided by Ebook-homebrew.
 
-It also provides functional Python modules which file name to only digit name like 001.jpg and make e-book format files, [reference here].
+## Web Client
 
-The demo site made by heroku, [demo here]
+Created a web client using Vue.js, Vuex, TypeScript as the web client.
 
-![](./images/ebook-homebrew-1.png)
+Support your Ebook creation with SPA operation feeling and futuristic design.
 
-Top page
+In addition, this project provides automated testing using Jest and CircleCI, and automated deployment using heroku.
 
-![](./images/ebook-homebrew-2.png)
+[GitHub is Here](https://github.com/tubone24/ebook-homebrew-vue-typescript-client)
 
-Upload your images
+[Demosite is Here](https://ebook-homebrew.herokuapp.com/)
 
-![](./images/ebook-homebrew-3.png)
+![Img](https://raw.githubusercontent.com/tubone24/ebook-homebrew-vue-typescript-client/master/docs/images/vue.gif)
 
-Image list
+## Native Apps
 
-## Background
+We also create applications using Flutter as a Native App client.
 
-The Ebook HomeBrew is the first API service I created.
+Because cross-platform Native App development with Flutter has been realized, it is an application that can run on both Android and iOS.
 
-First, I created a Python CLI using PyPDF and Pillow, one of the Python libraries.
+In addition, unit testing with Flutter Test Suite, automated testing and building with CircleCI, and automated tester distribution of post-build deliverables with Deploy Gate.
 
-This was converted into an API using a web framework called Responder, and a front was created using Vue.js.
+[GitHub is Here](https://github.com/tubone24/ebook-homebrew-android-app)
 
-In addition, we started document production using Sphinx and OpenAPI, and established a mechanism for automatic testing using CI and indexing to PyPI.
+[Deploy Gate(Android)](https://deploygate.com/distributions/14a12d44f5909adf23f0c550f960364d4b02aad0#install)
 
-The demo site is implemented using Heroku.
-
-[GitHub is here]
-
-## Presentation
-
-This repo has presentation with GitPitch.
-
-[GitPitch presentation]
-
-<!--- reference links --->
-[APIs]: <https://ebook-homebrew.herokuapp.com/docs>
-[reference here]: <https://ebook-homebrew.readthedocs.io/en/latest/index.html>
-[demo here]: <https://ebook-homebrew.herokuapp.com/#/>
-[GitHub is here]: <https://github.com/tubone24/ebook_homebrew>
-[GitPitch presentation]: <https://gitpitch.com/tubone24/ebook_homebrew/master?grs=github>
+![Img](https://raw.githubusercontent.com/tubone24/ebook-homebrew-android-app/master/docs/images/flutter.gif)
