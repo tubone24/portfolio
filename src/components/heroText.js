@@ -46,7 +46,9 @@ class HeroText extends React.Component {
     }
     return (
       <StyledTypist cursor={{ show: false }} {...this.props}>
-        <strong>I'm</strong> tubone
+        <strong>I'm </strong>
+        <Typist.Delay ms={600} />
+        tubone
         <Typist.Backspace count={6} delay={300} />
         <span> a server-side engineer</span>
         <Typist.Backspace count={23} delay={300} />
