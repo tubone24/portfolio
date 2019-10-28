@@ -7,6 +7,8 @@ image: './images/moodle-ami.png'
 
 It is a Packer template for creating an educational support content sharing server called Moodle.
 
+![](https://raw.githubusercontent.com/tubone24/mac-auto-setup/master/docs/images/header.png)
+
 ## Background
 
 In the company's educational content creation and instructor duties, Moodle will be used for text distribution and test creation for students, and it will be possible to easily create a Moodle server on AWS using Packer. did.

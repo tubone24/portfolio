@@ -5,9 +5,11 @@ tags: ["Elasticsearch", "Zabbix", "Shell"]
 image: './images/elastic-zab.png'
 ---
 
-![img](https://raw.githubusercontent.com/tubone24/Elastic_zab/master/es-zab.png)
+![](https://raw.githubusercontent.com/tubone24/Elastic_zab/master/es-zab.png)
 
 Elasticsearch cluster status and health check are collected by Zabbix externalscript, then to visualize by Zabbix Graphs.
+
+[GitHub is Here](https://github.com/tubone24/Elastic_zab)
 
 ### Background
 

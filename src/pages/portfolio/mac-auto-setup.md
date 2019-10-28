@@ -9,7 +9,7 @@ Automation Environment setup tool for Mac using by Ansible provisioning and Serv
 
 When you buy a new Macbook, you can quickly set up a development environment.
 
-![img](https://raw.githubusercontent.com/tubone24/mac-auto-setup/master/docs/images/header.png)
+![](https://raw.githubusercontent.com/tubone24/mac-auto-setup/master/docs/images/header.png)
 
 ## About This
 

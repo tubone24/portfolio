@@ -5,7 +5,7 @@ tags: ["hubot", "coffee script", "docker", "slack"]
 image: './images/hubot-attendmail.png'
 ---
 
-![img](https://raw.githubusercontent.com/tubone24/hubot_attendmail/master/docs/header.png)
+![](https://raw.githubusercontent.com/tubone24/hubot_attendmail/master/docs/header.png)
 
 Send attend mails using Slack you only talk to Hubot.
 
