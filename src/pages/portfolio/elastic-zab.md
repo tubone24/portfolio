@@ -2,7 +2,7 @@
 title: "Elastic-Zab"
 date: "2017-07-23"
 tags: ["Elasticsearch", "Zabbix", "Shell"]
-image: './images/ebook-homebrew.png'
+image: './images/elastic-zab.png'
 ---
 
 ![img](https://raw.githubusercontent.com/tubone24/Elastic_zab/master/es-zab.png)
