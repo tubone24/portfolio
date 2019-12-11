@@ -52,7 +52,8 @@ module.exports = {
               // will be rendered at 50px.
               //
               // Defaults to false.
-              sizeByPixelDensity: false
+              sizeByPixelDensity: false,
+              withWebp: true,
             }
           }
         ]
