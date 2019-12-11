@@ -43,7 +43,7 @@ Supports the creation of large-scale and large-scale image files in PDF format t
 
 [GitHub is Here](https://github.com/tubone24/ebook-homebrew-rust-client)
 
-## (Some Functions implemented) CLI with Nim
+## CLI with Nim
 
 We provide a fast command line interface that works natively with Nim.
 
