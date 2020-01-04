@@ -231,7 +231,7 @@ export default props => {
               Additionally, experienced data science with Python and AWS.<br />
               Have a AWS Certified Solution Architect – Professional. <br />
               Further more, I'm amateur photographer, Uploading for <a href={"https://500px.com/tubone24"}>500px.com</a> <br />
-              And also, I'm amateur DTM composer and Guitarist (collaborating with <a href={"https://chocoholic.stores.jp/"}>chocoholic</a>).<br />>
+              And also, I'm amateur DTM composer and Guitarist (collaborating with <a href={"https://chocoholic.stores.jp/"}>chocoholic</a>).<br />
               Nice to meet you and I look forward to collaborating with you.
             </p>
           </Box>
@@ -272,6 +272,7 @@ export default props => {
             props.data.allImageSharp ? props.data.allImageSharp.edges : []
           }
         />
+          <figure><embed src="https://wakatime.com/share/@tubone/ecd1052e-7c95-4cf0-aed0-24d9e5eb9d50.svg"/></figure>
       </Section>
       <a id="blog">Blog</a>
       <Section>
