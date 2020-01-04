@@ -272,7 +272,7 @@ export default props => {
             props.data.allImageSharp ? props.data.allImageSharp.edges : []
           }
         />
-          <figure><embed src="https://wakatime.com/share/@tubone/ecd1052e-7c95-4cf0-aed0-24d9e5eb9d50.svg"/></figure>
+          <a href="https://wakatime.com"><img src="https://wakatime.com/share/@tubone/d3959e2b-a0a0-46e1-86bc-12c092a7e3ab.png" alt="wakatime" /></a>
       </Section>
       <a id="blog">Blog</a>
       <Section>
