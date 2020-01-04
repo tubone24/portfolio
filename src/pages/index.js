@@ -275,7 +275,7 @@ export default props => {
         <br />
           <Flex alignItems="center" flexDirection="column">
               <Box px={2} width={[1, 1 / 2]}>
-          <figure><embed src="https://wakatime.com/share/@tubone/ecd1052e-7c95-4cf0-aed0-24d9e5eb9d50.svg"/></figure>
+                  <figure><embed src="https://wakatime.com/share/@tubone/1f1af40f-cc7b-44b5-90c4-97f2d82273bd.svg"/></figure>
               </Box>
           </Flex>
       </Section>
