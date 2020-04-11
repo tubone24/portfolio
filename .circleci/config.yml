@@ -1,5 +1,5 @@
 defaults: &defaults
-  working_directory: /workspace
+  working_directory: ~/workspace
   docker:
     - image: circleci/node:10
 
