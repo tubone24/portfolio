@@ -1,7 +1,7 @@
 defaults: &defaults
   working_directory: /workspace
   docker:
-    - image: tailor/docker-libvips:node-10.13
+    - image: circleci/node:10
 
 version: 2
 jobs:
