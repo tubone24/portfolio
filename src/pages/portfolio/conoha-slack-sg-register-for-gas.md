@@ -5,19 +5,11 @@ tags: ["conoha", "google-apps-script", "slack-commands", "clasp", "ipregistry-cl
 image: './images/conoha-appscript.png'
 ---
 
+![](https://github.com/tubone24/conoha-slack-sg-register-for-gas/blob/master/docs/images/logo.png)
+
 This is GoogleAppsScript to register home IP address with [conoHa VPS](https://www.conoha.jp/vps/?btn_id=top_vps) SecurityGroup using Slack command.
 
 GitHub is [Here](https://github.com/tubone24/conoha-slack-sg-register-for-gas)
-
-## Table of Contents
-
-- [Background](#background)
-- [Install](#install)
-- [Usage](#usage)
-- [Demos](#demos)
-- [Test](#Test)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Background
 
@@ -28,6 +20,10 @@ For management purposes, there are times when you want to access the server with
 Because registering and deleting an IP address every time it is accessed from the API is costly, [Slack's Slash command](https://api.slack.com/interactivity/slash-commands) has been used to make it easier to manage OPEN and CLOSE IP addresses in the form of ChatOps.
 
 In addition, the features of using GoogleAppsScript, which can be used for free, and the fact that scripts are described in TypeScript using clasp are also features.
+
+## Demo
+
+![demo](https://github.com/tubone24/conoha-slack-sg-register-for-gas/blob/master/docs/images/demo.gif)
 
 ## Contributing
 
