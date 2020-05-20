@@ -1,9 +1,11 @@
 ---
 title: "s3-file-uploader"
 date: "2020-04-20"
-tags: ["aws", "echo", "nuxt.js", " "Go", "S3", "typescript"]
-image: './images/list.png'
+tags: ["aws", "echo", "nuxt.js", "Go", "S3", "typescript"]
+image: './images/s3-file-uploader.png'
 ---
+
+GitHub is [here!!](https://github.com/tubone24/s3-file-uploader)
 
 ## background
 
@@ -20,7 +22,7 @@ The features of this system are as follows.
 
 Example log-uploader archtecture with AWS ECS(Fargate)
 
-![img](./images/arch.png)
+![img](https://raw.githubusercontent.com/tubone24/s3-file-uploader/master/docs/images/arch.png)
 
 ## Install
 
@@ -70,9 +72,9 @@ make docker-build ENV=foo
 
 Upload File
 
-![img](./docs/images/log_upload.gif)
+![img](https://raw.githubusercontent.com/tubone24/s3-file-uploader/master/docs/images/log_upload.gif)
 
 List S3 files
 
 
-![img](./docs/images/list.png)
+![img](https://raw.githubusercontent.com/tubone24/s3-file-uploader/master/docs/images/list.png)
