@@ -49,6 +49,10 @@ We provide a fast command line interface that works natively with Nim.
 
 [GitHub is Here](https://github.com/tubone24/ebook-homebrew-nim-client)
 
+## (Deprecated) Python module by Nim
+
+[GitHub is Here](https://github.com/tubone24/ebook-homebrew-nimpy-module)
+
 ## (Coming Soon..) Desktop App
 
 We are starting to develop desktop applications using Electron.
