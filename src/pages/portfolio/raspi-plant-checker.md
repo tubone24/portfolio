@@ -1,8 +1,8 @@
 ---
-title: "s3-file-uploader"
+title: "raspi-plant-checker"
 date: "2020-04-20"
-tags: ["aws", "echo", "nuxt.js", "Go", "S3", "typescript"]
-image: './images/s3-file-uploader.png'
+tags: ["raspberry pi", "plant checker", "zabbix"]
+image: './images/plant_checker.png'
 ---
 
 GitHub is [here!!](https://github.com/tubone24/raspi_plant_checker)
