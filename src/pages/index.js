@@ -47,9 +47,9 @@ const Title = styled.h1`
   ${props =>
     props.small &&
     css`
-      font-size: 12px;
+      font-size: 24px;
       letter-spacing: 2px;
-      font-weight: 700;
+      font-weight: 400;
       line-height: 24px;
     `}
 `
@@ -258,7 +258,7 @@ export default props => {
       <FlickrLightbox
         api_key="89f4752b9b3a8dffcbf94ca144719883"
         user_id="184992580@N06"
-        limit={40}
+        limit={44}
       />
         </Box>
         </Flex>

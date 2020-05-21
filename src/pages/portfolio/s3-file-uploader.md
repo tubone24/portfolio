@@ -5,6 +5,8 @@ tags: ["aws", "echo", "nuxt.js", "Go", "S3", "typescript"]
 image: './images/s3-file-uploader.png'
 ---
 
+Uploading and downloading some files to S3 via S3-file-uploader with ECS containers. 
+
 GitHub is [here!!](https://github.com/tubone24/s3-file-uploader)
 
 ## background

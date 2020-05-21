@@ -4,10 +4,12 @@ date: "2020-04-20"
 tags: ["raspberry pi", "plant checker", "zabbix"]
 image: './images/plant_checker.png'
 ---
+![](https://raw.githubusercontent.com/tubone24/raspi_plant_checker/master/docs/images/plant_checker.png)
+Houseplant management system using Raspberry PI coding with Python.
+
+And Also Graphing metrics for Zabbix external scripts.
 
 GitHub is [here!!](https://github.com/tubone24/raspi_plant_checker)
-
-> Houseplant management system using Raspberry PI
 
 ## Background
 
