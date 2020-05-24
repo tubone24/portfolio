@@ -255,11 +255,58 @@ export default props => {
         <Flex alignItems="center" flexDirection="column">
         <Box px={2} width={[1, 1 / 2]}>
           <span>Look at my Photos!</span>
-      <FlickrLightbox
-        api_key="89f4752b9b3a8dffcbf94ca144719883"
-        user_id="184992580@N06"
-        limit={44}
-      />
+      {/*<FlickrLightbox*/}
+      {/*  api_key="89f4752b9b3a8dffcbf94ca144719883"*/}
+      {/*  user_id="184992580@N06"*/}
+      {/*  limit={44}*/}
+      {/*/>*/}
+      <Carousel images={[
+        "https://live.staticflickr.com/65535/49918288566_7e75ed0501_c_d.jpg",
+        "https://live.staticflickr.com/65535/49917776898_e51931ff19_c_d.jpg",
+        "https://live.staticflickr.com/65535/49918586692_b7282f487c_c_d.jpg",
+        "https://live.staticflickr.com/65535/49917775693_f6897f823f_c_d.jpg",
+        "https://live.staticflickr.com/65535/49917769148_3cf209038e_c_d.jpg",
+        "https://live.staticflickr.com/65535/49918577832_e17fa95e08_c_d.jpg",
+        "https://live.staticflickr.com/65535/49917767373_d7bdbc318a_c_d.jpg",
+        "https://live.staticflickr.com/65535/49918577327_19c56fac21_c_d.jpg",
+        "https://live.staticflickr.com/65535/49918577237_3b78cf0939_c_d.jpg",
+        "https://live.staticflickr.com/65535/49917766618_37a5076655_c_d.jpg",
+        "https://live.staticflickr.com/65535/49918274036_ed6aa555c1_c_d.jpg",
+        "https://live.staticflickr.com/65535/49917756298_9f073bc8ae_c_d.jpg",
+        "https://live.staticflickr.com/65535/49918564982_352a6f5723_c_d.jpg",
+        "https://live.staticflickr.com/65535/49918266016_56a023059d_c_d.jpg",
+        "https://live.staticflickr.com/65535/48941128851_fd524759c7_c_d.jpg",
+        "https://live.staticflickr.com/65535/48939600708_781532fe73_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940152156_be2b9f8771_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940132336_4b7b5e2169_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940110426_8ca9e15b8e_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940110541_d81bb141d7_c_d.jpg",
+        "https://live.staticflickr.com/65535/48939556578_3ec9d366de_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940296822_1e06d9c023_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940110721_5228b19e0a_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940296947_6250329050_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940296987_086083e244_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940110931_8be5b66191_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940111021_a6b0432920_c_d.jpg",
+        "https://live.staticflickr.com/65535/48939557013_4aa17409b1_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940297232_5219f1b6a5_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940111311_4bdb05da75_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940111371_968e14b0ce_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940297527_3ce64b70eb_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940111611_671dbc855e_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940297682_98c985190a_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940297762_c24173aaf1_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940297837_8c840a5ca7_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940111816_6fba0c6726_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940297942_3c80f9b8c4_c_d.jpg",
+        "https://live.staticflickr.com/65535/48939557893_ff02ecb979_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940298112_598694f627_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940112141_da56fae5fb_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940298232_3d0ddfd990_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940112201_de5163bf23_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940298367_9bb6238194_c_d.jpg",
+        "https://live.staticflickr.com/65535/48939558418_fb3cef7032_c_d.jpg",
+        "https://live.staticflickr.com/65535/48940298717_ed78d97eeb_c_d.jpg"]} />
         </Box>
         </Flex>
       </Section>
