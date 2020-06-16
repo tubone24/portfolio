@@ -17,6 +17,7 @@ import Button from "../components/button";
 import scrollToElement from "scroll-to-element";
 import Carousel from "../components/carousel";
 import FlickrLightbox from "react-flickr-lightbox";
+import Iframe from 'react-iframe'
 
 const Content = styled.div`
   & > a {
@@ -350,6 +351,17 @@ export default props => {
         "https://live.staticflickr.com/65535/49933007598_1f967424bb_c_d.jpg",
         "https://live.staticflickr.com/65535/49933527466_09780992bd_c_d.jpg" ]} />
         </Box>
+        </Flex>
+      </Section>
+      <Title small>Musics</Title>
+      <a id="music">Musics</a>
+      <Section>
+        <Flex alignItems="center" flexDirection="column">
+          <Box px={2} width={[1, 1 / 2]}>
+            <span>Listen to my musics!</span>
+            <Iframe width="100%" height="450" scrolling="no" frameBorder="no" allow="autoplay"
+  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/197229086&color=%23333335&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"/>
+          </Box>
         </Flex>
       </Section>
       <a id="tech">Tech</a>
