@@ -14,6 +14,7 @@ import SocialIcons from '../components/socialIcons'
 import Portfolio from '../components/portfolio'
 import Showcase from '../components/showcase'
 import Button from "../components/button";
+import DarkButton from "../components/darkButton";
 import scrollToElement from "scroll-to-element";
 import Carousel from "../components/carousel";
 import FlickrLightbox from "react-flickr-lightbox";
@@ -120,7 +121,7 @@ const Section = styled.div`
   ${props =>
     props.dark &&
     css`
-      background: #e2f4e3;
+      background: #020d05;
       * {
         color: #eee;
       }
@@ -235,6 +236,12 @@ export default props => {
               And also, I'm amateur DTM composer and Guitarist (collaborating with <a href={"https://chocoholic.stores.jp/"}>chocoholic</a>).<br />
               Nice to meet you and I look forward to collaborating with you.
             </p>
+            <p>
+              カメラと音楽を嗜む低能Webデベロッパーです。<br />
+              AWSが比較的得意なインフラエンジニアですが、サーバサイドもフロントサイドも好きです。<br />
+              実は本業より休日にコードを書いているタイプです。<br />
+              需要のないWebアプリなどを使って自己満足しているかわいそうな人なので優しくしてください。
+            </p>
           </Box>
           <Box px={2} width={180}>
             <Img
@@ -250,9 +257,9 @@ export default props => {
       <Title small>Portfolio</Title>
       <a id="portfolio">Portfolio</a>
       <Portfolio items={props.data.allMarkdownRemark.edges} />
-      <Title small>Photos</Title>
       <a id="photos">Photos</a>
       <Section>
+        <Title small>Photos</Title>
         <Flex alignItems="center" flexDirection="column">
         <Box px={2} width={[1, 1 / 2]}>
           <span>Look at my Photos!</span>
@@ -353,12 +360,12 @@ export default props => {
         </Box>
         </Flex>
       </Section>
-      <Title small>Musics</Title>
       <a id="music">Musics</a>
-      <Section>
+      <Section dark>
+        <Title small>Musics</Title>
         <Flex alignItems="center" flexDirection="column">
           <Box px={2} width={[1, 1 / 2]}>
-            <span>Listen to my musics!</span>
+            <p>Listen to my musics!</p>
             <Iframe width="100%" height="450" scrolling="no" frameBorder="no" allow="autoplay"
   src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/197229086&color=%23333335&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"/>
           </Box>
@@ -374,8 +381,9 @@ export default props => {
           }
         />
         <br />
+        <span>Languages I enjoy working with.</span>
           <Flex alignItems="center" flexDirection="column">
-              <Box px={2} width={[1, 1 / 2]}>
+              <Box px={2} width={[1, 1 / 3]}>
                   <figure><embed src="https://wakatime.com/share/@tubone/5306754c-dfb1-45dc-a9ec-e4a276518529.svg"/></figure>
               </Box>
           </Flex>
@@ -399,7 +407,7 @@ export default props => {
       </Flex>
       </Section>
       <a id="resume">Resume</a>
-      <Section>
+      <Section dark>
         <Title>Resume</Title>
         <Flex alignItems="center" flexDirection="column">
           <Box px={2} width={[1, 1 / 2]}>
@@ -407,10 +415,10 @@ export default props => {
           </Box>
           <a href="https://tubone24.github.io/resume">
             <Box px={2} width={180}>
-              <Button
+              <DarkButton
               >
                 Hire Me!
-              </Button>
+              </DarkButton>
             </Box>
           </a>
         </Flex>
