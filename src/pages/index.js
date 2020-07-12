@@ -227,7 +227,7 @@ export default props => {
         <Flex alignItems="center" flexDirection="column">
           <Box px={2} width={[1, 1 / 2]}>
             <p>
-              I'm a Software developer with over 4+ years and latest trying to tech lead with engineering teams.
+              I'm a Software and Infrastructure developer with over 4+ years and the latest trying to tech lead with engineering teams.
               Expert at AWS by using Server-less architecture.<br />
               Also master of Server-side API and Batch with Python.<br />
               Additionally, experienced data science with Python and AWS.<br />
@@ -387,6 +387,14 @@ export default props => {
                   <figure><embed src="https://wakatime.com/share/@tubone/5306754c-dfb1-45dc-a9ec-e4a276518529.svg"/></figure>
               </Box>
           </Flex>
+        <br />
+        <br />
+        <span>What do I think in twitter?</span>
+        <Flex alignItems="center" flexDirection="column">
+          <Box px={2} width={[1, 1 / 3]}>
+            <img src="https://raw.githubusercontent.com/tubone24/auto_tweet_wordcloud/master/src/word_cloud_tweet_face_profile_alpha.png"/>
+          </Box>
+        </Flex>
       </Section>
       <a id="blog">Blog</a>
       <Section>
