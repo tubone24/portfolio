@@ -227,7 +227,7 @@ export default props => {
         <Flex alignItems="center" flexDirection="column">
           <Box px={2} width={[1, 1 / 2]}>
             <p>
-              I'm a Software and Infrastructure developer with over 4+ years and the latest trying to tech lead with engineering teams.
+              I'm a Software and Infrastructure developer with over 4+ years, and I've been leading some engineering teams in recent years. 
               Expert at AWS by using Server-less architecture.<br />
               Also master of Server-side API and Batch with Python.<br />
               Additionally, experienced data science with Python and AWS.<br />
