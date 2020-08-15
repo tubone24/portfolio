@@ -392,7 +392,7 @@ export default props => {
         <span>What do I think in twitter?</span>
         <Flex alignItems="center" flexDirection="column">
           <Box px={2} width={[1, 1 / 3]}>
-            <img src="https://raw.githubusercontent.com/tubone24/auto_tweet_wordcloud/master/src/word_cloud_tweet_face_profile_alpha.png"/>
+            <img src="https://raw.githubusercontent.com/tubone24/auto_tweet_wordcloud/master/word_cloud_tweet_face_profile_alpha.png"/>
           </Box>
         </Flex>
       </Section>
