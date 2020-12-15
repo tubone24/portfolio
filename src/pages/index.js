@@ -15,9 +15,9 @@ import Portfolio from '../components/portfolio'
 import Showcase from '../components/showcase'
 import Button from "../components/button";
 import DarkButton from "../components/darkButton";
-import scrollToElement from "scroll-to-element";
+// import scrollToElement from "scroll-to-element";
 import Carousel from "../components/carousel";
-import FlickrLightbox from "react-flickr-lightbox";
+// i1mport FlickrLightbox from "react-flickr-lightbox";
 import Iframe from 'react-iframe'
 
 const Content = styled.div`
@@ -227,7 +227,7 @@ export default props => {
         <Flex alignItems="center" flexDirection="column">
           <Box px={2} width={[1, 1 / 2]}>
             <p>
-              I'm a Software and Infrastructure developer with over 4+ years, and I've been leading some engineering teams in recent years. 
+              I'm a Software and Infrastructure developer with over 4+ years, and I've been leading some engineering teams in recent years.
               Expert at AWS by using Server-less architecture.<br />
               Also master of Server-side API and Batch with Python.<br />
               Additionally, experienced data science with Python and AWS.<br />
@@ -380,14 +380,14 @@ export default props => {
             props.data.allImageSharp ? props.data.allImageSharp.edges : []
           }
         />
-        <br />
-        <span>Languages I enjoy working with.</span>
-          <Flex alignItems="center" flexDirection="column">
-              <Box px={2} width={[1, 1 / 3]}>
-                  <figure><embed src="https://wakatime.com/share/@tubone/5306754c-dfb1-45dc-a9ec-e4a276518529.svg"/></figure>
-              </Box>
-          </Flex>
-        <br />
+        {/*<br />*/}
+        {/*<span>Languages I enjoy working with.</span>*/}
+        {/*  <Flex alignItems="center" flexDirection="column">*/}
+        {/*      <Box px={2} width={[1, 1 / 3]}>*/}
+        {/*          <figure><embed src="https://wakatime.com/share/@tubone/5306754c-dfb1-45dc-a9ec-e4a276518529.svg"/></figure>*/}
+        {/*      </Box>*/}
+        {/*  </Flex>*/}
+        {/*<br />*/}
         <br />
         <span>What do I think in twitter?</span>
         <Flex alignItems="center" flexDirection="column">
