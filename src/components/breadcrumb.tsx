@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import Link from 'gatsby-link'
 
-const Base = styled.ol`
+const Base = styled.ol<Props>`
   padding-top: 10px;
   list-style: none;
   margin: 0;
@@ -44,17 +44,25 @@ const Base = styled.ol`
     `}
 `
 
-class Breadcrumb extends React.Component {
-  render() {
-    const crumbs = this.props.crumbs.map(function(crumb) {
+interface Crumb {
+  name?: string
+  link?: string
+}
+
+type Props = {
+  crumbs?: Crumb[]
+  dark?: boolean
+}
+
+const Breadcrumb = (props: Props) => {
+    const crumbs = props.crumbs?.map(function(crumb) {
       return (
         <li key={crumb.name}>
-          <Link to={crumb.link}>{crumb.name}</Link>
+          <Link to={crumb.link || '/'}>{crumb.name}</Link>
         </li>
       )
     })
-    return <Base {...this.props}>{crumbs}</Base>
-  }
+    return <Base {...props}>{crumbs}</Base>
 }
 
 export default Breadcrumb

@@ -7,7 +7,7 @@ import Name from './name'
 
 import { media } from '../utils/style'
 
-const Base = styled.div<{dark?: boolean}>`
+const Base = styled.div<{dark?: boolean, main?: boolean}>`
   padding: 0;
   margin: 0;
   max-height: 62px;
@@ -74,30 +74,44 @@ const Base = styled.div<{dark?: boolean}>`
   `}
 `
 
-class NavBar extends React.Component {
-  render() {
-    const linkMap = this.props.children
+interface Children {
+  props: {
+    id: string
+    children: string
+  }
+}
+
+type Props = {
+  dark?: boolean,
+  main?: boolean
+  children: Children[]
+}
+
+const NavBar = (props: Props) => {
+    const linkMap = props.children
       .map(el => {
         if (el.props.id)
           return { name: el.props.children, href: `#${el.props.id}` }
       })
       .filter(n => n != undefined)
       .reverse()
-    const links = linkMap.map(function(link) {
-      return (
-        <li key={link.name}>
-          <a
-            onClick={() => {
-              scrollToElement(link.href)
-            }}
-          >
-            {link.name}
-          </a>
-        </li>
-      )
+    const links = linkMap.map((link) => {
+      if (link !== undefined) {
+        return (
+          <li key={link.name}>
+            <a
+              onClick={() => {
+                scrollToElement(link.href)
+              }}
+            >
+              {link.name}
+            </a>
+          </li>
+        )
+      }
     })
     return (
-      <Base {...this.props}>
+      <Base dark={props.dark} main={props.main}>
         <Flex>
           <Box px={2} width={[1, 1 / 3, 2 / 6]}>
             <Name />
@@ -108,7 +122,6 @@ class NavBar extends React.Component {
         </Flex>
       </Base>
     )
-  }
 }
 
 export default NavBar

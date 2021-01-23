@@ -2,10 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Flex, Box } from 'grid-styled'
 import styled, { css } from 'styled-components'
+// @ts-ignore
 import FlickrHero from 'react-flickr-hero'
-
 import { media } from '../utils/style'
-
 import Layout from '../components/layout'
 import NavBar from '../components/navbar'
 import HeroText from '../components/heroText'
@@ -13,7 +12,6 @@ import SocialIcons from '../components/socialIcons'
 import Portfolio from '../components/portfolio'
 import Showcase from '../components/showcase'
 import Button from '../components/button'
-import DarkButton from '../components/darkButton'
 import GitHubWeed from '../components/githubWeed'
 import scrollToElement from 'scroll-to-element'
 import AboutMe from '../components/aboutme'
@@ -288,7 +286,7 @@ export default (props:Props) => {
           </Box>
           <a href="https://tubone24.github.io/resume">
             <Box px={2} width={180}>
-              <DarkButton>Hire Me!</DarkButton>
+              <Button dark>Hire Me!</Button>
             </Box>
           </a>
         </Flex>
@@ -333,7 +331,7 @@ export const pageQuery = graphql`
             tags
             image {
               childImageSharp {
-                sizes(
+                fluid(
                   maxWidth: 500
                   duotone: {
                     highlight: "#333333"
@@ -341,7 +339,7 @@ export const pageQuery = graphql`
                     opacity: 65
                   }
                 ) {
-                  ...GatsbyImageSharpSizes
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
@@ -354,8 +352,8 @@ export const pageQuery = graphql`
         node {
           id
           childImageSharp {
-            sizes(maxWidth: 300, grayscale: true) {
-              ...GatsbyImageSharpSizes_tracedSVG
+            fluid(maxWidth: 300, grayscale: true) {
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }
@@ -365,8 +363,8 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            sizes(maxWidth: 200, grayscale: true) {
-              ...GatsbyImageSharpSizes_tracedSVG
+            fluid(maxWidth: 200, grayscale: true) {
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }

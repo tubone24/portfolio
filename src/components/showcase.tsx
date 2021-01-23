@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from 'grid-styled'
-import Img, {FluidObject} from 'gatsby-image'
+import Img from 'gatsby-image'
 import { media } from '../utils/style'
 
 const Base = styled.div`
@@ -18,24 +18,25 @@ const Base = styled.div`
 `
 
 interface Image {
-  node: {
-    id: Pick<GatsbyTypes.File, "id">
-    childImageSharp: GatsbyTypes.ImageSharp
+  node?: {
+    id?: string
+    childImageSharp?: {
+      fluid?: Pick<GatsbyTypes.GatsbyImageSharpFluidFragment, 'src'|'srcSet'|'aspectRatio'|'sizes'>
+    }
   }
 }
 
 type Props = {
-  images: Image[]
+  images: readonly Image[]
 }
 
 const Showcase = (props: Props) => {
-    const images = props.images.reverse().map(image => {
+    const images = props.images.map(image => {
       const node = image.node;
-      const sizes = node.childImageSharp?.sizes;
+      const fluid = node?.childImageSharp?.fluid;
       return(
-      <Box key={Number(node.id)} px={2} width={[1 / 2, 1 / 3]}>
-        {/* @ts-ignore */}
-        <Img sizes={sizes} />
+      <Box key={Number(node?.id)} px={2} width={[1 / 2, 1 / 3]}>
+        {fluid && <Img fluid={fluid} />}
       </Box>
       )});
     return (

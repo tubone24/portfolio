@@ -1,5 +1,6 @@
 import React from 'react'
 import { navigate } from 'gatsby'
+// @ts-ignore
 import FlickrHero from 'react-flickr-hero'
 import styled from 'styled-components'
 

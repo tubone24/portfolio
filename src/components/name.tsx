@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-const Base = styled.a`
+const Base = styled.a<Props>`
   font-size: 30pt;
   font-family: 'Arizonia', cursive;
   color: #fff;
@@ -45,14 +45,17 @@ const Base = styled.a`
     `}
 `
 
-class Name extends React.Component {
-  render() {
-    return (
-      <Base {...this.props} href="/">
+type Props = {
+  dark?: boolean,
+  small?: boolean,
+  big?: boolean,
+  block?: boolean
+}
+
+const Name = (props: Props) => (
+      <Base {...props} href="/">
         tubone24
       </Base>
     )
-  }
-}
 
 export default Name

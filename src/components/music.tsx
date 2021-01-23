@@ -10,7 +10,7 @@ const Music = () => (
         width="100%"
         height="450"
         scrolling="no"
-        frameBorder="no"
+        frameBorder={0}
         allow="autoplay"
         url="https://soundcloud.com/user-453736300"
         src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/197229086&color=%23333335&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"

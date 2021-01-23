@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Typist from 'react-typist'
 
 import { media } from '../utils/style'
@@ -26,17 +26,20 @@ const StyledTypist = styled(Typist)`
 `}
 `
 
-class HeroText extends React.Component {
-  render() {
-    if (this.props.text) {
+type Props = {
+  text?: string
+}
+
+const HeroText = (props: Props) => {
+    if (props.text) {
       return (
         <Typist>
-          <StyledTypist {...this.props}>
+          <StyledTypist>
             <strong>
-              {this.props.text.split(' ').slice(0, 1)}
+              {props.text.split(' ').slice(0, 1)}
               <br />
             </strong>
-            {this.props.text
+            {props.text
               .split(' ')
               .slice(1)
               .join(' ')}
@@ -45,7 +48,7 @@ class HeroText extends React.Component {
       )
     }
     return (
-      <StyledTypist cursor={{ show: false }} {...this.props}>
+      <StyledTypist cursor={{ show: false }} {...props}>
         <Typist.Delay ms={600} />
         <strong>I'm </strong>
         <Typist.Delay ms={600} />
@@ -72,7 +75,6 @@ class HeroText extends React.Component {
         <span>!</span>
       </StyledTypist>
     )
-  }
 }
 
 export default HeroText

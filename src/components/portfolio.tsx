@@ -113,10 +113,22 @@ const TileContent = styled.a`
 }
 `
 
-const Item = ({ excerpt, image, tags, slug, title, timeToRead }) => (
+type ItemProps = {
+  excerpt?: string
+  image?: {
+    childImageSharp?: {
+      fluid?: Pick<GatsbyTypes.GatsbyImageSharpFluidFragment, 'src'|'srcSet'|'aspectRatio'|'sizes'>
+    }
+  }
+  slug?: string
+  title?: string
+  timeToRead?: number
+}
+
+const Item = ({ excerpt, image, slug, title }: ItemProps) => (
   <Tile>
     <a href={slug}>
-      {image ? <Img sizes={image.childImageSharp.sizes} /> : <div />}
+      {image?.childImageSharp?.fluid ? <Img fluid={image.childImageSharp.fluid} /> : <div />}
     </a>
     <TileContent href={slug}>
       <h1>{title}</h1>
@@ -127,33 +139,47 @@ const Item = ({ excerpt, image, tags, slug, title, timeToRead }) => (
 
 interface Node {
   node: {
-    fields: {
-      slug: string
-      timeToRead: string
+    excerpt?: string
+    timeToRead?: number
+    fields?: {
+      slug?: string
+    }
+    frontmatter?: {
+      date?: string
+      title?: string
+      tags?: readonly string[]
+      image?: {
+        childImageSharp?: {
+          fluid?: Pick<GatsbyTypes.GatsbyImageSharpFluidFragment, 'src'|'srcSet'|'aspectRatio'|'sizes'>
+        }
+      }
     }
   }
 }
 
 type Props = {
-  items: Node[]
-  excerpt: string
+  items: readonly Node[]
 }
 
-class Portfolio extends React.Component {
-  constructor(props) {
-    super(props)
+interface State {
+  items: Node[]
+  viewAll: boolean
+}
 
+class Portfolio extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props)
     this.state = { items: [], viewAll: false }
   }
 
-  componentWillRecievedProps(newProps, oldProps) {
-    if (
-      newProps.items &&
-      JSON.stringify(newProps.items) !== JSON.stringify(oldProps.items)
-    ) {
-      this.setState({ items: newProps.items })
-    }
-  }
+  // componentWillRecievedProps(newProps: Props, oldProps: Props) {
+  //   if (
+  //     newProps.items &&
+  //     JSON.stringify(newProps.items) !== JSON.stringify(oldProps.items)
+  //   ) {
+  //     this.setState({ items: newProps.items })
+  //   }
+  // }
 
   toggleShow() {
     this.setState({ viewAll: !this.state.viewAll })
@@ -161,11 +187,11 @@ class Portfolio extends React.Component {
 
   render() {
     const items = this.props.items.map(item => (
-      <Box key={item.node.fields.slug} px={2} width={[1, 1 / 2, 1 / 3, 1 / 4]}>
+      <Box key={item?.node?.fields?.slug} px={2} width={[1, 1 / 2, 1 / 3, 1 / 4]}>
         <Item
-          key={item.node.fields.slug}
-          excerpt={item.node.excerpt}
-          slug={item.node.fields.slug}
+          key={item?.node?.fields?.slug}
+          excerpt={item?.node?.excerpt}
+          slug={item?.node?.fields?.slug}
           timeToRead={item.node.timeToRead}
           {...item.node.frontmatter}
         />

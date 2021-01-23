@@ -1,9 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
+import React, {ReactChildren} from 'react'
 import { Helmet } from 'react-helmet'
 import styled, { createGlobalStyle } from 'styled-components'
-import { Flex, Box } from 'grid-styled'
 
 import Footer from './footer'
 
@@ -31,7 +28,12 @@ const Content = styled.div`
   flex: 1;
 `
 
-const PageBase = ({ location, children }) => {
+type Props = {
+  location?: Location
+  children?: React.ReactChild[]
+}
+
+const PageBase = ({ location, children }: Props) => {
   return (
     <Body>
       <GlobalStyle />

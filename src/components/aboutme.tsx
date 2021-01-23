@@ -2,9 +2,17 @@ import { Box, Flex } from 'grid-styled'
 import Img from 'gatsby-image'
 import React from 'react'
 
+type Node = {
+  node?: {
+    childImageSharp?: {
+      fluid?: Pick<GatsbyTypes.GatsbyImageSharpFluidFragment, 'src'|'srcSet'|'aspectRatio'|'sizes'>
+    }
+  }
+}
+
 type Props = {
-  allFile: {
-    edges: GatsbyTypes.FileEdge[]
+  allFile?: {
+    edges?: readonly Node[]
   }
 }
 const AboutMe = ({ allFile }: Props) => (
@@ -38,7 +46,7 @@ const AboutMe = ({ allFile }: Props) => (
       </p>
     </Box>
     <Box px={2} width={180}>
-      <Img sizes={allFile ? allFile.edges[0].node.childImageSharp.sizes : {}} />
+      {allFile?.edges && (allFile.edges.length !== 0) && allFile?.edges[0].node?.childImageSharp?.fluid && <Img fluid={allFile.edges[0].node.childImageSharp.fluid} />}
     </Box>
   </Flex>
 )

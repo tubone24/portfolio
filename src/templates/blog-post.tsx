@@ -8,7 +8,7 @@ import Breadcrumb from '../components/breadcrumb'
 import Bar from '../components/bar'
 import 'prismjs/themes/prism-twilight.css'
 
-const Header = styled.div`
+const Header = styled.div<{image?: string}>`
   height: fit-contents;
   padding: 0;
   background: #292929;
@@ -85,9 +85,9 @@ export default ({ data, location }: Props): JSX.Element => {
   const crumbs = [
     { name: 'home', link: '/' },
     { name: 'portfolio', link: '/#portfolio' },
-    { name: post.frontmatter.title, link: location.pathname },
+    { name: post?.frontmatter?.title, link: location.pathname },
   ]
-  const tags = post.frontmatter.tags.map(function(tag) {
+  const tags = post?.frontmatter?.tags?.map(function(tag) {
     return <li key={tag}>{tag}</li>
   })
   return (
@@ -95,7 +95,7 @@ export default ({ data, location }: Props): JSX.Element => {
       <Header>
         <Flex flexWrap="wrap">
           <Box px={2} width={[1, 2 / 3, 1 / 3]}>
-            <Title>{post.frontmatter.title}</Title>
+            <Title>{post?.frontmatter?.title}</Title>
           </Box>
           <Box px={2} width={[1, 2 / 3]}>
             <Breadcrumb crumbs={crumbs} />
@@ -106,12 +106,12 @@ export default ({ data, location }: Props): JSX.Element => {
         </Flex>
       </Header>
       <Content>
-        <TimeToRead>{post.timeToRead} min read</TimeToRead>
+        <TimeToRead>{post?.timeToRead} min read</TimeToRead>
         <Tags>{tags}</Tags>
         <Bar />
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div dangerouslySetInnerHTML={{ __html: post?.html || '' }} />
         <Timestamp>
-          Posted: <TimeAgo date={post.frontmatter.date} />
+          Posted: <TimeAgo date={post?.frontmatter?.date || ''} />
         </Timestamp>
       </Content>
     </div>

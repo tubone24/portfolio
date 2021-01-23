@@ -1,8 +1,8 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
-import Link from 'gatsby-link'
+import styled from 'styled-components'
 import { Flex, Box } from 'grid-styled'
 import scrollToElement from 'scroll-to-element'
+// @ts-ignore
 import FlickrLightbox from 'react-flickr-lightbox'
 
 import Name from './name'
@@ -41,10 +41,8 @@ const GalleryContainer = styled.div`
   }
 `
 
-class Footer extends React.Component {
-  render() {
-    return (
-      <Base {...this.props}>
+const Footer = () => (
+      <Base>
         <Flex flexWrap="wrap" justifyContent="space-around">
           <Box px={2} width={[1, 1 / 2, 1 / 3, 1 / 6]}>
             <Flex flexDirection="column">
@@ -94,9 +92,9 @@ class Footer extends React.Component {
                   onClick={() => {
                     scrollToElement('html')
                   }}
-                  small="small"
-                  dark="dark"
-                  opaque="opaque"
+                  small
+                  dark
+                  opaque
                 >
                   Top
                 </Button>
@@ -117,7 +115,5 @@ class Footer extends React.Component {
         </Flex>
       </Base>
     )
-  }
-}
 
 export default Footer

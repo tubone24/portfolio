@@ -39,7 +39,7 @@ const Base = styled.div`
 
 type Props = {
   icons: Icon[]
-  style?: any
+  style?: {[key: string]: string | number }
 }
 
 const SocialIcons = (props: Props) => {
