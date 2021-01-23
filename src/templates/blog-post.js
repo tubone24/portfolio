@@ -1,18 +1,26 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import TimeAgo from 'react-timeago'
 import { Flex, Box } from 'grid-styled'
 
 import Breadcrumb from '../components/breadcrumb'
 import Bar from '../components/bar'
+import 'prismjs/themes/prism-twilight.css'
 
 const Header = styled.div`
   height: fit-contents;
   padding: 0;
-  background: #76e37c;
+  background: #292929;
   position: relative;
   overflow: hidden;
+  ${props =>
+    props.image &&
+    css`
+      background-image: url(${props.image});
+      background-size: cover;
+      opacity: 0.5;
+    `}
 
   & > div {
     padding-top: 120px;
@@ -114,6 +122,14 @@ export const query = graphql`
         title
         date
         tags
+        image {
+          childImageSharp {
+            sizes {
+              sizes
+              src
+            }
+          }
+        }
       }
     }
   }
