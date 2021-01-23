@@ -7,7 +7,7 @@ import Name from './name'
 
 import { media } from '../utils/style'
 
-const Base = styled.div`
+const Base = styled.div<{dark?: boolean}>`
   padding: 0;
   margin: 0;
   max-height: 62px;

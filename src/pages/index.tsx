@@ -31,7 +31,7 @@ const Content = styled.div`
   }
 `
 
-const Title = styled.h1`
+const Title = styled.h1<{small?: boolean}>`
   font-family: 'Raleway';
   text-transform: uppercase;
   letter-spacing: 6px;
@@ -52,7 +52,7 @@ const Title = styled.h1`
     `}
 `
 
-const Section = styled.div`
+const Section = styled.div<{center?: boolean, dark?: boolean}>`
   text-align: center;
   padding-top: 45px;
   padding-bottom: 40px;
@@ -182,7 +182,12 @@ const HomeButton = styled(Button)`
   left: 20%;
 `
 
-export default props => {
+type Props = {
+  data: GatsbyTypes.IndexQueryQuery;
+  location: Location
+};
+
+export default (props:Props) => {
   const content = (
     <Content>
       <FlickrHero
@@ -250,7 +255,7 @@ export default props => {
         <span>Technologies I enjoy working with.</span>
         <Showcase
           images={
-            props.data.allImageSharp ? props.data.allImageSharp.edges : []
+            props.data.allImageSharp.edges
           }
         />
         <GitHubWeed />

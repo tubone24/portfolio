@@ -3,6 +3,8 @@ module.exports = {
     title: `tubone24`
   },
   plugins: [
+    'gatsby-plugin-typescript',
+    `gatsby-plugin-typegen`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {

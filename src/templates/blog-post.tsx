@@ -75,7 +75,12 @@ const TimeToRead = styled.h5`
   display: inline-block;
 `
 
-export default ({ data, location }) => {
+type Props = {
+  data: GatsbyTypes.BlogPostQueryQuery;
+  location: Location
+};
+
+export default ({ data, location }: Props): JSX.Element => {
   const post = data.markdownRemark
   const crumbs = [
     { name: 'home', link: '/' },

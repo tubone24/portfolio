@@ -125,6 +125,20 @@ const Item = ({ excerpt, image, tags, slug, title, timeToRead }) => (
   </Tile>
 )
 
+interface Node {
+  node: {
+    fields: {
+      slug: string
+      timeToRead: string
+    }
+  }
+}
+
+type Props = {
+  items: Node[]
+  excerpt: string
+}
+
 class Portfolio extends React.Component {
   constructor(props) {
     super(props)

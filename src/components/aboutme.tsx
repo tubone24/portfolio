@@ -2,7 +2,12 @@ import { Box, Flex } from 'grid-styled'
 import Img from 'gatsby-image'
 import React from 'react'
 
-const AboutMe = ({ allFile }) => (
+type Props = {
+  allFile: {
+    edges: GatsbyTypes.FileEdge[]
+  }
+}
+const AboutMe = ({ allFile }: Props) => (
   <Flex alignItems="center" flexDirection="column">
     <Box px={2} width={[1, 1 / 2]}>
       <p>

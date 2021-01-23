@@ -1,8 +1,12 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import FontAwesome from 'react-fontawesome'
 
-const Icon = ({ name, href }) => (
+type Icon = {
+  href: string
+  name: string
+}
+const Icon = ({ name, href }: Icon) => (
   <a href={href}>
     <FontAwesome name={name} />
   </a>
@@ -33,13 +37,16 @@ const Base = styled.div`
   }
 `
 
-class SocialIcons extends React.Component {
-  render() {
-    const icons = this.props.icons.map(function(icon) {
+type Props = {
+  icons: Icon[]
+  style?: any
+}
+
+const SocialIcons = (props: Props) => {
+    const icons = props.icons.map((icon) => {
       return <Icon key={icon.name} name={icon.name} href={icon.href} />
     })
-    return <Base {...this.props}>{icons}</Base>
-  }
+    return <Base {...props}>{icons}</Base>
 }
 
 export default SocialIcons
