@@ -44,7 +44,7 @@ const Base = styled.ol<Props>`
     `}
 `
 
-interface Crumb {
+export interface Crumb {
   name?: string
   link?: string
 }
@@ -54,7 +54,7 @@ type Props = {
   dark?: boolean
 }
 
-const Breadcrumb = (props: Props) => {
+export const Breadcrumb = (props: Props) => {
     const crumbs = props.crumbs?.map(function(crumb) {
       return (
         <li key={crumb.name}>

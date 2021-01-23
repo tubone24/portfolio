@@ -1,0 +1,26 @@
+import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import HeroText from '../components/heroText';
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components/HeroText" parameters={{ component: HeroText }} />
+
+Heroテキスト。入力しているように動く
+
+export const Template = (args) => <HeroText {...args} />
+
+<Source code={`import HeroText from "~/components/heroText";`} />
+
+# Preview
+
+<Preview withSource="open">
+  <Story name="HeroText">
+   <HeroText />
+  </Story>
+</Preview>
+
+# Props
+
+<Props of="." />

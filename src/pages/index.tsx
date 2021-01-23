@@ -278,15 +278,38 @@ export default (props:Props) => {
         </Flex>
       </Section>
       <a id="resume">Resume</a>
-      <Section dark>
-        <Title>Resume</Title>
-        <Flex alignItems="center" flexDirection="column">
-          <Box px={2} width={[1, 1 / 2]}>
-            <p>Check my Resume!</p>
-          </Box>
+      <Section center dark>
+        <h4>Experience</h4>
+        <span>Where I've worked.</span>
+        <Item>
+          <span>April 2019- Current</span>
+          <h6>Data Engineering developer & Tech Lead</h6>
+          <p>Developing data analysis infrastructure using AWS because of analysis of the Chat-bot's conversations.</p>
+          <p>Senior engineer and AWS tech Lead of developing Web-based and Native App Chat-bot services by using AWS and Python, Node.js.</p>
+        </Item>
+        <Item>
+          <span>October 2017- March 2019</span>
+          <h6>DevOps developer</h6>
+          <p>Developing and Operating Web-based Chatbot services by using AWS and Python, Node.js.</p>
+          <p>The architecture is applied by AWS management services such as ECS with Docker, DynamoDB, Lambda, and S3.</p>
+          <p>Also, creating CI/CD pipelines using by Drone and automation tests using by Pytest.</p>
+        </Item>
+        <Item>
+          <span>April 2017- September 2017</span>
+          <h6>Project Manager</h6>
+          <p>I had many experiences such as project management, team building,
+            and handling big data. Our team created the analytics operation system with Splunk and Hadoop(MapR) Used for the company's internal log.</p>
+        </Item>
+        <Item>
+          <span>April 2016- March 2017</span>
+          <h6>DevOps developer</h6>
+          <p>Developing and operating some location-based services by using on-premise servers.</p>
+        </Item>
+        <h4>Resume</h4>
+        <Flex alignItems="left" flexDirection="column">
           <a href="https://tubone24.github.io/resume">
             <Box px={2} width={180}>
-              <Button dark>Hire Me!</Button>
+              <Button dark opaque>Check!</Button>
             </Box>
           </a>
         </Flex>

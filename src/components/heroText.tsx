@@ -30,7 +30,7 @@ type Props = {
   text?: string
 }
 
-const HeroText = (props: Props) => {
+export const HeroText = (props: Props) => {
     if (props.text) {
       return (
         <Typist>

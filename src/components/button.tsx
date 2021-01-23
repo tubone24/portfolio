@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-const Button = styled.button<{light?: boolean, dark?: boolean, opaque?: boolean, small?: boolean, center?: boolean}>`
+export const Button = styled.button<{light?: boolean, dark?: boolean, opaque?: boolean, small?: boolean, center?: boolean}>`
   border: 2px solid #47b475;
   background-color: #fff;
   padding: 0 26px;
