@@ -8,7 +8,7 @@ import Breadcrumb from '../components/breadcrumb'
 import Bar from '../components/bar'
 import 'prismjs/themes/prism-twilight.css'
 
-const Header = styled.div<{image?: string}>`
+const Header = styled.div<{ image?: string }>`
   height: fit-contents;
   padding: 0;
   background: #292929;
@@ -76,9 +76,9 @@ const TimeToRead = styled.h5`
 `
 
 type Props = {
-  data: GatsbyTypes.BlogPostQueryQuery;
+  data: GatsbyTypes.BlogPostQueryQuery
   location: Location
-};
+}
 
 export default ({ data, location }: Props): JSX.Element => {
   const post = data.markdownRemark

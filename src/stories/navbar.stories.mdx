@@ -1,0 +1,31 @@
+import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import NavBar from '../components/navbar';
+import { Meta, Story, Preview, Props, Source } from "@storybook/addon-docs/blocks";
+import dedent from 'ts-dedent';
+
+<Meta title="Components/NavBar" parameters={{ component: NavBar, backgrounds: { default: 'twitter', values: [ { name: 'twitter', value: '#00aced' }, { name: 'facebook', value: '#3b5998' }, ], }, }} />
+
+export const children = [{props: {'id': '#about-me', children: 'about'}}, {props: {'id': '#portfolio', children: 'portfolio'}}, {props: {'id': '#hobby', children: 'hobby'}}]
+
+ナビバー。ロゴと各ページのリンクをChildrenから取得する
+
+# Preview
+
+<Preview withSource="open">
+  <Story name="NavBar dark">
+    <NavBar dark children={children} />
+  </Story>
+</Preview>
+
+<Preview withSource="open">
+  <Story name="NavBar main">
+    <NavBar main children={children} />
+  </Story>
+</Preview>
+
+# Props
+
+<Props of="." />

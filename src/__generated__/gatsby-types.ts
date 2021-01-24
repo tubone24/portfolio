@@ -2828,7 +2828,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___cache_busting_mode = 'pluginCreator.pluginOptions.cache_busting_mode',
   pluginCreator___pluginOptions___crossOrigin = 'pluginCreator.pluginOptions.crossOrigin',
   pluginCreator___pluginOptions___include_favicon = 'pluginCreator.pluginOptions.include_favicon',
-  pluginCreator___pluginOptions___cacheDigest = 'pluginCreator.pluginOptions.cacheDigest',
   pluginCreator___pluginOptions___dsn = 'pluginCreator.pluginOptions.dsn',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
@@ -3174,7 +3173,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___cache_busting_mode = 'pluginOptions.cache_busting_mode',
   pluginOptions___crossOrigin = 'pluginOptions.crossOrigin',
   pluginOptions___include_favicon = 'pluginOptions.include_favicon',
-  pluginOptions___cacheDigest = 'pluginOptions.cacheDigest',
   pluginOptions___dsn = 'pluginOptions.dsn',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
   nodeAPIs = 'nodeAPIs',
@@ -3338,7 +3336,6 @@ type SitePluginPluginOptions = {
   readonly cache_busting_mode: Maybe<Scalars['String']>;
   readonly crossOrigin: Maybe<Scalars['String']>;
   readonly include_favicon: Maybe<Scalars['Boolean']>;
-  readonly cacheDigest: Maybe<Scalars['String']>;
   readonly dsn: Maybe<Scalars['String']>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
 };
@@ -3392,7 +3389,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly cache_busting_mode: Maybe<StringQueryOperatorInput>;
   readonly crossOrigin: Maybe<StringQueryOperatorInput>;
   readonly include_favicon: Maybe<BooleanQueryOperatorInput>;
-  readonly cacheDigest: Maybe<StringQueryOperatorInput>;
   readonly dsn: Maybe<StringQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
 };

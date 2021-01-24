@@ -46,16 +46,16 @@ const Base = styled.a<Props>`
 `
 
 type Props = {
-  dark?: boolean,
-  small?: boolean,
-  big?: boolean,
+  dark?: boolean
+  small?: boolean
+  big?: boolean
   block?: boolean
 }
 
 export const Name = (props: Props) => (
-      <Base {...props} href="/">
-        tubone24
-      </Base>
-    )
+  <Base {...props} href="/">
+    tubone24
+  </Base>
+)
 
 export default Name

@@ -1,4 +1,4 @@
-import React, {ReactChildren} from 'react'
+import React, { ReactChildren } from 'react'
 import { Helmet } from 'react-helmet'
 import styled, { createGlobalStyle } from 'styled-components'
 

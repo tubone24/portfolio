@@ -117,7 +117,10 @@ type ItemProps = {
   excerpt?: string
   image?: {
     childImageSharp?: {
-      fluid?: Pick<GatsbyTypes.GatsbyImageSharpFluidFragment, 'src'|'srcSet'|'aspectRatio'|'sizes'>
+      fluid?: Pick<
+        GatsbyTypes.GatsbyImageSharpFluidFragment,
+        'src' | 'srcSet' | 'aspectRatio' | 'sizes'
+      >
     }
   }
   slug?: string
@@ -128,7 +131,11 @@ type ItemProps = {
 const Item = ({ excerpt, image, slug, title }: ItemProps) => (
   <Tile>
     <a href={slug}>
-      {image?.childImageSharp?.fluid ? <Img fluid={image.childImageSharp.fluid} /> : <div />}
+      {image?.childImageSharp?.fluid ? (
+        <Img fluid={image.childImageSharp.fluid} />
+      ) : (
+        <div />
+      )}
     </a>
     <TileContent href={slug}>
       <h1>{title}</h1>
@@ -150,7 +157,10 @@ interface Node {
       tags?: readonly string[]
       image?: {
         childImageSharp?: {
-          fluid?: Pick<GatsbyTypes.GatsbyImageSharpFluidFragment, 'src'|'srcSet'|'aspectRatio'|'sizes'>
+          fluid?: Pick<
+            GatsbyTypes.GatsbyImageSharpFluidFragment,
+            'src' | 'srcSet' | 'aspectRatio' | 'sizes'
+          >
         }
       }
     }
@@ -187,7 +197,11 @@ class Portfolio extends React.Component<Props, State> {
 
   render() {
     const items = this.props.items.map(item => (
-      <Box key={item?.node?.fields?.slug} px={2} width={[1, 1 / 2, 1 / 3, 1 / 4]}>
+      <Box
+        key={item?.node?.fields?.slug}
+        px={2}
+        width={[1, 1 / 2, 1 / 3, 1 / 4]}
+      >
         <Item
           key={item?.node?.fields?.slug}
           excerpt={item?.node?.excerpt}

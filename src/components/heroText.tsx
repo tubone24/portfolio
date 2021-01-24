@@ -31,50 +31,50 @@ type Props = {
 }
 
 export const HeroText = (props: Props) => {
-    if (props.text) {
-      return (
-        <Typist>
-          <StyledTypist>
-            <strong>
-              {props.text.split(' ').slice(0, 1)}
-              <br />
-            </strong>
-            {props.text
-              .split(' ')
-              .slice(1)
-              .join(' ')}
-          </StyledTypist>
-        </Typist>
-      )
-    }
+  if (props.text) {
     return (
-      <StyledTypist cursor={{ show: false }} {...props}>
-        <Typist.Delay ms={600} />
-        <strong>I'm </strong>
-        <Typist.Delay ms={600} />
-        tubone
-        <Typist.Backspace count={6} delay={600} />
-        <span> a server-side developer</span>
-        <Typist.Backspace count={23} delay={600} />
-        <span> a Photographer</span>
-        <Typist.Backspace count={12} delay={300} />
-        <span> DTM composer, Guitarist</span>
-        <Typist.Delay ms={100} />
-        <span>.</span>
-        <Typist.Delay ms={200} />
-        <span>.</span>
-        <Typist.Delay ms={300} />
-        <span>.</span>
-        <Typist.Backspace count={36} delay={300} />
-        <strong>I</strong>'m <strong>tubone</strong>
-        <Typist.Delay ms={300} />
-        <span>!</span>
-        <Typist.Delay ms={600} />
-        <span>!</span>
-        <Typist.Delay ms={1200} />
-        <span>!</span>
-      </StyledTypist>
+      <Typist>
+        <StyledTypist>
+          <strong>
+            {props.text.split(' ').slice(0, 1)}
+            <br />
+          </strong>
+          {props.text
+            .split(' ')
+            .slice(1)
+            .join(' ')}
+        </StyledTypist>
+      </Typist>
     )
+  }
+  return (
+    <StyledTypist cursor={{ show: false }} {...props}>
+      <Typist.Delay ms={600} />
+      <strong>I'm </strong>
+      <Typist.Delay ms={600} />
+      tubone
+      <Typist.Backspace count={6} delay={600} />
+      <span> a server-side developer</span>
+      <Typist.Backspace count={23} delay={600} />
+      <span> a Photographer</span>
+      <Typist.Backspace count={12} delay={300} />
+      <span> DTM composer, Guitarist</span>
+      <Typist.Delay ms={100} />
+      <span>.</span>
+      <Typist.Delay ms={200} />
+      <span>.</span>
+      <Typist.Delay ms={300} />
+      <span>.</span>
+      <Typist.Backspace count={36} delay={300} />
+      <strong>I</strong>'m <strong>tubone</strong>
+      <Typist.Delay ms={300} />
+      <span>!</span>
+      <Typist.Delay ms={600} />
+      <span>!</span>
+      <Typist.Delay ms={1200} />
+      <span>!</span>
+    </StyledTypist>
+  )
 }
 
 export default HeroText

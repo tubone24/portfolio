@@ -7,7 +7,7 @@ import Name from './name'
 
 import { media } from '../utils/style'
 
-const Base = styled.div<{dark?: boolean, main?: boolean}>`
+const Base = styled.div<{ dark?: boolean; main?: boolean }>`
   padding: 0;
   margin: 0;
   max-height: 62px;
@@ -82,46 +82,46 @@ interface Children {
 }
 
 type Props = {
-  dark?: boolean,
+  dark?: boolean
   main?: boolean
   children: Children[]
 }
 
 const NavBar = (props: Props) => {
-    const linkMap = props.children
-      .map(el => {
-        if (el.props.id)
-          return { name: el.props.children, href: `#${el.props.id}` }
-      })
-      .filter(n => n != undefined)
-      .reverse()
-    const links = linkMap.map((link) => {
-      if (link !== undefined) {
-        return (
-          <li key={link.name}>
-            <a
-              onClick={() => {
-                scrollToElement(link.href)
-              }}
-            >
-              {link.name}
-            </a>
-          </li>
-        )
-      }
+  const linkMap = props.children
+    .map(el => {
+      if (el.props.id)
+        return { name: el.props.children, href: `#${el.props.id}` }
     })
-    return (
-      <Base dark={props.dark} main={props.main}>
-        <Flex>
-          <Box px={2} width={[1, 1 / 3, 2 / 6]}>
-            <Name />
-          </Box>
-          <Box px={2} width={[0, 2 / 3, 4 / 6]}>
-            <ul>{links}</ul>
-          </Box>
-        </Flex>
-      </Base>
-    )
+    .filter(n => n != undefined)
+    .reverse()
+  const links = linkMap.map(link => {
+    if (link !== undefined) {
+      return (
+        <li key={link.name}>
+          <a
+            onClick={() => {
+              scrollToElement(link.href)
+            }}
+          >
+            {link.name}
+          </a>
+        </li>
+      )
+    }
+  })
+  return (
+    <Base dark={props.dark} main={props.main}>
+      <Flex>
+        <Box px={2} width={[1, 1 / 3, 2 / 6]}>
+          <Name />
+        </Box>
+        <Box px={2} width={[0, 2 / 3, 4 / 6]}>
+          <ul>{links}</ul>
+        </Box>
+      </Flex>
+    </Base>
+  )
 }
 
 export default NavBar

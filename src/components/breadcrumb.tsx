@@ -55,14 +55,14 @@ type Props = {
 }
 
 export const Breadcrumb = (props: Props) => {
-    const crumbs = props.crumbs?.map(function(crumb) {
-      return (
-        <li key={crumb.name}>
-          <Link to={crumb.link || '/'}>{crumb.name}</Link>
-        </li>
-      )
-    })
-    return <Base {...props}>{crumbs}</Base>
+  const crumbs = props.crumbs?.map(function(crumb) {
+    return (
+      <li key={crumb.name}>
+        <Link to={crumb.link || '/'}>{crumb.name}</Link>
+      </li>
+    )
+  })
+  return <Base {...props}>{crumbs}</Base>
 }
 
 export default Breadcrumb

@@ -6,14 +6,14 @@ type Props = {
 }
 
 export const Carousel = (props: Props) => {
-    const images = props.images.map(function(image) {
-      return <img key={image} src={image} alt={image} />
-    })
-    return (
-      <NukaCarousel wrapAround dragging autoplay>
-        {images}
-      </NukaCarousel>
-    )
+  const images = props.images.map(function(image) {
+    return <img key={image} src={image} alt={image} />
+  })
+  return (
+    <NukaCarousel wrapAround dragging autoplay>
+      {images}
+    </NukaCarousel>
+  )
 }
 
 export default Carousel

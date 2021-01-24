@@ -39,14 +39,14 @@ const Base = styled.div`
 
 type Props = {
   icons: Icon[]
-  style?: {[key: string]: string | number }
+  style?: { [key: string]: string | number }
 }
 
 const SocialIcons = (props: Props) => {
-    const icons = props.icons.map((icon) => {
-      return <Icon key={icon.name} name={icon.name} href={icon.href} />
-    })
-    return <Base {...props}>{icons}</Base>
+  const icons = props.icons.map(icon => {
+    return <Icon key={icon.name} name={icon.name} href={icon.href} />
+  })
+  return <Base {...props}>{icons}</Base>
 }
 
 export default SocialIcons

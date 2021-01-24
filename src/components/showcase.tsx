@@ -21,7 +21,10 @@ interface Image {
   node?: {
     id?: string
     childImageSharp?: {
-      fluid?: Pick<GatsbyTypes.GatsbyImageSharpFluidFragment, 'src'|'srcSet'|'aspectRatio'|'sizes'>
+      fluid?: Pick<
+        GatsbyTypes.GatsbyImageSharpFluidFragment,
+        'src' | 'srcSet' | 'aspectRatio' | 'sizes'
+      >
     }
   }
 }
@@ -31,19 +34,20 @@ type Props = {
 }
 
 const Showcase = (props: Props) => {
-    const images = props.images.map(image => {
-      const node = image.node;
-      const fluid = node?.childImageSharp?.fluid;
-      return(
+  const images = props.images.map(image => {
+    const node = image.node
+    const fluid = node?.childImageSharp?.fluid
+    return (
       <Box key={Number(node?.id)} px={2} width={[1 / 2, 1 / 3]}>
         {fluid && <Img fluid={fluid} />}
       </Box>
-      )});
-    return (
-      <Base>
-        <Flex flexWrap="wrap">{images}</Flex>
-      </Base>
     )
+  })
+  return (
+    <Base>
+      <Flex flexWrap="wrap">{images}</Flex>
+    </Base>
+  )
 }
 
 export default Showcase

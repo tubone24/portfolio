@@ -29,7 +29,7 @@ const Content = styled.div`
   }
 `
 
-const Title = styled.h1<{small?: boolean}>`
+const Title = styled.h1<{ small?: boolean }>`
   font-family: 'Raleway';
   text-transform: uppercase;
   letter-spacing: 6px;
@@ -50,7 +50,7 @@ const Title = styled.h1<{small?: boolean}>`
     `}
 `
 
-const Section = styled.div<{center?: boolean, dark?: boolean}>`
+const Section = styled.div<{ center?: boolean; dark?: boolean }>`
   text-align: center;
   padding-top: 45px;
   padding-bottom: 40px;
@@ -181,11 +181,11 @@ const HomeButton = styled(Button)`
 `
 
 type Props = {
-  data: GatsbyTypes.IndexQueryQuery;
+  data: GatsbyTypes.IndexQueryQuery
   location: Location
-};
+}
 
-export default (props:Props) => {
+export default (props: Props) => {
   const content = (
     <Content>
       <FlickrHero
@@ -251,11 +251,7 @@ export default (props:Props) => {
       <Section>
         <Title>Tech</Title>
         <span>Technologies I enjoy working with.</span>
-        <Showcase
-          images={
-            props.data.allImageSharp.edges
-          }
-        />
+        <Showcase images={props.data.allImageSharp.edges} />
         <GitHubWeed />
         <br />
       </Section>
@@ -284,32 +280,56 @@ export default (props:Props) => {
         <Item>
           <span>April 2019- Current</span>
           <h6>Data Engineering developer & Tech Lead</h6>
-          <p>Developing data analysis infrastructure using AWS because of analysis of the Chat-bot's conversations.</p>
-          <p>Senior engineer and AWS tech Lead of developing Web-based and Native App Chat-bot services by using AWS and Python, Node.js.</p>
+          <p>
+            Developing data analysis infrastructure using AWS because of
+            analysis of the Chat-bot's conversations.
+          </p>
+          <p>
+            Senior engineer and AWS tech Lead of developing Web-based and Native
+            App Chat-bot services by using AWS and Python, Node.js.
+          </p>
         </Item>
         <Item>
           <span>October 2017- March 2019</span>
           <h6>DevOps developer</h6>
-          <p>Developing and Operating Web-based Chatbot services by using AWS and Python, Node.js.</p>
-          <p>The architecture is applied by AWS management services such as ECS with Docker, DynamoDB, Lambda, and S3.</p>
-          <p>Also, creating CI/CD pipelines using by Drone and automation tests using by Pytest.</p>
+          <p>
+            Developing and Operating Web-based Chatbot services by using AWS and
+            Python, Node.js.
+          </p>
+          <p>
+            The architecture is applied by AWS management services such as ECS
+            with Docker, DynamoDB, Lambda, and S3.
+          </p>
+          <p>
+            Also, creating CI/CD pipelines using by Drone and automation tests
+            using by Pytest.
+          </p>
         </Item>
         <Item>
           <span>April 2017- September 2017</span>
           <h6>Project Manager</h6>
-          <p>I had many experiences such as project management, team building,
-            and handling big data. Our team created the analytics operation system with Splunk and Hadoop(MapR) Used for the company's internal log.</p>
+          <p>
+            I had many experiences such as project management, team building,
+            and handling big data. Our team created the analytics operation
+            system with Splunk and Hadoop(MapR) Used for the company's internal
+            log.
+          </p>
         </Item>
         <Item>
           <span>April 2016- March 2017</span>
           <h6>DevOps developer</h6>
-          <p>Developing and operating some location-based services by using on-premise servers.</p>
+          <p>
+            Developing and operating some location-based services by using
+            on-premise servers.
+          </p>
         </Item>
         <h4>Resume</h4>
         <Flex alignItems="left" flexDirection="column">
           <a href="https://tubone24.github.io/resume">
             <Box px={2} width={180}>
-              <Button dark opaque>Check!</Button>
+              <Button dark opaque>
+                Check!
+              </Button>
             </Box>
           </a>
         </Flex>
