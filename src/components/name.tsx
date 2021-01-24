@@ -52,7 +52,7 @@ type Props = {
   block?: boolean
 }
 
-const Name = (props: Props) => (
+export const Name = (props: Props) => (
       <Base {...props} href="/">
         tubone24
       </Base>

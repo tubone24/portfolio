@@ -2,19 +2,19 @@ import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import Button from '../components/button';
+import Name from '../components/name';
 import { Meta, Story, Preview, Props, Source } from "@storybook/addon-docs/blocks";
 import dedent from 'ts-dedent';
 
-<Meta title="Components/Button" parameters={{ component: Button, backgrounds: { default: 'twitter', values: [ { name: 'twitter', value: '#00aced' }, { name: 'facebook', value: '#3b5998' }, ], }, }} />
+<Meta title="Components/Name" parameters={{ component: Name, backgrounds: { default: 'twitter', values: [ { name: 'twitter', value: '#00aced' }, { name: 'facebook', value: '#3b5998' }, ], }, }} />
 
-ボタン
+名前のテキストを出す
 
 # Preview
 
 <Preview withSource="open">
-  <Story name="Button">
-    {args => <Button {...args} >This is Button</Button>}
+  <Story name="Name">
+    {args => <Name {...args} />}
   </Story>
 </Preview>
 

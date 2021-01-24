@@ -15,8 +15,8 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 
 <Preview withSource="open">
   <Story name="BreadCrumb">
-    <BreadCrumb dark={true}
-    crumbs={[{name: text('name1', 'test'), link: text('link', '/')}, {name: text('name2', 'test2'), link: text('link2', '/2')}]} />
+    <BreadCrumb dark={boolean('dark', false)}
+    crumbs={[{name: text('name1', 'test'), link: text('link1', '/')}, {name: text('name2', 'test2'), link: text('link2', '/2')}]} />
   </Story>
 </Preview>
 

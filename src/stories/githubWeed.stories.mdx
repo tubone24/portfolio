@@ -1,0 +1,24 @@
+import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import GitHubWeed from '../components/githubWeed';
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+
+<Meta title="Components/GitHubWeed" parameters={{ component: GitHubWeed, backgrounds: { default: 'twitter', values: [ { name: 'twitter', value: '#00aced' }, { name: 'facebook', value: '#3b5998' }, ], }, }} />
+
+GitHubの草を出すコンポーネント
+
+<Source code={`import GitHubWeed from "~/components/githubWeed";`} />
+
+# Preview
+
+<Preview withSource="open">
+  <Story name="GitHubWeed">
+    <GitHubWeed />
+  </Story>
+</Preview>
+
+# Props
+
+<Props of="." />

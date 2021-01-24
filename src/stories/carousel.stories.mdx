@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 import Carousel from '../components/carousel';
 import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 
-<Meta title="Components/Carousel" parameters={{ component: Carousel }} />
+<Meta title="Components/Carousel" parameters={{ component: Carousel, backgrounds: { grid: { cellSize: 10, opacity: 0.5, cellAmount: 15, offsetX: 160, offsetY: 160, }, }, }} />
 
 カルーセル
 
@@ -15,7 +15,7 @@ import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
 
 <Preview withSource="open">
   <Story name="Carousel">
-   <Carousel images={['https://i.imgur.com/APah4wG.jpg', 'https://i.imgur.com/2U4CzKK.jpg',]} />
+   <Carousel images={['https://i.imgur.com/Kmkrw4El.jpg','https://i.imgur.com/uY2Lqm7l.jpg']} />
   </Story>
 </Preview>
 
