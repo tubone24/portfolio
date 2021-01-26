@@ -56,4 +56,6 @@ And also the catalog is available on GitHub Pages.
 
 [Storybook](https://tubone24.github.io/portfolio/?path=/story/example-introduction--page)
 
-## 
+## Design
+
+[Figma](https://www.figma.com/file/ay3SORZ5aWVpZQov8ewrcL/portfolio?node-id=0%3A1)

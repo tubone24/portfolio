@@ -54,7 +54,7 @@ type Props = {
   dark?: boolean
 }
 
-export const Breadcrumb = (props: Props) => {
+export const Breadcrumb = (props: Props): JSX.Element => {
   const crumbs = props.crumbs?.map(function(crumb) {
     return (
       <li key={crumb.name}>

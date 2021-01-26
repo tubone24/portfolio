@@ -128,7 +128,7 @@ type ItemProps = {
   timeToRead?: number
 }
 
-const Item = ({ excerpt, image, slug, title }: ItemProps) => (
+const Item = ({ excerpt, image, slug, title }: ItemProps): JSX.Element => (
   <Tile>
     <a href={slug}>
       {image?.childImageSharp?.fluid ? (
@@ -181,15 +181,6 @@ class Portfolio extends React.Component<Props, State> {
     super(props)
     this.state = { items: [], viewAll: false }
   }
-
-  // componentWillRecievedProps(newProps: Props, oldProps: Props) {
-  //   if (
-  //     newProps.items &&
-  //     JSON.stringify(newProps.items) !== JSON.stringify(oldProps.items)
-  //   ) {
-  //     this.setState({ items: newProps.items })
-  //   }
-  // }
 
   toggleShow() {
     this.setState({ viewAll: !this.state.viewAll })

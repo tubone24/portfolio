@@ -52,7 +52,7 @@ type Props = {
   block?: boolean
 }
 
-export const Name = (props: Props) => (
+export const Name = (props: Props): JSX.Element => (
   <Base {...props} href="/">
     tubone24
   </Base>
