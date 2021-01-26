@@ -42,7 +42,7 @@ type Props = {
   style?: { [key: string]: string | number }
 }
 
-const SocialIcons = (props: Props): JSX.Element => {
+const SocialIcons = (props: Props)  => {
   const icons = props.icons.map(icon => {
     return <Icon key={icon.name} name={icon.name} href={icon.href} />
   })

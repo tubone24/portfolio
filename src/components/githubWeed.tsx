@@ -16,7 +16,7 @@ const Base = styled.div`
   `}
 `
 
-const GitHubWeed = (): JSX.Element => (
+const GitHubWeed = ()  => (
   <Base>
     <span>My GitHub Output</span>
     <Flex flexWrap="wrap">

@@ -185,7 +185,7 @@ type Props = {
   location: Location
 }
 
-export default (props: Props): JSX.Element => {
+export default (props: Props) => {
   const content = (
     <Content>
       <FlickrHero

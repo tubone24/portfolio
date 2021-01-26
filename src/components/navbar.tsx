@@ -87,7 +87,7 @@ type Props = {
   children: Children[]
 }
 
-const NavBar = (props: Props): JSX.Element => {
+const NavBar = (props: Props)  => {
   const linkMap = props.children
     .map(el => {
       if (el.props.id)
