@@ -97,6 +97,9 @@ and limitations under the License.
 
 /*! https://mths.be/he v1.2.0 by @mathias | MIT license */
 
+/*! store2 - v2.12.0 - 2020-08-12
+* Copyright (c) 2020 Nathan Bubna; Licensed (MIT OR GPL-3.0) */
+
 /**
  * Prism: Lightweight, robust, elegant syntax highlighting
  *
@@ -104,6 +107,13 @@ and limitations under the License.
  * @author Lea Verou <https://lea.verou.me>
  * @namespace
  * @public
+ */
+
+/**
+ * build-url - A small library that builds a URL given its components
+ * @version v1.3.2
+ * @link https://github.com/steverydz/build-url#readme
+ * @license MIT
  */
 
 /** @license React v0.19.1
@@ -126,15 +136,6 @@ and limitations under the License.
 
 /** @license React v16.14.0
  * react-dom.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-/** @license React v16.14.0
- * react-jsx-runtime.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
  *
