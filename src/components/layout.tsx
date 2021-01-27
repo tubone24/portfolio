@@ -33,7 +33,7 @@ type Props = {
   children?: React.ReactChild[]
 }
 
-const PageBase = ({ location, children }: Props) => {
+const PageBase = ({ location, children }: Props): JSX.Element => {
   return (
     <Body>
       <GlobalStyle />

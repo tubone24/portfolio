@@ -128,7 +128,7 @@ type ItemProps = {
   timeToRead?: number
 }
 
-const Item = ({ excerpt, image, slug, title }: ItemProps)  => (
+const Item = ({ excerpt, image, slug, title }: ItemProps): JSX.Element  => (
   <Tile>
     <a href={slug}>
       {image?.childImageSharp?.fluid ? (

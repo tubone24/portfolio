@@ -14,7 +14,7 @@ const HomeButton = styled(Button)`
   left: 20%;
 `
 
-const PageNotFound = () => (
+const PageNotFound = (): JSX.Element => (
   <Layout>
     <FlickrHero
       api_key="89f4752b9b3a8dffcbf94ca144719883"

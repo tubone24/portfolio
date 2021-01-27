@@ -2,7 +2,7 @@ import { Box, Flex } from 'grid-styled'
 import Iframe from 'react-iframe'
 import React from 'react'
 
-const Music = () => (
+const Music = (): JSX.Element => (
   <Flex alignItems="center" flexDirection="column">
     <span>Listen to my music!</span>
     <Box px={2} width={[1, 1 / 2]}>

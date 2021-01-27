@@ -2,7 +2,7 @@ import Carousel from './carousel'
 import React from 'react'
 import { Box, Flex } from 'grid-styled'
 
-const PhotoList = () => (
+const PhotoList = (): JSX.Element => (
   <Flex alignItems="center" flexDirection="column">
     <Box px={2} width={[1, 1 / 2]}>
       <span>Look at my Photos!</span>

@@ -33,7 +33,7 @@ type Props = {
   images: readonly Image[]
 }
 
-const Showcase = (props: Props)  => {
+const Showcase = (props: Props): JSX.Element  => {
   const images = props.images.map(image => {
     const node = image.node
     const fluid = node?.childImageSharp?.fluid

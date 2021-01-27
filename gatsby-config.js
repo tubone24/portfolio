@@ -4,11 +4,11 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-typescript',
-    `gatsby-plugin-typegen`,
+    // `gatsby-plugin-typegen`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`pacifico:400`, `Arizonia:400`,  `raleway:100,400,600,700`, `Love Ya Like A Sister:100,400,600,700`, "lato: 300,400,500"]
+        fonts: [`pacifico:400`, `Arizonia:400`,  `raleway:100,400,600,700`, `Love Ya Like A Sister:100,400,600,700`, `lato: 300,400,500`]
       }
     },
     {

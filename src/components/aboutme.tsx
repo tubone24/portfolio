@@ -18,7 +18,7 @@ type Props = {
     edges?: readonly Node[]
   }
 }
-const AboutMe = ({ allFile }: Props)  => (
+const AboutMe = ({ allFile }: Props): JSX.Element  => (
   <Flex alignItems="center" flexDirection="column">
     <Box px={2} width={[1, 1 / 2]}>
       <p>
