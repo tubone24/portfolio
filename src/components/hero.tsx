@@ -36,14 +36,14 @@ const HeroImage = styled.div<Props>`
   transform: scale(1.1);
   @keyframes reveal { from { filter:blur(30px); transform: scale(1.1); } to { filter:blur(0px); transform: scale(1.0); }  }
   ${props => props.src && css`
-    background: url(${props => props.theme.src});
+    background: url(${props => props.src}); /* TS2339 */
     background-repeat: no-repeat;
     background-size: contain;
     image-rendering: -webkit-optimize-contrast;
     animation: 0.5s linear forwards reveal;
   `}
   ${props => props.thumbnail && css`
-    background-image: url(${props => props.theme.thumbnail});
+    background-image: url(${props => props.thumbnail}); /* TS2339 */
     background-repeat: no-repeat;
     background-size: contain;
     image-rendering: -webkit-optimize-contrast;
