@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import buildUrl from 'build-url'
 import Hero from './hero'
-import fetch from 'isomorphic-fetch'
+import fetch from 'cross-fetch'
 
 type Props = {
   api_key: string
