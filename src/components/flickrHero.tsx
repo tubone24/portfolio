@@ -42,10 +42,6 @@ class FlickrHero extends Component<Props, State> {
     this.queryFlickrApi(this.props)
   }
 
-  componentDidUpdate(prevProps: Props, prevState: State) {
-    this.queryFlickrApi(prevProps)
-  }
-
   generateApiUrl = (props: Props) => {
     const extras = ["url_o", "url_m", "url_t"];
     return buildUrl('https://api.flickr.com', {
