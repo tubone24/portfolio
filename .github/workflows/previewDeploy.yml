@@ -5,7 +5,29 @@ on:
       - master
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Cache node_modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install and build
+        run: |
+          npm install
+          npm test
   build:
+    needs: ['test']
     runs-on: ubuntu-latest
 
     steps:

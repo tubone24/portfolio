@@ -6,7 +6,7 @@ type Props = {
 }
 
 export const Carousel = (props: Props): JSX.Element  => {
-  const images = props.images.map(function(image) {
+  const images = props.images.map((image) => {
     return <img key={image} src={image} alt={image} />
   })
   return (
