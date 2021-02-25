@@ -22,10 +22,16 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14.x
-      - name: npm install and build
-        run: |
-          npm install
-          npm test
+      - name: npm install
+        run: npm install
+      - name: unit test
+        run: npm test
+      - name: Cypress UI test
+        run: npm run test:e2e:ci
+      - uses: actions/upload-artifact@v2
+        with:
+          name: cypress-video
+          path: ./cypress/videos/e2e/*.mp4
   build:
     needs: ['test']
     runs-on: ubuntu-latest
