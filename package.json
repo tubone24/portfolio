@@ -123,7 +123,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "netlify-cli": "^3.8.4",
-    "prettier": "^1.19.1",
+    "prettier": "^2.2.1",
     "react-test-renderer": "^17.0.1",
     "start-server-and-test": "^1.12.0",
     "stylelint": "^11.1.1",
