@@ -30,7 +30,7 @@ const HeroImage = styled.div<Props>`
   margin: 0;
   padding: 0;
   width: 100%;
-  background: #4966B1;
+  background: #171D2E;
   padding-top: calc(100% * ${props => props.aspectRatio});
   filter: blur(30px);
   transform: scale(1.1);
@@ -43,7 +43,7 @@ const HeroImage = styled.div<Props>`
     animation: 0.5s linear forwards reveal;
   `}
   ${props => props.thumbnail && css<Props>`
-    background-image: url(${props => props.thumbnail}); /* TS2339 */
+    background-image: url(${props => props.thumbnail});
     background-repeat: no-repeat;
     background-size: contain;
     image-rendering: -webkit-optimize-contrast;
@@ -65,7 +65,7 @@ type Props = {
 export const Hero = (props: Props) => (
   <HeroContainer overlay src={props.img} fillPage={props.fillPage} >
     <HeroImage aspectRatio={props.aspectRatio} fillPage={props.fillPage} />
-    <img src={props.img} />
+    <img src={props.img} alt="hero image" decoding="async" />
     <HeroImage aspectRatio={props.aspectRatio} thumbnail={props.thumbnail} fillPage={props.fillPage} />
   </HeroContainer>
 )

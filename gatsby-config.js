@@ -3,6 +3,7 @@ module.exports = {
     title: `tubone24`
   },
   plugins: [
+    'gatsby-plugin-preact',
     'gatsby-plugin-typescript',
     `gatsby-plugin-typegen`,
     {
