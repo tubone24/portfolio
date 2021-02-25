@@ -3,6 +3,7 @@ module.exports = {
     title: `tubone24`
   },
   plugins: [
+    'gatsby-plugin-preact',
     'gatsby-plugin-typescript',
     `gatsby-plugin-typegen`,
     {
@@ -15,7 +16,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src/`
+        path: `${__dirname}/src/`,
+        ignore: [`${__dirname}/src/__generated__/*.ts`]
       }
     },
     `gatsby-plugin-react-helmet`,
