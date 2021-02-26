@@ -15,7 +15,6 @@ jobs:
         with:
           path: |
             node_modules
-            .cache/Cypress
           key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.OS }}-build-
@@ -29,7 +28,9 @@ jobs:
       - name: unit test
         run: npm test
       - name: Cypress UI test
-        run: npm run test:e2e:ci
+        run: |
+          cypress install
+          npm run test:e2e:ci
       - uses: actions/upload-artifact@v2
         with:
           name: cypress-video
