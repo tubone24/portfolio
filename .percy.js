@@ -13,6 +13,6 @@ module.exports = {
     'path': './public/',
     'base-url': '/',
     'snapshot-files': '**/*.html',
-    'ignore-files': '404.html,/404/*.html'
+    'ignore-files': '**/*.htm'
   },
 };
