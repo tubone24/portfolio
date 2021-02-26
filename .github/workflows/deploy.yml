@@ -24,6 +24,8 @@ jobs:
           node-version: 14.x
       - name: npm install
         run: npm install
+      - name: build
+        run: npm run build
       - name: Percy test
         env:
           PERCY_TOKEN: ${{secrets.PERCY_TOKEN}}
