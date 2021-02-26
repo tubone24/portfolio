@@ -29,7 +29,7 @@ jobs:
         run: npm test
       - name: Cypress UI test
         run: |
-          cypress install
+          npx cypress install
           npm run test:e2e:ci
       - uses: actions/upload-artifact@v2
         with:
