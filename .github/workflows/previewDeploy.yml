@@ -30,6 +30,8 @@ jobs:
         run: |
           npx cypress install
           npm run test:e2e:ci
+      - name: Percy
+        run: npm run test:e2e:percy
       - uses: actions/upload-artifact@v2
         with:
           name: cypress-video

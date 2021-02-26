@@ -16,6 +16,9 @@
  * @type {Cypress.PluginConfig}
  */
 const plugins = (on: any, config: any) => {
+  // @ts-ignore
+  let percyHealthCheck = require("@percy/cypress/task");
+  on("task", percyHealthCheck);
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 }

@@ -72,12 +72,14 @@
     "cypress:run": "cypress run",
     "test:e2e": "start-server-and-test develop http://localhost:8000 cypress:open",
     "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cypress:run",
+    "test:e2e:percy": "percy exec -- npm run test:e2e:ci",
     "typecheck": "tsc",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook --output-dir docs"
   },
   "devDependencies": {
     "@babel/core": "^7.12.17",
+    "@percy/cypress": "^2.3.4",
     "@storybook/addon-a11y": "^6.1.18",
     "@storybook/addon-actions": "^6.1.18",
     "@storybook/addon-controls": "^6.1.18",

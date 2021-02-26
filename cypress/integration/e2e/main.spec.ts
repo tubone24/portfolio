@@ -1,6 +1,7 @@
 
 describe("UI Test", () => {
   it('should render the first page to about me', () => {
+    cy.percySnapshot('Homepage test');
     cy.visit('/');
     cy.contains('tubone24').scrollIntoView();
     cy.title().should('include', 'tubone24');
