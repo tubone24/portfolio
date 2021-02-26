@@ -1,7 +1,10 @@
 # portfolio
+[![Twitter URL](https://img.shields.io/twitter/url/https/portfolio.tubone-project24.xyz?style=social)](https://twitter.com/intent/tweet?text=LikeThis:&url=https%3A%2F%2Fportfolio.tubone-project24.xyz)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/tubone24/portfolio) 
-![DeployToNetlifyPRD](https://github.com/tubone24/portfolio/workflows/DeployToNetlifyPRD/badge.svg)
+[![DeployToNetlifyPRD](https://github.com/tubone24/portfolio/workflows/DeployToNetlifyPRD/badge.svg)](https://github.com/tubone24/portfolio/actions/workflows/deploy.yml)
+[![DeployToNetlifyPreview](https://github.com/tubone24/portfolio/actions/workflows/previewDeploy.yml/badge.svg)](https://github.com/tubone24/portfolio/actions/workflows/previewDeploy.yml)
 [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/d0b9144f/portfolio)
+[![CodeFactor](https://www.codefactor.io/repository/github/tubone24/portfolio/badge)](https://www.codefactor.io/repository/github/tubone24/portfolio)
 
 tubone's Portfolio
 
