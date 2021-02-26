@@ -1,6 +1,7 @@
 # portfolio
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/tubone24/portfolio) 
 ![DeployToNetlifyPRD](https://github.com/tubone24/portfolio/workflows/DeployToNetlifyPRD/badge.svg)
+[![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/d0b9144f/portfolio)
 
 tubone's Portfolio
 
