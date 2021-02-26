@@ -3,14 +3,14 @@ module.exports = {
     title: `tubone24`
   },
   plugins: [
-    'gatsby-plugin-preact',
-    'gatsby-plugin-typescript',
+    // 'gatsby-plugin-preact',
+    `gatsby-plugin-typescript`,
     `gatsby-plugin-typegen`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`pacifico:400`, `Arizonia:400`,  `raleway:100,400,600,700`, `Love Ya Like A Sister:100,400,600,700`, `lato: 300,400,500`]
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -18,7 +18,7 @@ module.exports = {
         name: `src`,
         path: `${__dirname}/src/`,
         ignore: [`${__dirname}/src/__generated__/*.ts`]
-      }
+      },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
@@ -26,7 +26,7 @@ module.exports = {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`
-      }
+      },
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -58,26 +58,26 @@ module.exports = {
               // Defaults to false.
               sizeByPixelDensity: false,
               withWebp: true,
-            }
+            },
           },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              classPrefix: 'language-',
+              classPrefix: `language-`,
               inlineCodeMarker: null,
               aliases: {},
               showLineNumbers: false,
               noInlineHighlight: false,
-            }
-          }
-        ]
-      }
+            },
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-154418185-1'
-      }
+        trackingId: `UA-154418185-1`
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -89,13 +89,13 @@ module.exports = {
         theme_color: "#4bff21",
         icon: "static/logo-150x150.png",
         display: "minimal-ui"
-      }
+      },
     },
     {
       resolve: "gatsby-plugin-sentry",
       options: {
         dsn: "https://d15f1e2f481849e0ba6d36d55ae52f9f@sentry.io/1778883"
-      }
-    }
-  ]
+      },
+    },
+  ],
 };
