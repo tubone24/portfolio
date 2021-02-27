@@ -9,7 +9,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`pacifico:400`, `Arizonia:400`,  `raleway:100,400,600,700`, `Love Ya Like A Sister:100,400,600,700`, `lato: 300,400,500`]
+        fonts: [
+          `pacifico:400`,
+          `Arizonia:400`,
+          `raleway:100,400,600,700`,
+          `Love Ya Like A Sister:100,400,600,700`,
+          `lato: 300,400,500`,
+        ],
       },
     },
     {
@@ -17,7 +23,7 @@ module.exports = {
       options: {
         name: `src`,
         path: `${__dirname}/src/`,
-        ignore: [`${__dirname}/src/__generated__/*.ts`]
+        ignore: [`${__dirname}/src/__generated__/*.ts`],
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -25,7 +31,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`
+        pathToConfigModule: `src/utils/typography`,
       },
     },
     `gatsby-plugin-sharp`,
@@ -76,7 +82,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-154418185-1`
+        trackingId: `UA-154418185-1`,
       },
     },
     {
@@ -88,13 +94,13 @@ module.exports = {
         background_color: "#292929",
         theme_color: "#4bff21",
         icon: "static/logo-150x150.png",
-        display: "minimal-ui"
+        display: "minimal-ui",
       },
     },
     {
       resolve: "gatsby-plugin-sentry",
       options: {
-        dsn: "https://d15f1e2f481849e0ba6d36d55ae52f9f@sentry.io/1778883"
+        dsn: "https://d15f1e2f481849e0ba6d36d55ae52f9f@sentry.io/1778883",
       },
     },
   ],

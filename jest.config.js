@@ -1,12 +1,12 @@
-const path = require("path")
+const path = require("path");
 
 module.exports = {
   setupFilesAfterEnv: [
-    path.resolve(__dirname, "./jest-configs/setup-test-env.js")
+    path.resolve(__dirname, "./jest-configs/setup-test-env.js"),
   ],
   transform: {
     // "^.+\\.(tsx?|jsx?)$": "ts-jest",
-    "\\.svg": "<rootDir>/jest-configs/__mocks__/svgTransform.js" ,
+    "\\.svg": "<rootDir>/jest-configs/__mocks__/svgTransform.js",
     "^.+\\.(tsx?|jsx?)$": `<rootDir>/jest-configs/jest-preprocess.js`,
   },
   moduleNameMapper: {
@@ -22,15 +22,7 @@ module.exports = {
     __PATH_PREFIX__: ``,
   },
   testRegex: "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
-  moduleFileExtensions: [
-    "ts",
-    "tsx",
-    "js"
-  ],
+  moduleFileExtensions: ["ts", "tsx", "js"],
   collectCoverage: false,
-  coverageReporters: [
-    "lcov",
-    "text",
-    "html"
-  ]
-}
+  coverageReporters: ["lcov", "text", "html"],
+};

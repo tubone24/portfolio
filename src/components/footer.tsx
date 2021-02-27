@@ -41,7 +41,7 @@ const GalleryContainer = styled.div`
   }
 `
 
-const Footer = (): JSX.Element  => (
+const Footer = (): JSX.Element => (
   <Base>
     <Flex flexWrap="wrap" justifyContent="space-around">
       <Box px={2} width={[1, 1 / 2, 1 / 3, 1 / 6]}>

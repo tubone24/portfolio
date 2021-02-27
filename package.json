@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "author": "tubone24 <tubo.yyyuuu@gmail.com>",
   "dependencies": {
-    "@types/isomorphic-fetch": "0.0.35",
     "cross-fetch": "^3.0.6",
     "gatsby": "^2.32.4",
     "gatsby-image": "^2.11.0",
@@ -74,7 +73,7 @@
     "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cypress:run",
     "typecheck": "tsc",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook --output-dir docs"
+    "build-storybook": "build-storybook --output-dir sb"
   },
   "devDependencies": {
     "@babel/core": "^7.12.17",
