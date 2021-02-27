@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `tubone24`
+    title: `tubone24`,
   },
   plugins: [
     // 'gatsby-plugin-preact',
