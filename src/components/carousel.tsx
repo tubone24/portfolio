@@ -5,8 +5,8 @@ type Props = {
   images: string[]
 }
 
-export const Carousel = (props: Props): JSX.Element  => {
-  const images = props.images.map((image) => {
+export const Carousel = (props: Props): JSX.Element => {
+  const images = props.images.map(image => {
     return <img key={image} src={image} alt={image} />
   })
   return (

@@ -80,7 +80,7 @@ type Props = {
   location: Location
 }
 
-export default ({ data, location }: Props)  => {
+export default ({ data, location }: Props) => {
   const post = data.markdownRemark
   const crumbs = [
     { name: 'home', link: '/' },
