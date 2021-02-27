@@ -24,5 +24,5 @@ module.exports = {
   testRegex: "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
   moduleFileExtensions: ["ts", "tsx", "js"],
   collectCoverage: false,
-  coverageReporters: ["lcov", "text", "html"]
+  coverageReporters: ["lcov", "text", "html"],
 };

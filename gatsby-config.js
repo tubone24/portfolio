@@ -14,7 +14,7 @@ module.exports = {
           `Arizonia:400`,
           `raleway:100,400,600,700`,
           `Love Ya Like A Sister:100,400,600,700`,
-          `lato: 300,400,500`
+          `lato: 300,400,500`,
         ],
       },
     },
