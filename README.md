@@ -5,6 +5,8 @@
 [![DeployToNetlifyPreview](https://github.com/tubone24/portfolio/actions/workflows/previewDeploy.yml/badge.svg)](https://github.com/tubone24/portfolio/actions/workflows/previewDeploy.yml)
 [![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/d0b9144f/portfolio)
 [![CodeFactor](https://www.codefactor.io/repository/github/tubone24/portfolio/badge)](https://www.codefactor.io/repository/github/tubone24/portfolio)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier)](https://github.com/prettier/prettier)
+[![storybook](https://raw.githubusercontent.com/storybookjs/brand/master/badge/badge-storybook.svg)](https://tubone24.github.io/portfolio/sb/?path=/story/example-introduction--page)
 
 tubone's Portfolio
 
@@ -14,7 +16,7 @@ tubone's Portfolio
 
 This project uses Gatsby.js, an SSG tool that uses React with TypeScript, and React coding is developed using TypeScript and Styled Components for styles.
 
-Deployment is also achieved using Netlify.
+Use GitHub Actions to build, and deploy to Netlify
 
 ## Setup and Develop
 
@@ -44,7 +46,49 @@ This project is developed using TypeScript, so it can be type-checked by `TSC`.
 npm run typecheck
 ```
 
-## Storybook
+## Testing
+
+### Unit Testing
+
+You can use jest to perform unit tests on React components.
+
+```
+npm test
+```
+
+### E2E Testing
+
+E2E testing can be performed using Cypress.
+
+```
+npm run test:e2e
+```
+
+### Visual Testing
+
+You can use Percy to check your PR for unexpected changes in your design.
+
+[Percy](https://percy.io/d0b9144f/portfolio)
+
+## Formatting
+
+### Prettier
+
+You can use Prettier to keep the code format constant.
+
+```
+npm run format
+```
+
+### CodeFactor
+
+The codefactor will be started at the timing of the PR.
+
+[CodeFactor](https://www.codefactor.io/repository/github/tubone24/portfolio)
+
+## UI catalog
+
+### Storybook
 
 This project uses Storybook to catalog the UI of the components used.
 
@@ -58,8 +102,10 @@ npm run build-storybook
 
 And also the catalog is available on GitHub Pages.
 
-[Storybook](https://tubone24.github.io/portfolio/?path=/story/example-introduction--page)
+[Storybook](https://tubone24.github.io/portfolio/sb/?path=/story/example-introduction--page)
 
-## Design
+### Design
+
+The UI design for this project is managed by Figma.
 
 [Figma](https://www.figma.com/file/ay3SORZ5aWVpZQov8ewrcL/portfolio?node-id=0%3A1)
