@@ -30,6 +30,34 @@ jobs:
         env:
           PERCY_TOKEN: ${{secrets.PERCY_TOKEN}}
         run: npx percy snapshot ./public/
+  storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+      - name: Cache node_modules
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-
+            ${{ runner.OS }}
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: npm install
+      - name: build storybook
+        run: npm run build-storybook
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./sb
+          keep_files: true
+          destination_dir: sb
   test:
     runs-on: ubuntu-latest
     steps:
