@@ -2,8 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Flex, Box } from 'grid-styled'
 import styled, { css } from 'styled-components'
-// @ts-ignore
-// import FlickrHero from 'react-flickr-hero'
 import FlickrHero from '../components/flickrHero'
 import { media } from '../utils/style'
 import Layout from '../components/layout'
