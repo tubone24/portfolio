@@ -2,8 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { Flex, Box } from 'grid-styled'
 import styled, { css } from 'styled-components'
-// @ts-ignore
-// import FlickrHero from 'react-flickr-hero'
 import FlickrHero from '../components/flickrHero'
 import { media } from '../utils/style'
 import Layout from '../components/layout'
@@ -18,6 +16,7 @@ import scrollToElement from 'scroll-to-element'
 import AboutMe from '../components/aboutme'
 import PhotoList from '../components/photoList'
 import Music from '../components/music'
+import ContactForm from "../components/contactForm";
 
 const Content = styled.div`
   & > a {
@@ -339,14 +338,10 @@ export default (props: Props): JSX.Element => {
       <Section>
         <Title>Contact</Title>
         <Flex alignItems="center" flexDirection="column">
-          <Box px={2} width={[1, 1 / 2]}>
+          <Box px={1} width={[1, 1 / 2]}>
             <p>If you interested, Contact me!</p>
           </Box>
-          <a href="https://blog.tubone-project24.xyz/contacts/">
-            <Box px={2} width={180}>
-              <Button>Contact Me!</Button>
-            </Box>
-          </a>
+          <ContactForm />
         </Flex>
       </Section>
     </Content>
