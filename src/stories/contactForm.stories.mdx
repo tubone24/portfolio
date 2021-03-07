@@ -1,0 +1,23 @@
+import { storiesOf } from '@storybook/react';
+import { withInfo } from '@storybook/addon-info';
+import { withKnobs, text, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import ContactForm from '../components/contactForm';
+import { Meta, Story, Preview, Props, Source } from "@storybook/addon-docs/blocks";
+import dedent from 'ts-dedent';
+
+<Meta title="Components/ContactForm" parameters={{ component: ContactForm, backgrounds: { default: 'twitter', values: [ { name: 'twitter', value: '#00aced' }, { name: 'facebook', value: '#3b5998' }, ], }, }} />
+
+お問い合わせフォーム
+
+# Preview
+
+<Preview withSource="open">
+  <Story name="ContactForm">
+    <ContactForm />
+  </Story>
+</Preview>
+
+# Props
+
+<Props of="." />
