@@ -25,6 +25,9 @@ jobs:
       - name: npm install
         run: npm install
       - name: build
+        env:
+          GATSBY_GITHUB_SHA: ${{ github.sha }}
+          NETLIFY_ENV: deploy-preview
         run: npm run build
       - name: Percy test
         env:
@@ -108,6 +111,9 @@ jobs:
         with:
           node-version: 14.x
       - name: npm install and build
+        env:
+          GATSBY_GITHUB_SHA: ${{ github.sha }}
+          NETLIFY_ENV: deploy-preview
         run: |
           npm install
           npm run build

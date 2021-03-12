@@ -101,6 +101,10 @@ module.exports = {
       resolve: "gatsby-plugin-sentry",
       options: {
         dsn: "https://d15f1e2f481849e0ba6d36d55ae52f9f@sentry.io/1778883",
+        environment: process.env.NODE_ENV,
+        release: `tubone-portfolio@${process.env.GATSBY_GITHUB_SHA}`,
+        tracesSampleRate: 1.0,
+        enabled: (() => ['production', 'stage'].indexOf(process.env.NODE_ENV) !== -1)(),
       },
     },
   ],
