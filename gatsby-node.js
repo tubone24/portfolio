@@ -38,7 +38,7 @@ exports.createPages = ({ graphql, actions }) => {
           },
         });
       });
-      resolve();
+      return resolve();
     });
   });
 };
