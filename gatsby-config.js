@@ -104,7 +104,8 @@ module.exports = {
         environment: process.env.NODE_ENV,
         release: `tubone-portfolio@${process.env.GATSBY_GITHUB_SHA}`,
         tracesSampleRate: 1.0,
-        enabled: (() => ['production', 'stage'].indexOf(process.env.NODE_ENV) !== -1)(),
+        enabled: (() =>
+          ["production", "stage"].indexOf(process.env.NODE_ENV) !== -1)(),
       },
     },
   ],
