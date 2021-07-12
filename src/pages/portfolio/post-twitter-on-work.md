@@ -6,7 +6,7 @@ image: './images/post-twitter-nim.png'
 ---
 # post_twitter_on_work (Twitter CLI client)
 
-![img](https://raw.githubusercontent.com/tubone24/post_twitter_on_work/master/docs/images/header_twitter.png)
+[![img](https://raw.githubusercontent.com/tubone24/post_twitter_on_work/master/docs/images/header_twitter.png)](https://github.com/tubone24/post_twitter_on_work)
 
 > If you use it, you can watch Twitter on work.
 

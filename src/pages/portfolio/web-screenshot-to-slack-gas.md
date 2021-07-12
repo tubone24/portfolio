@@ -7,7 +7,7 @@ image: './images/web-screenshot-to-slack-gas.png'
 
 This app is take screenshots of Web pages with GAS(Google Apps Script) and send images to Slack channel with Slack API.
 
-![](https://raw.githubusercontent.com/tubone24/web-screenshot-to-slack-gas/master/docs/images/header.png)
+[![](https://raw.githubusercontent.com/tubone24/web-screenshot-to-slack-gas/master/docs/images/header.png)](https://github.com/tubone24/web-screenshot-to-slack-gas)
 
 ## Background
 

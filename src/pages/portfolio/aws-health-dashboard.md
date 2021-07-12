@@ -7,7 +7,7 @@ image: './images/aws-health-dashboard.png'
 
 # AWS Health Dashboard
 
-![img](https://i.imgur.com/AoeQGrV.png)
+[![img](https://i.imgur.com/AoeQGrV.png)](https://aws-health-dashboard.vercel.app/)
 
 > Easily check the status of **AWS**
 

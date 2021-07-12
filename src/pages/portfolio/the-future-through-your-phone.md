@@ -5,7 +5,7 @@ tags: ["Chrome Theme", "Hong Kong"]
 image: './images/the-future-through-your-phone.png'
 ---
 
-# The Future Through Your Phone
+# [The Future Through Your Phone](https://chrome.google.com/webstore/detail/the-future-through-your-p/cjgbbfffgmibccgdopbanknhngpmcaem?utm_source=chrome-ntp-icon)
 
 [Download Now!](https://chrome.google.com/webstore/detail/the-future-through-your-p/cjgbbfffgmibccgdopbanknhngpmcaem?utm_source=chrome-ntp-icon)
 

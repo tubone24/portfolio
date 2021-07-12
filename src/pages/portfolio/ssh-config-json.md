@@ -4,7 +4,7 @@ date: "2020-11-22"
 tags: ["ssh","config","cli"]
 image: './images/ssh-config.png'
 ---
-# SSH Config JSON
+# [SSH Config JSON](https://github.com/tubone24/ssh_config_json)
 
 `SSH Config JSON` is dumping JSON for your ssh config include IdentityFiles and restoring those.
 SSH Config JSON enables you to pack and restore your SSH Config and Private Key in JSON format, allowing you to backup, put to CI and share with others in the project.

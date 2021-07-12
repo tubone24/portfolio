@@ -7,7 +7,7 @@ image: './images/moodle-ami.png'
 
 It is a Packer template for creating an educational support content sharing server called Moodle.
 
-![](https://raw.githubusercontent.com/tubone24/mac-auto-setup/master/docs/images/header.png)
+[![](https://raw.githubusercontent.com/tubone24/mac-auto-setup/master/docs/images/header.png)](https://github.com/tubone24/moodle-ami)
 
 ## Background
 

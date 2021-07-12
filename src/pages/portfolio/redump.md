@@ -6,7 +6,7 @@ image: './images/redump.png'
 ---
 
 
-![redmup_logo](https://raw.githubusercontent.com/tubone24/redump/main/docs/images/redump_logo.png)
+[![redmup_logo](https://raw.githubusercontent.com/tubone24/redump/main/docs/images/redump_logo.png)](https://github.com/tubone24/redump/releases)
 
 > REDUMP is a tool to migrate data in your Redmine without admin accounts.
 

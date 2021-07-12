@@ -5,7 +5,7 @@ tags: ["conoha", "google-apps-script", "slack-commands", "clasp", "ipregistry-cl
 image: './images/conoha-appscript.png'
 ---
 
-![](https://raw.githubusercontent.com/tubone24/conoha-slack-sg-register-for-gas/master/docs/images/logo.png)
+[![](https://raw.githubusercontent.com/tubone24/conoha-slack-sg-register-for-gas/master/docs/images/logo.png)](https://github.com/tubone24/conoha-slack-sg-register-for-gas)
 
 This is GoogleAppsScript to register home IP address with [conoHa VPS](https://www.conoha.jp/vps/?btn_id=top_vps) SecurityGroup using Slack command.
 
