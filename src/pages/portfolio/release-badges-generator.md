@@ -5,9 +5,7 @@ tags: ["GitHub", "Releases", "Badges"]
 image: './images/release-badges-generator.png'
 ---
 
-# release badge generator
-
-[![img](https://i.imgur.com/0rVzxsc.png)](https://release-badges-generator.vercel.app)
+[![](https://i.imgur.com/0rVzxsc.png)](https://release-badges-generator.vercel.app)
 
 > Easily create release version badges for GitHub repositories.
 

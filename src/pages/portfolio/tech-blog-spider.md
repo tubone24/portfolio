@@ -5,9 +5,7 @@ tags: ["RSS", "Slack"]
 image: './images/tech-blog-spider.png'
 ---
 
-# Tech Blog Spider
-
-[![logo](https://raw.githubusercontent.com/tubone24/tech_blog_spider/main/docs/images/logo.png)](https://github.com/tubone24/tech_blog_spider)
+[![](https://raw.githubusercontent.com/tubone24/tech_blog_spider/main/docs/images/logo.png)](https://github.com/tubone24/tech_blog_spider)
 
 > Crawls tech blogs and notifies you via Slack
 

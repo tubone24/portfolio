@@ -5,9 +5,7 @@ tags: ["aws", "Next.js", "TypeScript", "Recoil"]
 image: './images/aws-health-dashboard.png'
 ---
 
-# AWS Health Dashboard
-
-[![img](https://i.imgur.com/AoeQGrV.png)](https://aws-health-dashboard.vercel.app/)
+[![](https://i.imgur.com/AoeQGrV.png)](https://aws-health-dashboard.vercel.app/)
 
 > Easily check the status of **AWS**
 

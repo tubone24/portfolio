@@ -5,9 +5,7 @@ tags: ["PDF", "marriage", "reportlab"]
 image: './images/marriage-registration.png'
 ---
 
-# GitHub Marriage Registration
-
-[![header](https://i.imgur.com/PXDvU3s.png)](https://marriage-registration-landing-page.vercel.app/)
+[![](https://i.imgur.com/PXDvU3s.png)](https://marriage-registration-landing-page.vercel.app/)
 
 > I want continuous integration and delivery of my marriage certificate! I want to write my happiness in YAML! I want to marry a software engineer! I can solve those problems!
 

@@ -6,7 +6,7 @@ image: './images/ramen-tabetai-logo.png'
 ---
 # Ramen Tabetai (I want to have a Ramen)
 
-![logo](https://raw.githubusercontent.com/tubone24/ramen-tabetai/master/docs/images/logo.png)
+![](https://raw.githubusercontent.com/tubone24/ramen-tabetai/master/docs/images/logo.png)
 
 > Do you like ramen?
 
