@@ -1,14 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-import FontAwesome from 'react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconName } from '@fortawesome/fontawesome-common-types'
+
+library.add(fab)
 
 type Icon = {
   href: string
-  name: string
+  name: IconName
 }
 const Icon = ({ name, href }: Icon) => (
   <a href={href}>
-    <FontAwesome name={name} />
+    <FontAwesomeIcon icon={['fab', name]} />
   </a>
 )
 
