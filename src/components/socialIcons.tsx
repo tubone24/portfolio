@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fa500px, faTwitter, faGithubAlt, faSoundcloud, faSlideshare } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconName } from '@fortawesome/fontawesome-common-types'
 
-library.add(fab)
+library.add(fa500px, faTwitter, faGithubAlt, faSoundcloud, faSlideshare)
 
 type Icon = {
   href: string
