@@ -16,14 +16,10 @@ export const ContactForm = (): JSX.Element => {
     setServerState({submitting: true, status: {ok, msg}})
   };
   const onSubmit = (data: Inputs, e: any) => {
-    const formData = new FormData();
-    formData.append("name", data.name)
-    formData.append("email", data.email)
-    formData.append("subject", data.subject)
-    formData.append("message", data.message)
-    fetch('https://getform.io/f/897f187e-876d-42a7-b300-7c235af72e6d', {
+    const payload = {name: data.name, email: data.email, subject: data.subject, message: data.message}
+    fetch('/.netlify/functions/contact', {
       method: 'POST',
-      body: formData
+      body: JSON.stringify(payload)
     })
       .then(() => {
         e.target.reset();
