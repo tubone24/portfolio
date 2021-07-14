@@ -186,7 +186,7 @@ type DirectoryEdge = {
   readonly previous: Maybe<Directory>;
 };
 
-type DirectoryFieldsEnum =
+type DirectoryFieldsEnum = 
   | 'sourceInstanceName'
   | 'absolutePath'
   | 'relativePath'
@@ -502,7 +502,7 @@ type FileEdge = {
   readonly previous: Maybe<File>;
 };
 
-type FileFieldsEnum =
+type FileFieldsEnum = 
   | 'sourceInstanceName'
   | 'absolutePath'
   | 'relativePath'
@@ -1070,7 +1070,7 @@ type FloatQueryOperatorInput = {
   readonly nin: Maybe<ReadonlyArray<Maybe<Scalars['Float']>>>;
 };
 
-type ImageCropFocus =
+type ImageCropFocus = 
   | 'CENTER'
   | 1
   | 5
@@ -1083,14 +1083,14 @@ type ImageCropFocus =
   | 16
   | 17;
 
-type ImageFit =
+type ImageFit = 
   | 'cover'
   | 'contain'
   | 'fill'
   | 'inside'
   | 'outside';
 
-type ImageFormat =
+type ImageFormat = 
   | 'NO_CHANGE'
   | 'AUTO'
   | 'jpg'
@@ -1098,12 +1098,12 @@ type ImageFormat =
   | 'webp'
   | 'avif';
 
-type ImageLayout =
+type ImageLayout = 
   | 'fixed'
   | 'fullWidth'
   | 'constrained';
 
-type ImagePlaceholder =
+type ImagePlaceholder = 
   | 'dominantColor'
   | 'tracedSVG'
   | 'blurred'
@@ -1293,7 +1293,7 @@ type ImageSharpEdge = {
   readonly previous: Maybe<ImageSharp>;
 };
 
-type ImageSharpFieldsEnum =
+type ImageSharpFieldsEnum = 
   | 'fixed.base64'
   | 'fixed.tracedSVG'
   | 'fixed.aspectRatio'
@@ -1657,7 +1657,7 @@ type JSONQueryOperatorInput = {
   readonly glob: Maybe<Scalars['JSON']>;
 };
 
-type MarkdownExcerptFormats =
+type MarkdownExcerptFormats = 
   | 'PLAIN'
   | 'HTML'
   | 'MARKDOWN';
@@ -1678,7 +1678,7 @@ type MarkdownHeadingFilterListInput = {
   readonly elemMatch: Maybe<MarkdownHeadingFilterInput>;
 };
 
-type MarkdownHeadingLevels =
+type MarkdownHeadingLevels = 
   | 'h1'
   | 'h2'
   | 'h3'
@@ -1762,7 +1762,7 @@ type MarkdownRemarkFields = {
   readonly slug: Maybe<Scalars['String']>;
 };
 
-type MarkdownRemarkFieldsEnum =
+type MarkdownRemarkFieldsEnum = 
   | 'id'
   | 'frontmatter.title'
   | 'frontmatter.date'
@@ -2068,7 +2068,7 @@ type Potrace = {
   readonly background: Maybe<Scalars['String']>;
 };
 
-type PotraceTurnPolicy =
+type PotraceTurnPolicy = 
   | 'black'
   | 'white'
   | 'left'
@@ -2403,7 +2403,7 @@ type SiteBuildMetadataEdge = {
   readonly previous: Maybe<SiteBuildMetadata>;
 };
 
-type SiteBuildMetadataFieldsEnum =
+type SiteBuildMetadataFieldsEnum = 
   | 'id'
   | 'parent.id'
   | 'parent.parent.id'
@@ -2541,7 +2541,7 @@ type SiteEdge = {
   readonly previous: Maybe<Site>;
 };
 
-type SiteFieldsEnum =
+type SiteFieldsEnum = 
   | 'buildTime'
   | 'siteMetadata.title'
   | 'siteMetadata.description'
@@ -2710,7 +2710,7 @@ type SitePageEdge = {
   readonly previous: Maybe<SitePage>;
 };
 
-type SitePageFieldsEnum =
+type SitePageFieldsEnum = 
   | 'path'
   | 'component'
   | 'internalComponentName'
@@ -3005,7 +3005,7 @@ type SitePluginEdge = {
   readonly previous: Maybe<SitePlugin>;
 };
 
-type SitePluginFieldsEnum =
+type SitePluginFieldsEnum = 
   | 'id'
   | 'parent.id'
   | 'parent.parent.id'
@@ -3487,7 +3487,7 @@ type SiteSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type SortOrderEnum =
+type SortOrderEnum = 
   | 'ASC'
   | 'DESC';
 

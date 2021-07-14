@@ -12,7 +12,7 @@ export const Carousel = (props: Props): JSX.Element => {
 
 
   return (
-    <NukaCarousel wrapAround dragging autoplay defaultControlsConfig={ {pagingDotsStyle: {visibility:'hidden'}} }>
+    <NukaCarousel wrapAround dragging autoplay >
       {images}
     </NukaCarousel>
   )
