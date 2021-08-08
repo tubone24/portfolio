@@ -278,7 +278,14 @@ export default (props: Props): JSX.Element => {
         <h4>Experience</h4>
         <span>Where I've worked.</span>
         <Item>
-          <span>April 2019- Current</span>
+          <span>August 2021- Current</span>
+          <h6>FullStack Developer</h6>
+          <p>
+            Developing an event platform using React, Nest.js (TypeScript), and AWS.
+          </p>
+        </Item>
+        <Item>
+          <span>April 2019- July 2021</span>
           <h6>Data Engineering developer & Tech Lead</h6>
           <p>
             Developing data analysis infrastructure using AWS because of
