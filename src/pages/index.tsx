@@ -279,7 +279,7 @@ export default (props: Props): JSX.Element => {
         <span>Where I've worked.</span>
         <Item>
           <span>August 2021- Current</span>
-          <h6>FullStack Developer</h6>
+          <h6><a href="https://netflixtechblog.com/full-cycle-developers-at-netflix-a08c31f83249">Full Cycle</a> Developer</h6>
           <p>
             Developing an event platform using React, Nest.js (TypeScript), and AWS.
           </p>
