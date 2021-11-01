@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {useForm} from "react-hook-form";
 import Button from "./button";
+import styled from "styled-components";
 
 type Inputs = {
   name: string,
@@ -33,20 +34,20 @@ export const ContactForm = (): JSX.Element => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <p>
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <P>
         <label>Your Name<br/>
-          <input
+          <Input
             name="name"
             placeholder="Enter your name"
             type="text"
             ref={register({required: true})}/>
           {errors.name && <span>This field is required</span>}
         </label>
-      </p>
-      <p>
+      </P>
+      <P>
         <label> Your email<br/>
-          <input
+          <Input
             name="email"
             type="email"
             placeholder="Enter your email"
@@ -56,11 +57,11 @@ export const ContactForm = (): JSX.Element => {
             })}/>
           {errors.email && <span>This field is required and only email format</span>}
         </label>
-      </p>
-      <p>
+      </P>
+      <P>
         <label>
           Subject<br/>
-          <input
+          <Input
             name="subject"
             type="text"
             maxLength={30}
@@ -68,21 +69,44 @@ export const ContactForm = (): JSX.Element => {
             ref={register({required: true})}/>
           {errors.subject && <span>This field is required</span>}
         </label>
-      </p>
-      <p>
+      </P>
+      <P>
         <label>
           Message<br/>
-          <textarea
+          <TextArea
             name="message" placeholder="Something writing..." rows={6} cols={25} ref={register({required: true})}/>
           {errors.message && <span>This field is required</span>}
         </label>
-      </p>
+      </P>
       <Button dark={serverState.submitting && serverState.status.ok}
               disabled={serverState.submitting && serverState.status.ok}>
         {serverState.submitting && serverState.status.ok ? serverState.status.msg : 'Submit'}
       </Button>
-    </form>
+    </Form>
   );
-}
+};
+
+const Form = styled.form`
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  width: 40%;
+`;
+
+const Input = styled.input`
+  width: 100%
+`;
+
+const TextArea = styled.textarea`
+  width: 100%;
+`;
+
+const P = styled.p`
+  margin-bottom: 0px;
+`;
 
 export default ContactForm

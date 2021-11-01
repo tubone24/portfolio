@@ -75,7 +75,8 @@
     "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cypress:run",
     "typecheck": "tsc",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook --output-dir sb"
+    "build-storybook": "build-storybook --output-dir sb",
+    "browserslist:update": "npx browserslist@latest --update-db"
   },
   "devDependencies": {
     "@babel/core": "^7.12.17",
