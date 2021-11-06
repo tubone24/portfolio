@@ -141,6 +141,6 @@
     "tslint-react": "5.0.0"
   },
   "resolutions": {
-    "@graphql-codegen/visitor-plugin-common": "1.17.22"
+    "@graphql-codegen/visitor-plugin-common": "1.22.0"
   }
 }
