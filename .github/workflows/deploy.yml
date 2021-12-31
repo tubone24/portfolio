@@ -146,3 +146,17 @@ jobs:
           publish_dir: ./public
           keep_files: true
           destination_dir: lh
+  chromatic-deployment:
+    needs: ['test']
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Install
+        run: npm install
+      - name: run Chromatic
+        uses: chromaui/action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
