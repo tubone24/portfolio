@@ -104,6 +104,12 @@ And also the catalog is available on GitHub Pages.
 
 [Storybook](https://tubone24.github.io/portfolio/sb/?path=/story/example-introduction--page)
 
+#### Chromatic
+
+You can use Chromatic to detect unexpected changes on a per-component basis.
+
+[Chromatic](https://www.chromatic.com/builds?appId=61cea5316beee9003a7f4046)
+
 ### Design
 
 The UI design for this project is managed by Figma.
