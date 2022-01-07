@@ -377,16 +377,7 @@ export const pageQuery = graphql`
             tags
             image {
               childImageSharp {
-                fluid(
-                  maxWidth: 500
-                  duotone: {
-                    highlight: "#333333"
-                    shadow: "#111111"
-                    opacity: 65
-                  }
-                ) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: FIXED)
               }
             }
           }
@@ -398,9 +389,7 @@ export const pageQuery = graphql`
         node {
           id
           childImageSharp {
-            fluid(maxWidth: 300, grayscale: true) {
-              ...GatsbyImageSharpFluid_tracedSVG
-            }
+            gatsbyImageData(layout: FIXED)
           }
         }
       }
@@ -409,9 +398,7 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            fluid(maxWidth: 200, grayscale: true) {
-              ...GatsbyImageSharpFluid_tracedSVG
-            }
+            gatsbyImageData(layout: FIXED)
           }
         }
       }

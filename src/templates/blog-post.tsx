@@ -129,10 +129,7 @@ export const query = graphql`
         tags
         image {
           childImageSharp {
-            sizes {
-              sizes
-              src
-            }
+            gatsbyImageData(layout: FIXED)
           }
         }
       }

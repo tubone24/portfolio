@@ -12,7 +12,7 @@ type Inputs = {
 
 export const ContactForm = (): JSX.Element => {
   const [serverState, setServerState] = useState({submitting: false, status: {ok: false, msg: ""}});
-  const {register, handleSubmit, errors} = useForm<Inputs>()
+  const {register, handleSubmit, formState: { errors }} = useForm<Inputs>()
   const handleServerResponse = (ok: boolean, msg: string) => {
     setServerState({submitting: true, status: {ok, msg}})
   };
@@ -38,23 +38,18 @@ export const ContactForm = (): JSX.Element => {
       <P>
         <label>Your Name<br/>
           <Input
-            name="name"
             placeholder="Enter your name"
             type="text"
-            ref={register({required: true})}/>
+            {...register("name", {required: true})}/>
           {errors.name && <span>This field is required</span>}
         </label>
       </P>
       <P>
         <label> Your email<br/>
           <Input
-            name="email"
             type="email"
             placeholder="Enter your email"
-            ref={register({
-              pattern: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i,
-              required: true
-            })}/>
+            {...register("email", {required: true, pattern: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i})}/>
           {errors.email && <span>This field is required and only email format</span>}
         </label>
       </P>
@@ -62,11 +57,10 @@ export const ContactForm = (): JSX.Element => {
         <label>
           Subject<br/>
           <Input
-            name="subject"
             type="text"
             maxLength={30}
             placeholder="Subject here..."
-            ref={register({required: true})}/>
+            {...register("subject", {required: true})}/>
           {errors.subject && <span>This field is required</span>}
         </label>
       </P>
@@ -74,7 +68,7 @@ export const ContactForm = (): JSX.Element => {
         <label>
           Message<br/>
           <TextArea
-            name="message" placeholder="Something writing..." rows={6} cols={25} ref={register({required: true})}/>
+              placeholder="Something writing..." rows={6} cols={25} {...register("message", {required: true})}/>
           {errors.message && <span>This field is required</span>}
         </label>
       </P>
