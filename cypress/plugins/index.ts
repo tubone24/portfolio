@@ -15,7 +15,11 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-const plugins = (_on: any, _config: any) => {
+
+const plugins = (
+  _on: Cypress.PluginEvents,
+  _config: Cypress.PluginConfigOptions
+) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 };
