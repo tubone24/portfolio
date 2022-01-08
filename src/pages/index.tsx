@@ -1,21 +1,21 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import { Flex, Box } from 'grid-styled'
-import styled, { css } from 'styled-components'
-import FlickrHero from '../components/flickrHero'
-import { media } from '../utils/style'
-import Layout from '../components/layout'
-import NavBar from '../components/navbar'
-import HeroText from '../components/heroText'
-import SocialIcons from '../components/socialIcons'
-import Portfolio from '../components/portfolio'
-import Showcase from '../components/showcase'
-import Button from '../components/button'
-import GitHubWeed from '../components/githubWeed'
-import scrollToElement from 'scroll-to-element'
-import AboutMe from '../components/aboutme'
-import PhotoList from '../components/photoList'
-import Music from '../components/music'
+import React from "react";
+import { graphql } from "gatsby";
+import { Flex, Box } from "grid-styled";
+import styled, { css } from "styled-components";
+import scrollToElement from "scroll-to-element";
+import FlickrHero from "../components/flickrHero";
+import { media } from "../utils/style";
+import Layout from "../components/layout";
+import NavBar from "../components/navbar";
+import HeroText from "../components/heroText";
+import SocialIcons from "../components/socialIcons";
+import Portfolio from "../components/portfolio";
+import Showcase from "../components/showcase";
+import Button from "../components/button";
+import GitHubWeed from "../components/githubWeed";
+import AboutMe from "../components/aboutme";
+import PhotoList from "../components/photoList";
+import Music from "../components/music";
 import ContactForm from "../components/contactForm";
 
 const Content = styled.div`
@@ -27,10 +27,10 @@ const Content = styled.div`
   & > h1 {
     text-align: center;
   }
-`
+`;
 
 const Title = styled.h1<{ small?: boolean }>`
-  font-family: 'Raleway';
+  font-family: "Raleway";
   text-transform: uppercase;
   letter-spacing: 6px;
   margin-bottom: 40px;
@@ -40,7 +40,7 @@ const Title = styled.h1<{ small?: boolean }>`
   border: none;
   color: #292929;
 
-  ${props =>
+  ${(props) =>
     props.small &&
     css`
       font-size: 24px;
@@ -48,7 +48,7 @@ const Title = styled.h1<{ small?: boolean }>`
       font-weight: 400;
       line-height: 24px;
     `}
-`
+`;
 
 const Section = styled.div<{ center?: boolean; dark?: boolean }>`
   text-align: center;
@@ -56,7 +56,7 @@ const Section = styled.div<{ center?: boolean; dark?: boolean }>`
   padding-bottom: 40px;
 
   a {
-    font-family: 'Lato';
+    font-family: "Lato";
   }
 
   p {
@@ -71,7 +71,7 @@ const Section = styled.div<{ center?: boolean; dark?: boolean }>`
   h4,
   h5,
   h6 {
-    font-family: 'Raleway';
+    font-family: "Raleway";
     text-transform: uppercase;
     color: #292929;
   }
@@ -94,7 +94,7 @@ const Section = styled.div<{ center?: boolean; dark?: boolean }>`
     border-bottom: none !important;
   }
 
-  ${props =>
+  ${(props) =>
     props.center &&
     css`
       text-align: left;
@@ -112,7 +112,7 @@ const Section = styled.div<{ center?: boolean; dark?: boolean }>`
     `}
     `}
 
-  ${props =>
+  ${(props) =>
     props.dark &&
     css`
       background: #020d05;
@@ -141,7 +141,7 @@ const Section = styled.div<{ center?: boolean; dark?: boolean }>`
         border-bottom: 1px solid #333 !important;
       }
     `}
-`
+`;
 
 const Item = styled.div`
   width: 40%;
@@ -172,20 +172,20 @@ const Item = styled.div`
     width: 90%;
 
   `}
-`
+`;
 
 const HomeButton = styled(Button)`
   position: absolute;
   bottom: 35%;
   left: 20%;
-`
+`;
 
 type Props = {
-  data: GatsbyTypes.IndexQueryQuery
-  location: Location
-}
+  data: GatsbyTypes.IndexQueryQuery;
+  location: Location;
+};
 
-export default (props: Props): JSX.Element => {
+export default function (props: Props): JSX.Element {
   const content = (
     <Content>
       <FlickrHero
@@ -194,38 +194,38 @@ export default (props: Props): JSX.Element => {
         album_id="72157711319102412"
         fillPage
       />
-      <HomeButton opaque light onClick={() => scrollToElement('#about-me')}>
+      <HomeButton opaque light onClick={() => scrollToElement("#about-me")}>
         About me
       </HomeButton>
       <HeroText />
       <SocialIcons
         style={{
-          position: 'absolute',
-          margin: '0 auto',
+          position: "absolute",
+          margin: "0 auto",
           left: 0,
           right: 0,
           bottom: 16,
         }}
         icons={[
           {
-            name: 'twitter',
-            href: 'https://twitter.com/meitante1conan',
+            name: "twitter",
+            href: "https://twitter.com/meitante1conan",
           },
           {
-            name: 'github-alt',
-            href: 'https://github.com/tubone24',
+            name: "github-alt",
+            href: "https://github.com/tubone24",
           },
           {
-            name: 'soundcloud',
-            href: 'https://soundcloud.com/user-453736300',
+            name: "soundcloud",
+            href: "https://soundcloud.com/user-453736300",
           },
           {
-            name: 'slideshare',
-            href: 'https://www.slideshare.net/tubone24',
+            name: "slideshare",
+            href: "https://www.slideshare.net/tubone24",
           },
           {
-            name: '500px',
-            href: 'https://500px.com/tubone24',
+            name: "500px",
+            href: "https://500px.com/tubone24",
           },
         ]}
       />
@@ -279,9 +279,15 @@ export default (props: Props): JSX.Element => {
         <span>Where I've worked.</span>
         <Item>
           <span>August 2021- Current</span>
-          <h6><a href="https://netflixtechblog.com/full-cycle-developers-at-netflix-a08c31f83249">Full Cycle</a> Developer and Development Team Leader</h6>
+          <h6>
+            <a href="https://netflixtechblog.com/full-cycle-developers-at-netflix-a08c31f83249">
+              Full Cycle
+            </a>{" "}
+            Developer and Development Team Leader
+          </h6>
           <p>
-            Developing an event platform using React, Nest.js (TypeScript), and AWS.
+            Developing an event platform using React, Nest.js (TypeScript), and
+            AWS.
           </p>
         </Item>
         <Item>
@@ -352,13 +358,13 @@ export default (props: Props): JSX.Element => {
         </Flex>
       </Section>
     </Content>
-  )
+  );
   return (
     <Layout location={props.location}>
       <NavBar main children={content.props.children} />
       {content}
     </Layout>
-  )
+  );
 }
 
 export const pageQuery = graphql`
@@ -417,4 +423,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-
 jobs:
   uiCheck:
     runs-on: ubuntu-latest
@@ -14,7 +13,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.OS }}-build-
             ${{ runner.OS }}
@@ -22,17 +21,17 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
-      - name: npm install
-        run: npm install
+      - name: install dependencies
+        run: yarn install
       - name: build
         env:
           GATSBY_GITHUB_SHA: ${{ github.sha }}
           NETLIFY_ENV: production
-        run: npm run build
+        run: yarn build
       - name: Percy test
         env:
           PERCY_TOKEN: ${{secrets.PERCY_TOKEN}}
-        run: npx percy snapshot ./public/
+        run: yarn run percy snapshot ./public/
   storybook:
     runs-on: ubuntu-latest
     steps:
@@ -42,7 +41,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.OS }}-build-
             ${{ runner.OS }}
@@ -51,9 +50,9 @@ jobs:
         with:
           node-version: 14.x
       - name: npm install
-        run: npm install
+        run: install dependencies
       - name: build storybook
-        run: npm run build-storybook
+        run: yarn build-storybook
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -71,7 +70,7 @@ jobs:
         with:
           path: |
             node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.OS }}-build-
             ${{ runner.OS }}
@@ -79,14 +78,14 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
-      - name: npm install
-        run: npm install
+      - name: install dependencies
+        run: yarn install
       - name: unit test
-        run: npm test
+        run: yarn test
       - name: Cypress UI test
         run: |
-          npx cypress install
-          npm run test:e2e:ci
+          yarn run cypress install
+          yarn test:e2e:ci
       - uses: actions/upload-artifact@v2
         with:
           name: cypress-video
@@ -94,7 +93,6 @@ jobs:
   build:
     needs: ['test']
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
@@ -102,7 +100,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.OS }}-build-
             ${{ runner.OS }}
@@ -110,15 +108,18 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
-      - name: npm install and build
+      - name: Install
         env:
           GATSBY_GITHUB_SHA: ${{ github.sha }}
           NETLIFY_ENV: production
-        run: |
-          npm install
-          npm run build
+        run: yarn install
+      - name: Build
+        env:
+          GATSBY_GITHUB_SHA: ${{ github.sha }}
+          NETLIFY_ENV: production
+        run: yarn build
       - name: Deploy to netlify
-        run: npx netlify-cli deploy --prod --dir=./public
+        run: yarn run netlify-cli deploy --prod --dir=./public
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
@@ -154,7 +155,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Install
-        run: npm install
+        run: yarn install
       - name: run Chromatic
         uses: chromaui/action@v1
         with:

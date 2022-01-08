@@ -1,10 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Flex, Box } from 'grid-styled'
-import Img from 'gatsby-image'
+import React from "react";
+import styled from "styled-components";
+import { Flex, Box } from "grid-styled";
+import Img from "gatsby-image";
 
-import { media } from '../utils/style'
-import Button from './button'
+import { media } from "../utils/style";
+import Button from "./button";
 
 const Tile = styled.div`
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
@@ -35,7 +35,7 @@ const Tile = styled.div`
 
     }
   `}
-`
+`;
 
 const TileContent = styled.a`
   color: #fff;
@@ -111,22 +111,22 @@ const TileContent = styled.a`
      font-size: 0.95em;
    }
 }
-`
+`;
 
 type ItemProps = {
-  excerpt?: string
+  excerpt?: string;
   image?: {
     childImageSharp?: {
       fluid?: Pick<
         GatsbyTypes.GatsbyImageSharpFluidFragment,
-        'src' | 'srcSet' | 'aspectRatio' | 'sizes'
-      >
-    }
-  }
-  slug?: string
-  title?: string
-  timeToRead?: number
-}
+        "src" | "srcSet" | "aspectRatio" | "sizes"
+      >;
+    };
+  };
+  slug?: string;
+  title?: string;
+  timeToRead?: number;
+};
 
 const Item = ({ excerpt, image, slug, title }: ItemProps): JSX.Element => (
   <Tile>
@@ -142,52 +142,52 @@ const Item = ({ excerpt, image, slug, title }: ItemProps): JSX.Element => (
       <p>{excerpt}</p>
     </TileContent>
   </Tile>
-)
+);
 
 interface Node {
   node: {
-    excerpt?: string
-    timeToRead?: number
+    excerpt?: string;
+    timeToRead?: number;
     fields?: {
-      slug?: string
-    }
+      slug?: string;
+    };
     frontmatter?: {
-      date?: string
-      title?: string
-      tags?: readonly string[]
+      date?: string;
+      title?: string;
+      tags?: readonly string[];
       image?: {
         childImageSharp?: {
           fluid?: Pick<
             GatsbyTypes.GatsbyImageSharpFluidFragment,
-            'src' | 'srcSet' | 'aspectRatio' | 'sizes'
-          >
-        }
-      }
-    }
-  }
+            "src" | "srcSet" | "aspectRatio" | "sizes"
+          >;
+        };
+      };
+    };
+  };
 }
 
 type Props = {
-  items: readonly Node[]
-}
+  items: readonly Node[];
+};
 
 interface State {
-  items: Node[]
-  viewAll: boolean
+  items: Node[];
+  viewAll: boolean;
 }
 
 class Portfolio extends React.Component<Props, State> {
   constructor(props: Props) {
-    super(props)
-    this.state = { items: [], viewAll: false }
+    super(props);
+    this.state = { items: [], viewAll: false };
   }
 
   toggleShow() {
-    this.setState({ viewAll: !this.state.viewAll })
+    this.setState({ viewAll: !this.state.viewAll });
   }
 
   render() {
-    const items = this.props.items.map(item => (
+    const items = this.props.items.map((item) => (
       <Box
         key={item?.node?.fields?.slug}
         px={2}
@@ -201,21 +201,21 @@ class Portfolio extends React.Component<Props, State> {
           {...item.node.frontmatter}
         />
       </Box>
-    ))
+    ));
     if (!this.state.viewAll) {
-      items.splice(4)
+      items.splice(4);
     }
     return (
       <Flex justifyContent="center" px={1} flexWrap="wrap">
         {items}
         <Box m="auto">
           <Button center onClick={() => this.toggleShow()}>
-            {this.state.viewAll ? 'View Less' : 'View More'}
+            {this.state.viewAll ? "View Less" : "View More"}
           </Button>
         </Box>
       </Flex>
-    )
+    );
   }
 }
 
-export default Portfolio
+export default Portfolio;

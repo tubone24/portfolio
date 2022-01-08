@@ -1,11 +1,11 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
-import { Flex, Box } from 'grid-styled'
-import scrollToElement from 'scroll-to-element'
+import React from "react";
+import styled, { css } from "styled-components";
+import { Flex, Box } from "grid-styled";
+import scrollToElement from "scroll-to-element";
 
-import Name from './name'
+import Name from "./name";
 
-import { media } from '../utils/style'
+import { media } from "../utils/style";
 
 const Base = styled.div<{ dark?: boolean; main?: boolean }>`
   padding: 0;
@@ -30,17 +30,17 @@ const Base = styled.div<{ dark?: boolean; main?: boolean }>`
     color: #fff;
     text-decoration: none;
     cursor: pointer;
-    transition: opacity .3s ease;
+    transition: opacity 0.3s ease;
   }
   & ul > li a {
-    font-family: 'Raleway';
+    font-family: "Raleway";
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1px;
     margin-right: 32px;
   }
 
-  ${props =>
+  ${(props) =>
     props.dark &&
     css`
       background: #fff;
@@ -57,7 +57,7 @@ const Base = styled.div<{ dark?: boolean; main?: boolean }>`
       }
     `}
 
-  ${props =>
+  ${(props) =>
     props.main &&
     css`
       background: transparent;
@@ -72,44 +72,44 @@ const Base = styled.div<{ dark?: boolean; main?: boolean }>`
       display: none;
     }
   `}
-`
+`;
 
 interface Children {
   props: {
-    id: string
-    children: string
-  }
+    id: string;
+    children: string;
+  };
 }
 
 type Props = {
-  dark?: boolean
-  main?: boolean
-  children: Children[]
-}
+  dark?: boolean;
+  main?: boolean;
+  children: Children[];
+};
 
 const NavBar = (props: Props): JSX.Element => {
   const linkMap = props.children
-    .map(el => {
+    .map((el) => {
       if (el.props.id)
-        return { name: el.props.children, href: `#${el.props.id}` }
+        return { name: el.props.children, href: `#${el.props.id}` };
     })
-    .filter(n => n != undefined)
-    .reverse()
-  const links = linkMap.map(link => {
+    .filter((n) => n != undefined)
+    .reverse();
+  const links = linkMap.map((link) => {
     if (link !== undefined) {
       return (
         <li key={link.name}>
           <a
             onClick={() => {
-              scrollToElement(link.href)
+              scrollToElement(link.href);
             }}
           >
             {link.name}
           </a>
         </li>
-      )
+      );
     }
-  })
+  });
   return (
     <Base dark={props.dark} main={props.main}>
       <Flex>
@@ -121,7 +121,7 @@ const NavBar = (props: Props): JSX.Element => {
         </Box>
       </Flex>
     </Base>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

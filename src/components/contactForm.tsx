@@ -1,86 +1,116 @@
-import React, {useState} from "react";
-import {useForm} from "react-hook-form";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import Button from "./button";
 import styled from "styled-components";
 
 type Inputs = {
-  name: string,
-  email: string,
-  subject: string,
-  message: string,
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
 };
 
 export const ContactForm = (): JSX.Element => {
-  const [serverState, setServerState] = useState({submitting: false, status: {ok: false, msg: ""}});
-  const {register, handleSubmit, errors} = useForm<Inputs>()
+  const [serverState, setServerState] = useState({
+    submitting: false,
+    status: { ok: false, msg: "" },
+  });
+  const { register, handleSubmit, errors } = useForm<Inputs>();
   const handleServerResponse = (ok: boolean, msg: string) => {
-    setServerState({submitting: true, status: {ok, msg}})
+    setServerState({ submitting: true, status: { ok, msg } });
   };
-  const onSubmit = (data: Inputs, e: any) => {
-    const payload = {name: data.name, email: data.email, subject: data.subject, message: data.message}
-    fetch('/.netlify/functions/contact', {
-      method: 'POST',
-      body: JSON.stringify(payload)
+  const onSubmit = (data: Inputs, e: React.BaseSyntheticEvent | undefined) => {
+    const payload = {
+      name: data.name,
+      email: data.email,
+      subject: data.subject,
+      message: data.message,
+    };
+    fetch("/.netlify/functions/contact", {
+      method: "POST",
+      body: JSON.stringify(payload),
     })
       .then(() => {
-        e.target.reset();
+        e?.target.reset();
         handleServerResponse(true, "Submitted!");
       })
       .catch((error) => {
-        alert(error)
-        console.error(error)
+        alert(error);
+        console.error(error);
         handleServerResponse(false, error.toString());
       });
-  }
+  };
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <P>
-        <label>Your Name<br/>
+        <label>
+          Your Name
+          <br />
           <Input
             name="name"
             placeholder="Enter your name"
             type="text"
-            ref={register({required: true})}/>
+            ref={register({ required: true })}
+          />
           {errors.name && <span>This field is required</span>}
         </label>
       </P>
       <P>
-        <label> Your email<br/>
+        <label>
+          {" "}
+          Your email
+          <br />
           <Input
             name="email"
             type="email"
             placeholder="Enter your email"
             ref={register({
-              pattern: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i,
-              required: true
-            })}/>
-          {errors.email && <span>This field is required and only email format</span>}
+              pattern:
+                /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i,
+              required: true,
+            })}
+          />
+          {errors.email && (
+            <span>This field is required and only email format</span>
+          )}
         </label>
       </P>
       <P>
         <label>
-          Subject<br/>
+          Subject
+          <br />
           <Input
             name="subject"
             type="text"
             maxLength={30}
             placeholder="Subject here..."
-            ref={register({required: true})}/>
+            ref={register({ required: true })}
+          />
           {errors.subject && <span>This field is required</span>}
         </label>
       </P>
       <P>
         <label>
-          Message<br/>
+          Message
+          <br />
           <TextArea
-            name="message" placeholder="Something writing..." rows={6} cols={25} ref={register({required: true})}/>
+            name="message"
+            placeholder="Something writing..."
+            rows={6}
+            cols={25}
+            ref={register({ required: true })}
+          />
           {errors.message && <span>This field is required</span>}
         </label>
       </P>
-      <Button dark={serverState.submitting && serverState.status.ok}
-              disabled={serverState.submitting && serverState.status.ok}>
-        {serverState.submitting && serverState.status.ok ? serverState.status.msg : 'Submit'}
+      <Button
+        dark={serverState.submitting && serverState.status.ok}
+        disabled={serverState.submitting && serverState.status.ok}
+      >
+        {serverState.submitting && serverState.status.ok
+          ? serverState.status.msg
+          : "Submit"}
       </Button>
     </Form>
   );
@@ -98,7 +128,7 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  width: 100%
+  width: 100%;
 `;
 
 const TextArea = styled.textarea`
@@ -109,4 +139,4 @@ const P = styled.p`
   margin-bottom: 0px;
 `;
 
-export default ContactForm
+export default ContactForm;

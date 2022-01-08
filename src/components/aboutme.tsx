@@ -1,23 +1,23 @@
-import { Box, Flex } from 'grid-styled'
-import Img from 'gatsby-image'
-import React from 'react'
+import { Box, Flex } from "grid-styled";
+import Img from "gatsby-image";
+import React from "react";
 
 type Node = {
   node?: {
     childImageSharp?: {
       fluid?: Pick<
         GatsbyTypes.GatsbyImageSharpFluidFragment,
-        'src' | 'srcSet' | 'aspectRatio' | 'sizes'
-      >
-    }
-  }
-}
+        "src" | "srcSet" | "aspectRatio" | "sizes"
+      >;
+    };
+  };
+};
 
 type Props = {
   allFile?: {
-    edges?: readonly Node[]
-  }
-}
+    edges?: readonly Node[];
+  };
+};
 const AboutMe = ({ allFile }: Props): JSX.Element => (
   <Flex alignItems="center" flexDirection="column">
     <Box px={2} width={[1, 1 / 2]}>
@@ -31,10 +31,10 @@ const AboutMe = ({ allFile }: Props): JSX.Element => (
         Additionally, experienced data science with Python and AWS.
         <br />
         Have a AWS Certified Solution Architect – Professional. <br />
-        Further more, I'm amateur photographer, Uploading for{' '}
-        <a href={'https://500px.com/tubone24'}>500px.com</a> <br />
-        And also, I'm amateur DTM composer and Guitarist (collaborating with{' '}
-        <a href={'https://chocoholic.stores.jp/'}>chocoholic</a>).
+        Further more, I'm amateur photographer, Uploading for{" "}
+        <a href={"https://500px.com/tubone24"}>500px.com</a> <br />
+        And also, I'm amateur DTM composer and Guitarist (collaborating with{" "}
+        <a href={"https://chocoholic.stores.jp/"}>chocoholic</a>).
         <br />
         Nice to meet you and I look forward to collaborating with you.
       </p>
@@ -56,6 +56,6 @@ const AboutMe = ({ allFile }: Props): JSX.Element => (
         )}
     </Box>
   </Flex>
-)
+);
 
-export default AboutMe
+export default AboutMe;

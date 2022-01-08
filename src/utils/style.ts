@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css } from "styled-components";
 
 type AtLeast1<T> = [T, ...T[]];
 
@@ -28,4 +28,4 @@ export const media = {
       ${css(...args)}
     }
   `,
-}
+};

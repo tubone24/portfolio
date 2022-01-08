@@ -1,11 +1,11 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from "styled-components";
 
 export const Button = styled.button<{
-  light?: boolean
-  dark?: boolean
-  opaque?: boolean
-  small?: boolean
-  center?: boolean
+  light?: boolean;
+  dark?: boolean;
+  opaque?: boolean;
+  small?: boolean;
+  center?: boolean;
 }>`
   border: 2px solid #47b475;
   background-color: #fff;
@@ -32,7 +32,7 @@ export const Button = styled.button<{
     background-color: #47b475;
   }
 
-  ${props =>
+  ${(props) =>
     props.dark &&
     css`
       color: #949494;
@@ -43,14 +43,14 @@ export const Button = styled.button<{
       }
     `}
 
-  ${props =>
+  ${(props) =>
     props.light &&
     css`
       color: #ddd;
       border-color: #ddd;
     `}
 
-  ${props =>
+  ${(props) =>
     props.opaque &&
     css`
       background: none;
@@ -61,7 +61,7 @@ export const Button = styled.button<{
       }
     `}
 
-  ${props =>
+  ${(props) =>
     props.small &&
     css`
       height: 30px;
@@ -69,6 +69,6 @@ export const Button = styled.button<{
       line-height: 27px;
       min-width: 0;
     `}
-`
+`;
 
-export default Button
+export default Button;

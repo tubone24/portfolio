@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Flex } from 'grid-styled'
-import { media } from '../utils/style'
+import React from "react";
+import styled from "styled-components";
+import { Flex } from "grid-styled";
+import { media } from "../utils/style";
 
 const Base = styled.div`
   width: 40%;
@@ -14,7 +14,7 @@ const Base = styled.div`
     width: 95%;
     margin-left: 0;
   `}
-`
+`;
 
 const GitHubWeed = (): JSX.Element => (
   <Base>
@@ -28,6 +28,6 @@ const GitHubWeed = (): JSX.Element => (
       </a>
     </Flex>
   </Base>
-)
+);
 
-export default GitHubWeed
+export default GitHubWeed;

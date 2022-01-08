@@ -1,21 +1,27 @@
-import React from 'react'
-import styled from 'styled-components'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fa500px, faTwitter, faGithubAlt, faSoundcloud, faSlideshare } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconName } from '@fortawesome/fontawesome-common-types'
+import React from "react";
+import styled from "styled-components";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  fa500px,
+  faTwitter,
+  faGithubAlt,
+  faSoundcloud,
+  faSlideshare,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconName } from "@fortawesome/fontawesome-common-types";
 
-library.add(fa500px, faTwitter, faGithubAlt, faSoundcloud, faSlideshare)
+library.add(fa500px, faTwitter, faGithubAlt, faSoundcloud, faSlideshare);
 
 type Icon = {
-  href: string
-  name: IconName
-}
+  href: string;
+  name: IconName;
+};
 const Icon = ({ name, href }: Icon) => (
   <a href={href}>
-    <FontAwesomeIcon icon={['fab', name]} />
+    <FontAwesomeIcon icon={["fab", name]} />
   </a>
-)
+);
 
 const Base = styled.div`
   margin: 20px 0;
@@ -40,18 +46,18 @@ const Base = styled.div`
   & a:hover span.fa-github-alt {
     color: #fc6d26;
   }
-`
+`;
 
 type Props = {
-  icons: Icon[]
-  style?: { [key: string]: string | number }
-}
+  icons: Icon[];
+  style?: { [key: string]: string | number };
+};
 
 const SocialIcons = (props: Props): JSX.Element => {
-  const icons = props.icons.map(icon => {
-    return <Icon key={icon.name} name={icon.name} href={icon.href} />
-  })
-  return <Base {...props}>{icons}</Base>
-}
+  const icons = props.icons.map((icon) => {
+    return <Icon key={icon.name} name={icon.name} href={icon.href} />;
+  });
+  return <Base {...props}>{icons}</Base>;
+};
 
-export default SocialIcons
+export default SocialIcons;

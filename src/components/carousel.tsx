@@ -1,21 +1,20 @@
-import React from 'react'
-import NukaCarousel from 'nuka-carousel'
+import React from "react";
+import NukaCarousel from "nuka-carousel";
 
 type Props = {
-  images: string[]
-}
+  images: string[];
+};
 
 export const Carousel = (props: Props): JSX.Element => {
-  const images = props.images.map(image => {
-    return <img key={image} src={image} alt={image} />
-  })
-
+  const images = props.images.map((image) => {
+    return <img key={image} src={image} alt={image} />;
+  });
 
   return (
-    <NukaCarousel wrapAround dragging autoplay >
+    <NukaCarousel wrapAround dragging autoplay>
       {images}
     </NukaCarousel>
-  )
-}
+  );
+};
 
-export default Carousel
+export default Carousel;

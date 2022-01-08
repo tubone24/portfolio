@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import Typist from 'react-typist'
+import React from "react";
+import styled from "styled-components";
+import Typist from "react-typist";
 
-import { media } from '../utils/style'
+import { media } from "../utils/style";
 
 const StyledTypist = styled(Typist)`
   color: #fff;
@@ -11,7 +11,7 @@ const StyledTypist = styled(Typist)`
   font-size: 64px;
   line-height: 72px;
   font-weight: 100;
-  font-family: 'Love Ya Like A Sister';
+  font-family: "Love Ya Like A Sister";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -24,11 +24,11 @@ const StyledTypist = styled(Typist)`
   top: 15%;
   letter-spacing: 12px;
 `}
-`
+`;
 
 type Props = {
-  text?: string
-}
+  text?: string;
+};
 
 export const HeroText = (props: Props): JSX.Element => {
   if (props.text) {
@@ -36,16 +36,13 @@ export const HeroText = (props: Props): JSX.Element => {
       <Typist>
         <StyledTypist>
           <strong>
-            {props.text.split(' ').slice(0, 1)}
+            {props.text.split(" ").slice(0, 1)}
             <br />
           </strong>
-          {props.text
-            .split(' ')
-            .slice(1)
-            .join(' ')}
+          {props.text.split(" ").slice(1).join(" ")}
         </StyledTypist>
       </Typist>
-    )
+    );
   }
   return (
     <StyledTypist cursor={{ show: false }} {...props}>
@@ -74,7 +71,7 @@ export const HeroText = (props: Props): JSX.Element => {
       <Typist.Delay ms={1200} />
       <span>!</span>
     </StyledTypist>
-  )
-}
+  );
+};
 
-export default HeroText
+export default HeroText;
