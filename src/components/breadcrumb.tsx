@@ -1,6 +1,6 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
-import Link from 'gatsby-link'
+import React from "react";
+import styled, { css } from "styled-components";
+import Link from "gatsby-link";
 
 const Base = styled.ol<Props>`
   padding-top: 10px;
@@ -8,7 +8,7 @@ const Base = styled.ol<Props>`
   margin: 0;
   & li a,
   & li {
-    font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 12px;
     line-height: 24px;
     font-weight: 400;
@@ -24,7 +24,7 @@ const Base = styled.ol<Props>`
   & > li + li:before {
     padding: 0 8px;
     color: #ccc;
-    content: '>';
+    content: ">";
   }
   & > li:last-child > a {
     color: #777;
@@ -34,7 +34,7 @@ const Base = styled.ol<Props>`
   @media (min-width: 831px) {
     float: right;
   }
-  ${props =>
+  ${(props) =>
     props.dark &&
     css`
       & li a,
@@ -42,27 +42,27 @@ const Base = styled.ol<Props>`
         color: #444;
       }
     `}
-`
+`;
 
 export interface Crumb {
-  name?: string
-  link?: string
+  name?: string;
+  link?: string;
 }
 
 type Props = {
-  crumbs?: Crumb[]
-  dark?: boolean
-}
+  crumbs?: Crumb[];
+  dark?: boolean;
+};
 
 export const Breadcrumb = (props: Props): JSX.Element => {
-  const crumbs = props.crumbs?.map(function(crumb) {
+  const crumbs = props.crumbs?.map(function (crumb) {
     return (
       <li key={crumb.name}>
-        <Link to={crumb.link || '/'}>{crumb.name}</Link>
+        <Link to={crumb.link || "/"}>{crumb.name}</Link>
       </li>
-    )
-  })
-  return <Base {...props}>{crumbs}</Base>
-}
+    );
+  });
+  return <Base {...props}>{crumbs}</Base>;
+};
 
-export default Breadcrumb
+export default Breadcrumb;

@@ -1,19 +1,20 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Flex, Box } from 'grid-styled'
-import scrollToElement from 'scroll-to-element'
+import React from "react";
+import styled from "styled-components";
+import { Flex, Box } from "grid-styled";
+import scrollToElement from "scroll-to-element";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import FlickrLightbox from 'react-flickr-lightbox'
+import FlickrLightbox from "react-flickr-lightbox";
 
-import Name from './name'
-import Button from './button'
-import SocialIcons from './socialIcons'
+import Name from "./name";
+import Button from "./button";
+import SocialIcons from "./socialIcons";
 
 const Base = styled.div`
   height: fit-contents;
   padding: 0;
   background: #292929;
-`
+`;
 
 const FooterText = styled.div`
   padding-top: 6px;
@@ -22,16 +23,16 @@ const FooterText = styled.div`
   a {
     color: #9880dc;
   }
-`
+`;
 
 const SocialIconsStyled = styled(SocialIcons)`
   margin-left: -8px;
   text-align: left;
-`
+`;
 
 const CenteredButtonBox = styled(Box)`
   margin: 2em auto;
-`
+`;
 
 const GalleryContainer = styled.div`
   & > div > div {
@@ -39,7 +40,7 @@ const GalleryContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
   }
-`
+`;
 
 const Footer = (): JSX.Element => (
   <Base>
@@ -53,24 +54,24 @@ const Footer = (): JSX.Element => (
             <SocialIconsStyled
               icons={[
                 {
-                  name: 'twitter',
-                  href: 'https://twitter.com/meitante1conan',
+                  name: "twitter",
+                  href: "https://twitter.com/meitante1conan",
                 },
                 {
-                  name: 'github-alt',
-                  href: 'https://github.com/tubone24',
+                  name: "github-alt",
+                  href: "https://github.com/tubone24",
                 },
                 {
-                  name: 'soundcloud',
-                  href: 'https://soundcloud.com/user-453736300',
+                  name: "soundcloud",
+                  href: "https://soundcloud.com/user-453736300",
                 },
                 {
-                  name: 'slideshare',
-                  href: 'https://www.slideshare.net/tubone24',
+                  name: "slideshare",
+                  href: "https://www.slideshare.net/tubone24",
                 },
                 {
-                  name: '500px',
-                  href: 'https://500px.com/tubone24',
+                  name: "500px",
+                  href: "https://500px.com/tubone24",
                 },
               ]}
             />
@@ -82,7 +83,7 @@ const Footer = (): JSX.Element => (
           <Box>
             <FooterText>
               <h4>
-                Made with ❤️ using{' '}
+                Made with ❤️ using{" "}
                 <a href="https://www.gatsbyjs.org/">GatsbyJS</a>
               </h4>
             </FooterText>
@@ -90,7 +91,7 @@ const Footer = (): JSX.Element => (
           <CenteredButtonBox>
             <Button
               onClick={() => {
-                scrollToElement('html')
+                scrollToElement("html");
               }}
               small
               dark
@@ -114,6 +115,6 @@ const Footer = (): JSX.Element => (
       </Box>
     </Flex>
   </Base>
-)
+);
 
-export default Footer
+export default Footer;

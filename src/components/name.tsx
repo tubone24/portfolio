@@ -1,9 +1,9 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
+import React from "react";
+import styled, { css } from "styled-components";
 
 const Base = styled.a<Props>`
   font-size: 30pt;
-  font-family: 'Arizonia', cursive;
+  font-family: "Arizonia", cursive;
   color: #fff;
   margin: 20px 0;
   width: fit-content;
@@ -17,45 +17,45 @@ const Base = styled.a<Props>`
     -webkit-background-clip: text;
     background-image: url(https://media.giphy.com/media/l41YcGT5ShJa0nCM0/giphy.gif);
     text-decoration: none;
-    -webkit-transform:rotate(354deg);
+    -webkit-transform: rotate(354deg);
   }
 
-  ${props =>
+  ${(props) =>
     props.dark &&
     css`
       color: #444;
     `}
 
-  ${props =>
+  ${(props) =>
     props.block &&
     css`
       display: block;
     `}
 
-  ${props =>
+  ${(props) =>
     props.small &&
     css`
       font-size: 1em;
     `}
 
-  ${props =>
+  ${(props) =>
     props.big &&
     css`
       font-size: 2em;
     `}
-`
+`;
 
 type Props = {
-  dark?: boolean
-  small?: boolean
-  big?: boolean
-  block?: boolean
-}
+  dark?: boolean;
+  small?: boolean;
+  big?: boolean;
+  block?: boolean;
+};
 
 export const Name = (props: Props): JSX.Element => (
   <Base {...props} href="/">
     tubone24
   </Base>
-)
+);
 
-export default Name
+export default Name;

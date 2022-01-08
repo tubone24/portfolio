@@ -1,6 +1,6 @@
-import { Box, Flex } from 'grid-styled'
-import Iframe from 'react-iframe'
-import React from 'react'
+import { Box, Flex } from "grid-styled";
+import Iframe from "react-iframe";
+import React from "react";
 
 const Music = (): JSX.Element => (
   <Flex alignItems="center" flexDirection="column">
@@ -17,6 +17,6 @@ const Music = (): JSX.Element => (
       />
     </Box>
   </Flex>
-)
+);
 
-export default Music
+export default Music;
