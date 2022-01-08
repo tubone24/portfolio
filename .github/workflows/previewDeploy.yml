@@ -34,7 +34,7 @@ jobs:
       - name: Percy test
         env:
           PERCY_TOKEN: ${{secrets.PERCY_TOKEN}}
-        run: yarn -s run percy snapshot ./public/
+        run: npx percy snapshot ./public/
   test:
     runs-on: ubuntu-latest
     steps:
@@ -60,7 +60,7 @@ jobs:
         run: yarn test
       - name: Cypress UI test
         run: |
-          yarn -s run cypress install
+          npx cypress install
           yarn test:e2e:ci
       - uses: actions/upload-artifact@v2
         with:
@@ -124,7 +124,7 @@ jobs:
           NETLIFY_ENV: deploy-preview
         run: yarn build
       - name: Deploy to netlify
-        run: yarn -s run netlify-cli deploy --dir=./public > cli.txt
+        run: npx netlify-cli deploy --dir=./public > cli.txt
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
