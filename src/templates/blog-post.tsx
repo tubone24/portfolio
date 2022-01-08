@@ -129,9 +129,9 @@ export const query = graphql`
         tags
         image {
           childImageSharp {
-            sizes {
-              sizes
+            fluid {
               src
+              sizes
             }
           }
         }
