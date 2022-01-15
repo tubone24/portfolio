@@ -19757,7 +19757,7 @@ percy-client@^3.2.0:
     request-promise "^4.2.2"
     walk "^2.3.14"
 
-percy@^0.28.6:
+percy@0.28.6:
   version "0.28.6"
   resolved "https://registry.yarnpkg.com/percy/-/percy-0.28.6.tgz#20ec0fbeaac7c8311980283e59c201aa491afb17"
   integrity sha512-02J9J4RQcznpkaUzFRcRMcWVs3akrV9Stop0rijqiRdN8XYAzE4EyDJxXuULz+iEnB6Wa2RctPaLkeIJcbbnJw==
