@@ -141,7 +141,7 @@
     "ts-dedent": "2.2.0",
     "ts-jest": "26.5.6",
     "tslint-react": "5.0.0",
-    "percy": "^0.28.6"
+    "percy": "0.28.6"
   },
   "resolutions": {
     "@graphql-codegen/visitor-plugin-common": "1.22.0",
