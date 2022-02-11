@@ -37,7 +37,7 @@
     "react-flickr-hero": "^1.4.0",
     "react-flickr-lightbox": "^1.8.5",
     "react-helmet": "^6.1.0",
-    "react-hook-form": "^6.15.4",
+    "react-hook-form": "^7.27.0",
     "react-iframe": "^1.8.0",
     "react-load-image": "^0.1.7",
     "react-timeago": "^4.4.0",
