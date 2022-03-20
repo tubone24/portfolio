@@ -51,7 +51,7 @@ export const HeroText = (props: Props): JSX.Element => {
       <Typist.Delay ms={600} />
       tubone
       <Typist.Backspace count={6} delay={600} />
-      <span> a server-side developer</span>
+      <span> a fullcycle developer</span>
       <Typist.Backspace count={23} delay={600} />
       <span> a Photographer</span>
       <Typist.Backspace count={12} delay={300} />
