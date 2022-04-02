@@ -97,7 +97,7 @@
     "@testing-library/react": "12.1.2",
     "@types/aws-lambda": "8.10.88",
     "@types/grid-styled": "4.2.1",
-    "@types/jest": "26.0.24",
+    "@types/jest": "27.4.1",
     "@types/node": "16.11.14",
     "@types/react-fontawesome": "1.6.5",
     "@types/react-helmet": "6.1.4",
