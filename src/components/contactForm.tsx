@@ -51,6 +51,7 @@ export const ContactForm = (): JSX.Element => {
             name="name"
             placeholder="Enter your name"
             type="text"
+            data-testid="name"
             ref={register({ required: true })}
           />
           {errors.name && <span>This field is required</span>}
@@ -64,6 +65,7 @@ export const ContactForm = (): JSX.Element => {
           <Input
             name="email"
             type="email"
+            data-testid="email"
             placeholder="Enter your email"
             ref={register({
               pattern:
@@ -85,6 +87,7 @@ export const ContactForm = (): JSX.Element => {
             type="text"
             maxLength={30}
             placeholder="Subject here..."
+            data-testid="subject"
             ref={register({ required: true })}
           />
           {errors.subject && <span>This field is required</span>}
@@ -99,6 +102,7 @@ export const ContactForm = (): JSX.Element => {
             placeholder="Something writing..."
             rows={6}
             cols={25}
+            data-testid="message"
             ref={register({ required: true })}
           />
           {errors.message && <span>This field is required</span>}
@@ -107,6 +111,7 @@ export const ContactForm = (): JSX.Element => {
       <Button
         dark={serverState.submitting && serverState.status.ok}
         disabled={serverState.submitting && serverState.status.ok}
+        data-testid="submit"
       >
         {serverState.submitting && serverState.status.ok
           ? serverState.status.msg

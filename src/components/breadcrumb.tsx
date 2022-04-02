@@ -49,7 +49,7 @@ export interface Crumb {
   link?: string;
 }
 
-type Props = {
+export type Props = {
   crumbs?: Crumb[];
   dark?: boolean;
 };
