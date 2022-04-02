@@ -3,21 +3,44 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import ContactForm from '../components/contactForm';
-import { Meta, Story, Preview, Props, Source } from "@storybook/addon-docs/blocks";
+import { Meta, Story, DocsPage, Canvas, Preview, Props, Source, DocsStory } from "@storybook/addon-docs/blocks";
 import dedent from 'ts-dedent';
+import { userEvent, within, waitFor } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
+
 
 <Meta title="Components/ContactForm" parameters={{ component: ContactForm, backgrounds: { default: 'twitter', values: [ { name: 'twitter', value: '#00aced' }, { name: 'facebook', value: '#3b5998' }, ], }, }} />
 
-お問い合わせフォーム
+export const Template = (args) => <ContactForm {...args} />;
 
-# Preview
 
-<Preview withSource="open">
-  <Story name="ContactForm">
-    <ContactForm />
-  </Story>
-</Preview>
-
-# Props
-
-<Props of="." />
+<Canvas>
+    <Story name="Empty Form">
+        {Template.bind({})}
+    </Story>
+    <Story
+        name="Filled Form"
+        play={async ({ canvasElement }) => {
+            const canvas = within(canvasElement);
+            await userEvent.type(canvas.getByTestId('email'), 'example@example.com', {
+                delay: 100,
+            });
+            await userEvent.type(canvas.getByTestId('name'), 'testUser', {
+                delay: 100,
+            });
+            await userEvent.type(canvas.getByTestId('subject'), 'testSubject', {
+                delay: 100,
+            });
+            await userEvent.type(canvas.getByTestId('message'), 'testMessage', {
+                delay: 100,
+            });
+            // See https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args to learn how to setup logging in the Actions panel
+            await userEvent.click(canvas.getByTestId('submit'));
+            await waitFor(() => {
+                const submitButton = canvas.getByTestId('submit');
+                expect(submitButton.innerText).toBe('SUBMITTED!');
+            })
+        }}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
