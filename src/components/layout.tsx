@@ -38,6 +38,9 @@ const PageBase = ({ location, children }: Props): JSX.Element => {
     <Body>
       <GlobalStyle />
       <Helmet
+        htmlAttributes={{
+          lang: "ja",
+        }}
         title="tubone24"
         meta={[
           { name: "description", content: "portfolio" },

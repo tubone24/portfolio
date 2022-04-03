@@ -82,10 +82,7 @@ const Footer = (): JSX.Element => (
         <Flex justifyContent="center" flexDirection="column">
           <Box>
             <FooterText>
-              <h4>
-                Made with ❤️ using{" "}
-                <a href="https://www.gatsbyjs.org/">GatsbyJS</a>
-              </h4>
+              <h4>©tubone24 2017-{new Date().getFullYear()}</h4>
             </FooterText>
           </Box>
           <CenteredButtonBox>
