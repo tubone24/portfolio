@@ -39,10 +39,12 @@ const Tile = styled.div`
 
 const TileContent = styled.a`
   color: #fff;
+  background-color: #000;
   text-decoration: none !important;
   cursor: pointer;
   h1 {
     position: absolute;
+    background-color: 'transparent';
     top: 6vw;
     left: 5%;
     right: 5%;

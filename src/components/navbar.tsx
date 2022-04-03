@@ -111,7 +111,7 @@ const NavBar = (props: Props): JSX.Element => {
     }
   });
   return (
-    <Base dark={props.dark} main={props.main}>
+    <Base dark={props.dark} main={props.main} role="navigation">
       <Flex>
         <Box px={2} width={[1, 1 / 3, 2 / 6]}>
           <Name />

@@ -18,7 +18,7 @@ export const Button = styled.button<{
   text-transform: uppercase;
   letter-spacing: 1px;
   border-radius: 0;
-  color: #47b475;
+  color: #286243;
   text-align: center;
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;

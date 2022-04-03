@@ -18,7 +18,7 @@ type Icon = {
   name: IconName;
 };
 const Icon = ({ name, href }: Icon) => (
-  <a href={href}>
+  <a href={href} title={name}>
     <FontAwesomeIcon icon={["fab", name]} />
   </a>
 );

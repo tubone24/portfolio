@@ -29,7 +29,7 @@ const Content = styled.div`
   }
 `;
 
-const Title = styled.h1<{ small?: boolean }>`
+const Title = styled.h1<{ small?: boolean; dark?: boolean }>`
   font-family: "Raleway";
   text-transform: uppercase;
   letter-spacing: 6px;
@@ -47,6 +47,12 @@ const Title = styled.h1<{ small?: boolean }>`
       letter-spacing: 2px;
       font-weight: 400;
       line-height: 24px;
+    `}
+
+  ${(props) =>
+    props.dark &&
+    css`
+      color: #eee !important;
     `}
 `;
 
@@ -244,7 +250,9 @@ export default function (props: Props): JSX.Element {
       </Section>
       <a id="music">Musics</a>
       <Section dark>
-        <Title small>Musics</Title>
+        <Title small dark>
+          Musics
+        </Title>
         <Music />
       </Section>
       <a id="tech">Tech</a>
@@ -275,7 +283,7 @@ export default function (props: Props): JSX.Element {
       </Section>
       <a id="resume">Resume</a>
       <Section center dark>
-        <h4>Experience</h4>
+        <Title dark>Experience</Title>
         <span>Where I've worked.</span>
         <Item>
           <span>August 2021- Current</span>
