@@ -39,6 +39,7 @@ export const Template = (args) => <ContactForm {...args} />;
             await waitFor(() => {
                 const submitButton = canvas.getByTestId('submit');
                 expect(submitButton.innerText).toBe('SUBMITTED!');
+                expect(submitButton.disabled).toBe(true);
             })
         }}>
         {Template.bind({})}
