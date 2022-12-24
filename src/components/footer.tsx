@@ -2,9 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Flex, Box } from "grid-styled";
 import scrollToElement from "scroll-to-element";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import FlickrLightbox from "react-flickr-lightbox";
+import { FlickrLightbox } from "./flickerLightbox";
 
 import Name from "./name";
 import Button from "./button";
@@ -103,8 +101,8 @@ const Footer = (): JSX.Element => (
         <Flex alignItems="center" justifyContent="center">
           <GalleryContainer>
             <FlickrLightbox
-              api_key="89f4752b9b3a8dffcbf94ca144719883"
-              user_id="184992580@N06"
+              apiKey="89f4752b9b3a8dffcbf94ca144719883"
+              userId="184992580@N06"
               limit={8}
             />
           </GalleryContainer>
