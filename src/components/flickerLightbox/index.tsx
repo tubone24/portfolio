@@ -11,7 +11,6 @@ export type Props = {
 };
 
 export const FlickrLightbox = (props: Props) => {
-  console.log(props);
   const [images, setImages] = useState([]);
 
   const generateApiUrl = (
@@ -94,5 +93,5 @@ export const FlickrLightbox = (props: Props) => {
     );
   }, [props.apiKey, props.userId, props.limit, props.thumbnailSizeParam]);
 
-  return (images.length > 0 &&(<Gallery images={images} />));
+  return <Gallery images={images} />;
 };

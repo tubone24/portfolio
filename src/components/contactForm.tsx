@@ -112,6 +112,7 @@ export const ContactForm = (): JSX.Element => {
         dark={serverState.submitting && serverState.status.ok}
         disabled={serverState.submitting && serverState.status.ok}
         data-testid="submit"
+        style={{ width: "100%" }}
       >
         {serverState.submitting && serverState.status.ok
           ? serverState.status.msg
@@ -134,10 +135,38 @@ const Form = styled.form`
 
 const Input = styled.input`
   width: 100%;
+  color: black;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border: 2px solid #cc6666;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: 0;
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
+  color: black;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border: 2px solid #cc6666;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: 0;
 `;
 
 const P = styled.p`

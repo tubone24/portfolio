@@ -64,7 +64,6 @@ export type Props = {
 };
 
 export const Gallery = (props: Props) => {
-  console.log(props);
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
 

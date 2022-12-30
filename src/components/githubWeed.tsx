@@ -22,7 +22,7 @@ const GitHubWeed = (): JSX.Element => (
     <Flex flexWrap="wrap">
       <a href="https://github.com/tubone24">
         <img
-          src="https://grass-graph.appspot.com/images/tubone24.png?background=none"
+          src="https://raw.githubusercontent.com/tubone24/tubone24/master/img/snake.gif"
           alt="githubWeed"
         />
       </a>
