@@ -22,11 +22,11 @@ const AboutMe = ({ allFile }: Props): JSX.Element => (
   <Flex alignItems="center" flexDirection="column">
     <Box px={2} width={[1, 1 / 2]}>
       <p>
-        I'm a Software and Infrastructure developer with over 4+ years, and I've
+        I'm a Software and Infrastructure developer with over 6+ years, and I've
         been leading some engineering teams in recent years. Expert at AWS by
         using Server-less architecture.
         <br />
-        Also master of Server-side API and Batch with Python.
+        Also master of Server-side API and Batch with Python and TypeScript.
         <br />
         Additionally, experienced data science with Python and AWS.
         <br />
@@ -39,7 +39,7 @@ const AboutMe = ({ allFile }: Props): JSX.Element => (
         Nice to meet you and I look forward to collaborating with you.
       </p>
       <p>
-        カメラと音楽を嗜む低能Webデベロッパーです。
+        カメラと音楽を嗜むWebデベロッパーです。
         <br />
         AWSが比較的得意なインフラエンジニアですが、サーバサイドもフロントサイドも好きです。
         <br />
