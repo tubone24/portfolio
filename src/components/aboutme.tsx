@@ -31,8 +31,6 @@ const AboutMe = ({ allFile }: Props): JSX.Element => (
         Additionally, experienced data science with Python and AWS.
         <br />
         Have a AWS Certified Solution Architect – Professional. <br />
-        Further more, I'm amateur photographer, Uploading for{" "}
-        <a href={"https://500px.com/tubone24"}>500px.com</a> <br />
         And also, I'm amateur DTM composer and Guitarist (collaborating with{" "}
         <a href={"https://chocoholic.stores.jp/"}>chocoholic</a>).
         <br />
