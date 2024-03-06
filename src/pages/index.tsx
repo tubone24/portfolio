@@ -286,7 +286,16 @@ export default function (props: Props): JSX.Element {
         <Title dark>Experience</Title>
         <span>Where I've worked.</span>
         <Item>
-          <span>August 2021- Current</span>
+          <span>February 2024- Current</span>
+          <h6>
+            Data Engineering developer
+          </h6>
+          <p>
+            Developing Data Clean Room with Snowflake and AWS.
+          </p>
+        </Item>
+        <Item>
+          <span>August 2021- February 2024</span>
           <h6>
             <a href="https://netflixtechblog.com/full-cycle-developers-at-netflix-a08c31f83249">
               Full Cycle

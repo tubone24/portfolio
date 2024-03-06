@@ -22,7 +22,7 @@ const AboutMe = ({ allFile }: Props): JSX.Element => (
   <Flex alignItems="center" flexDirection="column">
     <Box px={2} width={[1, 1 / 2]}>
       <p>
-        I'm a Software and Infrastructure developer with over 6+ years, and I've
+        I'm a Software and Infrastructure developer with over 8+ years, and I've
         been leading some engineering teams in recent years. Expert at AWS by
         using Server-less architecture.
         <br />
