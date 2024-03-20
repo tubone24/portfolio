@@ -23,7 +23,7 @@ export const Carousel = (props: Props): JSX.Element => {
   });
 
   return (
-    <NukaCarousel wrapAround dragging autoplay>
+    <NukaCarousel wrapAround dragging autoplay transitionMode="scroll3d">
       {images}
     </NukaCarousel>
   );

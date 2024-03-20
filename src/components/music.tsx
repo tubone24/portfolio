@@ -4,7 +4,7 @@ import React from "react";
 
 const Music = (): JSX.Element => (
   <Flex alignItems="center" flexDirection="column">
-    <span>Listen to my music!</span>
+    <span>Compose high-tempo, rhythmic songs, mainly for Vocaloid.</span>
     <Box px={2} width={[1, 1 / 2]}>
       <Iframe
         width="100%"

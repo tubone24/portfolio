@@ -157,6 +157,7 @@ type Internal = {
   readonly mediaType: Maybe<Scalars['String']>;
   readonly owner: Scalars['String'];
   readonly type: Scalars['String'];
+  readonly contentFilePath: Maybe<Scalars['String']>;
 };
 
 
@@ -264,6 +265,8 @@ type Site = Node & {
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly jsxRuntime: Maybe<Scalars['String']>;
+  readonly trailingSlash: Maybe<Scalars['String']>;
+  readonly graphqlTypegen: Maybe<Scalars['Boolean']>;
   readonly id: Scalars['ID'];
   readonly parent: Maybe<Node>;
   readonly children: ReadonlyArray<Node>;
@@ -813,6 +816,8 @@ type Query_siteArgs = {
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   jsxRuntime: Maybe<StringQueryOperatorInput>;
+  trailingSlash: Maybe<StringQueryOperatorInput>;
+  graphqlTypegen: Maybe<BooleanQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
@@ -1094,6 +1099,7 @@ type InternalFilterInput = {
   readonly mediaType: Maybe<StringQueryOperatorInput>;
   readonly owner: Maybe<StringQueryOperatorInput>;
   readonly type: Maybe<StringQueryOperatorInput>;
+  readonly contentFilePath: Maybe<StringQueryOperatorInput>;
 };
 
 type BooleanQueryOperatorInput = {
@@ -1336,6 +1342,7 @@ type FileFieldsEnum =
   | 'childrenImageSharp.parent.internal.mediaType'
   | 'childrenImageSharp.parent.internal.owner'
   | 'childrenImageSharp.parent.internal.type'
+  | 'childrenImageSharp.parent.internal.contentFilePath'
   | 'childrenImageSharp.children'
   | 'childrenImageSharp.children.id'
   | 'childrenImageSharp.children.parent.id'
@@ -1351,6 +1358,7 @@ type FileFieldsEnum =
   | 'childrenImageSharp.children.internal.mediaType'
   | 'childrenImageSharp.children.internal.owner'
   | 'childrenImageSharp.children.internal.type'
+  | 'childrenImageSharp.children.internal.contentFilePath'
   | 'childrenImageSharp.internal.content'
   | 'childrenImageSharp.internal.contentDigest'
   | 'childrenImageSharp.internal.description'
@@ -1359,6 +1367,7 @@ type FileFieldsEnum =
   | 'childrenImageSharp.internal.mediaType'
   | 'childrenImageSharp.internal.owner'
   | 'childrenImageSharp.internal.type'
+  | 'childrenImageSharp.internal.contentFilePath'
   | 'childImageSharp.fixed.base64'
   | 'childImageSharp.fixed.tracedSVG'
   | 'childImageSharp.fixed.aspectRatio'
@@ -1406,6 +1415,7 @@ type FileFieldsEnum =
   | 'childImageSharp.parent.internal.mediaType'
   | 'childImageSharp.parent.internal.owner'
   | 'childImageSharp.parent.internal.type'
+  | 'childImageSharp.parent.internal.contentFilePath'
   | 'childImageSharp.children'
   | 'childImageSharp.children.id'
   | 'childImageSharp.children.parent.id'
@@ -1421,6 +1431,7 @@ type FileFieldsEnum =
   | 'childImageSharp.children.internal.mediaType'
   | 'childImageSharp.children.internal.owner'
   | 'childImageSharp.children.internal.type'
+  | 'childImageSharp.children.internal.contentFilePath'
   | 'childImageSharp.internal.content'
   | 'childImageSharp.internal.contentDigest'
   | 'childImageSharp.internal.description'
@@ -1429,6 +1440,7 @@ type FileFieldsEnum =
   | 'childImageSharp.internal.mediaType'
   | 'childImageSharp.internal.owner'
   | 'childImageSharp.internal.type'
+  | 'childImageSharp.internal.contentFilePath'
   | 'childrenMarkdownRemark'
   | 'childrenMarkdownRemark.id'
   | 'childrenMarkdownRemark.frontmatter.title'
@@ -1502,6 +1514,7 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.parent.internal.mediaType'
   | 'childrenMarkdownRemark.parent.internal.owner'
   | 'childrenMarkdownRemark.parent.internal.type'
+  | 'childrenMarkdownRemark.parent.internal.contentFilePath'
   | 'childrenMarkdownRemark.children'
   | 'childrenMarkdownRemark.children.id'
   | 'childrenMarkdownRemark.children.parent.id'
@@ -1517,6 +1530,7 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.children.internal.mediaType'
   | 'childrenMarkdownRemark.children.internal.owner'
   | 'childrenMarkdownRemark.children.internal.type'
+  | 'childrenMarkdownRemark.children.internal.contentFilePath'
   | 'childrenMarkdownRemark.internal.content'
   | 'childrenMarkdownRemark.internal.contentDigest'
   | 'childrenMarkdownRemark.internal.description'
@@ -1525,6 +1539,7 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.internal.mediaType'
   | 'childrenMarkdownRemark.internal.owner'
   | 'childrenMarkdownRemark.internal.type'
+  | 'childrenMarkdownRemark.internal.contentFilePath'
   | 'childMarkdownRemark.id'
   | 'childMarkdownRemark.frontmatter.title'
   | 'childMarkdownRemark.frontmatter.date'
@@ -1597,6 +1612,7 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.parent.internal.mediaType'
   | 'childMarkdownRemark.parent.internal.owner'
   | 'childMarkdownRemark.parent.internal.type'
+  | 'childMarkdownRemark.parent.internal.contentFilePath'
   | 'childMarkdownRemark.children'
   | 'childMarkdownRemark.children.id'
   | 'childMarkdownRemark.children.parent.id'
@@ -1612,6 +1628,7 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.children.internal.mediaType'
   | 'childMarkdownRemark.children.internal.owner'
   | 'childMarkdownRemark.children.internal.type'
+  | 'childMarkdownRemark.children.internal.contentFilePath'
   | 'childMarkdownRemark.internal.content'
   | 'childMarkdownRemark.internal.contentDigest'
   | 'childMarkdownRemark.internal.description'
@@ -1620,6 +1637,7 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.internal.mediaType'
   | 'childMarkdownRemark.internal.owner'
   | 'childMarkdownRemark.internal.type'
+  | 'childMarkdownRemark.internal.contentFilePath'
   | 'id'
   | 'parent.id'
   | 'parent.parent.id'
@@ -1636,6 +1654,7 @@ type FileFieldsEnum =
   | 'parent.parent.internal.mediaType'
   | 'parent.parent.internal.owner'
   | 'parent.parent.internal.type'
+  | 'parent.parent.internal.contentFilePath'
   | 'parent.children'
   | 'parent.children.id'
   | 'parent.children.parent.id'
@@ -1651,6 +1670,7 @@ type FileFieldsEnum =
   | 'parent.children.internal.mediaType'
   | 'parent.children.internal.owner'
   | 'parent.children.internal.type'
+  | 'parent.children.internal.contentFilePath'
   | 'parent.internal.content'
   | 'parent.internal.contentDigest'
   | 'parent.internal.description'
@@ -1659,6 +1679,7 @@ type FileFieldsEnum =
   | 'parent.internal.mediaType'
   | 'parent.internal.owner'
   | 'parent.internal.type'
+  | 'parent.internal.contentFilePath'
   | 'children'
   | 'children.id'
   | 'children.parent.id'
@@ -1675,6 +1696,7 @@ type FileFieldsEnum =
   | 'children.parent.internal.mediaType'
   | 'children.parent.internal.owner'
   | 'children.parent.internal.type'
+  | 'children.parent.internal.contentFilePath'
   | 'children.children'
   | 'children.children.id'
   | 'children.children.parent.id'
@@ -1690,6 +1712,7 @@ type FileFieldsEnum =
   | 'children.children.internal.mediaType'
   | 'children.children.internal.owner'
   | 'children.children.internal.type'
+  | 'children.children.internal.contentFilePath'
   | 'children.internal.content'
   | 'children.internal.contentDigest'
   | 'children.internal.description'
@@ -1698,6 +1721,7 @@ type FileFieldsEnum =
   | 'children.internal.mediaType'
   | 'children.internal.owner'
   | 'children.internal.type'
+  | 'children.internal.contentFilePath'
   | 'internal.content'
   | 'internal.contentDigest'
   | 'internal.description'
@@ -1705,7 +1729,8 @@ type FileFieldsEnum =
   | 'internal.ignoreType'
   | 'internal.mediaType'
   | 'internal.owner'
-  | 'internal.type';
+  | 'internal.type'
+  | 'internal.contentFilePath';
 
 type FileGroupConnection = {
   readonly totalCount: Scalars['Int'];
@@ -1850,6 +1875,7 @@ type DirectoryFieldsEnum =
   | 'parent.parent.internal.mediaType'
   | 'parent.parent.internal.owner'
   | 'parent.parent.internal.type'
+  | 'parent.parent.internal.contentFilePath'
   | 'parent.children'
   | 'parent.children.id'
   | 'parent.children.parent.id'
@@ -1865,6 +1891,7 @@ type DirectoryFieldsEnum =
   | 'parent.children.internal.mediaType'
   | 'parent.children.internal.owner'
   | 'parent.children.internal.type'
+  | 'parent.children.internal.contentFilePath'
   | 'parent.internal.content'
   | 'parent.internal.contentDigest'
   | 'parent.internal.description'
@@ -1873,6 +1900,7 @@ type DirectoryFieldsEnum =
   | 'parent.internal.mediaType'
   | 'parent.internal.owner'
   | 'parent.internal.type'
+  | 'parent.internal.contentFilePath'
   | 'children'
   | 'children.id'
   | 'children.parent.id'
@@ -1889,6 +1917,7 @@ type DirectoryFieldsEnum =
   | 'children.parent.internal.mediaType'
   | 'children.parent.internal.owner'
   | 'children.parent.internal.type'
+  | 'children.parent.internal.contentFilePath'
   | 'children.children'
   | 'children.children.id'
   | 'children.children.parent.id'
@@ -1904,6 +1933,7 @@ type DirectoryFieldsEnum =
   | 'children.children.internal.mediaType'
   | 'children.children.internal.owner'
   | 'children.children.internal.type'
+  | 'children.children.internal.contentFilePath'
   | 'children.internal.content'
   | 'children.internal.contentDigest'
   | 'children.internal.description'
@@ -1912,6 +1942,7 @@ type DirectoryFieldsEnum =
   | 'children.internal.mediaType'
   | 'children.internal.owner'
   | 'children.internal.type'
+  | 'children.internal.contentFilePath'
   | 'internal.content'
   | 'internal.contentDigest'
   | 'internal.description'
@@ -1919,7 +1950,8 @@ type DirectoryFieldsEnum =
   | 'internal.ignoreType'
   | 'internal.mediaType'
   | 'internal.owner'
-  | 'internal.type';
+  | 'internal.type'
+  | 'internal.contentFilePath';
 
 type DirectoryGroupConnection = {
   readonly totalCount: Scalars['Int'];
@@ -2064,6 +2096,8 @@ type SiteFieldsEnum =
   | 'polyfill'
   | 'pathPrefix'
   | 'jsxRuntime'
+  | 'trailingSlash'
+  | 'graphqlTypegen'
   | 'id'
   | 'parent.id'
   | 'parent.parent.id'
@@ -2080,6 +2114,7 @@ type SiteFieldsEnum =
   | 'parent.parent.internal.mediaType'
   | 'parent.parent.internal.owner'
   | 'parent.parent.internal.type'
+  | 'parent.parent.internal.contentFilePath'
   | 'parent.children'
   | 'parent.children.id'
   | 'parent.children.parent.id'
@@ -2095,6 +2130,7 @@ type SiteFieldsEnum =
   | 'parent.children.internal.mediaType'
   | 'parent.children.internal.owner'
   | 'parent.children.internal.type'
+  | 'parent.children.internal.contentFilePath'
   | 'parent.internal.content'
   | 'parent.internal.contentDigest'
   | 'parent.internal.description'
@@ -2103,6 +2139,7 @@ type SiteFieldsEnum =
   | 'parent.internal.mediaType'
   | 'parent.internal.owner'
   | 'parent.internal.type'
+  | 'parent.internal.contentFilePath'
   | 'children'
   | 'children.id'
   | 'children.parent.id'
@@ -2119,6 +2156,7 @@ type SiteFieldsEnum =
   | 'children.parent.internal.mediaType'
   | 'children.parent.internal.owner'
   | 'children.parent.internal.type'
+  | 'children.parent.internal.contentFilePath'
   | 'children.children'
   | 'children.children.id'
   | 'children.children.parent.id'
@@ -2134,6 +2172,7 @@ type SiteFieldsEnum =
   | 'children.children.internal.mediaType'
   | 'children.children.internal.owner'
   | 'children.children.internal.type'
+  | 'children.children.internal.contentFilePath'
   | 'children.internal.content'
   | 'children.internal.contentDigest'
   | 'children.internal.description'
@@ -2142,6 +2181,7 @@ type SiteFieldsEnum =
   | 'children.internal.mediaType'
   | 'children.internal.owner'
   | 'children.internal.type'
+  | 'children.internal.contentFilePath'
   | 'internal.content'
   | 'internal.contentDigest'
   | 'internal.description'
@@ -2149,7 +2189,8 @@ type SiteFieldsEnum =
   | 'internal.ignoreType'
   | 'internal.mediaType'
   | 'internal.owner'
-  | 'internal.type';
+  | 'internal.type'
+  | 'internal.contentFilePath';
 
 type SiteGroupConnection = {
   readonly totalCount: Scalars['Int'];
@@ -2200,6 +2241,8 @@ type SiteFilterInput = {
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly jsxRuntime: Maybe<StringQueryOperatorInput>;
+  readonly trailingSlash: Maybe<StringQueryOperatorInput>;
+  readonly graphqlTypegen: Maybe<BooleanQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
@@ -2280,6 +2323,7 @@ type SiteFunctionFieldsEnum =
   | 'parent.parent.internal.mediaType'
   | 'parent.parent.internal.owner'
   | 'parent.parent.internal.type'
+  | 'parent.parent.internal.contentFilePath'
   | 'parent.children'
   | 'parent.children.id'
   | 'parent.children.parent.id'
@@ -2295,6 +2339,7 @@ type SiteFunctionFieldsEnum =
   | 'parent.children.internal.mediaType'
   | 'parent.children.internal.owner'
   | 'parent.children.internal.type'
+  | 'parent.children.internal.contentFilePath'
   | 'parent.internal.content'
   | 'parent.internal.contentDigest'
   | 'parent.internal.description'
@@ -2303,6 +2348,7 @@ type SiteFunctionFieldsEnum =
   | 'parent.internal.mediaType'
   | 'parent.internal.owner'
   | 'parent.internal.type'
+  | 'parent.internal.contentFilePath'
   | 'children'
   | 'children.id'
   | 'children.parent.id'
@@ -2319,6 +2365,7 @@ type SiteFunctionFieldsEnum =
   | 'children.parent.internal.mediaType'
   | 'children.parent.internal.owner'
   | 'children.parent.internal.type'
+  | 'children.parent.internal.contentFilePath'
   | 'children.children'
   | 'children.children.id'
   | 'children.children.parent.id'
@@ -2334,6 +2381,7 @@ type SiteFunctionFieldsEnum =
   | 'children.children.internal.mediaType'
   | 'children.children.internal.owner'
   | 'children.children.internal.type'
+  | 'children.children.internal.contentFilePath'
   | 'children.internal.content'
   | 'children.internal.contentDigest'
   | 'children.internal.description'
@@ -2342,6 +2390,7 @@ type SiteFunctionFieldsEnum =
   | 'children.internal.mediaType'
   | 'children.internal.owner'
   | 'children.internal.type'
+  | 'children.internal.contentFilePath'
   | 'internal.content'
   | 'internal.contentDigest'
   | 'internal.description'
@@ -2349,7 +2398,8 @@ type SiteFunctionFieldsEnum =
   | 'internal.ignoreType'
   | 'internal.mediaType'
   | 'internal.owner'
-  | 'internal.type';
+  | 'internal.type'
+  | 'internal.contentFilePath';
 
 type SiteFunctionGroupConnection = {
   readonly totalCount: Scalars['Int'];
@@ -2503,6 +2553,7 @@ type SitePageFieldsEnum =
   | 'pluginCreator.parent.internal.mediaType'
   | 'pluginCreator.parent.internal.owner'
   | 'pluginCreator.parent.internal.type'
+  | 'pluginCreator.parent.internal.contentFilePath'
   | 'pluginCreator.children'
   | 'pluginCreator.children.id'
   | 'pluginCreator.children.parent.id'
@@ -2518,6 +2569,7 @@ type SitePageFieldsEnum =
   | 'pluginCreator.children.internal.mediaType'
   | 'pluginCreator.children.internal.owner'
   | 'pluginCreator.children.internal.type'
+  | 'pluginCreator.children.internal.contentFilePath'
   | 'pluginCreator.internal.content'
   | 'pluginCreator.internal.contentDigest'
   | 'pluginCreator.internal.description'
@@ -2526,6 +2578,7 @@ type SitePageFieldsEnum =
   | 'pluginCreator.internal.mediaType'
   | 'pluginCreator.internal.owner'
   | 'pluginCreator.internal.type'
+  | 'pluginCreator.internal.contentFilePath'
   | 'id'
   | 'parent.id'
   | 'parent.parent.id'
@@ -2542,6 +2595,7 @@ type SitePageFieldsEnum =
   | 'parent.parent.internal.mediaType'
   | 'parent.parent.internal.owner'
   | 'parent.parent.internal.type'
+  | 'parent.parent.internal.contentFilePath'
   | 'parent.children'
   | 'parent.children.id'
   | 'parent.children.parent.id'
@@ -2557,6 +2611,7 @@ type SitePageFieldsEnum =
   | 'parent.children.internal.mediaType'
   | 'parent.children.internal.owner'
   | 'parent.children.internal.type'
+  | 'parent.children.internal.contentFilePath'
   | 'parent.internal.content'
   | 'parent.internal.contentDigest'
   | 'parent.internal.description'
@@ -2565,6 +2620,7 @@ type SitePageFieldsEnum =
   | 'parent.internal.mediaType'
   | 'parent.internal.owner'
   | 'parent.internal.type'
+  | 'parent.internal.contentFilePath'
   | 'children'
   | 'children.id'
   | 'children.parent.id'
@@ -2581,6 +2637,7 @@ type SitePageFieldsEnum =
   | 'children.parent.internal.mediaType'
   | 'children.parent.internal.owner'
   | 'children.parent.internal.type'
+  | 'children.parent.internal.contentFilePath'
   | 'children.children'
   | 'children.children.id'
   | 'children.children.parent.id'
@@ -2596,6 +2653,7 @@ type SitePageFieldsEnum =
   | 'children.children.internal.mediaType'
   | 'children.children.internal.owner'
   | 'children.children.internal.type'
+  | 'children.children.internal.contentFilePath'
   | 'children.internal.content'
   | 'children.internal.contentDigest'
   | 'children.internal.description'
@@ -2604,6 +2662,7 @@ type SitePageFieldsEnum =
   | 'children.internal.mediaType'
   | 'children.internal.owner'
   | 'children.internal.type'
+  | 'children.internal.contentFilePath'
   | 'internal.content'
   | 'internal.contentDigest'
   | 'internal.description'
@@ -2611,7 +2670,8 @@ type SitePageFieldsEnum =
   | 'internal.ignoreType'
   | 'internal.mediaType'
   | 'internal.owner'
-  | 'internal.type';
+  | 'internal.type'
+  | 'internal.contentFilePath';
 
 type SitePageGroupConnection = {
   readonly totalCount: Scalars['Int'];
@@ -2744,6 +2804,7 @@ type SitePluginFieldsEnum =
   | 'parent.parent.internal.mediaType'
   | 'parent.parent.internal.owner'
   | 'parent.parent.internal.type'
+  | 'parent.parent.internal.contentFilePath'
   | 'parent.children'
   | 'parent.children.id'
   | 'parent.children.parent.id'
@@ -2759,6 +2820,7 @@ type SitePluginFieldsEnum =
   | 'parent.children.internal.mediaType'
   | 'parent.children.internal.owner'
   | 'parent.children.internal.type'
+  | 'parent.children.internal.contentFilePath'
   | 'parent.internal.content'
   | 'parent.internal.contentDigest'
   | 'parent.internal.description'
@@ -2767,6 +2829,7 @@ type SitePluginFieldsEnum =
   | 'parent.internal.mediaType'
   | 'parent.internal.owner'
   | 'parent.internal.type'
+  | 'parent.internal.contentFilePath'
   | 'children'
   | 'children.id'
   | 'children.parent.id'
@@ -2783,6 +2846,7 @@ type SitePluginFieldsEnum =
   | 'children.parent.internal.mediaType'
   | 'children.parent.internal.owner'
   | 'children.parent.internal.type'
+  | 'children.parent.internal.contentFilePath'
   | 'children.children'
   | 'children.children.id'
   | 'children.children.parent.id'
@@ -2798,6 +2862,7 @@ type SitePluginFieldsEnum =
   | 'children.children.internal.mediaType'
   | 'children.children.internal.owner'
   | 'children.children.internal.type'
+  | 'children.children.internal.contentFilePath'
   | 'children.internal.content'
   | 'children.internal.contentDigest'
   | 'children.internal.description'
@@ -2806,6 +2871,7 @@ type SitePluginFieldsEnum =
   | 'children.internal.mediaType'
   | 'children.internal.owner'
   | 'children.internal.type'
+  | 'children.internal.contentFilePath'
   | 'internal.content'
   | 'internal.contentDigest'
   | 'internal.description'
@@ -2813,7 +2879,8 @@ type SitePluginFieldsEnum =
   | 'internal.ignoreType'
   | 'internal.mediaType'
   | 'internal.owner'
-  | 'internal.type';
+  | 'internal.type'
+  | 'internal.contentFilePath';
 
 type SitePluginGroupConnection = {
   readonly totalCount: Scalars['Int'];
@@ -2924,6 +2991,7 @@ type SiteBuildMetadataFieldsEnum =
   | 'parent.parent.internal.mediaType'
   | 'parent.parent.internal.owner'
   | 'parent.parent.internal.type'
+  | 'parent.parent.internal.contentFilePath'
   | 'parent.children'
   | 'parent.children.id'
   | 'parent.children.parent.id'
@@ -2939,6 +3007,7 @@ type SiteBuildMetadataFieldsEnum =
   | 'parent.children.internal.mediaType'
   | 'parent.children.internal.owner'
   | 'parent.children.internal.type'
+  | 'parent.children.internal.contentFilePath'
   | 'parent.internal.content'
   | 'parent.internal.contentDigest'
   | 'parent.internal.description'
@@ -2947,6 +3016,7 @@ type SiteBuildMetadataFieldsEnum =
   | 'parent.internal.mediaType'
   | 'parent.internal.owner'
   | 'parent.internal.type'
+  | 'parent.internal.contentFilePath'
   | 'children'
   | 'children.id'
   | 'children.parent.id'
@@ -2963,6 +3033,7 @@ type SiteBuildMetadataFieldsEnum =
   | 'children.parent.internal.mediaType'
   | 'children.parent.internal.owner'
   | 'children.parent.internal.type'
+  | 'children.parent.internal.contentFilePath'
   | 'children.children'
   | 'children.children.id'
   | 'children.children.parent.id'
@@ -2978,6 +3049,7 @@ type SiteBuildMetadataFieldsEnum =
   | 'children.children.internal.mediaType'
   | 'children.children.internal.owner'
   | 'children.children.internal.type'
+  | 'children.children.internal.contentFilePath'
   | 'children.internal.content'
   | 'children.internal.contentDigest'
   | 'children.internal.description'
@@ -2986,6 +3058,7 @@ type SiteBuildMetadataFieldsEnum =
   | 'children.internal.mediaType'
   | 'children.internal.owner'
   | 'children.internal.type'
+  | 'children.internal.contentFilePath'
   | 'internal.content'
   | 'internal.contentDigest'
   | 'internal.description'
@@ -2993,7 +3066,8 @@ type SiteBuildMetadataFieldsEnum =
   | 'internal.ignoreType'
   | 'internal.mediaType'
   | 'internal.owner'
-  | 'internal.type';
+  | 'internal.type'
+  | 'internal.contentFilePath';
 
 type SiteBuildMetadataGroupConnection = {
   readonly totalCount: Scalars['Int'];
@@ -3143,6 +3217,7 @@ type ImageSharpFieldsEnum =
   | 'parent.parent.internal.mediaType'
   | 'parent.parent.internal.owner'
   | 'parent.parent.internal.type'
+  | 'parent.parent.internal.contentFilePath'
   | 'parent.children'
   | 'parent.children.id'
   | 'parent.children.parent.id'
@@ -3158,6 +3233,7 @@ type ImageSharpFieldsEnum =
   | 'parent.children.internal.mediaType'
   | 'parent.children.internal.owner'
   | 'parent.children.internal.type'
+  | 'parent.children.internal.contentFilePath'
   | 'parent.internal.content'
   | 'parent.internal.contentDigest'
   | 'parent.internal.description'
@@ -3166,6 +3242,7 @@ type ImageSharpFieldsEnum =
   | 'parent.internal.mediaType'
   | 'parent.internal.owner'
   | 'parent.internal.type'
+  | 'parent.internal.contentFilePath'
   | 'children'
   | 'children.id'
   | 'children.parent.id'
@@ -3182,6 +3259,7 @@ type ImageSharpFieldsEnum =
   | 'children.parent.internal.mediaType'
   | 'children.parent.internal.owner'
   | 'children.parent.internal.type'
+  | 'children.parent.internal.contentFilePath'
   | 'children.children'
   | 'children.children.id'
   | 'children.children.parent.id'
@@ -3197,6 +3275,7 @@ type ImageSharpFieldsEnum =
   | 'children.children.internal.mediaType'
   | 'children.children.internal.owner'
   | 'children.children.internal.type'
+  | 'children.children.internal.contentFilePath'
   | 'children.internal.content'
   | 'children.internal.contentDigest'
   | 'children.internal.description'
@@ -3205,6 +3284,7 @@ type ImageSharpFieldsEnum =
   | 'children.internal.mediaType'
   | 'children.internal.owner'
   | 'children.internal.type'
+  | 'children.internal.contentFilePath'
   | 'internal.content'
   | 'internal.contentDigest'
   | 'internal.description'
@@ -3212,7 +3292,8 @@ type ImageSharpFieldsEnum =
   | 'internal.ignoreType'
   | 'internal.mediaType'
   | 'internal.owner'
-  | 'internal.type';
+  | 'internal.type'
+  | 'internal.contentFilePath';
 
 type ImageSharpGroupConnection = {
   readonly totalCount: Scalars['Int'];
@@ -3388,6 +3469,7 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.image.internal.mediaType'
   | 'frontmatter.image.internal.owner'
   | 'frontmatter.image.internal.type'
+  | 'frontmatter.image.internal.contentFilePath'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -3419,6 +3501,7 @@ type MarkdownRemarkFieldsEnum =
   | 'parent.parent.internal.mediaType'
   | 'parent.parent.internal.owner'
   | 'parent.parent.internal.type'
+  | 'parent.parent.internal.contentFilePath'
   | 'parent.children'
   | 'parent.children.id'
   | 'parent.children.parent.id'
@@ -3434,6 +3517,7 @@ type MarkdownRemarkFieldsEnum =
   | 'parent.children.internal.mediaType'
   | 'parent.children.internal.owner'
   | 'parent.children.internal.type'
+  | 'parent.children.internal.contentFilePath'
   | 'parent.internal.content'
   | 'parent.internal.contentDigest'
   | 'parent.internal.description'
@@ -3442,6 +3526,7 @@ type MarkdownRemarkFieldsEnum =
   | 'parent.internal.mediaType'
   | 'parent.internal.owner'
   | 'parent.internal.type'
+  | 'parent.internal.contentFilePath'
   | 'children'
   | 'children.id'
   | 'children.parent.id'
@@ -3458,6 +3543,7 @@ type MarkdownRemarkFieldsEnum =
   | 'children.parent.internal.mediaType'
   | 'children.parent.internal.owner'
   | 'children.parent.internal.type'
+  | 'children.parent.internal.contentFilePath'
   | 'children.children'
   | 'children.children.id'
   | 'children.children.parent.id'
@@ -3473,6 +3559,7 @@ type MarkdownRemarkFieldsEnum =
   | 'children.children.internal.mediaType'
   | 'children.children.internal.owner'
   | 'children.children.internal.type'
+  | 'children.children.internal.contentFilePath'
   | 'children.internal.content'
   | 'children.internal.contentDigest'
   | 'children.internal.description'
@@ -3481,6 +3568,7 @@ type MarkdownRemarkFieldsEnum =
   | 'children.internal.mediaType'
   | 'children.internal.owner'
   | 'children.internal.type'
+  | 'children.internal.contentFilePath'
   | 'internal.content'
   | 'internal.contentDigest'
   | 'internal.description'
@@ -3488,7 +3576,8 @@ type MarkdownRemarkFieldsEnum =
   | 'internal.ignoreType'
   | 'internal.mediaType'
   | 'internal.owner'
-  | 'internal.type';
+  | 'internal.type'
+  | 'internal.contentFilePath';
 
 type MarkdownRemarkGroupConnection = {
   readonly totalCount: Scalars['Int'];
@@ -3570,7 +3659,7 @@ type IndexQueryQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyA
       ) }> }, readonly allImageSharp: { readonly edges: ReadonlyArray<{ readonly node: (
         Pick<File, 'id'>
         & { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_tracedSVGFragment> }> }
-      ) }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_tracedSVGFragment> }> } }> } };
+      ) }> }, readonly blogScreenshotSharp: { readonly edges: ReadonlyArray<{ readonly node: { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> } }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_tracedSVGFragment> }> } }> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
