@@ -17,6 +17,7 @@ import AboutMe from "../components/aboutme";
 import PhotoList from "../components/photoList";
 import Music from "../components/music";
 import ContactForm from "../components/contactForm";
+import Img from "gatsby-image";
 
 const Content = styled.div`
   & > a {
@@ -255,24 +256,13 @@ export default function (props: Props): JSX.Element {
         </Title>
         <Music />
       </Section>
-      <a id="tech">Tech</a>
-      <Section>
-        <Title>Tech</Title>
-        <span>Technologies I enjoy working with.</span>
-        <Showcase images={props.data.allImageSharp.edges} />
-        <GitHubWeed />
-        <br />
-      </Section>
       <a id="blog">Blog</a>
       <Section>
         <Title>Blog</Title>
         <Flex alignItems="center" flexDirection="column">
           <Box px={2} width={[1, 1 / 2]}>
-            <p>
-              tubone BOYAKI is my blog.
-              <br />
-              Check my Tech KATSUDOU! (Activity)
-            </p>
+            <span>chech my blog</span>
+            {props.data.blogScreenshotSharp.edges[0].node?.childImageSharp?.fluid && <Img fluid={props.data.blogScreenshotSharp.edges[0].node?.childImageSharp?.fluid} />}
           </Box>
           <a href="https://blog.tubone-project24.xyz">
             <Box px={2} width={180}>
@@ -354,6 +344,7 @@ export default function (props: Props): JSX.Element {
           </p>
         </Item>
         <h4>Resume</h4>
+        <span>More information? Look at my resume.</span>
         <Flex alignItems="left" flexDirection="column">
           <a href="https://tubone24.github.io/resume">
             <Box px={2} width={180}>
@@ -423,6 +414,17 @@ export const pageQuery = graphql`
           childImageSharp {
             fluid(maxWidth: 300, grayscale: true) {
               ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+    blogScreenshotSharp: allFile(filter: { name: { regex: "/screenshot-ubuntu-latest-1200/" } }) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
