@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { graphql } from "gatsby";
 import { Flex, Box } from "grid-styled";
 import styled, { css } from "styled-components";
@@ -18,6 +18,9 @@ import PhotoList from "../components/photoList";
 import Music from "../components/music";
 import ContactForm from "../components/contactForm";
 import Img from "gatsby-image";
+import Sound from 'react-sound';
+import ClickSound from '../components/music/click.mp3';
+import BgmSound from '../components/music/bgm.mp3';
 
 const Content = styled.div`
   & > a {
@@ -187,12 +190,45 @@ const HomeButton = styled(Button)`
   left: 20%;
 `;
 
+const BGMButton = styled(Button)`
+  @media(max-width: 1198px) {
+    position: absolute;
+    bottom: 35%;
+    left: 60%;
+  }
+  @media(min-width: 1198px) {
+    position: absolute;
+    bottom: 3%;
+    left: 90%;
+  }
+`;
+
 type Props = {
   data: GatsbyTypes.IndexQueryQuery;
   location: Location;
 };
 
 export default function (props: Props): JSX.Element {
+  const [bgmSoundStatus, setBgmSoundStatus] = useState('STOPPED');
+  const [clickSoundStatus, setClickSoundStatus] = useState('STOPPED');
+  const handleClickSoundPlay = () => {
+    setClickSoundStatus(Sound.status.PLAYING);
+  };
+
+  const handleBgmSoundPlay = () => {
+    if (bgmSoundStatus === Sound.status.PLAYING) {
+      setBgmSoundStatus(Sound.status.STOPPED);
+    } else {
+      setBgmSoundStatus(Sound.status.PLAYING);
+    }
+  };
+  const scrollToElementOnClickSound = (selector: string) => {
+    scrollToElement(selector);
+    if (bgmSoundStatus === Sound.status.PLAYING) {
+      handleClickSoundPlay();
+    }
+  };
+
   const content = (
     <Content>
       <FlickrHero
@@ -201,9 +237,12 @@ export default function (props: Props): JSX.Element {
         album_id="72157711319102412"
         fillPage
       />
-      <HomeButton opaque light onClick={() => scrollToElement("#about-me")}>
+      <HomeButton opaque light onClick={() => scrollToElementOnClickSound("#about-me")}>
         About me
       </HomeButton>
+      <BGMButton opaque extremeSmall wave light={bgmSoundStatus === Sound.status.PLAYING} dark={bgmSoundStatus === Sound.status.STOPPED} onClick={handleBgmSoundPlay}>
+        {bgmSoundStatus === Sound.status.PLAYING ? "TURN OFF SOUND" : "TURN ON SOUND"}
+      </BGMButton>
       <HeroText />
       <SocialIcons
         style={{
@@ -371,6 +410,25 @@ export default function (props: Props): JSX.Element {
     <Layout location={props.location}>
       <NavBar main children={content.props.children} />
       {content}
+      <Sound
+        url={ClickSound}
+        autoLoad={true}
+        playStatus={clickSoundStatus}
+        playFromPosition={0}
+        onFinishedPlaying={() =>
+          setClickSoundStatus(Sound.status.STOPPED)
+        }
+      />
+      <Sound
+        url={BgmSound}
+        volume={30}
+        autoLoad={true}
+        playStatus={bgmSoundStatus}
+        playFromPosition={0}
+        onFinishedPlaying={() =>
+          setBgmSoundStatus(Sound.status.PLAYING)
+        }
+      />
     </Layout>
   );
 }
