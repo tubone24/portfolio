@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import { Flex, Box } from "grid-styled";
 import styled, { css } from "styled-components";
@@ -18,9 +18,8 @@ import PhotoList from "../components/photoList";
 import Music from "../components/music";
 import ContactForm from "../components/contactForm";
 import Img from "gatsby-image";
-import Sound from 'react-sound';
-import ClickSound from '../components/music/click.mp3';
-import BgmSound from '../components/music/bgm.mp3';
+import Sound from "react-sound";
+import ClickSound from "../components/music/click.mp3";
 
 const Content = styled.div`
   & > a {
@@ -190,44 +189,19 @@ const HomeButton = styled(Button)`
   left: 20%;
 `;
 
-const BGMButton = styled(Button)`
-  @media(max-width: 1198px) {
-    position: absolute;
-    bottom: 35%;
-    left: 60%;
-  }
-  @media(min-width: 1198px) {
-    position: absolute;
-    bottom: 3%;
-    left: 90%;
-  }
-`;
-
 type Props = {
   data: GatsbyTypes.IndexQueryQuery;
   location: Location;
 };
 
 export default function (props: Props): JSX.Element {
-  const [bgmSoundStatus, setBgmSoundStatus] = useState('STOPPED');
-  const [clickSoundStatus, setClickSoundStatus] = useState('STOPPED');
+  const [clickSoundStatus, setClickSoundStatus] = useState("STOPPED");
   const handleClickSoundPlay = () => {
     setClickSoundStatus(Sound.status.PLAYING);
-  };
-
-  const handleBgmSoundPlay = () => {
-    if (bgmSoundStatus === Sound.status.PLAYING) {
-      setBgmSoundStatus(Sound.status.STOPPED);
-    } else {
-      setBgmSoundStatus(Sound.status.PLAYING);
-    }
   };
   const scrollToElementOnClickSound = (selector: string) => {
     scrollToElement(selector);
     handleClickSoundPlay();
-    if (bgmSoundStatus === Sound.status.PLAYING) {
-
-    }
   };
 
   const content = (
@@ -238,12 +212,13 @@ export default function (props: Props): JSX.Element {
         album_id="72157711319102412"
         fillPage
       />
-      <HomeButton opaque light onClick={() => scrollToElementOnClickSound("#about-me")}>
+      <HomeButton
+        opaque
+        light
+        onClick={() => scrollToElementOnClickSound("#about-me")}
+      >
         About me
       </HomeButton>
-      <BGMButton opaque extremeSmall wave light={bgmSoundStatus === Sound.status.PLAYING} dark={bgmSoundStatus === Sound.status.STOPPED} onClick={handleBgmSoundPlay}>
-        {bgmSoundStatus === Sound.status.PLAYING ? "TURN OFF SOUND" : "TURN ON SOUND"}
-      </BGMButton>
       <HeroText />
       <SocialIcons
         style={{
@@ -302,7 +277,15 @@ export default function (props: Props): JSX.Element {
         <Flex alignItems="center" flexDirection="column">
           <Box px={2} width={[1, 1 / 2]}>
             <span>chech my blog</span>
-            {props.data.blogScreenshotSharp.edges[0].node?.childImageSharp?.fluid && <Img fluid={props.data.blogScreenshotSharp.edges[0].node?.childImageSharp?.fluid} />}
+            {props.data.blogScreenshotSharp.edges[0].node?.childImageSharp
+              ?.fluid && (
+              <Img
+                fluid={
+                  props.data.blogScreenshotSharp.edges[0].node?.childImageSharp
+                    ?.fluid
+                }
+              />
+            )}
           </Box>
           <a href="https://blog.tubone-project24.xyz">
             <Box px={2} width={180}>
@@ -317,12 +300,8 @@ export default function (props: Props): JSX.Element {
         <span>Where I've worked.</span>
         <Item>
           <span>February 2024- Current</span>
-          <h6>
-            Data Engineering developer
-          </h6>
-          <p>
-            Developing Data Clean Room with Snowflake and AWS.
-          </p>
+          <h6>Data Engineering developer</h6>
+          <p>Developing Data Clean Room with Snowflake and AWS.</p>
         </Item>
         <Item>
           <span>August 2021- February 2024</span>
@@ -411,25 +390,6 @@ export default function (props: Props): JSX.Element {
     <Layout location={props.location}>
       <NavBar main children={content.props.children} />
       {content}
-      <Sound
-        url={ClickSound}
-        autoLoad={true}
-        playStatus={clickSoundStatus}
-        playFromPosition={0}
-        onFinishedPlaying={() =>
-          setClickSoundStatus(Sound.status.STOPPED)
-        }
-      />
-      <Sound
-        url={BgmSound}
-        volume={30}
-        autoLoad={true}
-        playStatus={bgmSoundStatus}
-        playFromPosition={0}
-        onFinishedPlaying={() =>
-          setBgmSoundStatus(Sound.status.PLAYING)
-        }
-      />
     </Layout>
   );
 }
@@ -478,7 +438,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    blogScreenshotSharp: allFile(filter: { name: { regex: "/screenshot-ubuntu-latest-1200/" } }) {
+    blogScreenshotSharp: allFile(
+      filter: { name: { regex: "/screenshot-ubuntu-latest-1200/" } }
+    ) {
       edges {
         node {
           childImageSharp {
