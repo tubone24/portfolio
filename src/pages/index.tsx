@@ -224,8 +224,9 @@ export default function (props: Props): JSX.Element {
   };
   const scrollToElementOnClickSound = (selector: string) => {
     scrollToElement(selector);
+    handleClickSoundPlay();
     if (bgmSoundStatus === Sound.status.PLAYING) {
-      handleClickSoundPlay();
+
     }
   };
 

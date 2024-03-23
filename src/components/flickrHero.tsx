@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import buildUrl from "build-url";
-import Hero from "./hero";
-import fetch from "cross-fetch";
+import React, { useState, useEffect } from 'react';
+import buildUrl from 'build-url';
+import Hero from './hero';
+import fetch from 'cross-fetch';
 
 type Props = {
   api_key: string;
@@ -12,10 +12,6 @@ type Props = {
   fillPage?: boolean;
   className?: string;
 };
-
-interface State {
-  images: Image[];
-}
 
 interface Image {
   src: string;
@@ -31,18 +27,10 @@ interface Photo {
   width_t: number;
 }
 
-class FlickrHero extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
+const FlickrHero = (props: Props) => {
+  const [images, setImages] = useState<Image[]>([]);
 
-    this.state = { images: [] };
-  }
-
-  componentWillMount() {
-    this.queryFlickrApi(this.props);
-  }
-
-  generateApiUrl = (props: Props) => {
+  const generateApiUrl = (props: Props) => {
     const extras = ["url_o", "url_m", "url_t"];
     return buildUrl("https://api.flickr.com", {
       path: "services/rest/",
@@ -50,8 +38,8 @@ class FlickrHero extends Component<Props, State> {
         method: props.album_id
           ? "flickr.photosets.getPhotos"
           : props.user_id || props.searchTerm
-          ? "flickr.photos.search"
-          : "flickr.photos.getRecent",
+            ? "flickr.photos.search"
+            : "flickr.photos.getRecent",
         format: "json",
         api_key: props.api_key || "",
         user_id: props.user_id || "",
@@ -66,53 +54,42 @@ class FlickrHero extends Component<Props, State> {
     });
   };
 
-  queryFlickrApi = (props: Props) => {
-    fetch(this.generateApiUrl(props))
+  const queryFlickrApi = (props: Props) => {
+    fetch(generateApiUrl(props))
       .then((response) => response.json())
-      .then(
-        (data: {
-          photoset: { photo: Photo[] };
-          photos: { photo: Photo[] };
-        }) => {
-          let photos = [];
-          if (data.photoset) {
-            photos = data.photoset.photo;
-          } else if (data.photos) {
-            photos = data.photos.photo;
-          } else {
-            throw data;
-          }
-          this.setState({
-            images: photos.map((p) => {
-              return {
-                src:
-                  p.url_o ||
-                  p.url_m ||
-                  "https://s.yimg.com/pw/images/en-us/photo_unavailable.png",
-                thumbnail: p.url_t,
-                aspectRatio:
-                  Math.min(p.height_t, p.width_t) /
-                  Math.max(p.height_t, p.width_t),
-              };
-            }),
-          });
+      .then((data: { photoset: { photo: Photo[] }; photos: { photo: Photo[] } }) => {
+        let photos = [];
+        if (data.photoset) {
+          photos = data.photoset.photo;
+        } else if (data.photos) {
+          photos = data.photos.photo;
+        } else {
+          throw data;
         }
-      )
+        setImages(photos.map((p) => ({
+          src: p.url_o || p.url_m || "https://s.yimg.com/pw/images/en-us/photo_unavailable.png",
+          thumbnail: p.url_t,
+          aspectRatio: Math.min(p.height_t, p.width_t) / Math.max(p.height_t, p.width_t),
+        })));
+      })
       .catch((e) => console.error(e));
   };
 
-  render() {
-    const image =
-      this.state.images[Math.floor(Math.random() * this.state.images.length)];
-    return (
-      <Hero
-        img={image ? image.src : ""}
-        thumbnail={image ? image.thumbnail : ""}
-        aspectRatio={image ? image.aspectRatio : 0}
-        {...this.props}
-      />
-    );
-  }
-}
+  useEffect(() => {
+    queryFlickrApi(props);
+    // If props could change and you want to re-fetch the data when they do, include them in the dependency array
+    // For this example, it's left as an empty array to mimic componentWillMount behavior
+  }, [props.api_key, props.user_id, props.album_id, props.limit, props.searchTerm]); // Add any props that could change and trigger a re-fetch
+
+  const image = images[Math.floor(Math.random() * images.length)];
+  return (
+    <Hero
+      img={image ? image.src : ""}
+      thumbnail={image ? image.thumbnail : ""}
+      aspectRatio={image ? image.aspectRatio : 0}
+      {...props}
+    />
+  );
+};
 
 export default FlickrHero;
