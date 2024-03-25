@@ -123,54 +123,42 @@ export const ContactForm = (): JSX.Element => {
 };
 
 const Form = styled.form`
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 0;
-  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px; // 最大幅を設定してレスポンシブに
+  background-color: #f5f5f5; // 軽い背景色で区別
+  border-radius: 10px; // 角を丸く
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を付けて浮かび上がらせる
 `;
 
 const Input = styled.input`
   width: 100%;
-  color: black;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd; // 薄い境界線
   border-radius: 5px;
-  line-height: 22px;
-  background-color: transparent;
-  border: 2px solid #cc6666;
-  transition: all 0.3s;
-  padding: 13px;
-  margin-bottom: 15px;
-  width: 100%;
   box-sizing: border-box;
-  outline: 0;
+  font-size: 16px; // 読みやすいフォントサイズ
+  &:focus {
+    border-color: #007bff; // フォーカス時に色を変える
+    box-shadow: 0 0 0 2px rgba(0,123,255,.25); // フォーカスが明確になるように
+  }
 `;
 
-const TextArea = styled.textarea`
-  width: 100%;
-  color: black;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  border-radius: 5px;
-  line-height: 22px;
-  background-color: transparent;
-  border: 2px solid #cc6666;
-  transition: all 0.3s;
-  padding: 13px;
-  margin-bottom: 15px;
-  width: 100%;
-  box-sizing: border-box;
-  outline: 0;
+const TextArea = styled(Input).attrs({ as: 'textarea' })`
+  height: auto; // 自動で高さ調整
+  resize: vertical; // 垂直方向のリサイズのみを許可
 `;
 
 const P = styled.p`
-  margin-bottom: 0px;
+  margin-bottom: 10px;
+  width: 100%;
 `;
 
 export default ContactForm;
