@@ -5,7 +5,7 @@ describe("UI Test", () => {
     cy.title().should("include", "tubone24");
     cy.get("ul > li").should(($li) => {
       expect($li.eq(0)).to.contain("Contact");
-      expect($li.eq(1)).to.contain("Resume");
+      expect($li.eq(1)).to.contain("Experience");
       expect($li.eq(2)).to.contain("Blog");
       expect($li.eq(3)).to.contain("Musics");
       expect($li.eq(4)).to.contain("Photos");
