@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import { Flex, Box } from "grid-styled";
 import styled, { css } from "styled-components";
@@ -18,6 +18,8 @@ import PhotoList from "../components/photoList";
 import Music from "../components/music";
 import ContactForm from "../components/contactForm";
 import Img from "gatsby-image";
+import Sound from "react-sound";
+import ClickSound from "../components/music/click.mp3";
 
 const Content = styled.div`
   & > a {
@@ -193,6 +195,15 @@ type Props = {
 };
 
 export default function (props: Props): JSX.Element {
+  const [clickSoundStatus, setClickSoundStatus] = useState("STOPPED");
+  const handleClickSoundPlay = () => {
+    setClickSoundStatus(Sound.status.PLAYING);
+  };
+  const scrollToElementOnClickSound = (selector: string) => {
+    scrollToElement(selector);
+    handleClickSoundPlay();
+  };
+
   const content = (
     <Content>
       <FlickrHero
@@ -201,7 +212,11 @@ export default function (props: Props): JSX.Element {
         album_id="72157711319102412"
         fillPage
       />
-      <HomeButton opaque light onClick={() => scrollToElement("#about-me")}>
+      <HomeButton
+        opaque
+        light
+        onClick={() => scrollToElementOnClickSound("#about-me")}
+      >
         About me
       </HomeButton>
       <HeroText />
@@ -262,7 +277,15 @@ export default function (props: Props): JSX.Element {
         <Flex alignItems="center" flexDirection="column">
           <Box px={2} width={[1, 1 / 2]}>
             <span>chech my blog</span>
-            {props.data.blogScreenshotSharp.edges[0].node?.childImageSharp?.fluid && <Img fluid={props.data.blogScreenshotSharp.edges[0].node?.childImageSharp?.fluid} />}
+            {props.data.blogScreenshotSharp.edges[0].node?.childImageSharp
+              ?.fluid && (
+              <Img
+                fluid={
+                  props.data.blogScreenshotSharp.edges[0].node?.childImageSharp
+                    ?.fluid
+                }
+              />
+            )}
           </Box>
           <a href="https://blog.tubone-project24.xyz">
             <Box px={2} width={180}>
@@ -271,17 +294,22 @@ export default function (props: Props): JSX.Element {
           </a>
         </Flex>
       </Section>
-      <a id="resume">Resume</a>
+      <a id="experience">Experience</a>
       <Section center dark>
         <Title dark>Experience</Title>
+        <h4>work history</h4>
         <span>Where I've worked.</span>
         <Item>
           <span>February 2024- Current</span>
-          <h6>
-            Data Engineering developer
-          </h6>
+          <h6>Data Engineering developer</h6>
+          <p>Developing Data Clean Room with Snowflake and AWS.</p>
+        </Item>
+        <Item>
+          <span>September 2022- Current</span>
+          <h6>SRE Engineer</h6>
           <p>
-            Developing Data Clean Room with Snowflake and AWS.
+            Support engineering teams through accelerated CI/CD, maintenance of
+            e2e testing, switch to Faas, and adoption of Blue/Green deployments.
           </p>
         </Item>
         <Item>
@@ -295,6 +323,11 @@ export default function (props: Props): JSX.Element {
           <p>
             Developing an event platform using React, Nest.js (TypeScript), and
             AWS.
+          </p>
+          <p>
+            Leading the development of video distribution infrastructure and the
+            creation of connectors for MA/SFA integration, including public API
+            infrastructure development and Marketo/Salesforce.
           </p>
         </Item>
         <Item>
@@ -419,7 +452,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    blogScreenshotSharp: allFile(filter: { name: { regex: "/screenshot-ubuntu-latest-1200/" } }) {
+    blogScreenshotSharp: allFile(
+      filter: { name: { regex: "/screenshot-ubuntu-latest-1200/" } }
+    ) {
       edges {
         node {
           childImageSharp {

@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
 import { Flex, Box } from "grid-styled";
 import Img from "gatsby-image";
 
 import { media } from "../utils/style";
 import Button from "./button";
+import Sound from 'react-sound';
+import ClickSound from '../components/music/click.mp3';
 
 const Tile = styled.div`
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
@@ -177,47 +179,55 @@ interface State {
   items: Node[];
   viewAll: boolean;
 }
+const Portfolio = (props) => {
+  const [state, setState] = useState({ viewAll: false });
+  const [clickSoundStatus, setClickSoundStatus] = useState('STOPPED');
+  const handleClickSoundPlay = () => {
+    setClickSoundStatus(Sound.status.PLAYING);
+  };
+  const toggletOnClickSound = (selector: string) => {
+    toggleShow();
+    handleClickSoundPlay();
+  };
 
-class Portfolio extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { items: [], viewAll: false };
+  const toggleShow = () => {
+    setState((prevState) => ({ viewAll: !prevState.viewAll }));
+  };
+
+  let items = props.items.map((item) => (
+    <Box key={item?.node?.fields?.slug} px={2} width={[1, 1 / 2, 1 / 3, 1 / 4]}>
+      <Item
+        excerpt={item?.node?.excerpt}
+        slug={item?.node?.fields?.slug}
+        timeToRead={item.node.timeToRead}
+        {...item.node.frontmatter}
+      />
+    </Box>
+  ));
+
+  if (!state.viewAll) {
+    items = items.slice(0, 4);
   }
 
-  toggleShow() {
-    this.setState({ viewAll: !this.state.viewAll });
-  }
-
-  render() {
-    const items = this.props.items.map((item) => (
-      <Box
-        key={item?.node?.fields?.slug}
-        px={2}
-        width={[1, 1 / 2, 1 / 3, 1 / 4]}
-      >
-        <Item
-          key={item?.node?.fields?.slug}
-          excerpt={item?.node?.excerpt}
-          slug={item?.node?.fields?.slug}
-          timeToRead={item.node.timeToRead}
-          {...item.node.frontmatter}
-        />
+  return (
+    <Flex justifyContent="center" px={1} flexWrap="wrap">
+      {items}
+      <Box m="auto">
+        <Button center onClick={toggletOnClickSound}>
+          {state.viewAll ? 'View Less' : 'View More'}
+        </Button>
       </Box>
-    ));
-    if (!this.state.viewAll) {
-      items.splice(4);
-    }
-    return (
-      <Flex justifyContent="center" px={1} flexWrap="wrap">
-        {items}
-        <Box m="auto">
-          <Button center onClick={() => this.toggleShow()}>
-            {this.state.viewAll ? "View Less" : "View More"}
-          </Button>
-        </Box>
-      </Flex>
-    );
-  }
-}
+      <Sound
+        url={ClickSound}
+        autoLoad={true}
+        playStatus={clickSoundStatus}
+        playFromPosition={0}
+        onFinishedPlaying={() =>
+          setClickSoundStatus(Sound.status.STOPPED)
+        }
+      />
+    </Flex>
+  );
+};
 
 export default Portfolio;
