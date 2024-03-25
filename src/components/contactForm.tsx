@@ -43,71 +43,50 @@ export const ContactForm = (): JSX.Element => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <P>
-        <label>
-          Your Name
-          <br />
-          <Input
-            name="name"
-            placeholder="Enter your name"
-            type="text"
-            data-testid="name"
-            ref={register({ required: true })}
-          />
-          {errors.name && <span>This field is required</span>}
-        </label>
-      </P>
-      <P>
-        <label>
-          {" "}
-          Your email
-          <br />
-          <Input
-            name="email"
-            type="email"
-            data-testid="email"
-            placeholder="Enter your email"
-            ref={register({
-              pattern:
-                /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i,
-              required: true,
-            })}
-          />
-          {errors.email && (
-            <span>This field is required and only email format</span>
-          )}
-        </label>
-      </P>
-      <P>
-        <label>
-          Subject
-          <br />
-          <Input
-            name="subject"
-            type="text"
-            maxLength={30}
-            placeholder="Subject here..."
-            data-testid="subject"
-            ref={register({ required: true })}
-          />
-          {errors.subject && <span>This field is required</span>}
-        </label>
-      </P>
-      <P>
-        <label>
-          Message
-          <br />
-          <TextArea
-            name="message"
-            placeholder="Something writing..."
-            rows={6}
-            cols={25}
-            data-testid="message"
-            ref={register({ required: true })}
-          />
-          {errors.message && <span>This field is required</span>}
-        </label>
-      </P>
+      <Label>Your Name</Label>
+      {errors.name && <span>This field is required</span>}
+      <Input
+        name="name"
+        placeholder="Enter your name"
+        type="text"
+        data-testid="name"
+        ref={register({ required: true })}
+      />
+      <Label>Your email</Label>
+      {errors.email && (
+        <span>This field is required and only email format</span>
+      )}
+      <Input
+        name="email"
+        type="email"
+        data-testid="email"
+        placeholder="Enter your email"
+        ref={register({
+          pattern:
+            /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i,
+          required: true,
+        })}
+      />
+      <Label>Subject</Label>
+      {errors.subject && <span>This field is required</span>}
+      <Input
+        name="subject"
+        type="text"
+        maxLength={30}
+        placeholder="Subject here..."
+        data-testid="subject"
+        ref={register({ required: true })}
+      />
+      <Label>Message</Label>
+      {errors.message && <span>This field is required</span>}
+      <TextArea
+        name="message"
+        placeholder="Something writing..."
+        rows={6}
+        cols={25}
+        data-testid="message"
+        ref={register({ required: true })}
+      />
       <Button
         dark={serverState.submitting && serverState.status.ok}
         disabled={serverState.submitting && serverState.status.ok}
@@ -147,18 +126,17 @@ const Input = styled.input`
   font-size: 16px; // 読みやすいフォントサイズ
   &:focus {
     border-color: #007bff; // フォーカス時に色を変える
-    box-shadow: 0 0 0 2px rgba(0,123,255,.25); // フォーカスが明確になるように
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); // フォーカスが明確になるように
   }
 `;
 
-const TextArea = styled(Input).attrs({ as: 'textarea' })`
+const TextArea = styled(Input).attrs({ as: "textarea" })`
   height: auto; // 自動で高さ調整
   resize: vertical; // 垂直方向のリサイズのみを許可
 `;
 
-const P = styled.p`
-  margin-bottom: 10px;
-  width: 100%;
+const Label = styled.label`
+  margin-right: auto;
 `;
 
 export default ContactForm;
