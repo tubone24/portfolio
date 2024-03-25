@@ -294,14 +294,23 @@ export default function (props: Props): JSX.Element {
           </a>
         </Flex>
       </Section>
-      <a id="resume">Resume</a>
+      <a id="experience">Experience</a>
       <Section center dark>
         <Title dark>Experience</Title>
+        <h4>work history</h4>
         <span>Where I've worked.</span>
         <Item>
           <span>February 2024- Current</span>
           <h6>Data Engineering developer</h6>
           <p>Developing Data Clean Room with Snowflake and AWS.</p>
+        </Item>
+        <Item>
+          <span>September 2022- Current</span>
+          <h6>SRE Engineer</h6>
+          <p>
+            Support engineering teams through accelerated CI/CD, maintenance of
+            e2e testing, switch to Faas, and adoption of Blue/Green deployments.
+          </p>
         </Item>
         <Item>
           <span>August 2021- February 2024</span>
@@ -314,6 +323,11 @@ export default function (props: Props): JSX.Element {
           <p>
             Developing an event platform using React, Nest.js (TypeScript), and
             AWS.
+          </p>
+          <p>
+            Leading the development of video distribution infrastructure and the
+            creation of connectors for MA/SFA integration, including public API
+            infrastructure development and Marketo/Salesforce.
           </p>
         </Item>
         <Item>
