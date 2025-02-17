@@ -287,7 +287,7 @@ export default function (props: Props): JSX.Element {
               />
             )}
           </Box>
-          <a href="https://blog.tubone-project24.xyz">
+          <a href="https://tubone-project24.xyz">
             <Box px={2} width={180}>
               <Button>Read Me!</Button>
             </Box>
