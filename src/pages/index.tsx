@@ -10,16 +10,13 @@ import NavBar from "../components/navbar";
 import HeroText from "../components/heroText";
 import SocialIcons from "../components/socialIcons";
 import Portfolio from "../components/portfolio";
-import Showcase from "../components/showcase";
 import Button from "../components/button";
-import GitHubWeed from "../components/githubWeed";
 import AboutMe from "../components/aboutme";
 import PhotoList from "../components/photoList";
 import Music from "../components/music";
 import ContactForm from "../components/contactForm";
 import Img from "gatsby-image";
 import Sound from "react-sound";
-import ClickSound from "../components/music/click.mp3";
 
 const Content = styled.div`
   & > a {
@@ -29,6 +26,17 @@ const Content = styled.div`
   }
   & > h1 {
     text-align: center;
+  }
+`;
+
+const HoverImage = styled(Img)`
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -241,14 +249,6 @@ export default function (props: Props): JSX.Element {
             name: "soundcloud",
             href: "https://soundcloud.com/user-453736300",
           },
-          {
-            name: "slideshare",
-            href: "https://www.slideshare.net/tubone24",
-          },
-          {
-            name: "500px",
-            href: "https://500px.com/tubone24",
-          },
         ]}
       />
       <a id="about-me">About Me</a>
@@ -276,33 +276,55 @@ export default function (props: Props): JSX.Element {
         <Title>Blog</Title>
         <Flex alignItems="center" flexDirection="column">
           <Box px={2} width={[1, 1 / 2]}>
-            <span>chech my blog</span>
             {props.data.blogScreenshotSharp.edges[0].node?.childImageSharp
               ?.fluid && (
-              <Img
-                fluid={
-                  props.data.blogScreenshotSharp.edges[0].node?.childImageSharp
-                    ?.fluid
-                }
-              />
+              <a href="https://tubone-project24.xyz">
+                <HoverImage
+                  fluid={
+                    props.data.blogScreenshotSharp.edges[0].node
+                      ?.childImageSharp?.fluid
+                  }
+                />
+              </a>
             )}
           </Box>
-          <a href="https://tubone-project24.xyz">
-            <Box px={2} width={180}>
-              <Button>Read Me!</Button>
-            </Box>
-          </a>
+        </Flex>
+      </Section>
+      <a id="slides">Slides</a>
+      <Section>
+        <Title>Slides</Title>
+        <Flex alignItems="center" flexDirection="column">
+          <Box px={2} width={[1, 1 / 2]}>
+            <span>Slides from LT and presentations.</span>
+            {props.data.slidesScreenshotSharp.edges[0].node?.childImageSharp
+              ?.fluid && (
+              <a href="https://slide-tubone24.pages.dev/">
+                <HoverImage
+                  fluid={
+                    props.data.slidesScreenshotSharp.edges[0].node
+                      ?.childImageSharp?.fluid
+                  }
+                />
+              </a>
+            )}
+          </Box>
         </Flex>
       </Section>
       <a id="experience">Experience</a>
       <Section center dark>
         <Title dark>Experience</Title>
         <h4>work history</h4>
-        <span>Where I've worked.</span>
         <Item>
           <span>February 2024- Current</span>
-          <h6>Data Engineering developer</h6>
-          <p>Developing Data Clean Room with Snowflake and AWS.</p>
+          <h6>LLM App developer & Tech Lead</h6>
+          <p>
+            I develop AI agent applications leveraging generative AI
+            technologies.
+          </p>
+          <p>
+            Currently serving as the development lead for "A-BOSS," an AI agent
+            created specifically for sales organizations.
+          </p>
         </Item>
         <Item>
           <span>September 2022- Current</span>
@@ -454,6 +476,19 @@ export const pageQuery = graphql`
     }
     blogScreenshotSharp: allFile(
       filter: { name: { regex: "/screenshot-ubuntu-latest-1200/" } }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    slidesScreenshotSharp: allFile(
+      filter: { name: { regex: "/screenshot-slides/" } }
     ) {
       edges {
         node {
