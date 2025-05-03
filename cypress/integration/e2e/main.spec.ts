@@ -6,17 +6,16 @@ describe("UI Test", () => {
     cy.get("ul > li").should(($li) => {
       expect($li.eq(0)).to.contain("Contact");
       expect($li.eq(1)).to.contain("Experience");
-      expect($li.eq(2)).to.contain("Blog");
-      expect($li.eq(3)).to.contain("Musics");
-      expect($li.eq(4)).to.contain("Photos");
-      expect($li.eq(5)).to.contain("Portfolio");
-      expect($li.eq(6)).to.contain("About Me");
+      expect($li.eq(2)).to.contain("Slides");
+      expect($li.eq(3)).to.contain("Blog");
+      expect($li.eq(4)).to.contain("Musics");
+      expect($li.eq(5)).to.contain("Photos");
+      expect($li.eq(6)).to.contain("Portfolio");
+      expect($li.eq(7)).to.contain("About Me");
     });
     cy.contains("About Me").click();
     cy.get("p").should(($p) => {
-      expect($p.eq(0)).to.contain(
-        "I am an engineer with over"
-      );
+      expect($p.eq(0)).to.contain("I am an engineer with over");
       expect($p.eq(1)).to.contain("My technical stack is diverse");
     });
     cy.window().its("scrollY").should("not.equal", 0);
@@ -25,9 +24,7 @@ describe("UI Test", () => {
     cy.contains("tubone24").scrollIntoView();
     cy.contains("About me").click();
     cy.get("p").should(($p) => {
-      expect($p.eq(0)).to.contain(
-        "I am an engineer with over"
-      );
+      expect($p.eq(0)).to.contain("I am an engineer with over");
       expect($p.eq(1)).to.contain("My technical stack is diverse");
     });
     cy.window().its("scrollY").should("not.equal", 0);
