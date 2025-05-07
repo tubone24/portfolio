@@ -246,8 +246,12 @@ export default function (props: Props): JSX.Element {
             href: "https://github.com/tubone24",
           },
           {
-            name: "soundcloud",
-            href: "https://soundcloud.com/user-453736300",
+            name: "facebook",
+            href: "https://www.facebook.com/yu.otsubo",
+          },
+          {
+            name: "instagram",
+            href: "https://www.instagram.com/mugimugi.cutedog/",
           },
         ]}
       />

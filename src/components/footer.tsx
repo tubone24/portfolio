@@ -60,16 +60,12 @@ const Footer = (): JSX.Element => (
                   href: "https://github.com/tubone24",
                 },
                 {
-                  name: "soundcloud",
-                  href: "https://soundcloud.com/user-453736300",
+                  name: "facebook",
+                  href: "https://www.facebook.com/yu.otsubo",
                 },
                 {
-                  name: "slideshare",
-                  href: "https://www.slideshare.net/tubone24",
-                },
-                {
-                  name: "500px",
-                  href: "https://500px.com/tubone24",
+                  name: "instagram",
+                  href: "https://www.instagram.com/mugimugi.cutedog/",
                 },
               ]}
             />
