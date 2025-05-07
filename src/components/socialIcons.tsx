@@ -5,13 +5,13 @@ import {
   fa500px,
   faTwitter,
   faGithubAlt,
-  faSoundcloud,
-  faSlideshare,
+  faFacebook,
+  faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconName } from "@fortawesome/fontawesome-common-types";
 
-library.add(fa500px, faTwitter, faGithubAlt, faSoundcloud, faSlideshare);
+library.add(fa500px, faTwitter, faGithubAlt, faInstagram, faFacebook);
 
 type Icon = {
   href: string;
