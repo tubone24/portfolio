@@ -53,7 +53,7 @@ const Footer = (): JSX.Element => (
               icons={[
                 {
                   name: "twitter",
-                  href: "https://twitter.com/meitante1conan",
+                  href: "https://twitter.com/tubone24",
                 },
                 {
                   name: "github-alt",
