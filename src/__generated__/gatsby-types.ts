@@ -3638,6 +3638,11 @@ type BlogPostQueryQuery = { readonly markdownRemark: Maybe<(
     )> }
   )> };
 
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+
 type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
@@ -3655,11 +3660,6 @@ type IndexQueryQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyA
         Pick<File, 'id'>
         & { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_tracedSVGFragment> }> }
       ) }> }, readonly blogScreenshotSharp: { readonly edges: ReadonlyArray<{ readonly node: { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> } }> }, readonly slidesScreenshotSharp: { readonly edges: ReadonlyArray<{ readonly node: { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> } }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_tracedSVGFragment> }> } }> } };
-
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

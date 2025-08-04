@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import buildUrl from 'build-url';
-import Hero from './hero';
-import fetch from 'cross-fetch';
+import React, { useState, useEffect } from "react";
+import buildUrl from "build-url";
+import Hero from "./hero";
+import fetch from "cross-fetch";
 
 type Props = {
   api_key: string;
@@ -20,11 +20,21 @@ interface Image {
 }
 
 interface Photo {
+  id: string;
   url_o?: string;
   url_m?: string;
   url_t: string;
   height_t: number;
   width_t: number;
+}
+
+interface SizeInfo {
+  label: string;
+  width: number;
+  height: number;
+  source: string;
+  url: string;
+  media: string;
 }
 
 const FlickrHero = (props: Props) => {
@@ -38,8 +48,8 @@ const FlickrHero = (props: Props) => {
         method: props.album_id
           ? "flickr.photosets.getPhotos"
           : props.user_id || props.searchTerm
-            ? "flickr.photos.search"
-            : "flickr.photos.getRecent",
+          ? "flickr.photos.search"
+          : "flickr.photos.getRecent",
         format: "json",
         api_key: props.api_key || "",
         user_id: props.user_id || "",
@@ -48,38 +58,89 @@ const FlickrHero = (props: Props) => {
         per_page: String(
           props.limit || (props.album_id ? Number.MAX_SAFE_INTEGER : 1)
         ),
-        nojsoncallback: "?",
+        nojsoncallback: "1",
         extras: extras.join(","),
       },
     });
   };
 
-  const queryFlickrApi = (props: Props) => {
-    fetch(generateApiUrl(props))
-      .then((response) => response.json())
-      .then((data: { photoset: { photo: Photo[] }; photos: { photo: Photo[] } }) => {
-        let photos = [];
-        if (data.photoset) {
-          photos = data.photoset.photo;
-        } else if (data.photos) {
-          photos = data.photos.photo;
-        } else {
-          throw data;
-        }
-        setImages(photos.map((p) => ({
-          src: p.url_o || p.url_m || "https://s.yimg.com/pw/images/en-us/photo_unavailable.png",
+  const getSizesUrl = (photoId: string, apiKey: string) => {
+    return buildUrl("https://api.flickr.com", {
+      path: "services/rest/",
+      queryParams: {
+        method: "flickr.photos.getSizes",
+        format: "json",
+        api_key: apiKey,
+        photo_id: photoId,
+        nojsoncallback: "1",
+      },
+    });
+  };
+
+  const getLargestImageUrl = async (photoId: string, apiKey: string): Promise<string> => {
+    try {
+      const response = await fetch(getSizesUrl(photoId, apiKey));
+      const data = await response.json();
+      
+      if (data.sizes && data.sizes.size) {
+        const sizes: SizeInfo[] = data.sizes.size;
+        // サイズを面積順でソートして最大のものを取得
+        const largestSize = sizes.reduce((largest, current) => {
+          const largestArea = largest.width * largest.height;
+          const currentArea = current.width * current.height;
+          return currentArea > largestArea ? current : largest;
+        });
+        return largestSize.source;
+      }
+      return "";
+    } catch (error) {
+      console.error("Error fetching sizes for photo", photoId, error);
+      return "";
+    }
+  };
+
+  const queryFlickrApi = async (props: Props) => {
+    try {
+      const response = await fetch(generateApiUrl(props));
+      const data = await response.json();
+      
+      let photos: Photo[] = [];
+      if (data.photoset) {
+        photos = data.photoset.photo;
+      } else if (data.photos) {
+        photos = data.photos.photo;
+      } else {
+        throw data;
+      }
+
+      // 各写真の最大サイズを取得
+      const imagePromises = photos.map(async (p) => {
+        const largestUrl = await getLargestImageUrl(p.id, props.api_key);
+        return {
+          src: largestUrl || p.url_o || p.url_m || "https://s.yimg.com/pw/images/en-us/photo_unavailable.png",
           thumbnail: p.url_t,
-          aspectRatio: Math.min(p.height_t, p.width_t) / Math.max(p.height_t, p.width_t),
-        })));
-      })
-      .catch((e) => console.error(e));
+          aspectRatio:
+            Math.min(p.height_t, p.width_t) /
+            Math.max(p.height_t, p.width_t),
+        };
+      });
+
+      const resolvedImages = await Promise.all(imagePromises);
+      setImages(resolvedImages);
+    } catch (error) {
+      console.error("Error fetching Flickr data:", error);
+    }
   };
 
   useEffect(() => {
     queryFlickrApi(props);
-    // If props could change and you want to re-fetch the data when they do, include them in the dependency array
-    // For this example, it's left as an empty array to mimic componentWillMount behavior
-  }, [props.api_key, props.user_id, props.album_id, props.limit, props.searchTerm]); // Add any props that could change and trigger a re-fetch
+  }, [
+    props.api_key,
+    props.user_id,
+    props.album_id,
+    props.limit,
+    props.searchTerm,
+  ]);
 
   const image = images[Math.floor(Math.random() * images.length)];
   return (

@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import { Flex, Box } from "grid-styled";
 import styled, { css } from "styled-components";
 import scrollToElement from "scroll-to-element";
-import FlickrHero from "../components/flickrHero";
+import LocalHero from "../components/localHero";
 import { media } from "../utils/style";
 import Layout from "../components/layout";
 import NavBar from "../components/navbar";
@@ -214,12 +214,7 @@ export default function (props: Props): JSX.Element {
 
   const content = (
     <Content>
-      <FlickrHero
-        api_key="89f4752b9b3a8dffcbf94ca144719883"
-        user_id="184992580@N06"
-        album_id="72157711319102412"
-        fillPage
-      />
+      <LocalHero fillPage />
       <HomeButton
         opaque
         light
