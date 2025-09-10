@@ -27,6 +27,13 @@ module.exports = {
         ignore: [`${__dirname}/src/__generated__/*.ts`],
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `hero`,
+        path: `${__dirname}/public/hero/`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
