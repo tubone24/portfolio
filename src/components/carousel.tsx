@@ -13,12 +13,30 @@ type Image = {
 export const Carousel = (props: Props): JSX.Element => {
   const images = props.images.map((image) => {
     return (
-      <img
+      <div
         key={image.src}
-        src={image.src}
-        alt={image.title || image.src}
-        title={image.title || ""}
-      />
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "600px",
+          overflow: "hidden",
+          backgroundColor: "#f5f5f5",
+        }}
+      >
+        <img
+          src={image.src}
+          alt={image.title || image.src}
+          title={image.title || ""}
+          style={{
+            maxWidth: "100%",
+            maxHeight: "100%",
+            width: "auto",
+            height: "auto",
+            objectFit: "contain",
+          }}
+        />
+      </div>
     );
   });
 
