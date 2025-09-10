@@ -3666,7 +3666,7 @@ type AllHeroImagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type AllHeroImagesQueryQuery = { readonly allFile: { readonly nodes: ReadonlyArray<(
       Pick<File, 'name'>
-      & { readonly childImageSharp: Maybe<{ readonly fixed: Maybe<Pick<ImageSharpFixed, 'src'>>, readonly fluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>>, readonly heroFluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>>, readonly heroFixed: Maybe<Pick<ImageSharpFixed, 'src'>>, readonly carouselFluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>>, readonly carouselFixed: Maybe<Pick<ImageSharpFixed, 'src'>> }> }
+      & { readonly childImageSharp: Maybe<{ readonly fixed: Maybe<Pick<ImageSharpFixed, 'src'>>, readonly fluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>>, readonly heroFluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>>, readonly heroFixed: Maybe<Pick<ImageSharpFixed, 'src'>>, readonly carouselFluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>>, readonly carouselFixed: Maybe<Pick<ImageSharpFixed, 'src'>>, readonly lightboxFluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>> }> }
     )> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;

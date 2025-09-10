@@ -30,6 +30,12 @@ export interface HeroImage {
     carouselFixed: {
       src: string;
     };
+    lightboxFluid: {
+      src: string;
+      srcSet: string;
+      sizes: string;
+      aspectRatio: number;
+    };
   };
 }
 
@@ -66,6 +72,12 @@ const useAllHeroImagesData = () => {
             }
             carouselFixed: fixed(width: 48, height: 32, quality: 20) {
               src
+            }
+            lightboxFluid: fluid(maxWidth: 4096, quality: 90) {
+              src
+              srcSet
+              sizes
+              aspectRatio
             }
           }
         }
