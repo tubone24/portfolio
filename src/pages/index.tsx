@@ -15,6 +15,7 @@ import AboutMe from "../components/aboutme";
 import PhotoList from "../components/photoList";
 import Music from "../components/music";
 import ContactForm from "../components/contactForm";
+import Publications from "../components/publications";
 import Img from "gatsby-image";
 
 const Content = styled.div`
@@ -283,6 +284,11 @@ export default function (props: Props): JSX.Element {
           </Box>
         </Flex>
       </Section>
+      <a id="publications">Publications</a>
+      <Section center dark>
+        <Title dark>Publications</Title>
+        <Publications booksImages={props.data.booksImages} />
+      </Section>
       <a id="slides">Slides</a>
       <Section>
         <Title>Slides</Title>
@@ -499,6 +505,20 @@ export const pageQuery = graphql`
           childImageSharp {
             fluid(maxWidth: 200, grayscale: true) {
               ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+    booksImages: allFile(
+      filter: { sourceInstanceName: { eq: "books" } }
+    ) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            fluid(maxWidth: 200) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
