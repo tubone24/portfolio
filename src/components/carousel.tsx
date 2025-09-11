@@ -4,14 +4,14 @@ import Img from "gatsby-image";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import Lightbox from "react-images";
-import { useHeroImages } from "../hooks/useHeroImages";
+import { useCarouselImages } from "../hooks/useHeroImages";
 
 type Props = {
   // 既存のimagesプロパティは削除し、代わりにフックを使用
 };
 
 export const Carousel = (_props: Props): JSX.Element => {
-  const heroImages = useHeroImages();
+  const heroImages = useCarouselImages();
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
 

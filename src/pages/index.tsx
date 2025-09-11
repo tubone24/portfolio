@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import { Flex, Box } from "grid-styled";
 import styled, { css } from "styled-components";
@@ -16,7 +16,6 @@ import PhotoList from "../components/photoList";
 import Music from "../components/music";
 import ContactForm from "../components/contactForm";
 import Img from "gatsby-image";
-import Sound from "react-sound";
 
 const Content = styled.div`
   & > a {
@@ -203,13 +202,8 @@ type Props = {
 };
 
 export default function (props: Props): JSX.Element {
-  const [clickSoundStatus, setClickSoundStatus] = useState("STOPPED");
-  const handleClickSoundPlay = () => {
-    setClickSoundStatus(Sound.status.PLAYING);
-  };
-  const scrollToElementOnClickSound = (selector: string) => {
+  const scrollToElementOnClick = (selector: string) => {
     scrollToElement(selector);
-    handleClickSoundPlay();
   };
 
   const content = (
@@ -218,7 +212,7 @@ export default function (props: Props): JSX.Element {
       <HomeButton
         opaque
         light
-        onClick={() => scrollToElementOnClickSound("#about-me")}
+        onClick={() => scrollToElementOnClick("#about-me")}
       >
         About me
       </HomeButton>

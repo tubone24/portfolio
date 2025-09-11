@@ -91,7 +91,7 @@ const useAllHeroImagesData = () => {
 export const useHeroImages = () => {
   const allImages = useAllHeroImagesData();
   
-  // ランダムに8枚選択
+  // ランダムに8枚選択（FlickrLightbox用）
   const shuffled = [...allImages].sort(() => Math.random() - 0.5);
   const selectedImages = shuffled.slice(0, 8);
 
@@ -99,6 +99,11 @@ export const useHeroImages = () => {
 };
 
 export const useAllHeroImages = () => {
+  return useAllHeroImagesData();
+};
+
+export const useCarouselImages = () => {
+  // カルーセル用：全件取得
   return useAllHeroImagesData();
 };
 
