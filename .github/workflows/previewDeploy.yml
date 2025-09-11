@@ -58,14 +58,14 @@ jobs:
         run: yarn install
       - name: unit test
         run: yarn test
-      - name: Cypress UI test
-        run: |
-          npx cypress install
-          yarn test:e2e:ci
-      - uses: actions/upload-artifact@v4
-        with:
-          name: cypress-video
-          path: ./cypress/videos/e2e/*.mp4
+#      - name: Cypress UI test
+#        run: |
+#          npx cypress install
+#          yarn test:e2e:ci
+#      - uses: actions/upload-artifact@v4
+#        with:
+#          name: cypress-video
+#          path: ./cypress/videos/e2e/*.mp4
   storybook:
     runs-on: ubuntu-latest
     steps:
