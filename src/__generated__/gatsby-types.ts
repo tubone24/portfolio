@@ -260,8 +260,6 @@ type Directory_ctimeArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
-  readonly port: Maybe<Scalars['Int']>;
-  readonly host: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly jsxRuntime: Maybe<Scalars['String']>;
@@ -811,8 +809,6 @@ type Query_allDirectoryArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  port: Maybe<IntQueryOperatorInput>;
-  host: Maybe<StringQueryOperatorInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   jsxRuntime: Maybe<StringQueryOperatorInput>;
@@ -2091,8 +2087,6 @@ type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata.title'
   | 'siteMetadata.description'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'jsxRuntime'
@@ -2236,8 +2230,6 @@ type SiteGroupConnection_groupArgs = {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  readonly port: Maybe<IntQueryOperatorInput>;
-  readonly host: Maybe<StringQueryOperatorInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly jsxRuntime: Maybe<StringQueryOperatorInput>;
@@ -3625,6 +3617,14 @@ type MarkdownRemarkSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type AllHeroImagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AllHeroImagesQueryQuery = { readonly allFile: { readonly nodes: ReadonlyArray<(
+      Pick<File, 'name'>
+      & { readonly childImageSharp: Maybe<{ readonly fixed: Maybe<Pick<ImageSharpFixed, 'src'>>, readonly fluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>>, readonly heroFluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>>, readonly heroFixed: Maybe<Pick<ImageSharpFixed, 'src'>>, readonly carouselFluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>>, readonly carouselFixed: Maybe<Pick<ImageSharpFixed, 'src'>>, readonly lightboxFluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>> }> }
+    )> } };
+
 type BlogPostQueryQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
@@ -3637,15 +3637,6 @@ type BlogPostQueryQuery = { readonly markdownRemark: Maybe<(
       & { readonly image: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<Pick<ImageSharpFluid, 'src' | 'sizes'>> }> }> }
     )> }
   )> };
-
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
-
-type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3661,14 +3652,6 @@ type IndexQueryQuery = { readonly allMarkdownRemark: { readonly edges: ReadonlyA
         & { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_tracedSVGFragment> }> }
       ) }> }, readonly blogScreenshotSharp: { readonly edges: ReadonlyArray<{ readonly node: { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> } }> }, readonly slidesScreenshotSharp: { readonly edges: ReadonlyArray<{ readonly node: { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> } }> }, readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_tracedSVGFragment> }> } }> } };
 
-type AllHeroImagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AllHeroImagesQueryQuery = { readonly allFile: { readonly nodes: ReadonlyArray<(
-      Pick<File, 'name'>
-      & { readonly childImageSharp: Maybe<{ readonly fixed: Maybe<Pick<ImageSharpFixed, 'src'>>, readonly fluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>>, readonly heroFluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>>, readonly heroFixed: Maybe<Pick<ImageSharpFixed, 'src'>>, readonly carouselFluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>>, readonly carouselFixed: Maybe<Pick<ImageSharpFixed, 'src'>>, readonly lightboxFluid: Maybe<Pick<ImageSharpFluid, 'src' | 'srcSet' | 'sizes' | 'aspectRatio'>> }> }
-    )> } };
-
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
 type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
@@ -3681,7 +3664,11 @@ type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'h
 
 type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
 
+type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
 type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
+
+type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
