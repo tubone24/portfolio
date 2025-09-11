@@ -1,97 +1,40 @@
-import React, { useState, useEffect } from "react";
-import buildUrl from "build-url";
+import React from "react";
 import { Gallery } from "./gallery";
-import fetch from "cross-fetch";
+import { useHeroImages } from "../../hooks/useHeroImages";
 
 export type Props = {
-  apiKey: string;
-  userId: string;
-  limit: number;
-  thumbnailSizeParam?: string;
+  // Flickr API関連のプロパティは不要になりました
 };
 
-export const FlickrLightbox = (props: Props) => {
-  const [images, setImages] = useState([]);
+export const FlickrLightbox = (_props: Props) => {
+  const heroImages = useHeroImages();
 
-  const generateApiUrl = (
-    apiKey: string,
-    userId: string,
-    limit: number,
-    thumbnailSizeParam: string
-  ) => {
-    const extras = [
-      "url_o",
-      "url_m",
-      thumbnailSizeParam,
-      "license",
-      "date_upload",
-      "date_taken",
-      "icon_server",
-      "original_format",
-      "last_update",
-      "geo",
-      "tags",
-      "machine_tags",
-      "o_dims",
-      "views",
-      "media",
-      "path_alias",
-      "owner_name",
-    ];
-
-    return buildUrl("https://api.flickr.com", {
-      path: "services/rest/",
-      queryParams: {
-        method: "flickr.photos.search",
-        format: "json",
-        api_key: apiKey,
-        user_id: userId,
-        album_id: "",
-        text: "",
-        per_page: String(limit) || String(Number.MAX_SAFE_INTEGER),
-        nojsoncallback: "?",
-        extras: extras.join(","),
-      },
-    });
+  // タイトルマッピング
+  const getTitleFromFilename = (filename: string) => {
+    if (filename.includes("enosham") || filename.includes("enoshoma"))
+      return "江ノ島";
+    if (filename.includes("geshoku")) return "月食";
+    if (filename.includes("gokurakuzi")) return "極楽寺";
+    if (filename.includes("hongkong")) return "香港";
+    if (filename.includes("izu")) return "伊豆";
+    if (filename.includes("kyoto_osaka")) return "京都・大阪";
+    if (filename.includes("kyotonara")) return "京都・奈良";
+    if (filename.includes("miyazaki")) return "宮崎";
+    if (filename.includes("naraosaka")) return "奈良・大阪";
+    if (filename.includes("oarai")) return "大洗";
+    if (filename.includes("parau")) return "パラオ";
+    if (filename.includes("thai")) return "タイ";
+    if (filename.includes("ume")) return "梅";
+    if (filename.includes("umi")) return "海";
+    if (filename.includes("夜景")) return "夜景";
+    return "風景";
   };
 
-  const queryFlickrApi = (
-    apiKey: string,
-    userId: string,
-    limit: number,
-    thumbnailSizeParam = "url_sq"
-  ) => {
-    console.log("queryFlickrApi");
-    fetch(generateApiUrl(apiKey, userId, limit, thumbnailSizeParam))
-      .then((response: any) => response.json())
-      .then((data: any) => {
-        if (!data.photos) {
-          throw data;
-        }
-        setImages(
-          data.photos.photo.map((p: any) => {
-            return {
-              src:
-                p.url_o ||
-                p.url_m ||
-                "https://s.yimg.com/pw/images/en-us/photo_unavailable.png",
-              thumbnail: p[thumbnailSizeParam],
-              caption: `${p.title || "Untitled"}: Photo by ${p.ownername}`,
-            };
-          })
-        );
-      })
-      .catch((e) => console.error(e));
-  };
-
-  useEffect(() => {
-    queryFlickrApi(
-      props.apiKey,
-      props.userId,
-      props.limit,
-      props.thumbnailSizeParam
-    );
-  }, [props.apiKey, props.userId, props.limit, props.thumbnailSizeParam]);
+  const images = heroImages.map((image) => ({
+    src: image.childImageSharp.fluid.src,
+    thumbnail: image.childImageSharp.fixed.src,
+    caption: getTitleFromFilename(image.name),
+  }));
 
   return <Gallery images={images} />;
 };

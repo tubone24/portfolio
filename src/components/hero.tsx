@@ -37,7 +37,14 @@ const HeroImage = styled.div<Props>`
   padding: 0;
   width: 100%;
   background: #171d2e;
-  padding-top: calc(100% * ${(props) => props.aspectRatio});
+  ${(props) =>
+    props.fillPage
+      ? css`
+          height: 100vh;
+        `
+      : css`
+          padding-top: calc(100% * ${props.aspectRatio || 0.67});
+        `}
   filter: blur(30px);
   transform: scale(1.1);
   @keyframes reveal {
@@ -55,7 +62,8 @@ const HeroImage = styled.div<Props>`
     css<Props>`
       background: url(${(props) => props.src});
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
+      background-position: center;
       image-rendering: -webkit-optimize-contrast;
       animation: 0.5s linear forwards reveal;
     `}
@@ -64,14 +72,9 @@ const HeroImage = styled.div<Props>`
     css<Props>`
       background-image: url(${(props) => props.thumbnail});
       background-repeat: no-repeat;
-      background-size: contain;
-      image-rendering: -webkit-optimize-contrast;
-    `}
-  ${(props) =>
-    props.fillPage &&
-    css`
       background-size: cover;
-      height: 100vh;
+      background-position: center;
+      image-rendering: -webkit-optimize-contrast;
     `}
 `;
 

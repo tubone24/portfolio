@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import { Flex, Box } from "grid-styled";
 import styled, { css } from "styled-components";
 import scrollToElement from "scroll-to-element";
-import FlickrHero from "../components/flickrHero";
+import LocalHero from "../components/localHero";
 import { media } from "../utils/style";
 import Layout from "../components/layout";
 import NavBar from "../components/navbar";
@@ -15,8 +15,8 @@ import AboutMe from "../components/aboutme";
 import PhotoList from "../components/photoList";
 import Music from "../components/music";
 import ContactForm from "../components/contactForm";
+import Publications from "../components/publications";
 import Img from "gatsby-image";
-import Sound from "react-sound";
 
 const Content = styled.div`
   & > a {
@@ -203,27 +203,17 @@ type Props = {
 };
 
 export default function (props: Props): JSX.Element {
-  const [clickSoundStatus, setClickSoundStatus] = useState("STOPPED");
-  const handleClickSoundPlay = () => {
-    setClickSoundStatus(Sound.status.PLAYING);
-  };
-  const scrollToElementOnClickSound = (selector: string) => {
+  const scrollToElementOnClick = (selector: string) => {
     scrollToElement(selector);
-    handleClickSoundPlay();
   };
 
   const content = (
     <Content>
-      <FlickrHero
-        api_key="89f4752b9b3a8dffcbf94ca144719883"
-        user_id="184992580@N06"
-        album_id="72157711319102412"
-        fillPage
-      />
+      <LocalHero fillPage />
       <HomeButton
         opaque
         light
-        onClick={() => scrollToElementOnClickSound("#about-me")}
+        onClick={() => scrollToElementOnClick("#about-me")}
       >
         About me
       </HomeButton>
@@ -293,6 +283,11 @@ export default function (props: Props): JSX.Element {
             )}
           </Box>
         </Flex>
+      </Section>
+      <a id="publications">Publications</a>
+      <Section center dark>
+        <Title dark>Publications</Title>
+        <Publications booksImages={props.data.booksImages} />
       </Section>
       <a id="slides">Slides</a>
       <Section>
@@ -510,6 +505,20 @@ export const pageQuery = graphql`
           childImageSharp {
             fluid(maxWidth: 200, grayscale: true) {
               ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+    booksImages: allFile(
+      filter: { sourceInstanceName: { eq: "books" } }
+    ) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            fluid(maxWidth: 200) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

@@ -96,11 +96,7 @@ const Footer = (): JSX.Element => (
       <Box width={[4 / 5, 1 / 2, 1 / 3, 1 / 6]} pt={2}>
         <Flex alignItems="center" justifyContent="center">
           <GalleryContainer>
-            <FlickrLightbox
-              apiKey="89f4752b9b3a8dffcbf94ca144719883"
-              userId="184992580@N06"
-              limit={8}
-            />
+            <FlickrLightbox />
           </GalleryContainer>
         </Flex>
       </Box>
