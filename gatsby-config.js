@@ -31,7 +31,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `hero`,
-        path: `${__dirname}/public/hero/`,
+        path: `${__dirname}/static/hero/`,
       },
     },
     `gatsby-plugin-react-helmet`,
