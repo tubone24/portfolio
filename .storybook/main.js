@@ -31,6 +31,14 @@ module.exports = {
     ]
     // Prefer Gatsby ES6 entrypoint (module) over commonjs (main) entrypoint
     config.resolve.mainFields = ["browser", "module", "main"]
+    
+    // Fix for gatsby-page-utils module resolution issue
+    const path = require('path');
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'gatsby-page-utils/apply-trailing-slash-option': path.resolve(__dirname, '../node_modules/gatsby-page-utils/dist/apply-trailing-slash-option.js')
+    };
+
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
       loader: require.resolve("babel-loader"),
