@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import NukaCarousel from "nuka-carousel";
-import Img from "gatsby-image";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import Lightbox from "react-images";
@@ -83,8 +82,8 @@ export const Carousel = (_props: Props): JSX.Element => {
         }}
         onClick={() => openLightbox(index)}
       >
-        <Img
-          fluid={image.childImageSharp.carouselFluid}
+        <img
+          src={image.childImageSharp?.carouselFluid?.src}
           alt={getTitleFromFilename(image.name)}
           style={{
             position: "absolute",
@@ -92,16 +91,11 @@ export const Carousel = (_props: Props): JSX.Element => {
             left: 0,
             width: "100%",
             height: "100%",
-          }}
-          imgStyle={{
-            width: "100%",
-            height: "100%",
             objectFit: "contain",
             objectPosition: "center",
+            filter: "blur(0)", // 旧 placeholderStyle 相当は未適用
           }}
-          placeholderStyle={{
-            filter: "blur(20px)",
-          }}
+          loading="lazy"
         />
       </div>
     );
