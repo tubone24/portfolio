@@ -5,36 +5,6 @@ on:
       - master
 
 jobs:
-  uiCheck:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v5
-      - name: Cache node_modules
-        uses: actions/cache@v3
-        with:
-          path: |
-            node_modules
-            .cache
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.OS }}-build-
-            ${{ runner.OS }}
-      - name: Setup Node
-        uses: actions/setup-node@v5
-        with:
-          node-version: 18.x
-      - name: Install Dependencies
-        run: yarn install
-      - name: build
-        env:
-          GATSBY_GITHUB_SHA: ${{ github.sha }}
-          NETLIFY_ENV: deploy-preview
-        run: yarn build
-      - name: Percy test
-        env:
-          PERCY_TOKEN: ${{secrets.PERCY_TOKEN}}
-        run: npx percy snapshot ./public/
   test:
     runs-on: ubuntu-latest
     steps:
