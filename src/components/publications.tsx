@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { media } from "../utils/style";
 
 const BookContainer = styled.div`
@@ -156,7 +156,7 @@ type PublicationsProps = {
       node: {
         name: string;
         childImageSharp?: {
-          fluid: any;
+          gatsbyImageData?: any;
         } | null;
       };
     }>;
@@ -164,28 +164,21 @@ type PublicationsProps = {
 };
 
 const Publications: React.FC<PublicationsProps> = ({ booksImages }) => {
-  const getBookImage = (fileName?: string) => {
+  const getBookImageData = (fileName?: string) => {
     if (!fileName) return null;
-    
-    // booksImagesがない場合のデバッグ
     if (!booksImages || !booksImages.edges) {
-      console.log("booksImages is not available:", booksImages);
       return null;
     }
-    
-    console.log("Looking for:", fileName);
-    console.log("Available images:", booksImages.edges.map(e => e.node.name));
-    
     const image = booksImages.edges.find((edge) =>
       edge.node.name.includes(fileName)
     );
-    return image?.node?.childImageSharp?.fluid;
+    return image?.node?.childImageSharp?.gatsbyImageData || null;
   };
 
   return (
     <>
       {publicationsData.map((book) => {
-        const bookImageFluid = getBookImage(book.imageFileName);
+        const bookImageData = getBookImageData(book.imageFileName);
         return (
           <BookContainer key={book.id}>
             <BookLink
@@ -194,8 +187,8 @@ const Publications: React.FC<PublicationsProps> = ({ booksImages }) => {
               rel="noopener noreferrer"
             >
               <BookImageWrapper>
-                {bookImageFluid ? (
-                  <Img fluid={bookImageFluid} alt={book.title} />
+                {bookImageData ? (
+                  <GatsbyImage image={bookImageData} alt={book.title} />
                 ) : (
                   <BookImage
                     src={book.imageUrl}

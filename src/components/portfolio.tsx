@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Flex, Box } from "grid-styled";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import { media } from "../utils/style";
 import Button from "./button";
@@ -119,10 +119,7 @@ type ItemProps = {
   excerpt?: string;
   image?: {
     childImageSharp?: {
-      fluid?: Pick<
-        GatsbyTypes.GatsbyImageSharpFluidFragment,
-        "src" | "srcSet" | "aspectRatio" | "sizes"
-      >;
+      gatsbyImageData?: any;
     };
   };
   slug?: string;
@@ -133,8 +130,8 @@ type ItemProps = {
 const Item = ({ excerpt, image, slug, title }: ItemProps): JSX.Element => (
   <Tile>
     <a href={slug}>
-      {image?.childImageSharp?.fluid ? (
-        <Img fluid={image.childImageSharp.fluid} />
+      {image?.childImageSharp?.gatsbyImageData ? (
+        <GatsbyImage image={image.childImageSharp.gatsbyImageData} alt={title || ""} />
       ) : (
         <div />
       )}
@@ -159,10 +156,7 @@ interface Node {
       tags?: readonly string[];
       image?: {
         childImageSharp?: {
-          fluid?: Pick<
-            GatsbyTypes.GatsbyImageSharpFluidFragment,
-            "src" | "srcSet" | "aspectRatio" | "sizes"
-          >;
+          gatsbyImageData?: any;
         };
       };
     };

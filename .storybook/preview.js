@@ -1,5 +1,21 @@
 import { action } from "@storybook/addon-actions"
+import React from 'react';
 
+// GatsbyImage の簡易モック（Storybook 起動互換）
+try {
+  // eslint-disable-next-line global-require
+  const mod = require('gatsby-plugin-image');
+  if (!mod.__storybook_patched) {
+    const Img = (props) => <img {...props} />;
+    mod.GatsbyImage = Img;
+    mod.StaticImage = Img;
+    mod.getImage = (d) => d;
+    mod.getSrc = (d) => d?.images?.fallback?.src || '';
+    mod.__storybook_patched = true;
+  }
+} catch (e) {
+  // ignore
+}
 // Gatsby's Link overrides:
 // Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.
 // This global object isn't set in storybook context, requiring you to override it to empty functions (no-op),

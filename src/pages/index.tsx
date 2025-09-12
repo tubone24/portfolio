@@ -16,7 +16,7 @@ import PhotoList from "../components/photoList";
 import Music from "../components/music";
 import ContactForm from "../components/contactForm";
 import Publications from "../components/publications";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const Content = styled.div`
   & > a {
@@ -29,7 +29,7 @@ const Content = styled.div`
   }
 `;
 
-const HoverImage = styled(Img)`
+const HoverImage = styled(GatsbyImage)`
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
@@ -271,13 +271,14 @@ export default function (props: Props): JSX.Element {
         <Flex alignItems="center" flexDirection="column">
           <Box px={2} width={[1, 1 / 2]}>
             {props.data.blogScreenshotSharp.edges[0].node?.childImageSharp
-              ?.fluid && (
+              ?.gatsbyImageData && (
               <a href="https://tubone-project24.xyz">
                 <HoverImage
-                  fluid={
+                  image={
                     props.data.blogScreenshotSharp.edges[0].node
-                      ?.childImageSharp?.fluid
+                      ?.childImageSharp?.gatsbyImageData
                   }
+                  alt="blog screenshot"
                 />
               </a>
             )}
@@ -296,13 +297,14 @@ export default function (props: Props): JSX.Element {
           <Box px={2} width={[1, 1 / 2]}>
             <span>Slides from LT and presentations.</span>
             {props.data.slidesScreenshotSharp.edges[0].node?.childImageSharp
-              ?.fluid && (
+              ?.gatsbyImageData && (
               <a href="https://slide-tubone24.pages.dev/">
                 <HoverImage
-                  fluid={
+                  image={
                     props.data.slidesScreenshotSharp.edges[0].node
-                      ?.childImageSharp?.fluid
+                      ?.childImageSharp?.gatsbyImageData
                   }
+                  alt="slides screenshot"
                 />
               </a>
             )}
@@ -431,7 +433,7 @@ export default function (props: Props): JSX.Element {
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
       edges {
         node {
           timeToRead
@@ -445,16 +447,11 @@ export const pageQuery = graphql`
             tags
             image {
               childImageSharp {
-                fluid(
-                  maxWidth: 500
-                  duotone: {
-                    highlight: "#333333"
-                    shadow: "#111111"
-                    opacity: 65
-                  }
-                ) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                  width: 500
+                  placeholder: TRACED_SVG
+                  transformOptions: { duotone: { highlight: "#333333", shadow: "#111111", opacity: 65 } }
+                )
               }
             }
           }
@@ -466,9 +463,11 @@ export const pageQuery = graphql`
         node {
           id
           childImageSharp {
-            fluid(maxWidth: 300, grayscale: true) {
-              ...GatsbyImageSharpFluid_tracedSVG
-            }
+            gatsbyImageData(
+              width: 300
+              transformOptions: { grayscale: true }
+              placeholder: TRACED_SVG
+            )
           }
         }
       }
@@ -479,9 +478,10 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(
+              width: 1200
+              placeholder: TRACED_SVG
+            )
           }
         }
       }
@@ -492,9 +492,10 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(
+              width: 1200
+              placeholder: TRACED_SVG
+            )
           }
         }
       }
@@ -503,9 +504,11 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            fluid(maxWidth: 200, grayscale: true) {
-              ...GatsbyImageSharpFluid_tracedSVG
-            }
+            gatsbyImageData(
+              width: 200
+              transformOptions: { grayscale: true }
+              placeholder: TRACED_SVG
+            )
           }
         }
       }
@@ -517,12 +520,14 @@ export const pageQuery = graphql`
         node {
           name
           childImageSharp {
-            fluid(maxWidth: 200) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(
+              width: 200
+              placeholder: BLURRED
+            )
           }
         }
       }
     }
   }
 `;
+

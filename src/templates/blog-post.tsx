@@ -127,14 +127,6 @@ export const query = graphql`
         title
         date
         tags
-        image {
-          childImageSharp {
-            fluid {
-              src
-              sizes
-            }
-          }
-        }
       }
     }
   }

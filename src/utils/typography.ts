@@ -1,8 +1,9 @@
 import Typography from "typography";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import githubTheme from "typography-theme-github";
 
+// 互換のため Typography インスタンスもエクスポート
 const typography = new Typography(githubTheme);
 
-export default typography;
+// デフォルトはテーマオブジェクトをエクスポート（ブラウザ/SSR注入で使用）
+export default githubTheme;
+export { typography };

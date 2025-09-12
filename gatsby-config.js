@@ -2,10 +2,10 @@ module.exports = {
   siteMetadata: {
     title: `tubone24`,
   },
+  graphqlTypegen: false,
   plugins: [
     // 'gatsby-plugin-preact',
     `gatsby-plugin-typescript`,
-    `gatsby-plugin-typegen`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
@@ -18,7 +18,7 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-layout`,
+    // Gatsby v5 で非推奨のため削除: `gatsby-plugin-layout`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -41,14 +41,12 @@ module.exports = {
         path: `${__dirname}/static/books/`,
       },
     },
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
+    `gatsby-plugin-image`,
+    // Gatsby v5 で利用できないため削除: gatsby-plugin-typography
+    // 代わりに gatsby-browser / gatsby-ssr で注入
+    // 画像最適化: gatsby-plugin-image を追加
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
@@ -58,26 +56,8 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
               maxWidth: 925,
-              // Remove the default behavior of adding a link to each
-              // image.
               linkImagesToOriginal: true,
-              // Analyze images' pixel density to make decisions about
-              // target image size. This is what GitHub is doing when
-              // embedding images in tickets. This is a useful setting
-              // for documentation pages with a lot of screenshots.
-              // It can have unintended side effects on high pixel
-              // density artworks.
-              //
-              // Example: A screenshot made on a retina screen with a
-              // resolution of 144 (e.g. Macbook) and a width of 100px,
-              // will be rendered at 50px.
-              //
-              // Defaults to false.
-              sizeByPixelDensity: false,
               withWebp: true,
             },
           },

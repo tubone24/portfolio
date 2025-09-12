@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Flex, Box } from "grid-styled";
-import Img from "gatsby-image";
 import { media } from "../utils/style";
 
 const Base = styled.div`
@@ -39,7 +38,14 @@ const Showcase = (props: Props): JSX.Element => {
     const fluid = node?.childImageSharp?.fluid;
     return (
       <Box key={Number(node?.id)} px={2} width={[1 / 2, 1 / 3]}>
-        {fluid && <Img fluid={fluid} />}
+        {fluid && (
+          <img
+            src={fluid.src}
+            alt=""
+            style={{ width: "100%", height: "auto", display: "block" }}
+            loading="lazy"
+          />
+        )}
       </Box>
     );
   });
