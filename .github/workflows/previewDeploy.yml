@@ -21,7 +21,7 @@ jobs:
             ${{ runner.OS }}-build-
             ${{ runner.OS }}
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v5
         with:
           node-version: 18.x
       - name: Install Dependencies
@@ -51,7 +51,7 @@ jobs:
             ${{ runner.OS }}-build-
             ${{ runner.OS }}
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v5
         with:
           node-version: 18.x
       - name: install dependencies
@@ -82,7 +82,7 @@ jobs:
             ${{ runner.OS }}-build-
             ${{ runner.OS }}
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v5
         with:
           node-version: 18.x
       - name: install dependencies
@@ -105,7 +105,7 @@ jobs:
             ${{ runner.OS }}-build-
             ${{ runner.OS }}
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v5
         with:
           node-version: 18.x
       - name: "depcheck"
@@ -159,7 +159,7 @@ jobs:
             ${{ runner.OS }}-build-
             ${{ runner.OS }}
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v5
         with:
           node-version: 18.x
       - name: Install
