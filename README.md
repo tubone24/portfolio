@@ -3,7 +3,6 @@
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/tubone24/portfolio) 
 [![DeployToNetlifyPRD](https://github.com/tubone24/portfolio/workflows/DeployToNetlifyPRD/badge.svg)](https://github.com/tubone24/portfolio/actions/workflows/deploy.yml)
 [![DeployToNetlifyPreview](https://github.com/tubone24/portfolio/actions/workflows/previewDeploy.yml/badge.svg)](https://github.com/tubone24/portfolio/actions/workflows/previewDeploy.yml)
-[![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/d0b9144f/portfolio)
 [![CodeFactor](https://www.codefactor.io/repository/github/tubone24/portfolio/badge)](https://www.codefactor.io/repository/github/tubone24/portfolio)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier)](https://github.com/prettier/prettier)
 [![storybook](https://raw.githubusercontent.com/storybookjs/brand/master/badge/badge-storybook.svg)](https://tubone24.github.io/portfolio/sb/?path=/story/example-introduction--page)
@@ -63,12 +62,6 @@ E2E testing can be performed using Cypress.
 ```
 npm run test:e2e
 ```
-
-### Visual Testing
-
-You can use Percy to check your PR for unexpected changes in your design.
-
-[Percy](https://percy.io/d0b9144f/portfolio)
 
 ## Formatting
 
