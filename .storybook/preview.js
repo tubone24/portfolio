@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { action } from "storybook/actions"
 import React from 'react';
 
 // GatsbyImage の簡易モック（Storybook 起動互換）

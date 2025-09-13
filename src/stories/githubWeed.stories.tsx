@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import GitHubWeed from "../components/githubWeed";
 
 const meta: Meta<typeof GitHubWeed> = {

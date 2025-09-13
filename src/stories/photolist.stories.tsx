@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import PhotoList from "../components/photoList";
 
 const meta: Meta<typeof PhotoList> = {

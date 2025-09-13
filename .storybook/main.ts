@@ -4,19 +4,14 @@ export default {
   stories: [
     "../src/**/*.stories.@(js|jsx|ts|tsx)",
   ],
-  addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
-    "@storybook/addon-interactions",
-  ],
+
+  addons: ["@storybook/addon-links", "@storybook/addon-a11y", "@storybook/addon-docs"],
+
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
-  docs: {
-    autodocs: "tag",
-  },
+
   viteFinal: async (config) => {
     // Gatsby 関連モジュールを Storybook 用モックに差し替え
     config.resolve = config.resolve || {};
@@ -29,5 +24,5 @@ export default {
     };
 
     return config;
-  },
+  }
 };
