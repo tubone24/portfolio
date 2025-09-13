@@ -1,4 +1,4 @@
-import { action } from "@storybook/addon-actions"
+import { action } from "storybook/actions"
 import React from 'react';
 
 // GatsbyImage の簡易モック（Storybook 起動互換）
@@ -6,7 +6,7 @@ try {
   // eslint-disable-next-line global-require
   const mod = require('gatsby-plugin-image');
   if (!mod.__storybook_patched) {
-    const Img = (props) => <img {...props} />;
+    const Img = (props) => React.createElement('img', { ...props });
     mod.GatsbyImage = Img;
     mod.StaticImage = Img;
     mod.getImage = (d) => d;

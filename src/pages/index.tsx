@@ -450,7 +450,13 @@ export const pageQuery = graphql`
                 gatsbyImageData(
                   width: 500
                   placeholder: TRACED_SVG
-                  transformOptions: { duotone: { highlight: "#333333", shadow: "#111111", opacity: 65 } }
+                  transformOptions: {
+                    duotone: {
+                      highlight: "#333333"
+                      shadow: "#111111"
+                      opacity: 65
+                    }
+                  }
                 )
               }
             }
@@ -478,10 +484,7 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            gatsbyImageData(
-              width: 1200
-              placeholder: TRACED_SVG
-            )
+            gatsbyImageData(width: 1200, placeholder: TRACED_SVG)
           }
         }
       }
@@ -492,10 +495,7 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            gatsbyImageData(
-              width: 1200
-              placeholder: TRACED_SVG
-            )
+            gatsbyImageData(width: 1200, placeholder: TRACED_SVG)
           }
         }
       }
@@ -513,21 +513,15 @@ export const pageQuery = graphql`
         }
       }
     }
-    booksImages: allFile(
-      filter: { sourceInstanceName: { eq: "books" } }
-    ) {
+    booksImages: allFile(filter: { sourceInstanceName: { eq: "books" } }) {
       edges {
         node {
           name
           childImageSharp {
-            gatsbyImageData(
-              width: 200
-              placeholder: BLURRED
-            )
+            gatsbyImageData(width: 200, placeholder: BLURRED)
           }
         }
       }
     }
   }
 `;
-
