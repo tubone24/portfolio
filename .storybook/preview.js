@@ -6,7 +6,7 @@ try {
   // eslint-disable-next-line global-require
   const mod = require('gatsby-plugin-image');
   if (!mod.__storybook_patched) {
-    const Img = (props) => <img {...props} />;
+    const Img = (props) => React.createElement('img', { ...props });
     mod.GatsbyImage = Img;
     mod.StaticImage = Img;
     mod.getImage = (d) => d;
