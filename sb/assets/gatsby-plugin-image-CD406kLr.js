@@ -1,0 +1,1 @@
+import{R as c}from"./iframe-BtEPCsUu.js";const s=a=>c.createElement("img",{alt:a.alt||"",...a}),g=s,o=a=>{var e,t;return(t=(e=a==null?void 0:a.images)==null?void 0:e.fallback)!=null&&t.src?a.images.fallback.src:""};s.__docgenInfo={description:"",methods:[],displayName:"Img"};export{g as G,o as g};
