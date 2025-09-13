@@ -1,91 +1,112 @@
 import { useStaticQuery, graphql } from "gatsby";
+import { getSrc } from "gatsby-plugin-image";
 
 export interface HeroImage {
   name: string;
   childImageSharp: {
-    fixed: {
-      src: string;
-    };
-    fluid: {
-      src: string;
-      srcSet: string;
-      sizes: string;
-      aspectRatio: number;
-    };
-    heroFluid: {
-      src: string;
-      srcSet: string;
-      sizes: string;
-      aspectRatio: number;
-    };
-    heroFixed: {
-      src: string;
-    };
-    carouselFluid: {
-      src: string;
-      srcSet: string;
-      sizes: string;
-      aspectRatio: number;
-    };
-    carouselFixed: {
-      src: string;
-    };
-    lightboxFluid: {
-      src: string;
-      srcSet: string;
-      sizes: string;
-      aspectRatio: number;
-    };
+    fixed: { src: string };
+    fluid: { src: string };
+    heroFluid: { src: string };
+    heroFixed: { src: string };
+    carouselFluid: { src: string };
+    carouselFixed: { src: string };
+    lightboxFluid: { src: string };
   };
 }
 
 const useAllHeroImagesData = () => {
-  const data = useStaticQuery<GatsbyTypes.AllHeroImagesQueryQuery>(graphql`
+  const data: any = useStaticQuery(graphql`
     query AllHeroImagesQuery {
       allFile(filter: { sourceInstanceName: { eq: "hero" } }) {
         nodes {
           name
           childImageSharp {
-            fixed(width: 600, height: 400, quality: 75) {
-              src
-            }
-            fluid(maxWidth: 800, maxHeight: 600, quality: 75) {
-              src
-              srcSet
-              sizes
-              aspectRatio
-            }
-            heroFluid: fluid(maxWidth: 2048, quality: 85) {
-              src
-              srcSet
-              sizes
-              aspectRatio
-            }
-            heroFixed: fixed(width: 64, height: 48, quality: 20) {
-              src
-            }
-            carouselFluid: fluid(maxWidth: 2048, maxHeight: 1536, quality: 85) {
-              src
-              srcSet
-              sizes
-              aspectRatio
-            }
-            carouselFixed: fixed(width: 48, height: 32, quality: 20) {
-              src
-            }
-            lightboxFluid: fluid(maxWidth: 4096, quality: 90) {
-              src
-              srcSet
-              sizes
-              aspectRatio
-            }
+            fixedData: gatsbyImageData(
+              width: 600
+              height: 400
+              quality: 75
+              layout: FIXED
+              placeholder: BLURRED
+            )
+            fluidData: gatsbyImageData(
+              width: 800
+              height: 600
+              quality: 75
+              layout: CONSTRAINED
+              placeholder: BLURRED
+            )
+            heroFluidData: gatsbyImageData(
+              width: 2048
+              quality: 85
+              layout: CONSTRAINED
+              placeholder: BLURRED
+            )
+            heroFixedData: gatsbyImageData(
+              width: 64
+              height: 48
+              quality: 20
+              layout: FIXED
+              placeholder: TRACED_SVG
+            )
+            carouselFluidData: gatsbyImageData(
+              width: 2048
+              height: 1536
+              quality: 85
+              layout: CONSTRAINED
+              placeholder: BLURRED
+            )
+            carouselFixedData: gatsbyImageData(
+              width: 48
+              height: 32
+              quality: 20
+              layout: FIXED
+            )
+            lightboxFluidData: gatsbyImageData(
+              width: 4096
+              quality: 90
+              layout: CONSTRAINED
+            )
           }
         }
       }
     }
   `);
 
-  return data.allFile.nodes as HeroImage[];
+  const nodes: HeroImage[] = data.allFile.nodes.map((node: any) => {
+    const cis = node.childImageSharp || {};
+    const fixedSrc = cis.fixedData ? getSrc(cis.fixedData) : "";
+    const fluidSrc = cis.fluidData ? getSrc(cis.fluidData) : "";
+    const heroFluidSrc = cis.heroFluidData
+      ? getSrc(cis.heroFluidData)
+      : fluidSrc;
+    const heroFixedSrc = cis.heroFixedData
+      ? getSrc(cis.heroFixedData)
+      : fixedSrc;
+    const carouselFluidSrc = cis.carouselFluidData
+      ? getSrc(cis.carouselFluidData)
+      : heroFluidSrc;
+    const carouselFixedSrc = cis.carouselFixedData
+      ? getSrc(cis.carouselFixedData)
+      : fixedSrc;
+    const lightboxFluidSrc = cis.lightboxFluidData
+      ? getSrc(cis.lightboxFluidData)
+      : heroFluidSrc;
+
+    return {
+      name: node.name,
+      childImageSharp: {
+        fixed: { src: fixedSrc },
+        fluid: { src: fluidSrc || heroFluidSrc },
+        heroFluid: { src: heroFluidSrc },
+        heroFixed: { src: heroFixedSrc },
+        carouselFluid: { src: carouselFluidSrc },
+        carouselFixed: { src: carouselFixedSrc },
+        lightboxFluid: { src: lightboxFluidSrc },
+      },
+    };
+  });
+
+  return nodes;
 };
 
 export const useHeroImages = () => {
