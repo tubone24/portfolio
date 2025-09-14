@@ -139,7 +139,7 @@
     "eslint-plugin-storybook": "9.1.5"
   },
   "resolutions": {
-    "@graphql-codegen/visitor-plugin-common": "1.22.0",
+    "@graphql-codegen/visitor-plugin-common": "6.0.0",
     "colors": "1.4.0",
     "browserslist": "^4.22.0"
   }
