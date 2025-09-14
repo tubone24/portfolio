@@ -121,7 +121,7 @@
     "greenkeeper-lockfile": "1.15.1",
     "identity-obj-proxy": "3.0.0",
     "jest": "26.6.3",
-    "netlify-cli": "8.6.15",
+    "netlify-cli": "8.19.3",
     "netlify-lambda": "2.0.15",
     "percy": "0.28.6",
     "prettier": "3.6.2",
