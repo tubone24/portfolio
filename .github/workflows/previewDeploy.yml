@@ -94,15 +94,25 @@ jobs:
           NETLIFY_ENV: deploy-preview
         run: yarn build
       - name: Deploy to netlify
-        run: npx netlify-cli deploy --dir=./public > cli.txt
+        run: |
+          set -o pipefail
+          npx netlify-cli deploy --dir=./public > cli.txt 2>&1
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      - name: Cat cli.txt
+          NO_COLOR: "1"
+      - name: Prepare Netlify CLI comment body
         run: |
-          cat cli.txt
-          sed -i -z 's/\n/\\n/g' cli.txt
-          sed -i -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})*)?m//g" cli.txt
+          # ANSIエスケープコード/CRを除去してクリーンなログにする
+          sed -E 's/\x1B\[[0-9;]*[A-Za-z]//g' cli.txt | sed 's/\r//g' > cli.clean.txt
+          # JSONに安全にエンコード（改行や引用符も含めてエスケープ）
+          jq -Rs '{body: .}' < cli.clean.txt > body.json
+          # 可能ならプレビューURLを抽出して本文末尾に追記
+          PREVIEW_URL=$(grep -Eo 'https://[a-zA-Z0-9-]+--[a-zA-Z0-9-]+\.netlify\.app[^[:space:]]*' cli.clean.txt | tail -n1 || true)
+          if [ -n "$PREVIEW_URL" ]; then
+            printf "\n\nPreview: %s\n" "$PREVIEW_URL" >> cli.clean.txt
+            jq -Rs '{body: .}' < cli.clean.txt > body.json
+          fi
       - name: Post Netlify CLI Comment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -110,8 +120,9 @@ jobs:
         run: |
           curl -X POST \
                -H "Authorization: token ${GITHUB_TOKEN}" \
-               -d "{\"body\": \"$(cat cli.txt)\"}" \
-               ${URL}
+               -H "Content-Type: application/json" \
+               --data @body.json \
+               "${URL}"
   chromatic-deployment:
     runs-on: ubuntu-latest
     steps:
