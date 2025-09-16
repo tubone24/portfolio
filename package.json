@@ -87,7 +87,7 @@
     "@testing-library/cypress": "8.0.2",
     "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "^14.0.0",
-    "@types/aws-lambda": "8.10.88",
+    "@types/aws-lambda": "8.10.152",
     "@types/grid-styled": "4.2.1",
     "@types/jest": "26.0.24",
     "@types/node": "22.18.4",
