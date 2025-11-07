@@ -95,12 +95,14 @@ jobs:
         run: yarn build
       - name: Deploy to netlify
         run: |
-          set -o pipefail
-          npm_config_ignore_scripts=true npx netlify-cli deploy --dir=./public > cli.txt 2>&1
+          npm_config_ignore_scripts=true npx netlify-cli deploy --dir=./public > cli.txt 2>&1 || true
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NO_COLOR: "1"
+      - name: Show deploy output
+        if: always()
+        run: cat cli.txt
       - name: Prepare Netlify CLI comment body
         run: |
           # ANSIエスケープコード/CRを除去してクリーンなログにする
