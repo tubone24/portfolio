@@ -144,6 +144,7 @@
     "browserslist": "^4.22.0",
     "lru-cache": "^6.0.0",
     "**/lru-cache": "^6.0.0",
-    "**/hosted-git-info/lru-cache": "^6.0.0"
+    "hosted-git-info": "^4.1.0",
+    "normalize-package-data": "^3.0.3"
   }
 }
