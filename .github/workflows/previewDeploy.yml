@@ -96,7 +96,7 @@ jobs:
       - name: Deploy to netlify
         run: |
           set -o pipefail
-          npx netlify-cli deploy --dir=./public > cli.txt 2>&1
+          npm_config_ignore_scripts=true npx netlify-cli deploy --dir=./public > cli.txt 2>&1
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
