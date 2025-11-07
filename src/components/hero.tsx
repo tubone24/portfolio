@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import ImageLoader from "react-load-image";
 import styled, { css } from "styled-components";
+import ShibaLoader from "./ShibaLoader";
 
-const HeroContainer = styled(ImageLoader)<Props>`
+const HeroWrapper = styled.div<Props>`
+  position: relative;
   overflow: hidden;
   ${(props) =>
     props.fillPage &&
@@ -28,7 +30,19 @@ const HeroContainer = styled(ImageLoader)<Props>`
         right: 0;
         left: 0;
         bottom: 0;
+        z-index: 1;
       }
+    `}
+`;
+
+const HeroContainer = styled(ImageLoader)<Props>`
+  overflow: hidden;
+  ${(props) =>
+    props.fillPage &&
+    css`
+      padding-top: 0;
+      width: 100vw;
+      height: 100vh;
     `}
 `;
 const HeroImage = styled.div<Props>`
@@ -86,16 +100,45 @@ type Props = {
   thumbnail?: string;
 };
 
-export const Hero = (props: Props) => (
-  <HeroContainer overlay src={props.img} fillPage={props.fillPage}>
-    <HeroImage aspectRatio={props.aspectRatio} fillPage={props.fillPage} />
-    <img src={props.img} alt="hero image" decoding="async" />
-    <HeroImage
-      aspectRatio={props.aspectRatio}
-      thumbnail={props.thumbnail}
-      fillPage={props.fillPage}
-    />
-  </HeroContainer>
-);
+export const Hero = (props: Props) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  React.useEffect(() => {
+    console.log("Hero component mounted, isLoading:", isLoading);
+  }, []);
+
+  React.useEffect(() => {
+    console.log("Hero isLoading changed:", isLoading);
+  }, [isLoading]);
+
+  React.useEffect(() => {
+    // 画像のプリロード
+    const img = new Image();
+    img.src = props.img || "";
+    img.onload = () => {
+      console.log("Image loaded, setting isLoading to false");
+      setIsLoading(false);
+    };
+    img.onerror = () => {
+      console.log("Image failed to load, setting isLoading to false");
+      setIsLoading(false);
+    };
+  }, [props.img]);
+
+  return (
+    <HeroWrapper overlay={props.fillPage} fillPage={props.fillPage}>
+      <HeroContainer src={props.img} fillPage={props.fillPage}>
+        <HeroImage aspectRatio={props.aspectRatio} fillPage={props.fillPage} />
+        <img src={props.img} alt="hero image" decoding="async" />
+        <HeroImage
+          aspectRatio={props.aspectRatio}
+          thumbnail={props.thumbnail}
+          fillPage={props.fillPage}
+        />
+      </HeroContainer>
+      <ShibaLoader show={isLoading} />
+    </HeroWrapper>
+  );
+};
 
 export default Hero;
