@@ -142,6 +142,8 @@
     "@graphql-codegen/visitor-plugin-common": "1.22.0",
     "colors": "1.4.0",
     "browserslist": "^4.22.0",
-    "lru-cache": "^6.0.0"
+    "lru-cache": "^6.0.0",
+    "**/lru-cache": "^6.0.0",
+    "**/hosted-git-info/lru-cache": "^6.0.0"
   }
 }
