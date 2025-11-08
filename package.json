@@ -109,7 +109,7 @@
     "chromatic": "6.3.3",
     "cypress": "15.4.0",
     "cypress-axe": "0.13.0",
-    "eslint": "8.5.0",
+    "eslint": "8.57.1",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.25.3",
     "eslint-plugin-jsx-a11y": "6.5.1",
