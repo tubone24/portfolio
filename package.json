@@ -126,7 +126,7 @@
     "percy": "0.28.6",
     "prettier": "3.6.2",
     "react-test-renderer": "17.0.2",
-    "start-server-and-test": "1.14.0",
+    "start-server-and-test": "1.15.4",
     "stylelint": "14.1.0",
     "stylelint-config-idiomatic-order": "8.1.0",
     "stylelint-config-prettier": "9.0.3",
