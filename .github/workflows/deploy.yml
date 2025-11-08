@@ -111,7 +111,7 @@ jobs:
           NETLIFY_ENV: production
         run: yarn build
       - name: Deploy to netlify
-        run: npx netlify-cli deploy --prod --dir=./public
+        run: npx --yes netlify-cli@17.36.4 deploy --prod --dir=./public
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
