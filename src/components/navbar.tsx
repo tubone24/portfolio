@@ -96,7 +96,7 @@ type Props = {
 const NavBar = (props: Props): JSX.Element => {
   const linkMap = props.children
     .map((el) => {
-      if (el.props.id)
+      if (el?.props?.id)
         return { name: el.props.children, href: `#${el.props.id}` };
     })
     .filter((n) => n != undefined)

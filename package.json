@@ -2,7 +2,6 @@
   "name": "portfolio",
   "description": "portfolio",
   "version": "1.0.0",
-  "type": "module",
   "author": "tubone24 <tubo.yyyuuu@gmail.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
