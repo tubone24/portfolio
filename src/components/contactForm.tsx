@@ -15,7 +15,7 @@ export const ContactForm = (): JSX.Element => {
     submitting: false,
     status: { ok: false, msg: "" },
   });
-  const { register, handleSubmit, errors } = useForm<Inputs>();
+  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
   const handleServerResponse = (ok: boolean, msg: string) => {
     setServerState({ submitting: true, status: { ok, msg } });
   };
@@ -46,22 +46,20 @@ export const ContactForm = (): JSX.Element => {
       <Label>Your Name</Label>
       {errors.name && <span>This field is required</span>}
       <Input
-        name="name"
         placeholder="Enter your name"
         type="text"
         data-testid="name"
-        ref={register({ required: true })}
+        {...register("name", { required: true })}
       />
       <Label>Your email</Label>
       {errors.email && (
         <span>This field is required and only email format</span>
       )}
       <Input
-        name="email"
         type="email"
         data-testid="email"
         placeholder="Enter your email"
-        ref={register({
+        {...register("email", {
           pattern:
             /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i,
           required: true,
@@ -70,22 +68,20 @@ export const ContactForm = (): JSX.Element => {
       <Label>Subject</Label>
       {errors.subject && <span>This field is required</span>}
       <Input
-        name="subject"
         type="text"
         maxLength={30}
         placeholder="Subject here..."
         data-testid="subject"
-        ref={register({ required: true })}
+        {...register("subject", { required: true })}
       />
       <Label>Message</Label>
       {errors.message && <span>This field is required</span>}
       <TextArea
-        name="message"
         placeholder="Something writing..."
         rows={6}
         cols={25}
         data-testid="message"
-        ref={register({ required: true })}
+        {...register("message", { required: true })}
       />
       <Button
         dark={serverState.submitting && serverState.status.ok}
