@@ -13,11 +13,6 @@ jest.mock("gatsby-image", () => {
   return jest.fn(({ alt }) => <img alt={alt} data-testid="mocked-gatsby-image" />);
 });
 
-// react-imagesのモック
-jest.mock("react-images", () => {
-  return jest.fn(() => <div data-testid="mocked-lightbox" />);
-});
-
 // scroll-to-elementのモック
 jest.mock("scroll-to-element", () => {
   return jest.fn();
