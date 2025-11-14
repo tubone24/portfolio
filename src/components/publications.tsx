@@ -42,16 +42,16 @@ const BookLink = styled.a`
 `;
 
 const BookImageWrapper = styled.div`
+  overflow: hidden;
   width: 120px;
   height: 168px;
-  border-radius: 8px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease-in-out;
   flex-shrink: 0;
-  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgb(0 0 0 / 30%);
+  transition: all 0.3s ease-in-out;
 
   ${BookLink}:hover & {
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 35px rgb(0 0 0 / 50%);
   }
 
   .gatsby-image-wrapper {
@@ -67,29 +67,29 @@ const BookImage = styled.img`
 `;
 
 const BookInfo = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
   position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 `;
 
 const BookTitle = styled.h6`
-  font-family: "Raleway";
+  margin: 0 0 8px;
+  color: #fff;
+  font-family: Raleway;
   font-size: 16px;
   font-weight: 700;
-  color: #fff;
-  margin: 0 0 8px 0;
+  letter-spacing: 2px;
   line-height: 1.4;
   text-transform: uppercase;
-  letter-spacing: 2px;
 `;
 
 const BookMeta = styled.p`
+  margin: 0;
+  color: #fefefe;
   font-size: 13px;
   line-height: 24px;
-  color: #fefefe;
   opacity: 0.5;
-  margin: 0;
 `;
 
 const PublicationYear = styled.span`

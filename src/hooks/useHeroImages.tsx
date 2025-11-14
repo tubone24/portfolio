@@ -1,6 +1,25 @@
 import { useStaticQuery, graphql } from "gatsby";
 import { getSrc } from "gatsby-plugin-image";
 
+interface GatsbyImageNode {
+  name: string;
+  childImageSharp?: {
+    fixedData?: unknown;
+    fluidData?: unknown;
+    heroFluidData?: unknown;
+    heroFixedData?: unknown;
+    carouselFluidData?: unknown;
+    carouselFixedData?: unknown;
+    lightboxFluidData?: unknown;
+  };
+}
+
+interface AllHeroImagesQueryData {
+  allFile: {
+    nodes: GatsbyImageNode[];
+  };
+}
+
 export interface HeroImage {
   name: string;
   childImageSharp: {
@@ -15,7 +34,7 @@ export interface HeroImage {
 }
 
 const useAllHeroImagesData = () => {
-  const data: any = useStaticQuery(graphql`
+  const data = useStaticQuery<AllHeroImagesQueryData>(graphql`
     query AllHeroImagesQuery {
       allFile(filter: { sourceInstanceName: { eq: "hero" } }) {
         nodes {
@@ -72,7 +91,7 @@ const useAllHeroImagesData = () => {
     }
   `);
 
-  const nodes: HeroImage[] = data.allFile.nodes.map((node: any) => {
+  const nodes: HeroImage[] = data.allFile.nodes.map((node) => {
     const cis = node.childImageSharp || {};
     const fixedSrc = cis.fixedData ? getSrc(cis.fixedData) : "";
     const fluidSrc = cis.fluidData ? getSrc(cis.fluidData) : "";

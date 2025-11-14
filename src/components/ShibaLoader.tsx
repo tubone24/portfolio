@@ -39,30 +39,30 @@ const rotatingTail = keyframes`
 
 const LoaderWrapper = styled.div`
   position: absolute;
+  z-index: 10;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
   max-width: 12em;
-  z-index: 10;
   pointer-events: none;
+  transform: translate(-50%, -50%);
 
-  @media (max-width: 768px) {
+  @media (width <= 768px) {
     max-width: 8em;
   }
 `;
 
 const ShibaContainer = styled.div`
   position: relative;
+  overflow: hidden;
   width: 100%;
   max-width: 20em;
-  overflow: hidden;
   background-color: transparent;
 
   &::before {
-    content: "";
     display: block;
     padding-bottom: 100%;
+    content: "";
   }
 
   &:hover > * {
@@ -76,91 +76,79 @@ const ShibaContainer = styled.div`
 
 const ShibaPart = styled.div<{ delay?: number }>`
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   animation: ${rotating} 2.79s cubic-bezier(0.65, 0.54, 0.12, 0.93) infinite;
   animation-delay: ${(props) => props.delay || 0}s;
 
   &::before {
-    content: "";
     position: absolute;
     width: 50%;
     height: 50%;
-    background-size: 200%;
-    background-repeat: no-repeat;
     background-image: url("/loading.png");
+    background-repeat: no-repeat;
+    background-size: 200%;
+    content: "";
   }
 `;
 
 const ShibaHead = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   animation: ${rotatingHead} 2.79s cubic-bezier(0.65, 0.54, 0.12, 0.93) infinite;
 
   &::before {
-    content: "";
     position: absolute;
-    width: 50%;
-    height: 50%;
-    background-size: 200%;
-    background-repeat: no-repeat;
-    background-image: url("/loading.png");
     top: -2%;
     right: -2%;
+    width: 50%;
+    height: 50%;
+    background-image: url("/loading.png");
     background-position: 100% 0%;
+    background-repeat: no-repeat;
+    background-size: 200%;
+    content: "";
     transform-origin: 0% 100%;
   }
 `;
 
 const ShibaTail = styled.div`
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   animation: ${rotatingTail} 2.79s cubic-bezier(0.65, 0.54, 0.12, 0.93) infinite;
   animation-delay: 0.2s;
 
   &::before {
-    content: "";
     position: absolute;
+    bottom: -2%;
+    left: -2%;
     width: 50%;
     height: 50%;
-    background-size: 200%;
-    background-repeat: no-repeat;
     background-image: url("/loading.png");
-    left: -2%;
-    bottom: -2%;
     background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 200%;
+    content: "";
     transform-origin: 100% 0%;
   }
 `;
 
 const ShibaBody = styled.div<{ delay?: number }>`
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   animation: ${rotatingBody} 2.79s cubic-bezier(0.65, 0.54, 0.12, 0.93) infinite;
   animation-delay: ${(props) => props.delay || 0.1}s;
 
   &::before {
-    content: "";
     position: absolute;
-    width: 50%;
-    height: 50%;
-    background-size: 200%;
-    background-repeat: no-repeat;
-    background-image: url("/loading.png");
     right: -3%;
     bottom: -3%;
+    width: 50%;
+    height: 50%;
+    background-image: url("/loading.png");
     background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 200%;
+    content: "";
     transform-origin: 0% 0%;
   }
 `;

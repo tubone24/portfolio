@@ -3,18 +3,18 @@ import styled from "styled-components";
 
 const CarouselContainer = styled.div`
   position: relative;
+  overflow: visible;
   width: 100%;
   min-height: 400px;
-  overflow: visible;
   perspective: 1200px;
   perspective-origin: 50% 50%;
 `;
 
 const CarouselWrapper = styled.div`
   position: relative;
+  overflow: hidden;
   width: 100%;
   min-height: 400px;
-  overflow: hidden;
 `;
 
 const CarouselTrack = styled.div`
@@ -82,7 +82,7 @@ const NavButton = styled.button<{ $direction: "prev" | "next" }>`
   top: 50%;
   ${(props) => (props.$direction === "prev" ? "left: 20px;" : "right: 20px;")}
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgb(255 255 255 / 80%);
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -96,7 +96,7 @@ const NavButton = styled.button<{ $direction: "prev" | "next" }>`
   transition: background 0.3s ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 1);
+    background: rgb(255 255 255 / 100%);
   }
 
   &:active {

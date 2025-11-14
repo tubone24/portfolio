@@ -18,6 +18,7 @@ const FooterText = styled.div`
   padding-top: 6px;
   color: #fff;
   text-align: center;
+
   a {
     color: #9880dc;
   }
@@ -34,8 +35,8 @@ const CenteredButtonBox = styled(Box)`
 
 const GalleryContainer = styled.div`
   & > div > div {
-    width: fit-content;
     display: grid;
+    width: fit-content;
     grid-template-columns: repeat(4, 1fr);
   }
 `;

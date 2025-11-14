@@ -5,7 +5,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import Footer from "./footer";
 
 const GlobalStyle = createGlobalStyle`
-  @import "//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+  @import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
   html {
     max-width: 100vw;
@@ -15,9 +15,9 @@ const GlobalStyle = createGlobalStyle`
 
 const Body = styled.div`
   display: flex;
+  width: 100vw;
   min-height: 100vh;
   flex-direction: column;
-  width: 100vw;
 
   img {
     margin-bottom: 0;

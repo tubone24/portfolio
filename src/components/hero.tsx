@@ -11,26 +11,23 @@ const HeroWrapper = styled.div<Props>`
   ${(props) =>
     props.fillPage &&
     css`
-      padding-top: 0;
       width: 100vw;
       height: 100vh;
+      padding-top: 0;
     `}
   ${(props) =>
     props.fillPage &&
     props.overlay &&
     css`
-      &:after {
-        background: #292929;
-        opacity: 0.4;
-        content: "";
+      &::after {
+        position: absolute;
+        z-index: 1;
+        inset: 0;
         width: 100%;
         height: auto;
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        z-index: 1;
+        background: #292929;
+        content: "";
+        opacity: 0.4;
       }
     `}
 `;
@@ -40,9 +37,9 @@ const HeroContainer = styled(ImageLoader)<Props>`
   ${(props) =>
     props.fillPage &&
     css`
-      padding-top: 0;
       width: 100vw;
       height: 100vh;
+      padding-top: 0;
     `}
 `;
 const HeroImage = styled.div<Props>`
@@ -61,33 +58,35 @@ const HeroImage = styled.div<Props>`
         `}
   filter: blur(30px);
   transform: scale(1.1);
+
   @keyframes reveal {
     from {
       filter: blur(30px);
       transform: scale(1.1);
     }
+
     to {
-      filter: blur(0px);
+      filter: blur(0);
       transform: scale(1);
     }
   }
   ${(props) =>
     props.src &&
     css<Props>`
+      animation: 0.5s linear forwards reveal;
       background: url(${(props) => props.src});
+      background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      background-position: center;
       image-rendering: -webkit-optimize-contrast;
-      animation: 0.5s linear forwards reveal;
     `}
   ${(props) =>
     props.thumbnail &&
     css<Props>`
       background-image: url(${(props) => props.thumbnail});
+      background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      background-position: center;
       image-rendering: -webkit-optimize-contrast;
     `}
 `;
@@ -98,6 +97,7 @@ type Props = {
   aspectRatio?: number;
   src?: string;
   thumbnail?: string;
+  onLoadingChange?: (isLoading: boolean) => void;
 };
 
 export const Hero = (props: Props) => {
@@ -109,7 +109,10 @@ export const Hero = (props: Props) => {
 
   React.useEffect(() => {
     console.log("Hero isLoading changed:", isLoading);
-  }, [isLoading]);
+    if (props.onLoadingChange) {
+      props.onLoadingChange(isLoading);
+    }
+  }, [isLoading, props.onLoadingChange]);
 
   React.useEffect(() => {
     // 画像のプリロード

@@ -20,10 +20,11 @@ import { GatsbyImage } from "gatsby-plugin-image";
 
 const Content = styled.div`
   & > a {
-    visibility: hidden;
     display: block;
     height: 0;
+    visibility: hidden;
   }
+
   & > h1 {
     text-align: center;
   }
@@ -31,17 +32,17 @@ const Content = styled.div`
 
 const HoverImage = styled(GatsbyImage)`
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
   transition: all 0.3s ease-in-out;
 
   &:hover {
+    box-shadow: 0 15px 20px rgb(0 0 0 / 20%);
     transform: translateY(-10px);
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
   }
 `;
 
 const Title = styled.h1<{ small?: boolean; dark?: boolean }>`
-  font-family: "Raleway";
+  font-family: Raleway;
   text-transform: uppercase;
   letter-spacing: 6px;
   margin-bottom: 40px;
@@ -55,8 +56,8 @@ const Title = styled.h1<{ small?: boolean; dark?: boolean }>`
     props.small &&
     css`
       font-size: 24px;
-      letter-spacing: 2px;
       font-weight: 400;
+      letter-spacing: 2px;
       line-height: 24px;
     `}
 
@@ -73,13 +74,13 @@ const Section = styled.div<{ center?: boolean; dark?: boolean }>`
   padding-bottom: 40px;
 
   a {
-    font-family: "Lato";
+    font-family: Lato;
   }
 
   p {
     margin-bottom: 64px;
-    font-size: large;
     color: #666;
+    font-size: large;
   }
 
   h1,
@@ -88,23 +89,23 @@ const Section = styled.div<{ center?: boolean; dark?: boolean }>`
   h4,
   h5,
   h6 {
-    font-family: "Raleway";
-    text-transform: uppercase;
     color: #292929;
+    font-family: Raleway;
+    text-transform: uppercase;
   }
 
   h4 {
-    letter-spacing: 3px;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 32px;
     color: #292929;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    line-height: 32px;
   }
 
   span {
+    display: block;
     color: #666;
     opacity: 0.5;
-    display: block;
   }
 
   & > div:last-child {
@@ -115,9 +116,11 @@ const Section = styled.div<{ center?: boolean; dark?: boolean }>`
     props.center &&
     css`
       text-align: left;
+
       & > * {
         margin-left: 30vw;
       }
+
       h4 {
         margin-left: 20vw;
       }
@@ -133,27 +136,33 @@ const Section = styled.div<{ center?: boolean; dark?: boolean }>`
     props.dark &&
     css`
       background: #020d05;
+
       * {
         color: #eee;
       }
+
       span {
-        text-align: left;
         font-size: 16px;
-        line-height: 28px;
         font-weight: 400;
+        line-height: 28px;
         opacity: 0.5;
+        text-align: left;
       }
+
       span,
       p {
         color: #fefefe !important;
       }
+
       h6 {
         color: #fff;
         font-weight: 700;
       }
+
       h4 {
         color: #fff;
       }
+
       div {
         border-bottom: 1px solid #333 !important;
       }
@@ -165,22 +174,26 @@ const Item = styled.div`
   margin: 0 auto;
   border: none;
   border-bottom: 1px solid #eee;
+
   h6 {
-    letter-spacing: 2px;
-    font-weight: 700;
     padding-top: 6px;
+    font-weight: 700;
+    letter-spacing: 2px;
   }
+
   span,
   p {
+    color: #666;
     font-size: 13px;
     line-height: 24px;
-    color: #666;
   }
+
   span {
-    opacity: 0.75;
     float: right;
+    opacity: 0.75;
     text-transform: uppercase;
   }
+
   p {
     margin-bottom: 24px;
     opacity: 0.5;
@@ -193,6 +206,7 @@ const Item = styled.div`
 
 const HomeButton = styled(Button)`
   position: absolute;
+  z-index: 10;
   bottom: 35%;
   left: 20%;
 `;
@@ -203,20 +217,24 @@ type Props = {
 };
 
 export default function (props: Props): JSX.Element {
+  const [isHeroLoading, setIsHeroLoading] = React.useState(true);
+
   const scrollToElementOnClick = (selector: string) => {
     scrollToElement(selector);
   };
 
   const content = (
     <Content>
-      <LocalHero fillPage />
-      <HomeButton
-        opaque
-        light
-        onClick={() => scrollToElementOnClick("#about-me")}
-      >
-        About me
-      </HomeButton>
+      <LocalHero fillPage onLoadingChange={setIsHeroLoading} />
+      {!isHeroLoading && (
+        <HomeButton
+          opaque
+          light
+          onClick={() => scrollToElementOnClick("#about-me")}
+        >
+          About me
+        </HomeButton>
+      )}
       <HeroText />
       <SocialIcons
         style={{

@@ -6,19 +6,18 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 import Button from "../components/button";
 import HeroText from "../components/heroText";
+import LocalHero from "../components/localHero";
 
 const HomeButton = styled(Button)`
   position: absolute;
+  z-index: 10;
   bottom: 35%;
   left: 20%;
 `;
 
 const PageNotFound = (): JSX.Element => (
   <Layout>
-    <FlickrHero
-      api_key="89f4752b9b3a8dffcbf94ca144719883"
-      user_id="184992580@N06"
-      album_id="72157711319102412"
+    <LocalHero
       fillPage
     />
     <HomeButton opaque light onClick={() => navigate("/")}>

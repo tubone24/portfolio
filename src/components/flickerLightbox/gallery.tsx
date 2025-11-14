@@ -9,10 +9,11 @@ const gutter = {
 };
 
 const Base = styled.div`
-  margin-right: ${gutter.small};
   overflow: hidden;
+  margin-right: ${gutter.small};
   color: palevioletred;
-  @media (max-width: 500px) {
+
+  @media (width <= 500px) {
     margin-right: -${gutter.large};
   }
 `;
@@ -25,6 +26,7 @@ const Thumbnail = styled.a`
   padding-right: ${gutter.small};
   padding-bottom: ${gutter.small};
   overflow: hidden;
+
   ${(props: Props) =>
     props.landscape &&
     css`
@@ -33,29 +35,40 @@ const Thumbnail = styled.a`
   ${(props: Props) =>
     props.square &&
     css`
-      padding-bottom: 0;
       width: 40%;
-      @media (max-width: 500px) {
+      padding-bottom: 0;
+
+      @media (width <= 500px) {
         padding-bottom: 0;
       }
     `}
-	@media (max-width: 500px) {
+	@media (width <= 500px) {
     padding-right: ${gutter.large};
     padding-bottom: ${gutter.large};
   }
 `;
 
 const Source = styled.img`
-  border: 0;
   display: block;
-  height: auto;
-  max-width: 100%;
   width: auto;
+  max-width: 100%;
+  height: auto;
+  border: 0;
 `;
+
+interface GalleryImage {
+  src: string;
+  thumbnail: string;
+  caption?: string;
+  orientation?: {
+    square?: boolean;
+    landscape?: boolean;
+  };
+}
 
 export type Props = {
   heading?: string;
-  images: any[];
+  images: GalleryImage[];
   showThumbnails?: boolean;
   subheading?: string;
   square?: boolean;
@@ -66,7 +79,7 @@ export const Gallery = (props: Props) => {
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const openLightbox = (index: number, event: any) => {
+  const openLightbox = (index: number, event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
     setCurrentIndex(index);
     setLightboxIsOpen(true);

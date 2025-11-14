@@ -61,7 +61,7 @@ export const ContactForm = (): JSX.Element => {
         placeholder="Enter your email"
         {...register("email", {
           pattern:
-            /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i,
+            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i,
           required: true,
         })}
       />
@@ -105,10 +105,10 @@ const Form = styled.form`
   margin: 0 auto;
   padding: 20px;
   width: 90%;
-  max-width: 500px; // 最大幅を設定してレスポンシブに
-  background-color: #f5f5f5; // 軽い背景色で区別
-  border-radius: 10px; // 角を丸く
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を付けて浮かび上がらせる
+  max-width: 500px; /* 最大幅を設定してレスポンシブに */
+  background-color: #f5f5f5; /* 軽い背景色で区別 */
+  border-radius: 10px; /* 角を丸く */
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%); /* 影を付けて浮かび上がらせる */
 `;
 
 const Input = styled.input`
@@ -116,19 +116,19 @@ const Input = styled.input`
   padding: 10px;
   margin-bottom: 20px;
   background-color: #fff;
-  border: 1px solid #ddd; // 薄い境界線
+  border: 1px solid #ddd; /* 薄い境界線 */
   border-radius: 5px;
   box-sizing: border-box;
-  font-size: 16px; // 読みやすいフォントサイズ
+  font-size: 16px; /* 読みやすいフォントサイズ */
   &:focus {
-    border-color: #007bff; // フォーカス時に色を変える
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); // フォーカスが明確になるように
+    border-color: #007bff; /* フォーカス時に色を変える */
+    box-shadow: 0 0 0 2px rgb(0 123 255 / 25%); /* フォーカスが明確になるように */
   }
 `;
 
 const TextArea = styled(Input).attrs({ as: "textarea" })`
-  height: auto; // 自動で高さ調整
-  resize: vertical; // 垂直方向のリサイズのみを許可
+  height: auto; /* 自動で高さ調整 */
+  resize: vertical; /* 垂直方向のリサイズのみを許可 */
 `;
 
 const Label = styled.label`

@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 const Base = styled.a<Props>`
   font-size: 30pt;
-  font-family: "Arizonia", cursive;
+  font-family: Arizonia, cursive;
   color: #fff;
   margin: 20px 0;
   width: fit-content;
@@ -12,12 +12,12 @@ const Base = styled.a<Props>`
   transition-duration: 0.8s;
 
   &:hover {
+    background-clip: text;
+    background-image: url("https://media.giphy.com/media/l41YcGT5ShJa0nCM0/giphy.gif");
     cursor: pointer;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    background-image: url(https://media.giphy.com/media/l41YcGT5ShJa0nCM0/giphy.gif);
     text-decoration: none;
-    -webkit-transform: rotate(354deg);
+    -webkit-text-fill-color: transparent;
+    transform: rotate(354deg);
   }
 
   ${(props) =>
