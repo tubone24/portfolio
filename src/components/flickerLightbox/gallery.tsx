@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import Lightbox from "react-images";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 const gutter = {
   small: "2px",
@@ -65,33 +64,16 @@ export type Props = {
 
 export const Gallery = (props: Props) => {
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const openLightbox = (index: number, event: any) => {
     event.preventDefault();
-    setCurrentImage(index);
+    setCurrentIndex(index);
     setLightboxIsOpen(true);
   };
   const closeLightbox = () => {
-    setCurrentImage(0);
+    setCurrentIndex(0);
     setLightboxIsOpen(false);
-  };
-
-  const gotoPrevious = () => {
-    setCurrentImage(currentImage - 1);
-  };
-
-  const gotoNext = () => {
-    setCurrentImage(currentImage + 1);
-  };
-
-  const gotoImage = (index: number) => {
-    setCurrentImage(index);
-  };
-
-  const handleClickImage = () => {
-    if (currentImage === props.images.length - 1) return;
-    gotoNext();
   };
 
   const renderGallery = () => {
@@ -113,6 +95,14 @@ export const Gallery = (props: Props) => {
     return <Base>{gallery}</Base>;
   };
 
+  // yet-another-react-lightbox用のスライドデータに変換
+  const slides = props.images
+    ? props.images.map((img) => ({
+        src: img.src,
+        title: img.caption,
+      }))
+    : [];
+
   return (
     props.images && (
       <div className="Gallery">
@@ -120,16 +110,10 @@ export const Gallery = (props: Props) => {
         {props.subheading && <p>{props.subheading}</p>}
         {renderGallery()}
         <Lightbox
-          currentImage={currentImage}
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          images={props.images}
-          isOpen={lightboxIsOpen}
-          onClickImage={handleClickImage}
-          onClickNext={gotoNext}
-          onClickPrev={gotoPrevious}
-          onClickThumbnail={gotoImage}
-          onClose={closeLightbox}
+          open={lightboxIsOpen}
+          close={closeLightbox}
+          index={currentIndex}
+          slides={slides}
         />
       </div>
     )

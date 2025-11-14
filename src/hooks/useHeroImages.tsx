@@ -46,7 +46,7 @@ const useAllHeroImagesData = () => {
               height: 48
               quality: 20
               layout: FIXED
-              placeholder: TRACED_SVG
+              placeholder: DOMINANT_COLOR
             )
             carouselFluidData: gatsbyImageData(
               width: 2048

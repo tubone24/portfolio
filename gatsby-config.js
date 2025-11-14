@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `tubone24`,
+    siteUrl: `https://portfolio.tubone-project24.xyz`,
   },
   graphqlTypegen: false,
   plugins: [
@@ -101,6 +102,35 @@ module.exports = {
         tracesSampleRate: 1.0,
         enabled: (() =>
           ["production", "stage"].indexOf(process.env.NODE_ENV) !== -1)(),
+      },
+    },
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://portfolio.tubone-project24.xyz",
+        sitemap: "https://portfolio.tubone-project24.xyz/sitemap-index.xml",
+        resolveEnv: () => process.env.NETLIFY_ENV || process.env.NODE_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: "*", allow: "/" }],
+          },
+          "deploy-preview": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+            sitemap: null,
+            host: null,
+          },
+          "branch-deploy": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+            sitemap: null,
+            host: null,
+          },
+          development: {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+            sitemap: null,
+            host: null,
+          },
+        },
       },
     },
   ],

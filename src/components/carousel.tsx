@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import NukaCarousel from "nuka-carousel";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import Lightbox from "react-images";
+import { CustomCarousel } from "./CustomCarousel";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 import { useCarouselImages } from "../hooks/useHeroImages";
 
 type Props = {
@@ -12,33 +11,16 @@ type Props = {
 export const Carousel = (_props: Props): JSX.Element => {
   const heroImages = useCarouselImages();
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const openLightbox = (index: number) => {
-    setCurrentImage(index);
+    setCurrentIndex(index);
     setLightboxIsOpen(true);
   };
 
   const closeLightbox = () => {
-    setCurrentImage(0);
+    setCurrentIndex(0);
     setLightboxIsOpen(false);
-  };
-
-  const gotoPrevious = () => {
-    setCurrentImage(currentImage - 1);
-  };
-
-  const gotoNext = () => {
-    setCurrentImage(currentImage + 1);
-  };
-
-  const gotoImage = (index: number) => {
-    setCurrentImage(index);
-  };
-
-  const handleClickImage = () => {
-    if (currentImage === heroImages.length - 1) return;
-    gotoNext();
   };
 
   const getTitleFromFilename = (filename: string) => {
@@ -62,9 +44,9 @@ export const Carousel = (_props: Props): JSX.Element => {
   };
 
   // Lightbox用画像データ（4K画像を使用）
-  const lightboxImages = heroImages.map((image) => ({
+  const slides = heroImages.map((image) => ({
     src: image.childImageSharp.lightboxFluid.src,
-    caption: getTitleFromFilename(image.name),
+    title: getTitleFromFilename(image.name),
   }));
 
   const images = heroImages.map((image, index) => {
@@ -103,38 +85,16 @@ export const Carousel = (_props: Props): JSX.Element => {
 
   return (
     <div>
-      <NukaCarousel wrapAround dragging autoplay transitionMode="scroll3d">
+      <CustomCarousel wrapAround dragging autoplay>
         {images}
-      </NukaCarousel>
+      </CustomCarousel>
       <Lightbox
-        currentImage={currentImage}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        images={lightboxImages}
-        isOpen={lightboxIsOpen}
-        onClickImage={handleClickImage}
-        onClickNext={gotoNext}
-        onClickPrev={gotoPrevious}
-        onClickThumbnail={gotoImage}
-        onClose={closeLightbox}
-        theme={{
-          container: {
-            background: "rgba(0, 0, 0, 0.9)",
-          },
-          image: {
-            maxWidth: "90vw",
-            maxHeight: "90vh",
-            objectFit: "contain",
-            position: "relative",
-            left: "50%",
-            transform: "translateX(-50%)",
-          },
-          close: {
-            position: "fixed",
-            top: "20px",
-            right: "20px",
-            zIndex: 9999,
-          },
+        open={lightboxIsOpen}
+        close={closeLightbox}
+        index={currentIndex}
+        slides={slides}
+        styles={{
+          container: { backgroundColor: "rgba(0, 0, 0, 0.9)" },
         }}
       />
     </div>

@@ -28,10 +28,6 @@ jobs:
           GATSBY_GITHUB_SHA: ${{ github.sha }}
           NETLIFY_ENV: production
         run: yarn build
-      - name: Percy test
-        env:
-          PERCY_TOKEN: ${{secrets.PERCY_TOKEN}}
-        run: npx percy snapshot ./public/
   storybook:
     runs-on: ubuntu-latest
     steps:

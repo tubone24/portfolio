@@ -449,7 +449,7 @@ export const pageQuery = graphql`
               childImageSharp {
                 gatsbyImageData(
                   width: 500
-                  placeholder: TRACED_SVG
+                  placeholder: DOMINANT_COLOR
                   transformOptions: {
                     duotone: {
                       highlight: "#333333"
@@ -472,7 +472,7 @@ export const pageQuery = graphql`
             gatsbyImageData(
               width: 300
               transformOptions: { grayscale: true }
-              placeholder: TRACED_SVG
+              placeholder: DOMINANT_COLOR
             )
           }
         }
@@ -484,7 +484,7 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            gatsbyImageData(width: 1200, placeholder: TRACED_SVG)
+            gatsbyImageData(width: 1200, placeholder: DOMINANT_COLOR)
           }
         }
       }
@@ -495,7 +495,7 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            gatsbyImageData(width: 1200, placeholder: TRACED_SVG)
+            gatsbyImageData(width: 1200, placeholder: DOMINANT_COLOR)
           }
         }
       }
@@ -507,7 +507,7 @@ export const pageQuery = graphql`
             gatsbyImageData(
               width: 200
               transformOptions: { grayscale: true }
-              placeholder: TRACED_SVG
+              placeholder: DOMINANT_COLOR
             )
           }
         }
