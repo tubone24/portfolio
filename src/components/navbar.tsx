@@ -13,45 +13,51 @@ const Base = styled.div<{ dark?: boolean; main?: boolean }>`
   max-height: 62px;
   line-height: 62px;
   width: 100vw;
+
   & ul {
     width: 100%;
     height: 62px;
     padding: 0;
     margin: 0;
-    list-style: none;
     font-size: 13px;
+    list-style: none;
   }
+
   & ul > li a,
   & ul > li {
-    height: 62px;
-    font-size: 11px;
-    float: right;
     position: relative;
+    height: 62px;
     color: #fff;
-    text-decoration: none;
     cursor: pointer;
+    float: right;
+    font-size: 11px;
+    text-decoration: none;
     transition: opacity 0.3s ease;
   }
+
   & ul > li a {
-    font-family: "Raleway";
-    text-transform: uppercase;
+    margin-right: 32px;
+    font-family: Raleway;
     font-weight: 600;
     letter-spacing: 1px;
-    margin-right: 32px;
+    text-transform: uppercase;
   }
 
   ${(props) =>
     props.dark &&
     css`
       background: #fff;
+
       & ul > li a,
       & ul > li {
         color: #242424;
         opacity: 0.6;
       }
+
       & ul > li a:hover {
         opacity: 1;
       }
+
       a {
         color: #000;
       }
@@ -60,11 +66,11 @@ const Base = styled.div<{ dark?: boolean; main?: boolean }>`
   ${(props) =>
     props.main &&
     css`
-      background: transparent;
       position: absolute;
+      z-index: 100;
       top: 0;
       left: 0;
-      z-index: 100;
+      background: transparent;
     `}
 
   ${media.xs`
@@ -90,7 +96,7 @@ type Props = {
 const NavBar = (props: Props): JSX.Element => {
   const linkMap = props.children
     .map((el) => {
-      if (el.props.id)
+      if (el?.props?.id)
         return { name: el.props.children, href: `#${el.props.id}` };
     })
     .filter((n) => n != undefined)

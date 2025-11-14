@@ -1,6 +1,24 @@
 import React from 'react';
 
-export const GatsbyImage = ({ image, alt = '', ...rest }: any) => {
+interface ImageData {
+  images?: {
+    fallback?: {
+      src?: string;
+    };
+  };
+  fallback?: {
+    src?: string;
+  };
+  src?: string;
+}
+
+interface GatsbyImageProps {
+  image: ImageData;
+  alt?: string;
+  [key: string]: unknown;
+}
+
+export const GatsbyImage = ({ image, alt = '', ...rest }: GatsbyImageProps) => {
   const src =
     image?.images?.fallback?.src ||
     image?.fallback?.src ||
@@ -9,10 +27,10 @@ export const GatsbyImage = ({ image, alt = '', ...rest }: any) => {
   return React.createElement('img', { src, alt, ...rest });
 };
 
-export const StaticImage = (props: any) =>
+export const StaticImage = (props: Record<string, unknown>) =>
   React.createElement('img', { ...props });
 
-export const getImage = (data: any) => data;
+export const getImage = (data: ImageData) => data;
 
-export const getSrc = (data: any) =>
+export const getSrc = (data: ImageData) =>
   data?.images?.fallback?.src || data?.fallback?.src || data?.src || '';

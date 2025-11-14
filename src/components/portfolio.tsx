@@ -1,31 +1,36 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Flex, Box } from "grid-styled";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 import { media } from "../utils/style";
 import Button from "./button";
 
 const Tile = styled.div`
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 19px 38px rgb(0 0 0 / 30%), 0 15px 12px rgb(0 0 0 / 22%);
   position: relative;
   margin-bottom: 32px;
   overflow: hidden;
+
   & > a > div,
   & > a > div::after {
     z-index: -1;
     transition: all 0.5s ease-in-out;
     transform: skewY(-2.2deg);
   }
+
   & a > div {
     top: -8px;
   }
+
   &:hover > a > div {
     transform: scale(1.1);
   }
+
   &:hover > a > div::after {
     opacity: 0.5;
   }
+
   img {
     height: 55% !important;
   }
@@ -42,15 +47,17 @@ const TileContent = styled.a`
   background-color: #000;
   text-decoration: none !important;
   cursor: pointer;
+
   h1 {
     position: absolute;
     background-color: 'transparent';
     top: 6vw;
     left: 5%;
     right: 5%;
-    font-family: 'Raleway';
+    font-family: Raleway;
     border: none;
   }
+
   p {
     font-size: 1.2em;
     position: absolute;
@@ -58,7 +65,7 @@ const TileContent = styled.a`
     left: 5%;
     right: 5%;
     color: #111;
-    font-family: 'Lato';
+    font-family: Lato;
     font-weight: 500;
   }
 
@@ -74,44 +81,56 @@ const TileContent = styled.a`
       color: #000;
     }
   `}
-  @media (max-width: 1594px) {
+  @media (width <= 1594px) {
     p {
       bottom: 0;
       font-size: 1em;
     }
+
     h1 {
       top: 1vw;
     }
  }
- @media (max-width: 1258px) {
+
+ @media (width <= 1258px) {
    p {
      line-height: 1em;
    }
+
    h1 {
      margin-top: 1vw;
    }
- @media (max-width: 828px) {
+
+ @media (width <= 828px) {
    p {
      line-height: inherit;
    }
+
    h1 {
      margin-top: 12vw;
    }
- @media (max-width: 640px) {
+ }
+
+ @media (width <= 640px) {
    p {
      line-height: 1.5em;
      font-size: 1.5em;
    }
- @media (max-width: 440px) {
+ }
+
+ @media (width <= 440px) {
    p {
      line-height: inherit;
      font-size: 1.1em;
    }
- @media (max-width: 342px) {
+ }
+
+ @media (width <= 342px) {
    p {
      line-height: 1.2em;
      font-size: 0.95em;
    }
+ }
 }
 `;
 
@@ -119,7 +138,7 @@ type ItemProps = {
   excerpt?: string;
   image?: {
     childImageSharp?: {
-      gatsbyImageData?: any;
+      gatsbyImageData?: IGatsbyImageData;
     };
   };
   slug?: string;
@@ -156,7 +175,7 @@ interface Node {
       tags?: readonly string[];
       image?: {
         childImageSharp?: {
-          gatsbyImageData?: any;
+          gatsbyImageData?: IGatsbyImageData;
         };
       };
     };

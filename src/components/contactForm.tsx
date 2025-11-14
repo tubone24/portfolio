@@ -15,7 +15,7 @@ export const ContactForm = (): JSX.Element => {
     submitting: false,
     status: { ok: false, msg: "" },
   });
-  const { register, handleSubmit, errors } = useForm<Inputs>();
+  const { register, handleSubmit, formState: { errors } } = useForm<Inputs>();
   const handleServerResponse = (ok: boolean, msg: string) => {
     setServerState({ submitting: true, status: { ok, msg } });
   };
@@ -46,46 +46,42 @@ export const ContactForm = (): JSX.Element => {
       <Label>Your Name</Label>
       {errors.name && <span>This field is required</span>}
       <Input
-        name="name"
         placeholder="Enter your name"
         type="text"
         data-testid="name"
-        ref={register({ required: true })}
+        {...register("name", { required: true })}
       />
       <Label>Your email</Label>
       {errors.email && (
         <span>This field is required and only email format</span>
       )}
       <Input
-        name="email"
         type="email"
         data-testid="email"
         placeholder="Enter your email"
-        ref={register({
+        {...register("email", {
           pattern:
-            /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i,
+            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i,
           required: true,
         })}
       />
       <Label>Subject</Label>
       {errors.subject && <span>This field is required</span>}
       <Input
-        name="subject"
         type="text"
         maxLength={30}
         placeholder="Subject here..."
         data-testid="subject"
-        ref={register({ required: true })}
+        {...register("subject", { required: true })}
       />
       <Label>Message</Label>
       {errors.message && <span>This field is required</span>}
       <TextArea
-        name="message"
         placeholder="Something writing..."
         rows={6}
         cols={25}
         data-testid="message"
-        ref={register({ required: true })}
+        {...register("message", { required: true })}
       />
       <Button
         dark={serverState.submitting && serverState.status.ok}
@@ -109,10 +105,10 @@ const Form = styled.form`
   margin: 0 auto;
   padding: 20px;
   width: 90%;
-  max-width: 500px; // 最大幅を設定してレスポンシブに
-  background-color: #f5f5f5; // 軽い背景色で区別
-  border-radius: 10px; // 角を丸く
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // 影を付けて浮かび上がらせる
+  max-width: 500px; /* 最大幅を設定してレスポンシブに */
+  background-color: #f5f5f5; /* 軽い背景色で区別 */
+  border-radius: 10px; /* 角を丸く */
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%); /* 影を付けて浮かび上がらせる */
 `;
 
 const Input = styled.input`
@@ -120,19 +116,19 @@ const Input = styled.input`
   padding: 10px;
   margin-bottom: 20px;
   background-color: #fff;
-  border: 1px solid #ddd; // 薄い境界線
+  border: 1px solid #ddd; /* 薄い境界線 */
   border-radius: 5px;
   box-sizing: border-box;
-  font-size: 16px; // 読みやすいフォントサイズ
+  font-size: 16px; /* 読みやすいフォントサイズ */
   &:focus {
-    border-color: #007bff; // フォーカス時に色を変える
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); // フォーカスが明確になるように
+    border-color: #007bff; /* フォーカス時に色を変える */
+    box-shadow: 0 0 0 2px rgb(0 123 255 / 25%); /* フォーカスが明確になるように */
   }
 `;
 
 const TextArea = styled(Input).attrs({ as: "textarea" })`
-  height: auto; // 自動で高さ調整
-  resize: vertical; // 垂直方向のリサイズのみを許可
+  height: auto; /* 自動で高さ調整 */
+  resize: vertical; /* 垂直方向のリサイズのみを許可 */
 `;
 
 const Label = styled.label`

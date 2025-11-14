@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import Lightbox from "react-images";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 const gutter = {
   small: "2px",
@@ -10,10 +9,11 @@ const gutter = {
 };
 
 const Base = styled.div`
-  margin-right: ${gutter.small};
   overflow: hidden;
+  margin-right: ${gutter.small};
   color: palevioletred;
-  @media (max-width: 500px) {
+
+  @media (width <= 500px) {
     margin-right: -${gutter.large};
   }
 `;
@@ -26,6 +26,7 @@ const Thumbnail = styled.a`
   padding-right: ${gutter.small};
   padding-bottom: ${gutter.small};
   overflow: hidden;
+
   ${(props: Props) =>
     props.landscape &&
     css`
@@ -34,29 +35,40 @@ const Thumbnail = styled.a`
   ${(props: Props) =>
     props.square &&
     css`
-      padding-bottom: 0;
       width: 40%;
-      @media (max-width: 500px) {
+      padding-bottom: 0;
+
+      @media (width <= 500px) {
         padding-bottom: 0;
       }
     `}
-	@media (max-width: 500px) {
+	@media (width <= 500px) {
     padding-right: ${gutter.large};
     padding-bottom: ${gutter.large};
   }
 `;
 
 const Source = styled.img`
-  border: 0;
   display: block;
-  height: auto;
-  max-width: 100%;
   width: auto;
+  max-width: 100%;
+  height: auto;
+  border: 0;
 `;
+
+interface GalleryImage {
+  src: string;
+  thumbnail: string;
+  caption?: string;
+  orientation?: {
+    square?: boolean;
+    landscape?: boolean;
+  };
+}
 
 export type Props = {
   heading?: string;
-  images: any[];
+  images: GalleryImage[];
   showThumbnails?: boolean;
   subheading?: string;
   square?: boolean;
@@ -65,33 +77,16 @@ export type Props = {
 
 export const Gallery = (props: Props) => {
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false);
-  const [currentImage, setCurrentImage] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const openLightbox = (index: number, event: any) => {
+  const openLightbox = (index: number, event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
-    setCurrentImage(index);
+    setCurrentIndex(index);
     setLightboxIsOpen(true);
   };
   const closeLightbox = () => {
-    setCurrentImage(0);
+    setCurrentIndex(0);
     setLightboxIsOpen(false);
-  };
-
-  const gotoPrevious = () => {
-    setCurrentImage(currentImage - 1);
-  };
-
-  const gotoNext = () => {
-    setCurrentImage(currentImage + 1);
-  };
-
-  const gotoImage = (index: number) => {
-    setCurrentImage(index);
-  };
-
-  const handleClickImage = () => {
-    if (currentImage === props.images.length - 1) return;
-    gotoNext();
   };
 
   const renderGallery = () => {
@@ -113,6 +108,14 @@ export const Gallery = (props: Props) => {
     return <Base>{gallery}</Base>;
   };
 
+  // yet-another-react-lightbox用のスライドデータに変換
+  const slides = props.images
+    ? props.images.map((img) => ({
+        src: img.src,
+        title: img.caption,
+      }))
+    : [];
+
   return (
     props.images && (
       <div className="Gallery">
@@ -120,16 +123,10 @@ export const Gallery = (props: Props) => {
         {props.subheading && <p>{props.subheading}</p>}
         {renderGallery()}
         <Lightbox
-          currentImage={currentImage}
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          images={props.images}
-          isOpen={lightboxIsOpen}
-          onClickImage={handleClickImage}
-          onClickNext={gotoNext}
-          onClickPrev={gotoPrevious}
-          onClickThumbnail={gotoImage}
-          onClose={closeLightbox}
+          open={lightboxIsOpen}
+          close={closeLightbox}
+          index={currentIndex}
+          slides={slides}
         />
       </div>
     )

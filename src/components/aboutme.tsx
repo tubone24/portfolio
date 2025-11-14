@@ -2,10 +2,12 @@ import { Box, Flex } from "grid-styled";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 
+import { IGatsbyImageData } from "gatsby-plugin-image";
+
 type Node = {
   node?: {
     childImageSharp?: {
-      gatsbyImageData?: any;
+      gatsbyImageData?: IGatsbyImageData;
     };
   };
 };

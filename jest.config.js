@@ -2,6 +2,7 @@
 const path = require("path");
 
 module.exports = {
+  testEnvironment: "jsdom",
   setupFilesAfterEnv: [
     path.resolve(__dirname, "./jest-configs/setup-test-env.js"),
   ],
@@ -19,9 +20,11 @@ module.exports = {
     "^gatsby-plugin-image$": "<rootDir>/__mocks__/gatsby-plugin-image.ts",
     "^gatsby-image$": "<rootDir>/jest-configs/__mocks__/gatsby-image.js",
     "^gatsby$": "<rootDir>/jest-configs/__mocks__/gatsby.js",
+    "^yet-another-react-lightbox$": "<rootDir>/jest-configs/__mocks__/yet-another-react-lightbox.js",
+    "^yet-another-react-lightbox/styles.css$": "identity-obj-proxy",
   },
   testPathIgnorePatterns: [`node_modules`, `.cache`, `public`, `cypress`],
-  transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`, `\\.svg`],
+  transformIgnorePatterns: [`node_modules/(?!(gatsby|yet-another-react-lightbox)/)`, `\\.svg`],
   globals: {
     __PATH_PREFIX__: ``,
   },

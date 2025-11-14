@@ -23,37 +23,40 @@ const Header = styled.div<{ image?: string }>`
     `}
 
   & > div {
+    max-width: 600px;
     padding-top: 120px;
     margin: auto;
-    max-width: 600px;
   }
 `;
 
 const Tags = styled.ol`
+  margin: 0;
   float: right;
   list-style: none;
-  margin: 0;
+
   & li a,
   & li {
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: none;
     display: inline-block;
     color: #222;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
   }
-  & > li + li:before {
+
+  & > li + li::before {
     padding: 0 8px;
-    font-weight: 400;
     color: #444;
     content: "|";
+    font-weight: 400;
   }
 `;
 
 const Content = styled.div`
-  margin: 0 auto;
   max-width: 960px;
-  padding: 0px 1.0875rem 1.45rem;
+  padding: 0 1.0875rem 1.45rem;
   padding-top: 5vh;
+  margin: 0 auto;
+
   hr {
     margin: 0 0 40px;
   }
@@ -61,8 +64,8 @@ const Content = styled.div`
 
 const Title = styled.h1`
   margin-top: 0;
-  text-transform: capitalize;
   color: #fff;
+  text-transform: capitalize;
 `;
 
 const Timestamp = styled.i`
@@ -70,9 +73,9 @@ const Timestamp = styled.i`
 `;
 
 const TimeToRead = styled.h5`
-  text-transform: uppercase;
-  margin-top: 0.5em;
   display: inline-block;
+  margin-top: 0.5em;
+  text-transform: uppercase;
 `;
 
 type Props = {

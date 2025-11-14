@@ -5,6 +5,7 @@ import { useRandomHeroImage } from "../hooks/useHeroImages";
 type Props = {
   fillPage?: boolean;
   className?: string;
+  onLoadingChange?: (isLoading: boolean) => void;
 };
 
 const LocalHero = (props: Props) => {

@@ -13,15 +13,10 @@ jest.mock("gatsby-image", () => {
   return jest.fn(({ alt }) => <img alt={alt} data-testid="mocked-gatsby-image" />);
 });
 
-// react-imagesのモック
-jest.mock("react-images", () => {
-  return jest.fn(() => <div data-testid="mocked-lightbox" />);
-});
-
-// nuka-carouselのモック
-jest.mock("nuka-carousel", () => {
-  return jest.fn(({ children }) => <div data-testid="mocked-carousel">{children}</div>);
-});
+// CustomCarouselのモック
+jest.mock("../../../src/components/CustomCarousel", () => ({
+  CustomCarousel: jest.fn(({ children }) => <div data-testid="mocked-carousel">{children}</div>),
+}));
 
 const mockHeroImages = [
   {
