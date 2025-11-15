@@ -1,2 +1,3 @@
 /.well-known/security.txt /well-known/security.txt 301
+/.well-known/pgp-key.txt /well-known/pgp-key.txt 301
 http://sleepy-neumann-6a84c0.netlify.app/* https://portfolio.tubone-project24.xyz/:splat 301!
