@@ -211,6 +211,15 @@ const HomeButton = styled(Button)`
   left: 20%;
 `;
 
+const HeroSocialIcons = styled(SocialIcons)`
+  position: absolute;
+  z-index: 10;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+`;
+
 type Props = {
   data: GatsbyTypes.IndexQueryQuery;
   location: Location;
@@ -236,14 +245,7 @@ export default function (props: Props): JSX.Element {
         </HomeButton>
       )}
       <HeroText />
-      <SocialIcons
-        style={{
-          position: "absolute",
-          margin: "0 auto",
-          left: 0,
-          right: 0,
-          bottom: 16,
-        }}
+      <HeroSocialIcons
         icons={[
           {
             name: "twitter",

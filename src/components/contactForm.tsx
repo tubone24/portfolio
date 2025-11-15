@@ -83,16 +83,15 @@ export const ContactForm = (): JSX.Element => {
         data-testid="message"
         {...register("message", { required: true })}
       />
-      <Button
+      <SubmitButton
         dark={serverState.submitting && serverState.status.ok}
         disabled={serverState.submitting && serverState.status.ok}
         data-testid="submit"
-        style={{ width: "100%" }}
       >
         {serverState.submitting && serverState.status.ok
           ? serverState.status.msg
           : "Submit"}
-      </Button>
+      </SubmitButton>
     </Form>
   );
 };
@@ -133,6 +132,10 @@ const TextArea = styled(Input).attrs({ as: "textarea" })`
 
 const Label = styled.label`
   margin-right: auto;
+`;
+
+const SubmitButton = styled(Button)`
+  width: 100%;
 `;
 
 export default ContactForm;

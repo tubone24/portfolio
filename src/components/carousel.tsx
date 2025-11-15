@@ -1,8 +1,30 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { CustomCarousel } from "./CustomCarousel";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { useCarouselImages } from "../hooks/useHeroImages";
+
+const ImageContainer = styled.div`
+  position: relative;
+  width: 85%;
+  margin: 0 auto;
+  padding-top: 63.75%; /* 4:3 aspect ratio scaled to 85% (75% * 0.85 = 63.75%) */
+  overflow: hidden;
+  background-color: #f5f5f5;
+  cursor: pointer;
+`;
+
+const CarouselImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  filter: blur(0);
+`;
 
 type Props = {
   // 既存のimagesプロパティは削除し、代わりにフックを使用
@@ -51,35 +73,16 @@ export const Carousel = (_props: Props): JSX.Element => {
 
   const images = heroImages.map((image, index) => {
     return (
-      <div
+      <ImageContainer
         key={image.name}
-        style={{
-          position: "relative",
-          width: "85%",
-          margin: "0 auto",
-          paddingTop: "63.75%", // 4:3 aspect ratio scaled to 85% (75% * 0.85 = 63.75%)
-          overflow: "hidden",
-          backgroundColor: "#f5f5f5",
-          cursor: "pointer",
-        }}
         onClick={() => openLightbox(index)}
       >
-        <img
+        <CarouselImage
           src={image.childImageSharp?.carouselFluid?.src}
           alt={getTitleFromFilename(image.name)}
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "contain",
-            objectPosition: "center",
-            filter: "blur(0)", // 旧 placeholderStyle 相当は未適用
-          }}
           loading="lazy"
         />
-      </div>
+      </ImageContainer>
     );
   });
 
