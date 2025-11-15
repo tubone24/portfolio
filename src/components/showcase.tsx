@@ -16,6 +16,12 @@ const Base = styled.div`
   `}
 `;
 
+const ShowcaseImage = styled.img`
+  width: 100%;
+  height: auto;
+  display: block;
+`;
+
 interface Image {
   node?: {
     id?: string;
@@ -39,10 +45,9 @@ const Showcase = (props: Props): JSX.Element => {
     return (
       <Box key={Number(node?.id)} px={2} width={[1 / 2, 1 / 3]}>
         {fluid && (
-          <img
+          <ShowcaseImage
             src={fluid.src}
             alt=""
-            style={{ width: "100%", height: "auto", display: "block" }}
             loading="lazy"
           />
         )}

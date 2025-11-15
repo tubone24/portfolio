@@ -1,5 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react-vite';
+import styled from 'styled-components';
 import Publications from './publications';
 
 export default {
@@ -7,10 +8,16 @@ export default {
   component: Publications,
 } as Meta;
 
+const StoryWrapper = styled.div`
+  background: #020d05;
+  padding: 40px;
+  min-height: 100vh;
+`;
+
 const Template: Story = (args) => (
-  <div style={{ background: '#020d05', padding: '40px', minHeight: '100vh' }}>
+  <StoryWrapper>
     <Publications {...args} />
-  </div>
+  </StoryWrapper>
 );
 
 export const Default = Template.bind({});

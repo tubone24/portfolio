@@ -17,11 +17,17 @@ const CarouselWrapper = styled.div`
   min-height: 400px;
 `;
 
-const CarouselTrack = styled.div`
+const CarouselTrack = styled.div<{ $dragging?: boolean; $isDragging?: boolean }>`
   position: relative;
   width: 100%;
   min-height: 400px;
   transform-style: preserve-3d;
+  cursor: ${(props) =>
+    props.$dragging
+      ? props.$isDragging
+        ? "grabbing"
+        : "grab"
+      : "default"};
 `;
 
 const CarouselSlide = styled.div<{ $index: number; $currentIndex: number; $totalSlides: number }>`
@@ -242,7 +248,8 @@ export const CustomCarousel: React.FC<CustomCarouselProps> = ({
           onTouchStart={handleDragStart}
           onTouchMove={handleDragMove}
           onTouchEnd={handleDragEnd}
-          style={{ cursor: dragging ? (isDragging ? "grabbing" : "grab") : "default" }}
+          $dragging={dragging}
+          $isDragging={isDragging}
         >
           {slides.map((slide, index) => (
             <CarouselSlide
