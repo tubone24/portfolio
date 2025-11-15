@@ -442,7 +442,12 @@ export default function (props: Props): JSX.Element {
     </Content>
   );
   return (
-    <Layout location={props.location}>
+    <Layout
+      location={props.location}
+      title="Home"
+      description="Full-stack developer portfolio by tubone24. Showcasing web development projects, photography, and music production. Experienced in TypeScript, React, Node.js, AWS, and Python."
+      type="website"
+    >
       <NavBar main children={content.props.children} />
       {content}
     </Layout>
