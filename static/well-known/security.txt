@@ -1,10 +1,22 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
 Contact: mailto:tubo.yyyuuu@gmail.com
 Contact: https://portfolio.tubone-project24.xyz/#contact
-Expires: 2026-12-04T15:00:00.000Z
 Canonical: https://portfolio.tubone-project24.xyz/.well-known/security.txt
 Preferred-Languages: ja, en
-Policy: https://github.com/tubone24/blog/security/policy
+Policy: https://github.com/tubone24/portfolio/security/policy
 Acknowledgments: https://portfolio.tubone-project24.xyz/security-thanks
+Encryption: https://portfolio.tubone-project24.xyz/.well-known/pgp-key.txt
+Expires: 2027-11-15T12:21:35.000Z
 
 # セキュリティに関する問題を発見した場合は、上記の連絡先までご報告ください。
 # 責任ある開示に感謝いたします。
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQQT64yzLsAWbvHl5L8Op4sNN8jxfgUCaRh3vgAKCRAOp4sNN8jx
+fqriAP0agExBxHbHyjWssHlpXjQ76VepytBsQaizYGnHByO8oQD/aJN/Vtok5B/m
+A2Y47Px5FJ2f6Dg/p8/YJgVJVhQwwAI=
+=Ugnq
+-----END PGP SIGNATURE-----
