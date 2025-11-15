@@ -1,8 +1,8 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import styled, { createGlobalStyle } from "styled-components";
 
 import Footer from "./footer";
+import SEO from "./seo";
 
 const GlobalStyle = createGlobalStyle`
   @import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
@@ -31,22 +31,24 @@ const Content = styled.div`
 type Props = {
   location?: Location;
   children?: React.ReactChild[];
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: "website" | "article" | "profile";
+  noindex?: boolean;
 };
 
-const PageBase = ({ location, children }: Props): JSX.Element => {
+const PageBase = ({ location, children, title, description, image, type, noindex }: Props): JSX.Element => {
   return (
     <Body>
       <GlobalStyle />
-      <Helmet
-        htmlAttributes={{
-          lang: "ja",
-        }}
-        title="tubone24"
-        meta={[
-          { name: "description", content: "portfolio" },
-          { name: "keywords", content: "tubone24, portfolio" },
-          { name: "viewport", content: "width=device-width, initial-scale=1" },
-        ]}
+      <SEO
+        title={title}
+        description={description}
+        image={image}
+        type={type}
+        noindex={noindex}
+        url={location ? `https://portfolio.tubone-project24.xyz${location.pathname}` : undefined}
       />
       <Content>{children}</Content>
       {location && location.pathname !== "/404" && <Footer />}

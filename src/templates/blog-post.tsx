@@ -3,9 +3,12 @@ import { graphql } from "gatsby";
 import styled, { css } from "styled-components";
 import TimeAgo from "react-timeago";
 import { Flex, Box } from "grid-styled";
+import { getSrc } from "gatsby-plugin-image";
 
 import Breadcrumb from "../components/breadcrumb";
 import Bar from "../components/bar";
+import SEO from "../components/seo";
+import Layout from "../components/layout";
 import "prismjs/themes/prism-twilight.css";
 
 const Header = styled.div<{ image?: string }>`
@@ -93,8 +96,30 @@ export default ({ data, location }: Props) => {
   const tags = post?.frontmatter?.tags?.map(function (tag) {
     return <li key={tag}>{tag}</li>;
   });
+
+  const postImage = post?.frontmatter?.image?.childImageSharp?.gatsbyImageData
+    ? getSrc(post.frontmatter.image.childImageSharp.gatsbyImageData)
+    : undefined;
+
+  const excerpt = post?.excerpt || post?.frontmatter?.title || "";
+
   return (
-    <div>
+    <>
+      <SEO
+        title={post?.frontmatter?.title || "Blog Post"}
+        description={excerpt}
+        image={postImage}
+        type="article"
+        url={`https://portfolio.tubone-project24.xyz${location.pathname}`}
+        article={{
+          publishedTime: post?.frontmatter?.date || undefined,
+          tags: post?.frontmatter?.tags || undefined,
+          author: "tubone24",
+        }}
+        twitter={{
+          card: "summary_large_image",
+        }}
+      />
       <Header>
         <Flex flexWrap="wrap">
           <Box px={2} width={[1, 2 / 3, 1 / 3]}>
@@ -117,7 +142,7 @@ export default ({ data, location }: Props) => {
           Posted: <TimeAgo date={post?.frontmatter?.date || ""} />
         </Timestamp>
       </Content>
-    </div>
+    </>
   );
 };
 
@@ -125,11 +150,17 @@ export const query = graphql`
   query BlogPostQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      excerpt(pruneLength: 160)
       timeToRead
       frontmatter {
         title
         date
         tags
+        image {
+          childImageSharp {
+            gatsbyImageData(width: 1200, height: 630, quality: 90)
+          }
+        }
       }
     }
   }
