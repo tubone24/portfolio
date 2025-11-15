@@ -66,7 +66,7 @@ const SEO = ({
 
   const metaTitle = title ? `${title} | ${siteTitle}` : siteTitle;
   const metaDescription = description || "Full-stack developer portfolio showcasing web development, photography, and music projects.";
-  const metaImage = image || `${siteUrl}/logo-512x512.png`;
+  const metaImage = image || `${siteUrl}/ogp.png`;
   const metaImageAlt = imageAlt || "tubone24 portfolio logo";
   const metaUrl = url || siteUrl;
   const canonicalUrl = canonical || metaUrl;
