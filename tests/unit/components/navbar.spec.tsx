@@ -3,8 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import NavBar from "../../../src/components/navbar";
 
 // scroll-to-elementのモック
-const mockScrollToElement = jest.fn();
-jest.mock("scroll-to-element", () => mockScrollToElement);
+jest.mock("scroll-to-element", () => jest.fn());
 
 // Nameコンポーネントのモック
 jest.mock("../../../src/components/name", () => {
@@ -12,7 +11,10 @@ jest.mock("../../../src/components/name", () => {
 });
 
 describe("NavBar Component", () => {
+  let mockScrollToElement: jest.Mock;
+
   beforeEach(() => {
+    mockScrollToElement = require("scroll-to-element");
     mockScrollToElement.mockClear();
   });
 
