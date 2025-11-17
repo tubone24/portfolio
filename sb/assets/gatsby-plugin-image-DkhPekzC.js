@@ -1,0 +1,1 @@
+import{R as t}from"./iframe-B9TW-IsP.js";const e=a=>t.createElement("img",{alt:a.alt||"",...a}),c=e,m=a=>a?.images?.fallback?.src?a.images.fallback.src:"";e.__docgenInfo={description:"",methods:[],displayName:"Img"};export{c as G,m as g};
