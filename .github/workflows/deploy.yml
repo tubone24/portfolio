@@ -157,7 +157,7 @@ jobs:
       - name: Install
         run: yarn install
       - name: run Chromatic
-        uses: chromaui/action@v1
+        uses: chromaui/action@v13
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
