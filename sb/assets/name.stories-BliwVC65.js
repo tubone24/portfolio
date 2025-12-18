@@ -1,0 +1,1 @@
+import{N as t}from"./name-D7qhHEJ7.js";import"./iframe-D2_6hnXY.js";import"./styled-components.browser.esm-C92GuyYj.js";const a={title:"Components/Name",component:t},n={},r=["Default"];export{n as Default,r as __namedExportsOrder,a as default};
