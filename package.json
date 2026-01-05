@@ -105,7 +105,7 @@
     "babel-preset-gatsby": "^3.0.0",
     "babel-preset-react-app": "10.1.0",
     "baseline-browser-mapping": "^2.8.28",
-    "chromatic": "6.3.3",
+    "chromatic": "13.3.5",
     "cypress": "^15.6.0",
     "cypress-axe": "^1.7.0",
     "eslint": "^9.39.1",
