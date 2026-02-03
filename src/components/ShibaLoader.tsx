@@ -1,163 +1,110 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-const rotating = keyframes`
-  from {
-    transform: rotate(720deg);
+// 肉球が出現するアニメーション（回転を含む）
+const createPawAppear = (rotation: number) => keyframes`
+  0% {
+    opacity: 0;
+    transform: rotate(${rotation}deg) scale(0.3);
   }
-  to {
-    transform: none;
+  50% {
+    opacity: 1;
+    transform: rotate(${rotation}deg) scale(1.15);
   }
-`;
-
-const rotatingHead = keyframes`
-  from {
-    transform: rotate(720deg) rotate(90deg);
-  }
-  to {
-    transform: rotate(0deg) rotate(30deg);
+  100% {
+    opacity: 1;
+    transform: rotate(${rotation}deg) scale(1);
   }
 `;
 
-const rotatingBody = keyframes`
-  from {
-    transform: rotate(720deg) rotate(0deg);
+// 肉球がフェードアウトするアニメーション
+const createPawFade = (rotation: number) => keyframes`
+  0% {
+    opacity: 1;
+    transform: rotate(${rotation}deg) scale(1);
   }
-  to {
-    transform: rotate(0deg) rotate(-8deg);
-  }
-`;
-
-const rotatingTail = keyframes`
-  from {
-    transform: rotate(720deg) rotate(-28deg);
-  }
-  to {
-    transform: rotate(0deg) rotate(-28deg);
+  100% {
+    opacity: 0.25;
+    transform: rotate(${rotation}deg) scale(1);
   }
 `;
 
 const LoaderWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 10;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  max-width: 12em;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
-  transform: translate(-50%, -50%);
+  overflow: hidden;
+`;
+
+// 肉球のラッパー（位置決め用）
+const PawWrapper = styled.div`
+  position: absolute;
+`;
+
+// 肉球の画像コンポーネント
+const PawPrintImg = styled.img<{ $delay: number; $rotation: number }>`
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+  animation: ${(props) => createPawAppear(props.$rotation)} 0.35s ease-out
+      forwards,
+    ${(props) => createPawFade(props.$rotation)} 0.6s ease-in 1.8s forwards;
+  animation-delay: ${(props) => props.$delay}s,
+    ${(props) => props.$delay + 1.5}s;
 
   @media (width <= 768px) {
-    max-width: 8em;
+    width: 36px;
+    height: 36px;
   }
 `;
 
-const ShibaContainer = styled.div`
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  max-width: 20em;
-  background-color: transparent;
+// 肉球の配置を計算（左下から右上へ）
+const getPawPositions = () => {
+  const positions = [];
+  const count = 8;
 
-  &::before {
-    display: block;
-    padding-bottom: 100%;
-    content: "";
+  for (let i = 0; i < count; i++) {
+    const progress = i / (count - 1);
+    // 左下から右上へ斜めに配置
+    const baseX = 5 + progress * 80;
+    const baseY = 85 - progress * 75;
+
+    // 右足・左足を交互に
+    const isRightFoot = i % 2 === 0;
+
+    // 歩幅のオフセット（進行方向に対して左右にずらす）
+    const offsetX = isRightFoot ? 4 : -4;
+    const offsetY = isRightFoot ? -3 : 3;
+
+    // 進行方向は左下→右上（45度方向に進む）
+    // 肉球は進行方向を向くように配置
+    // 右足: 進行方向から少し外向き
+    // 左足: 進行方向から少し内向き
+    const rotation = isRightFoot ? 60 : 30;
+
+    positions.push({
+      x: baseX + offsetX,
+      y: baseY + offsetY,
+      isRightFoot,
+      rotation,
+      delay: i * 0.3,
+    });
   }
 
-  &:hover > * {
-    animation-play-state: paused;
-  }
-
-  &:active > * {
-    animation-play-state: running;
-  }
-`;
-
-const ShibaPart = styled.div<{ delay?: number }>`
-  position: absolute;
-  inset: 0;
-  animation: ${rotating} 2.79s cubic-bezier(0.65, 0.54, 0.12, 0.93) infinite;
-  animation-delay: ${(props) => props.delay || 0}s;
-
-  &::before {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    background-image: url("/loading.png");
-    background-repeat: no-repeat;
-    background-size: 200%;
-    content: "";
-  }
-`;
-
-const ShibaHead = styled.div`
-  position: absolute;
-  inset: 0;
-  animation: ${rotatingHead} 2.79s cubic-bezier(0.65, 0.54, 0.12, 0.93) infinite;
-
-  &::before {
-    position: absolute;
-    top: -2%;
-    right: -2%;
-    width: 50%;
-    height: 50%;
-    background-image: url("/loading.png");
-    background-position: 100% 0%;
-    background-repeat: no-repeat;
-    background-size: 200%;
-    content: "";
-    transform-origin: 0% 100%;
-  }
-`;
-
-const ShibaTail = styled.div`
-  position: absolute;
-  inset: 0;
-  animation: ${rotatingTail} 2.79s cubic-bezier(0.65, 0.54, 0.12, 0.93) infinite;
-  animation-delay: 0.2s;
-
-  &::before {
-    position: absolute;
-    bottom: -2%;
-    left: -2%;
-    width: 50%;
-    height: 50%;
-    background-image: url("/loading.png");
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 200%;
-    content: "";
-    transform-origin: 100% 0%;
-  }
-`;
-
-const ShibaBody = styled.div<{ delay?: number }>`
-  position: absolute;
-  inset: 0;
-  animation: ${rotatingBody} 2.79s cubic-bezier(0.65, 0.54, 0.12, 0.93) infinite;
-  animation-delay: ${(props) => props.delay || 0.1}s;
-
-  &::before {
-    position: absolute;
-    right: -3%;
-    bottom: -3%;
-    width: 50%;
-    height: 50%;
-    background-image: url("/loading.png");
-    background-position: 100% 100%;
-    background-repeat: no-repeat;
-    background-size: 200%;
-    content: "";
-    transform-origin: 0% 0%;
-  }
-`;
+  return positions;
+};
 
 type ShibaLoaderProps = {
   show: boolean;
 };
 
 export const ShibaLoader: React.FC<ShibaLoaderProps> = ({ show }) => {
+  const pawPositions = React.useMemo(() => getPawPositions(), []);
+
   React.useEffect(() => {
     console.log("ShibaLoader - show:", show);
   }, [show]);
@@ -166,12 +113,22 @@ export const ShibaLoader: React.FC<ShibaLoaderProps> = ({ show }) => {
 
   return (
     <LoaderWrapper>
-      <ShibaContainer>
-        <ShibaBody delay={0.1} />
-        <ShibaBody delay={0.2} />
-        <ShibaTail />
-        <ShibaHead />
-      </ShibaContainer>
+      {pawPositions.map((pos, index) => (
+        <PawWrapper
+          key={index}
+          style={{
+            left: `${pos.x}%`,
+            top: `${pos.y}%`,
+          }}
+        >
+          <PawPrintImg
+            src="/paw-print.png"
+            alt="paw print"
+            $delay={pos.delay}
+            $rotation={pos.rotation}
+          />
+        </PawWrapper>
+      ))}
     </LoaderWrapper>
   );
 };
