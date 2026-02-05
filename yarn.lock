@@ -5126,10 +5126,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-typist@2.0.3":
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/@types/react-typist/-/react-typist-2.0.3.tgz"
-  integrity sha512-5eDrikVNJ73qR5XEV+ZNApoYarzYUD5OOPdNwnNY5RtqituZl9haq0OdZUaac2R751QSOe3zDwnqYhBmdFhG7g==
+"@types/react-typist@2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@types/react-typist/-/react-typist-2.0.6.tgz#4a180ac3736a27089e73089e8f11a22c2b61b713"
+  integrity sha512-/7tmwNwKLOAdL1kx0y7yel4DqOvdQSk13MlCnBX8GyLoYicrU7t8rPOzu2soFTzq0c6QAeX6uSqTRX3tdya7rg==
   dependencies:
     "@types/react" "*"
 
