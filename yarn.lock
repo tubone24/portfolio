@@ -5164,10 +5164,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/scroll-to-element@2.0.1":
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/@types/scroll-to-element/-/scroll-to-element-2.0.1.tgz"
-  integrity sha512-zRwZyfMlHVjnhZzJD5y+yL8wcph6fE/ZqXpa4r96jR+BS0hDIjmsZmSCgoYEIxepSyvcCUJdFq8pPhInOGarFA==
+"@types/scroll-to-element@2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@types/scroll-to-element/-/scroll-to-element-2.0.5.tgz#026ce24a9990382cf44adfdc35ae4f9fdc24d03a"
+  integrity sha512-vMFM0h7dCW/dgz2Xy2OaKoAqwBn30yTxxGNY82ZwvshfZcKYHpu9IZYCvQjqo3XBkodmLvCS+lCNDtZefMEtcg==
 
 "@types/semver@^7.3.12":
   version "7.7.1"
