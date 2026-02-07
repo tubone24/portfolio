@@ -11,6 +11,13 @@ const Tile = styled.div`
   position: relative;
   margin-bottom: 32px;
   overflow: hidden;
+  aspect-ratio: 5 / 3;
+
+  & > a:first-child {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
 
   & > a > div,
   & > a > div::after {
@@ -21,6 +28,8 @@ const Tile = styled.div`
 
   & a > div {
     top: -8px;
+    width: 100% !important;
+    height: 100% !important;
   }
 
   &:hover > a > div {
@@ -32,7 +41,9 @@ const Tile = styled.div`
   }
 
   img {
-    height: 55% !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
   ${media.ws`
     & > a > div, & > a > div::after {
