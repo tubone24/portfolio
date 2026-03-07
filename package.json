@@ -160,7 +160,6 @@
     "lodash": "^4.17.23",
     "fastify": "^5.7.3",
     "diff": "^4.0.4",
-    "minimatch": "^3.1.5",
     "immutable": "^3.8.3",
     "axios": "^1.13.6",
     "serialize-javascript": "^7.0.4",
