@@ -165,6 +165,7 @@
     "serialize-javascript": "^7.0.4",
     "webpack": "^5.105.2",
     "rollup": "^4.59.0",
-    "multer": "^2.1.1"
+    "multer": "^2.1.1",
+    "svgo": "^4.0.1"
   }
 }
