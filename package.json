@@ -95,7 +95,7 @@
     "@types/react-typist": "2.0.3",
     "@types/scroll-to-element": "2.0.1",
     "@types/styled-components": "5.1.26",
-    "@types/typography": "0.16.4",
+    "@types/typography": "0.16.9",
     "@typescript-eslint/eslint-plugin": "^8.46.4",
     "@typescript-eslint/parser": "^8.46.4",
     "axe-core": "4.3.5",
