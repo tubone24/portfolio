@@ -10,7 +10,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "build-url": "^6.0.1",
-    "cross-fetch": "^3.0.6",
+    "cross-fetch": "^4.0.0",
     "gatsby": "5.15.0",
     "gatsby-plugin-google-analytics": "^5.15.0",
     "gatsby-plugin-google-fonts": "1.0.1",
