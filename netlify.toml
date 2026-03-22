@@ -2,3 +2,30 @@
   functions = "functions/src"
   publish = "public"
   command = "npm run build"
+
+# Deploy Preview: robots.txt でクローラーをブロック
+[context.deploy-preview]
+  command = "npm run build"
+
+[context.deploy-preview.environment]
+  CONTEXT = "deploy-preview"
+
+# Branch Deploy: robots.txt でクローラーをブロック
+[context.branch-deploy]
+  command = "npm run build"
+
+[context.branch-deploy.environment]
+  CONTEXT = "branch-deploy"
+
+# Netlifyサブドメインからカスタムドメインへのリダイレクト
+[[redirects]]
+  from = "https://sleepy-neumann-6a84c0.netlify.app/*"
+  to = "https://portfolio.tubone-project24.xyz/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://sleepy-neumann-6a84c0.netlify.app/*"
+  to = "https://portfolio.tubone-project24.xyz/:splat"
+  status = 301
+  force = true
