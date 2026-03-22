@@ -133,7 +133,7 @@ module.exports = {
       options: {
         host: "https://portfolio.tubone-project24.xyz",
         sitemap: "https://portfolio.tubone-project24.xyz/sitemap-index.xml",
-        resolveEnv: () => process.env.NETLIFY_ENV || process.env.NODE_ENV,
+        resolveEnv: () => process.env.CONTEXT || process.env.NETLIFY_ENV || process.env.NODE_ENV,
         env: {
           production: {
             policy: [{ userAgent: "*", allow: "/" }],
