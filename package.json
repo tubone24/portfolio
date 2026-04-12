@@ -161,7 +161,7 @@
     "fastify": "^5.7.3",
     "diff": "^4.0.4",
     "immutable": "^3.8.3",
-    "axios": "^1.13.6",
+    "axios": "^1.15.0",
     "serialize-javascript": "^7.0.4",
     "webpack": "^5.105.2",
     "rollup": "^4.59.0",
