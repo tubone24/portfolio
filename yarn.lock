@@ -18830,9 +18830,9 @@ system-components@^3.0.0:
     styled-system "^3.2.1"
 
 systeminformation@5.27.7, systeminformation@^5.31.0:
-  version "5.31.3"
-  resolved "https://registry.yarnpkg.com/systeminformation/-/systeminformation-5.31.3.tgz#82840c71e8cf7ee5a5bdaf40e45d085eda6ceb06"
-  integrity sha512-vX0eeI7oGIr79NLiJRWnK8SyxDjyiNOEanaQnHRNyb5ep8QcpD8QMDvrukdrxV4pV4AKjwUDfaypXnWHMC/65A==
+  version "5.33.8"
+  resolved "https://registry.yarnpkg.com/systeminformation/-/systeminformation-5.33.8.tgz#9fa0092e71adf50a7b8d5209c0767eb16dfe727a"
+  integrity sha512-v4F6OGYGh7wDvV68YmjOmZwGixV9A/GQ7d2b84t0UF4CaOy9jipNWIJDkHqYDYiTPuiojqlwVQd0hfUKOUN7tQ==
 
 table@^6.0.9, table@^6.9.0:
   version "6.9.0"
