@@ -3,6 +3,13 @@ on:
   push:
     branches:
       - master
+
+# master への push が連続しても本番デプロイが多重起動しないようにする。
+# 走行中の本番デプロイは中断せず、待機中のものだけ最新に入れ替える。
+concurrency:
+  group: deploy-prd
+  cancel-in-progress: false
+
 jobs:
   uiCheck:
     runs-on: ubuntu-latest
@@ -20,7 +27,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
-          node-version: 22.x
+          node-version: 24.x
       - name: install dependencies
         run: yarn install
       - name: build
@@ -44,7 +51,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
-          node-version: 22.x
+          node-version: 24.x
       - name: Install dependencies
         run: yarn install
       - name: build storybook
@@ -73,7 +80,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
-          node-version: 22.x
+          node-version: 24.x
       - name: install dependencies
         run: yarn install
       - name: unit test
@@ -95,7 +102,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
-          node-version: 22.x
+          node-version: 24.x
       - name: Install
         env:
           GATSBY_GITHUB_SHA: ${{ github.sha }}
@@ -153,7 +160,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
-          node-version: 22.x
+          node-version: 24.x
       - name: Install
         run: yarn install
       - name: run Chromatic

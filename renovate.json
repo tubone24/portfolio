@@ -1,25 +1,56 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "branchPrefix": "renovate-",
-  "prHourlyLimit": 12,
   "timezone": "Asia/Tokyo",
-  "labels": ["renovate"],
-  "packageRules": [
-    {
-      "depTypeList": ["devDependencies"],
-      "automerge": true
-    }
+  "labels": [
+    "renovate"
   ],
-  "minor": { "automerge": true },
-  "patch": { "automerge": true },
   "schedule": [
     "after 11pm and before 6am"
   ],
   "dependencyDashboard": true,
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "rebaseWhen": "conflicted",
+  "platformAutomerge": true,
   "lockFileMaintenance": {
     "enabled": true,
-    "automerge": true
+    "automerge": true,
+    "schedule": [
+      "before 6am on monday"
+    ]
+  },
+  "packageRules": [
+    {
+      "description": "minor/patch は 1 本の PR にまとめて自動マージし、PR と CI の本数を抑える",
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
+      "automerge": true
+    },
+    {
+      "description": "major は Dependency Dashboard で承認したものだけ PR を作る",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "dependencyDashboardApproval": true
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "labels": [
+      "renovate",
+      "security"
+    ],
+    "schedule": [
+      "at any time"
+    ]
   }
 }
