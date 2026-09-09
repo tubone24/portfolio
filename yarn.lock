@@ -97,7 +97,7 @@
     json5 "^2.2.3"
     semver "^6.3.1"
 
-"@babel/core@^7.29.6":
+"@babel/core@^7.24.4", "@babel/core@^7.29.6":
   version "7.29.7"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.29.7.tgz#80c10b17248082968b57a857b91640971f2070f7"
   integrity sha512-RgHBCvtjbOK2gXSNBNIkNoEc9qoVEtau3hj8gEqKQuL3HZAibKarWFEI3Lfm6EYKkLalOh8eSrj9b+ch9H/VBA==
@@ -430,7 +430,7 @@
   dependencies:
     "@babel/types" "^7.28.4"
 
-"@babel/parser@^7.29.7", "@babel/parser@^7.29.8":
+"@babel/parser@^7.24.4", "@babel/parser@^7.29.7", "@babel/parser@^7.29.8":
   version "7.29.8"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.29.8.tgz#9653716a2f10c677b98fbc63d4bfb000c302cf17"
   integrity sha512-E8lTAYNB1KW+FH+VGJuZM1ioAx2E6oVlvQFRrf5P8ZZmsiJXYAD9vTFV7yyEURNzgh1dFqMZuO6tUwcARbqFCA==
@@ -4346,11 +4346,6 @@
   resolved "https://registry.npmjs.org/@types/parse5/-/parse5-5.0.3.tgz"
   integrity sha512-kUNnecmtkunAoQ3CnjmMkzNU/gtxG8guhi+Fk2U/kOpIKjIMKnXGp4IJCgQJrXSgMsWYimYG4TGjz/UzbGEBTw==
 
-"@types/prop-types@*":
-  version "15.7.15"
-  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.15.tgz#e6e5a86d602beaca71ce5163fadf5f95d70931c7"
-  integrity sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==
-
 "@types/reach__router@^1.3.10":
   version "1.3.15"
   resolved "https://registry.npmjs.org/@types/reach__router/-/reach__router-1.3.15.tgz"
@@ -4358,10 +4353,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-dom@^18.3.7":
-  version "18.3.7"
-  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.3.7.tgz#b89ddf2cd83b4feafcc4e2ea41afdfb95a0d194f"
-  integrity sha512-MEe3UeoENYVFXzoXEWsvcpg6ZvlrFNlOQ7EOsvhI3CfAXwzPfO8Qwuxd40nepsYKqyyVQnTdEfv68q91yLcKrQ==
+"@types/react-dom@^19.0.0":
+  version "19.3.0"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-19.3.0.tgz#90294a9266efd928a5266f2110d60d5dba5015d2"
+  integrity sha512-ZI7bU42mZXXKHn/qNLEw2IrbiINU7X5+vfgdixBHkCNpYWXjKgfQ/P+uyGb5CjOLB9UcnTeg3rylQtV2hym44Q==
 
 "@types/react-helmet@6.1.11":
   version "6.1.11"
@@ -4377,12 +4372,11 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18.3.31":
-  version "18.3.31"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.3.31.tgz#b5e95e28ffcceab8d982f33f2eb076e17653c2a4"
-  integrity sha512-vfEqpXTvwT91yhmwdfouStN2hSKwTvyRs8qpLfADyrq/kxDw0hZM7Wk9Ug1FELj8hIby+S/+kQCSRFF32nv2Qw==
+"@types/react@*", "@types/react@^19.0.0":
+  version "19.3.0"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.3.0.tgz#3b3ce8d8c1627fb5ccd4dadd57ef445c5a153b77"
+  integrity sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg==
   dependencies:
-    "@types/prop-types" "*"
     csstype "^3.2.2"
 
 "@types/resolve@^1.20.2":
@@ -7879,10 +7873,21 @@ eslint-plugin-prettier@^5.5.6:
     prettier-linter-helpers "^1.0.1"
     synckit "^0.11.13"
 
-eslint-plugin-react-hooks@^4.6.0, eslint-plugin-react-hooks@^4.6.2:
+eslint-plugin-react-hooks@^4.6.0:
   version "4.6.2"
   resolved "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.6.2.tgz"
   integrity sha512-QzliNJq4GinDBcD8gPB5v0wh6g8q3SUi6EFF0x8N/BL9PoVs0atuGc47ozMRyOWAKdwaZ5OnbOEa3WR+dSGKuQ==
+
+eslint-plugin-react-hooks@^7.0.0:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-7.1.1.tgz#e6742cad75d970c0a3f30d7d3fa80a4784f55927"
+  integrity sha512-f2I7Gw6JbvCexzIInuSbZpfdQ44D7iqdWX01FKLvrPgqxoE7oMj8clOfto8U6vYiz4yd5oKu39rRSVOe1zRu0g==
+  dependencies:
+    "@babel/core" "^7.24.4"
+    "@babel/parser" "^7.24.4"
+    hermes-parser "^0.25.1"
+    zod "^3.25.0 || ^4.0.0"
+    zod-validation-error "^3.5.0 || ^4.0.0"
 
 eslint-plugin-react@^7.32.2, eslint-plugin-react@^7.37.5:
   version "7.37.5"
@@ -9830,6 +9835,18 @@ header-case@^2.0.4:
   dependencies:
     capital-case "^1.0.4"
     tslib "^2.0.3"
+
+hermes-estree@0.25.1:
+  version "0.25.1"
+  resolved "https://registry.yarnpkg.com/hermes-estree/-/hermes-estree-0.25.1.tgz#6aeec17d1983b4eabf69721f3aa3eb705b17f480"
+  integrity sha512-0wUoCcLp+5Ev5pDW2OriHC2MJCbwLwuRx+gAqMTOkGKJJiBCLjtrvy4PWUGn6MIVefecRpzoOZ/UV6iGdOr+Cw==
+
+hermes-parser@^0.25.1:
+  version "0.25.1"
+  resolved "https://registry.yarnpkg.com/hermes-parser/-/hermes-parser-0.25.1.tgz#5be0e487b2090886c62bd8a11724cd766d5f54d1"
+  integrity sha512-6pEjquH3rqaI6cYAXYPcz9MS4rY6R4ngRgrgfDshRptUZIc3lw0MCIJIGDj9++mfySOuPTHB4nrSW99BCvOPIA==
+  dependencies:
+    hermes-estree "0.25.1"
 
 hoist-non-react-statics@^2.5.0:
   version "2.5.5"
@@ -13593,13 +13610,20 @@ react-docgen@^8.0.2:
     resolve "^1.22.1"
     strip-indent "^4.0.0"
 
-"react-dom@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", react-dom@^18.2.0:
+"react-dom@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
   version "18.3.1"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.3.1.tgz"
   integrity sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==
   dependencies:
     loose-envify "^1.1.0"
     scheduler "^0.23.2"
+
+react-dom@^19.0.0:
+  version "19.3.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.3.0.tgz#a0ff19161d7f4e9be5469a07278b0c06e00f9001"
+  integrity sha512-JDk8dgif51OjFoDE70+OT9ICyYr+69HlmihNwp1+Nsfbna3t5sIiCa9ZJktDmQ4/1b/rn26hIAR2uYXDMr5r0Q==
+  dependencies:
+    scheduler "^0.28.0"
 
 react-error-overlay@^6.0.11:
   version "6.1.0"
@@ -13699,12 +13723,17 @@ react-typography@^0.16.23:
   resolved "https://registry.yarnpkg.com/react-typography/-/react-typography-0.16.23.tgz#68c0af17ed876a30fcea256ef0dbbf0bc01b63b3"
   integrity sha512-nOl1/VDhqYSp5XktW/xmeLgE2S4L0LIWKAq2lNtc6Tq+3ZgvSX2Q0r0vlLKyOVq0hjsOYubE1TLoz/Wu/W8GLg==
 
-"react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", react@^18.2.0:
+"react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0":
   version "18.3.1"
   resolved "https://registry.npmjs.org/react/-/react-18.3.1.tgz"
   integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==
   dependencies:
     loose-envify "^1.1.0"
+
+react@^19.0.0:
+  version "19.3.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-19.3.0.tgz#e20aa3a14687075ce863351b5878b0608c3fbfb2"
+  integrity sha512-E8LUcbtBWt20bbl2YoHfx4ZDBdxVTfOKtCZn9cDSJ4l6/nuoApcpIBcj47t2wZoVX8g2ZHuMHbiShgCR1T5Sog==
 
 read-pkg-up@^7.0.1:
   version "7.0.1"
@@ -14237,6 +14266,11 @@ scheduler@^0.23.2:
   integrity sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==
   dependencies:
     loose-envify "^1.1.0"
+
+scheduler@^0.28.0:
+  version "0.28.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.28.0.tgz#03d3ca348aeaf8b7502f64468f217b27523f9695"
+  integrity sha512-juorfCmIkIw8tT+p5BXSm6PJjQF/ycEYmKyzURCIt/RaZIhL+PulbQ9Yu2z1HdOJDdqDTlxA1+xKBmHXJsczAw==
 
 schema-utils@2.7.0:
   version "2.7.0"
@@ -16672,6 +16706,16 @@ yurnalist@^2.1.0:
     is-ci "^2.0.0"
     read "^1.0.7"
     strip-ansi "^5.2.0"
+
+"zod-validation-error@^3.5.0 || ^4.0.0":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/zod-validation-error/-/zod-validation-error-4.0.2.tgz#bc605eba49ce0fcd598c127fee1c236be3f22918"
+  integrity sha512-Q6/nZLe6jxuU80qb/4uJ4t5v2VEZ44lzQjPDhYJNztRQ4wyWc6VF3D3Kb/fAuPetZQnhS3hnajCf9CsWesghLQ==
+
+"zod@^3.25.0 || ^4.0.0":
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-4.6.1.tgz#08a340def8104c8381a7796af3806e4633025390"
+  integrity sha512-341aRWQsve0rvronKNTqZpjmzdbUDlFuzHaI/XLg/Ej82qffDJRRfBTCuv7+9q/rMjB6LSLyEBnW4InJeMtt/Q==
 
 zwitch@^1.0.0:
   version "1.0.5"
