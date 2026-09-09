@@ -1,7 +1,16 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-    time: "20:00"
+  # npm は Renovate が担当する。Dependabot と二重に PR が立つと
+  # master へのマージのたびに CI が詰まるため、ここでは扱わない。
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "20:00"
+    open-pull-requests-limit: 3
+    # master へのマージのたびに全 PR がリベース・再 CI されるのを防ぐ
+    rebase-strategy: disabled
+    labels:
+      - dependencies
+      - github-actions

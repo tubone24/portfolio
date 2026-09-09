@@ -4,6 +4,12 @@ on:
     branches:
       - master
 
+# Renovate/Dependabot の一括リベースで大量の実行が積み上がるのを防ぐ。
+# 同一 PR の古い実行はキャンセルして最新のみ残す。
+concurrency:
+  group: preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -23,7 +29,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
-          node-version: 22.x
+          node-version: 24.x
       - name: install dependencies
         run: yarn install
       - name: unit test
@@ -54,7 +60,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
-          node-version: 22.x
+          node-version: 24.x
       - name: install dependencies
         run: yarn install
       - name: build storybook
@@ -77,9 +83,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
-          node-version: 22.x
+          node-version: 24.x
       - name: "depcheck"
-        uses: tubone24/depcheck_action@v1.1.0
+        uses: tubone24/depcheck_action@v1.2.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_COMMENT_URL: ${{ github.event.pull_request.comments_url }}
@@ -144,7 +150,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v5
         with:
-          node-version: 22.x
+          node-version: 24.x
       - name: Install
         run: yarn install
       - name: run Chromatic
