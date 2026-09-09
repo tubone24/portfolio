@@ -1,0 +1,9 @@
+import{q as r}from"./styled-components.browser.esm-CDHL48w2.js";import"./iframe-BqXwCr9P.js";import"./preload-helper-PPVm8Dsz.js";const t=r.hr`
+  width: 100%;
+  height: 0;
+  box-sizing: content-box;
+  border: none;
+  border-top: 1px solid #555;
+  margin: 0 0 24px;
+  margin-bottom: 48px;
+`,n={title:"Components/Bar",component:t},o={},m=["Default"];o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:"{}",...o.parameters?.docs?.source}}};export{o as Default,m as __namedExportsOrder,n as default};
