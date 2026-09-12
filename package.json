@@ -155,7 +155,7 @@
     "node-fetch": "^2.7.0",
     "node-forge": "^1.4.0",
     "normalize-package-data": "^8.0.0",
-    "path-to-regexp": "^0.1.13",
+    "path-to-regexp": "^0.2.0",
     "picomatch": "^4.0.4",
     "postcss": "^8.5.18",
     "qs": "^6.16.0",
